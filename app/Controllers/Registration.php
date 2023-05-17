@@ -8,16 +8,15 @@ use App\Models\RepresentativesModel;
 
 class Registration extends BaseController
 {
+    public $CitiesModel;
+    public $RepresentativesModel;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
+        $this->CitiesModel = new Cities();
+        $this->RepresentativesModel = new RepresentativesModel();
         session_start();
-
-       
-        //$this->metroModel = new MetroModel();
-        
-
         // Preload any models, libraries, etc, here.
     }
 
@@ -25,8 +24,7 @@ class Registration extends BaseController
     public function Index()
     {
         $this->validation = \Config\Services::validation(); 
-        $cities = new Cities();
-        $data['cities'] = $cities->getAllCity();
+        $data['cities'] = $this->CitiesModel->getAllCity();
         return view('site/registration', $data);
     }
     
@@ -50,27 +48,25 @@ class Registration extends BaseController
             'password' => 'required',
         ];
           
-        if($this->validate($rules)){
-            $model = new RepresentativesModel();
-
+        if ($this->validate($rules)) {
+        
             $data = [
-                'cities_id'     => $this->request->getVar('cities_id'),
-                'organization'    => $this->request->getVar('organization'),
-                'inn'     => $this->request->getVar('inn'),
-                'director'    => $this->request->getVar('director'),
-                'director_phone'     => $this->request->getVar('director_phone'),
-                'firstname_manager'    => $this->request->getVar('firstname_manager'),
-                'lastname_manager'     => $this->request->getVar('lastname_manager'),
-                'post'    => $this->request->getVar('post'),
-                'email_manager'    => $this->request->getVar('email_manager'),
-                'phone_manager'     => $this->request->getVar('phone_manager'),
+                'cities_id' => $this->request->getVar('cities_id'),
+                'organization' => $this->request->getVar('organization'),
+                'inn' => $this->request->getVar('inn'),
+                'director' => $this->request->getVar('director'),
+                'director_phone' => $this->request->getVar('director_phone'),
+                'firstname_manager' => $this->request->getVar('firstname_manager'),
+                'lastname_manager' => $this->request->getVar('lastname_manager'),
+                'post' => $this->request->getVar('post'),
+                'email_manager' => $this->request->getVar('email_manager'),
+                'phone_manager' => $this->request->getVar('phone_manager'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
 
-            $model->save($data);
+            $this->RepresentativesModel->save($data);
             return redirect()->to(site_url("/"));
-            
-        }else{
+        } else {
             $_SESSION['error'] = $this->validation->listErrors();
             return redirect()->to(site_url("/registration"));
         }

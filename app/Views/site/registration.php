@@ -118,7 +118,7 @@
                                     <input type="tel" class="form-control" name="email_manager" required/>
                          
                                     <label for="exampleDatepicker1" class="form-label mt-4">Пароль</label>
-                                    <input type="password" class="form-control" name="password" />
+                                    <input type="password" class="form-control" name="password" required/>
 
                                     <label for="exampleDatepicker1" class="form-label mt-4">Повторите пароль</label>
                                     <input type="password" class="form-control" name="repeat_password" required/>
