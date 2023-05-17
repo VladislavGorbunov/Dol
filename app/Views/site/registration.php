@@ -35,10 +35,7 @@
 </head>
 
 <body>
-<?php
 
-echo $_SESSION['error'];
-?>
 
     <section class="h-100 h-custom" style="background-color: #fefefe;">
         <div class="container py-5 h-100">
@@ -47,6 +44,18 @@ echo $_SESSION['error'];
                     <div class="card rounded-3">
                         <img src="/public/theme/img/header.jpg" height="300" class="h-80" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="">
                         <div class="card-body p-4 p-md-5">
+
+                        
+                        <?php
+                        if ($_SESSION['error']) {
+                            echo '<div class="alert alert-danger" role="alert">' .
+                            $_SESSION['error'] .
+                            '</div>';
+
+                            unset($_SESSION['error']);
+                        }
+                        ?>
+                        
                             <h3 class="mb-2 pb-2 pb-md-0 text-center">Регистрация представителя лагеря</h3>
                             <p class="text-center">Заполните анкету, после проверки мы активируем ваш личный кабинет и вы сможете добавить лагерь</p>
                             
