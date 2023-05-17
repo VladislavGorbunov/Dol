@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use Config\Services;
 use App\Models\Cities;
+use App\Models\RepresentativesModel;
 
 class Registration extends BaseController
 {
@@ -23,24 +25,44 @@ class Registration extends BaseController
         
         //set rules validation form
         $rules = [
-            'name'          => 'required|min_length[3]|max_length[20]',
-            'email'         => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.user_email]',
-            'password'      => 'required|min_length[6]|max_length[200]',
-            'confpassword'  => 'matches[password]'
+            'cities_id'          => 'required',
+            'organization'         => 'required',
+            'inn'      => 'required',
+            'director'  => 'required',
+            'director_phone'          => 'required',
+            'firstname_manager'         => 'required',
+            'lastname_manager'      => 'required',
+            'post'  => 'required',
+            'email_manager'          => 'required',
+            'phone_manager'         => 'required',
+            'password'      => 'required',
         ];
           
         if($this->validate($rules)){
-            $model = new UserModel();
+            //$model = new RepresentativesModel();
             $data = [
-                'user_name'     => $this->request->getVar('name'),
-                'user_email'    => $this->request->getVar('email'),
-                'user_password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+                'cities_id'     => $this->request->getVar('cities_id'),
+                'organization'    => $this->request->getVar('organization'),
+                'inn'     => $this->request->getVar('inn'),
+                'director'    => $this->request->getVar('director'),
+                'director_phone'     => $this->request->getVar('director_phone'),
+                'firstname_manager'    => $this->request->getVar('firstname_manager'),
+                'lastname_manager'     => $this->request->getVar('lastname_manager'),
+                'post'    => $this->request->getVar('post'),
+                'email_manager'    => $this->request->getVar('email_manager'),
+                'phone_manager'     => $this->request->getVar('phone_manager'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $model->save($data);
-            return redirect()->to('/login');
+
+            var_dump($data);
+           
+
+            //$model->save($data);
+            //return redirect()->to('/login');
         }else{
             $data['validation'] = $this->validator;
-            echo view('register', $data);
+            //echo view('register', $data);
+            //var_dump($data['validation']);
         }
        
     }
