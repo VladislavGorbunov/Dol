@@ -20,16 +20,13 @@ class Registration extends BaseController
     public function Save()
     {
         
-        //include helper form
-        helper(['form']);
-        
-        //set rules validation form
+        // Правила валидации
         $rules = [
             'cities_id'          => 'required',
             'organization'         => 'required',
             'inn'      => 'required',
             'director'  => 'required',
-            'director_phone'          => 'required',
+            'director_phone' => 'required',
             'firstname_manager'         => 'required',
             'lastname_manager'      => 'required',
             'post'  => 'required',
@@ -39,7 +36,8 @@ class Registration extends BaseController
         ];
           
         if($this->validate($rules)){
-            //$model = new RepresentativesModel();
+            $model = new RepresentativesModel();
+
             $data = [
                 'cities_id'     => $this->request->getVar('cities_id'),
                 'organization'    => $this->request->getVar('organization'),
@@ -54,15 +52,13 @@ class Registration extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
 
-            var_dump($data);
-           
-
-            //$model->save($data);
-            //return redirect()->to('/login');
+            $model->save($data);
+            return redirect()->to(site_url("/"));
+            
         }else{
-            $data['validation'] = $this->validator;
-            //echo view('register', $data);
-            //var_dump($data['validation']);
+            //$data['validation'] = $this->validator;
+            
+            
         }
        
     }

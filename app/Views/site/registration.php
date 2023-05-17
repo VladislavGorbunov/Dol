@@ -35,6 +35,13 @@
 </head>
 
 <body>
+<?php
+
+if ($validation) {
+    var_dump($validation);
+}
+
+?>
 
     <section class="h-100 h-custom" style="background-color: #fefefe;">
         <div class="container py-5 h-100">
