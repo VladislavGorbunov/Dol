@@ -46,9 +46,15 @@
           margin-right: 10px;
       }
 
+      .btn-auth {
+        color: #405189;
+        padding: 10px 20px;
+      }
+
       .btn-reg {
           color: #405189;
           border: 1px solid #405189;
+          padding: 10px 20px;
       }
 
       .btn-reg:hover {
@@ -59,9 +65,10 @@
 
       .badge {
           position: relative;
-          top: -2px;
+          top: -12px;
           background-color: #0ab39c;
           font-weight: 100;
+          font-size: 11px;
       }
 
       .header-image {
@@ -78,30 +85,33 @@
       }
 
       .filter-block {
-          background: rgba(0, 0, 0, 0.3);
+          background: rgba(0, 0, 0, 0.5);
+          max-width: 1200px;
           min-height: 50px;
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(5px);
           border-radius: 20px;
           padding: 15px 35px 15px 35px;
       }
 
       .filter-block .form-select {
           font-size: 16px;
-          padding: 15px 25px 15px 25px;
+          padding: 12px 25px 12px 25px;
           margin-top: 15px;
           margin-bottom: 15px;
           border: none;
           background-color: rgba(255,255,255,0.9);
           color: rgba(0,0,0,0.6);
+          border-radius: 5px;
       }
 
       .filter-block .btn {
-          background: #36b351;
+          background: #0ab39c;
           border: none;
-          padding: 15px 30px 15px 30px;
+          padding: 12px 30px 12px 30px;
           font-size: 16px;
           margin-top: 15px;
           font-weight: 400;
+          border-radius: 5px;
       }
 
     </style>
@@ -113,7 +123,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <div class="container py-3">
+        <div class="container py-2">
           <a class="navbar-brand" href="#">KidCamp</a>
           
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -130,7 +140,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">О нас</a>
+                <a class="nav-link active" aria-current="page" href="#">О проекте</a>
               </li>
 
               <li class="nav-item">
@@ -138,25 +148,22 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">Партнёрам</a>
+                <a class="nav-link">Сотрудничество</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link">Топ-50 ДОЛ России <span class="badge">New</span></a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link">Частые вопросы</a>
-              </li>
+              
             </ul>
 
             <div class="d-flex" role="search">
-              
-              <a class="btn btn-reg m-1" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
-                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
-              </svg> Добавить лагерь</a>
-            </form>
+
+              <a class="btn btn-auth m-1" href="/login">Войти</a>
+
+              <a class="btn btn-reg m-1" href="/registration">Добавить лагерь</a>
+            
           </div>
 
         </div>
@@ -229,53 +236,7 @@
 
       <div class="container marketing">
 
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140"
-              height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-              aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid
-              slice" focusable="false"><title>Placeholder</title><rect
-                width="100%" height="100%" fill="#777"/><text x="50%" y="50%"
-                  fill="#777" dy=".3em">140x140</text></svg>
-
-              <h2 class="fw-normal">Heading</h2>
-              <p>Some representative placeholder content for the three columns
-                of text below the carousel. This is the first column.</p>
-              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140"
-                height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid
-                slice" focusable="false"><title>Placeholder</title><rect
-                  width="100%" height="100%" fill="#777"/><text x="50%" y="50%"
-                    fill="#777" dy=".3em">140x140</text></svg>
-
-                <h2 class="fw-normal">Heading</h2>
-                <p>Another exciting bit of representative placeholder content.
-                  This time, we've moved on to the second column.</p>
-                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-              </div><!-- /.col-lg-4 -->
-              <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140"
-                  height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                  aria-label="Placeholder: 140x140"
-                  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect
-                    width="100%" height="100%" fill="#777"/><text x="50%"
-                      y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                  <h2 class="fw-normal">Heading</h2>
-                  <p>And lastly this, the third column of representative
-                    placeholder content.</p>
-                  <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-              </div><!-- /.row -->
-
-
-
-                  </div><!-- /.container -->
-
+        
 
                   <!-- FOOTER -->
                   <footer class="container">
