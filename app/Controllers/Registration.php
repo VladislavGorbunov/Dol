@@ -43,7 +43,7 @@ class Registration extends BaseController
             'firstname_manager' => 'required',
             'lastname_manager' => 'required',
             'post'  => 'required',
-            'email_manager' => 'required',
+            'email_manager' => 'required|is_unique[representatives.email_manager]',
             'phone_manager' => 'required',
             'password' => 'required',
         ];
