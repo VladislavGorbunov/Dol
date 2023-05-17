@@ -37,10 +37,7 @@
 <body>
 <?php
 
-if ($validation) {
-    var_dump($validation);
-}
-
+echo $_SESSION['error'];
 ?>
 
     <section class="h-100 h-custom" style="background-color: #fefefe;">
@@ -112,7 +109,7 @@ if ($validation) {
                                     <input type="tel" class="form-control" name="email_manager" required/>
                          
                                     <label for="exampleDatepicker1" class="form-label mt-4">Пароль</label>
-                                    <input type="password" class="form-control" name="password" required/>
+                                    <input type="password" class="form-control" name="password" />
 
                                     <label for="exampleDatepicker1" class="form-label mt-4">Повторите пароль</label>
                                     <input type="password" class="form-control" name="repeat_password" required/>

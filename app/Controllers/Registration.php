@@ -8,9 +8,23 @@ use App\Models\RepresentativesModel;
 
 class Registration extends BaseController
 {
+
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+    {
+        parent::initController($request, $response, $logger);
+        session_start();
+
+       
+        //$this->metroModel = new MetroModel();
+        
+
+        // Preload any models, libraries, etc, here.
+    }
+
     
     public function Index()
     {
+        $this->validation = \Config\Services::validation(); 
         $cities = new Cities();
         $data['cities'] = $cities->getAllCity();
         return view('site/registration', $data);
@@ -19,20 +33,21 @@ class Registration extends BaseController
    
     public function Save()
     {
+        $this->validation = \Config\Services::validation(); 
         
         // Правила валидации
         $rules = [
-            'cities_id'          => 'required',
-            'organization'         => 'required',
-            'inn'      => 'required',
+            'cities_id' => 'required',
+            'organization' => 'required',
+            'inn' => 'required',
             'director'  => 'required',
             'director_phone' => 'required',
-            'firstname_manager'         => 'required',
-            'lastname_manager'      => 'required',
+            'firstname_manager' => 'required',
+            'lastname_manager' => 'required',
             'post'  => 'required',
-            'email_manager'          => 'required',
-            'phone_manager'         => 'required',
-            'password'      => 'required',
+            'email_manager' => 'required',
+            'phone_manager' => 'required',
+            'password' => 'required',
         ];
           
         if($this->validate($rules)){
@@ -56,9 +71,8 @@ class Registration extends BaseController
             return redirect()->to(site_url("/"));
             
         }else{
-            //$data['validation'] = $this->validator;
-            
-            
+            $_SESSION['error'] = $this->validation->listErrors();
+            return redirect()->to(site_url("/registration"));
         }
        
     }
