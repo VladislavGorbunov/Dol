@@ -33,6 +33,8 @@ $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
+$routes->get('/myadmin', 'Admin::Index');
+$routes->post('/myadmin', 'Admin::Auth');
 
 /*
  * --------------------------------------------------------------------

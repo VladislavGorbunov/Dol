@@ -33,7 +33,7 @@
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
       body {
-          font-family: 'Roboto', sans-serif;
+          
       }
 
       .navbar-brand {
@@ -52,15 +52,17 @@
       }
 
       .btn-reg {
-          color: #405189;
-          border: 1px solid #405189;
-          padding: 10px 20px;
+          color: #fff;
+          background: #2955c8;
+          border: none;
+          border-radius: 10px;
+          padding: 10px 25px;
       }
 
       .btn-reg:hover {
           color: #fff;
           background-color:  #405189;
-          border: 1px solid #405189;
+          
       }
 
       .badge {
@@ -162,7 +164,7 @@
 
               <a class="btn btn-auth m-1" href="/login">Войти</a>
 
-              <a class="btn btn-reg m-1" href="/registration">Добавить лагерь</a>
+              <a class="btn btn-reg m-1" href="/registration">+ Добавить лагерь</a>
             
           </div>
 

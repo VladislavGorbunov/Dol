@@ -20,7 +20,7 @@ class Registration extends BaseController
         // Preload any models, libraries, etc, here.
     }
 
-    
+    // Форма регистрации представителя лагеря    
     public function Index()
     {
         $this->validation = \Config\Services::validation(); 
@@ -28,7 +28,7 @@ class Registration extends BaseController
         return view('site/registration', $data);
     }
     
-   
+    // Добавление данных в БД
     public function Save()
     {
         $this->validation = \Config\Services::validation(); 
@@ -65,6 +65,7 @@ class Registration extends BaseController
             ];
 
             $this->RepresentativesModel->save($data);
+            $_SESSION['msg'] = 'Ваша анкета отправлена на проверку. Мы уведомим Вас когда активируем Ваш личный кабинет.';
             return redirect()->to(site_url("/"));
         } else {
             $_SESSION['error'] = $this->validation->listErrors();
