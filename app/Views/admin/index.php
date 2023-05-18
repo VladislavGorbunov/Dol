@@ -30,7 +30,7 @@
                     <!-- Заголовок меню -->
                     <a href="/"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">СервисБлог</span>
+                        <span class="fs-5 d-none d-sm-inline">KidsCamp</span>
                     </a>
                     <!-- элементы меню -->
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -42,51 +42,19 @@
                         </li>
 
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Дашборд</span> </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Отчет 1</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Отчет 2</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href="#submenu1" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Представители лагерей</span> </a>
                         </li>
 
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Заказы</span>
+                            <span class="ms-1 d-none d-sm-inline">База лагерей</span>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Продукты</span>
-                            </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Продукт 1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Продукт 2</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Продукт 3</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Продукт 4</span></a>
-                                </li>
-                            </ul>
-                        </li>
+                       
 
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Покупатели</span>
-                            </a>
-                        </li>
+                       
 
                     </ul>
                     <hr>

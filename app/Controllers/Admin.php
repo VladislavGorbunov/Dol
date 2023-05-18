@@ -21,7 +21,7 @@ class Admin extends BaseController
         return view('admin/authAdmin');
     }
 
-
+    // Проверка логина и пароля, открытие сессии
     public function Auth()
     {
         $login = $this->request->getVar('login');
@@ -30,14 +30,18 @@ class Admin extends BaseController
         if ($login == 'admin' && $password == 'admin') {
             $_SESSION['logged'] = 1;
             return redirect()->to(site_url("/admin/panel"));
-        } 
+        } else {
+            return redirect()->to(site_url("/admin"));
+        }
     }
 
+    // Главная страница админки
     public function Panel()
     {
         return view('admin/index');
     }
 
+    // Выход из админки
     public function Logout()
     {
         unset($_SESSION['logged']);
