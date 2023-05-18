@@ -10,6 +10,7 @@ class Registration extends BaseController
 {
     public $CitiesModel;
     public $RepresentativesModel;
+    public $email;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -17,6 +18,8 @@ class Registration extends BaseController
         $this->CitiesModel = new Cities();
         $this->RepresentativesModel = new RepresentativesModel();
         session_start();
+        $this->email = \Config\Services::email();
+
         // Preload any models, libraries, etc, here.
     }
 
@@ -50,6 +53,8 @@ class Registration extends BaseController
           
         if ($this->validate($rules)) {
         
+            $password = $this->request->getVar('password');
+
             $data = [
                 'cities_id' => $this->request->getVar('cities_id'),
                 'organization' => $this->request->getVar('organization'),
@@ -65,6 +70,7 @@ class Registration extends BaseController
             ];
 
             $this->RepresentativesModel->save($data);
+            $this->SendEmailReg($data['email_manager'], $password);
             $_SESSION['msg'] = 'Ваша анкета отправлена на проверку. Мы уведомим Вас когда активируем Ваш личный кабинет.';
             return redirect()->to(site_url("/"));
         } else {
@@ -72,5 +78,15 @@ class Registration extends BaseController
             return redirect()->to(site_url("/registration"));
         }
        
+    }
+
+
+    public function SendEmailReg($emailto, $password)
+    {
+        $this->email->setFrom('KidsCamps', 'Your Name');
+        $this->email->setTo($emailto);
+        $this->email->setSubject('Регистрация');
+        $this->email->setMessage('Благодарим Вас за регистрацию. После проверки мы активируем ваш аккаунт. Ваш логин: ' .$emailto. ' Ваш пароль: '. $password .'  ');
+        $this->email->send();
     }
 }

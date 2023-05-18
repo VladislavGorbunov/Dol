@@ -18,7 +18,7 @@ class Admin extends BaseController
     // Форма авторизации админа   
     public function Index()
     {
-        return view('site/authAdmin');
+        return view('admin/authAdmin');
     }
 
 

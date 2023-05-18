@@ -32,3 +32,10 @@ in APPPATH\Controllers\Admin.php on line 28.
  6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
  7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-18 08:17:06 --> Call to a member function setFrom() on null
+in APPPATH\Controllers\Registration.php on line 86.
+ 1 APPPATH\Controllers\Registration.php(73): App\Controllers\Registration->SendEmail()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Registration->Save()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
