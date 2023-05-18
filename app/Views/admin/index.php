@@ -104,7 +104,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Выйти</a></li>
+                            <li><a class="dropdown-item" href="panel/logout">Выйти</a></li>
                         </ul>
                     </div>
                 </div>
