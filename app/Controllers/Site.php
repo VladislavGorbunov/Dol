@@ -8,7 +8,10 @@ class Site extends BaseController
 {
     public function index()
     {
-        return view('site/welcome_message');
+        //return view('layouts/header');
+        return view('layouts/header') 
+        .view('site/index')
+        .view('layouts/footer');
     }
 
     public function Login()

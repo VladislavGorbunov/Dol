@@ -12,6 +12,11 @@ class Admin extends BaseController
         parent::initController($request, $response, $logger);
     
         session_start();
+
+        if ($_SESSION['logged_in'] = 1) {
+            return redirect()->to(site_url("/myadmin/panel"));
+        }
+
         // Preload any models, libraries, etc, here.
     }
 
@@ -28,10 +33,16 @@ class Admin extends BaseController
         $password = $this->request->getVar('password');
 
         if ($login == 'admin' && $password == 'admin') {
-            echo 'ok';
+            $_SESSION['auth'] = 1;
+            return redirect()->to(site_url("/myadmin/panel"));
         } else {
             echo 'error';
         }
+    }
+
+    public function Panel()
+    {
+        echo 'admin panel';
     }
     
     

@@ -26,14 +26,16 @@
       color="#7952b3">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
+  
 
 
     <style>
 
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
       body {
-          
+        font-family: 'Raleway', sans-serif;
       }
 
       .navbar-brand {
@@ -55,7 +57,7 @@
           color: #fff;
           background: #2955c8;
           border: none;
-          border-radius: 10px;
+          border-radius: 5px;
           padding: 10px 25px;
       }
 
@@ -67,16 +69,16 @@
 
       .badge {
           position: relative;
-          top: -12px;
+          top: -2px;
           background-color: #0ab39c;
           font-weight: 100;
-          font-size: 11px;
+          font-size: 12px;
       }
 
       .header-image {
           width: 100%;
           min-height: 600px;
-          background: #222 url(/public/theme/img/header.jpg) center;
+          background: #222 url(/../public/theme/img/header-dark.jpg) center;
           padding: 20px 0;
           margin-bottom: 30px;
       }
@@ -87,10 +89,10 @@
       }
 
       .filter-block {
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.3);
           max-width: 1200px;
           min-height: 50px;
-          backdrop-filter: blur(5px);
+          backdrop-filter: blur(4px);
           border-radius: 20px;
           padding: 15px 35px 15px 35px;
       }
@@ -154,27 +156,20 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">Топ-50 ДОЛ России <span class="badge">New</span></a>
+                <a class="nav-link">Топ-50 лагерей России <span class="badge">New</span></a>
               </li>
-
-              
+ 
             </ul>
 
             <div class="d-flex" role="search">
-
-              <a class="btn btn-auth m-1" href="/login">Войти</a>
-
+              <!-- <a class="btn btn-auth m-1" href="/login">Войти</a> -->
               <a class="btn btn-reg m-1" href="/registration">+ Добавить лагерь</a>
-            
-          </div>
-
+            </div>
         </div>
-        
       </nav>
-      
     </header>
 
-    
+
     <div class="header-image d-flex align-items-center justify-content-center">
       <div class="container">
         <div class="row">
@@ -232,36 +227,3 @@
 
       </div>
     </div>
-
-    <main>
-
-
-      <div class="container marketing">
-
-        
-
-                  <!-- FOOTER -->
-                  <footer class="container">
-                    <p class="float-end"><a href="#">Back to top</a></p>
-                    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a>
-                      &middot; <a href="#">Terms</a></p>
-                  </footer>
-                </main>
-
-
-                <script
-                  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-                  crossorigin="anonymous"></script>
-
-                <script
-                  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-                  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-                  crossorigin="anonymous"></script>
-                <script
-                  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-                  integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-                  crossorigin="anonymous"></script>
-
-              </body>
-            </html>

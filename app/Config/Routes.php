@@ -2,6 +2,7 @@
 
 namespace Config;
 
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -34,6 +35,8 @@ $routes->get('/login', 'Site::login');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 $routes->get('/myadmin', 'Admin::Index');
+$routes->get('/myadmin/panel', 'Admin::Panel', ['filter' => 'auth']);
+$routes->get('/myadmin/panel/logout', 'Admin::Logout');
 $routes->post('/myadmin', 'Admin::Auth');
 
 /*
