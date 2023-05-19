@@ -24,4 +24,23 @@ class RepresentativesModel extends Model
         'password',
         'created_at'
     ];
+
+    // Выборка всех представителей лагерей
+    public function GetAllRepresentatives()
+    {
+        return $this->findAll();
+        
+    }
+
+    // Выборка активированных представителей лагерей
+    public function GetActiveRepresentatives()
+    {
+
+    }
+
+        // Выборка неактивированных представителей лагерей
+        public function GetNotActiveRepresentatives()
+        {
+    
+        }
 }

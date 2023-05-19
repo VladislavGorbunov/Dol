@@ -3,16 +3,20 @@
 namespace App\Controllers;
 
 use Config\Services;
+use App\Models\RepresentativesModel;
 
 class Admin extends BaseController
 {
 
+    public $RepresentativesModel;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
         global $config;
         $session = \Config\Services::session($config);
+
+        $this->RepresentativesModel = new RepresentativesModel();
         // Preload any models, libraries, etc, here.
     }
 
@@ -39,12 +43,19 @@ class Admin extends BaseController
     // Главная страница админки
     public function Panel()
     {
-        return view('admin/index');
+        return view('layouts/admin_header')
+        .view('admin/index')
+        .view('layouts/admin_footer');
     }
 
     public function getAllRepresentatives()
     {
-        return 1;
+
+        $data['representatives'] = $this->RepresentativesModel->GetAllRepresentatives();
+
+        return view('layouts/admin_header')
+        .view('admin/index', $data)
+        .view('layouts/admin_footer');
     }
 
     // Выход из админки

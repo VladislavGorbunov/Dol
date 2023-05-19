@@ -119,3 +119,69 @@ in APPPATH\Filters\Auth.php on line 17.
  3 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\Filters\Filters->run()
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:32:00 --> Undefined variable $RepresentativesModel
+in APPPATH\Controllers\Admin.php on line 53.
+ 1 APPPATH\Controllers\Admin.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:32:32 --> Call to undefined method App\Models\RepresentativesModel::getAllRepresentatives
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin.php(54): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:36:43 --> Undefined variable $RepresentativesModel
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Models\RepresentativesModel.php(31): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:37:22 --> Undefined variable $Representatives
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Models\RepresentativesModel.php(31): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:37:27 --> Undefined variable $representatives
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Models\RepresentativesModel.php(31): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:38:11 --> Call to a member function getArray() on array
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:38:21 --> Call to a member function getArrayResult() on array
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:38:29 --> Call to a member function getArrayResults() on array
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-19 12:38:37 --> Call to a member function ArrayResults() on array
+in APPPATH\Models\RepresentativesModel.php on line 31.
+ 1 APPPATH\Controllers\Admin.php(54): App\Models\RepresentativesModel->GetAllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->getAllRepresentatives()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
