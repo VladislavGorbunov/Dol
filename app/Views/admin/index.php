@@ -42,7 +42,7 @@
                         </li>
 
                         <li>
-                            <a href="#submenu1" class="nav-link px-0 align-middle">
+                            <a href="representatives" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Представители лагерей</span> </a>
                         </li>
 

@@ -42,6 +42,11 @@ class Admin extends BaseController
         return view('admin/index');
     }
 
+    public function getAllRepresentatives()
+    {
+        return 1;
+    }
+
     // Выход из админки
     public function Logout()
     {

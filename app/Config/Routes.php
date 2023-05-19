@@ -34,10 +34,12 @@ $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
+
 $routes->get('/admin', 'Admin::Index');
 $routes->get('/admin/panel', 'Admin::Panel', ['filter' => 'Auth']);
 $routes->get('/admin/panel/logout', 'Admin::Logout');
 $routes->post('/admin', 'Admin::Auth');
+$routes->get('/admin/representatives', 'Admin::getAllRepresentatives', ['filter' => 'Auth']);
 
 /*
  * --------------------------------------------------------------------
