@@ -11,7 +11,8 @@ class Admin extends BaseController
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
-    
+        global $config;
+        $session = \Config\Services::session($config);
         // Preload any models, libraries, etc, here.
     }
 
@@ -28,7 +29,7 @@ class Admin extends BaseController
         $password = $this->request->getVar('password');
 
         if ($login == 'admin' && $password == 'admin') {
-            $_SESSION['logged'] = 1;
+            $_SESSION['logged'] = TRUE;
             return redirect()->to(site_url("/admin/panel"));
         } else {
             return redirect()->to(site_url("/admin"));
@@ -44,8 +45,8 @@ class Admin extends BaseController
     // Выход из админки
     public function Logout()
     {
-        unset($_SESSION['logged']);
-        $_SESSION['logged'] = FALSE;
+        
+        $_SESSION['logged'] = 0;
         return redirect()->to(site_url("/admin"));
     }
     

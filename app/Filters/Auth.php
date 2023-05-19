@@ -11,12 +11,15 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        global $config;
         $session = \Config\Services::session($config);
-
         
-        if($_SESSION['logged'] != true){
+        if (isset($_SESSION['logged'])) {
+            if($_SESSION['logged'] != TRUE){
             // then redirct to login page
-            return redirect()->to('/admin'); 
+            return redirect()->to(site_url("/admin"));
+
+            }
         }
     
     }

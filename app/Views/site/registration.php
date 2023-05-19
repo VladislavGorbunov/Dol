@@ -47,7 +47,7 @@
 
                         
                         <?php
-                        if ($_SESSION['error']) {
+                        if (!empty($_SESSION['error'])) {
                             echo '<div class="alert alert-danger" role="alert">' .
                             $_SESSION['error'] .
                             '</div>';
