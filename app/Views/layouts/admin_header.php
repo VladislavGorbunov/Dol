@@ -28,27 +28,52 @@
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <!-- Заголовок меню -->
-                    <a href="/"
+                    <a href="/admin/panel"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">KidsCamp</span>
+                        <span class="fs-5 d-none d-sm-inline">KidsCampAdmin</span>
                     </a>
                     <!-- элементы меню -->
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
+                            <a href="/admin/panel" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i>
                                 <span class="ms-1 d-none d-sm-inline">Главная</span>
                             </a>
                         </li>
 
+                        <hr>
+                        <h5>Представители</h5>
                         <li>
-                            <a href="representatives" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Представители лагерей</span> </a>
+                            <a href="/admin/representatives" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Все представители лагерей</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/representatives/activated" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Активированные представители</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/representatives/notactivated" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Ожидающие активации</span> </a>
+                        </li>
+                        <hr>
+                        <h5>Лагеря</h5>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Все лагеря</span>
+                            </a>
                         </li>
 
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">База лагерей</span>
+                            <span class="ms-1 d-none d-sm-inline">Активные лагеря</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Ожидают проверки</span>
                             </a>
                         </li>
 

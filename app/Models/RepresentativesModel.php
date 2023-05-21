@@ -26,21 +26,29 @@ class RepresentativesModel extends Model
     ];
 
     // Выборка всех представителей лагерей
-    public function GetAllRepresentatives()
+    public function AllRepresentatives()
     {
-        return $this->findAll();
-        
+        $this->builder()->get();
+        return $this;
     }
 
     // Выборка активированных представителей лагерей
-    public function GetActiveRepresentatives()
+    public function ActivatedRepresentatives()
     {
-
+        $this->builder()->where('activated', 1);
+        return $this;
     }
 
-        // Выборка неактивированных представителей лагерей
-        public function GetNotActiveRepresentatives()
+    // Выборка неактивированных представителей лагерей
+    public function NotActivatedRepresentatives()
+    {
+        $this->builder()->where('activated', 0);
+        return $this;
+    }
+
+        // Выборка представителя лагеря по ID
+        public function GetRepresentative($id)
         {
-    
+            return $this->builder()->where('user_id', $id)->get()->getResultArray();
         }
 }

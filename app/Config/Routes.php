@@ -39,7 +39,10 @@ $routes->get('/admin', 'Admin::Index');
 $routes->get('/admin/panel', 'Admin::Panel', ['filter' => 'Auth']);
 $routes->get('/admin/panel/logout', 'Admin::Logout');
 $routes->post('/admin', 'Admin::Auth');
-$routes->get('/admin/representatives', 'Admin::getAllRepresentatives', ['filter' => 'Auth']);
+$routes->get('/admin/representatives', 'Admin::AllRepresentatives', ['filter' => 'Auth']);
+$routes->get('/admin/representatives/activated', 'Admin::ActivatedRepresentatives', ['filter' => 'Auth']);
+$routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresentatives', ['filter' => 'Auth']);
+$routes->get('/admin/representative/view/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 
 /*
  * --------------------------------------------------------------------

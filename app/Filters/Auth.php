@@ -14,13 +14,17 @@ class Auth implements FilterInterface
         global $config;
         $session = \Config\Services::session($config);
         
-        if (isset($_SESSION['logged'])) {
-            if($_SESSION['logged'] != TRUE){
+        if (!empty($_SESSION['logged'])) {
+       
+            if($_SESSION['logged'] != 'logged'){
             // then redirct to login page
             return redirect()->to(site_url("/admin"));
 
             }
+        } else {
+            return redirect()->to(site_url("/admin"));
         }
+        
     
     }
 

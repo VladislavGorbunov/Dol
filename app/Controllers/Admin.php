@@ -33,7 +33,7 @@ class Admin extends BaseController
         $password = $this->request->getVar('password');
 
         if ($login == 'admin' && $password == 'admin') {
-            $_SESSION['logged'] = TRUE;
+            $_SESSION['logged'] = 'logged';
             return redirect()->to(site_url("/admin/panel"));
         } else {
             return redirect()->to(site_url("/admin"));
@@ -48,13 +48,51 @@ class Admin extends BaseController
         .view('layouts/admin_footer');
     }
 
-    public function getAllRepresentatives()
+    public function AllRepresentatives()
     {
-
-        $data['representatives'] = $this->RepresentativesModel->GetAllRepresentatives();
+        
+        // Пагинация
+        $data = [
+            'representatives' => $this->RepresentativesModel->AllRepresentatives()->paginate(10),
+            'pager' => $this->RepresentativesModel->pager,
+        ];
 
         return view('layouts/admin_header')
-        .view('admin/index', $data)
+        .view('admin/representatives', $data)
+        .view('layouts/admin_footer');
+    }
+
+    public function ActivatedRepresentatives()
+    {
+
+        $data = [
+            'representatives' => $this->RepresentativesModel->ActivatedRepresentatives()->paginate(10),
+            'pager' => $this->RepresentativesModel->pager,
+        ];
+
+        return view('layouts/admin_header')
+        .view('admin/representatives', $data)
+        .view('layouts/admin_footer');
+    }
+
+    public function NotActivatedRepresentatives()
+    {
+        $data = [
+            'representatives' => $this->RepresentativesModel->NotActivatedRepresentatives()->paginate(10),
+            'pager' => $this->RepresentativesModel->pager,
+        ];
+
+        return view('layouts/admin_header')
+        .view('admin/representatives', $data)
+        .view('layouts/admin_footer');
+    }
+
+    public function GetRepresentative($id)
+    {
+        $data['info'] = $this->RepresentativesModel->GetRepresentative($id);
+        
+        return view('layouts/admin_header')
+        .view('admin/representatives_view', $data)
         .view('layouts/admin_footer');
     }
 
@@ -62,7 +100,8 @@ class Admin extends BaseController
     public function Logout()
     {
         
-        $_SESSION['logged'] = 0;
+        unset($_SESSION['logged']);
+        session_destroy();
         return redirect()->to(site_url("/admin"));
     }
     

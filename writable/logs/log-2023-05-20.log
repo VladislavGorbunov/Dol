@@ -1,0 +1,121 @@
+CRITICAL - 2023-05-20 13:14:10 --> Call to a member function paginate() on array
+in APPPATH\Controllers\Admin.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:14:36 --> Call to a member function paginate() on array
+in APPPATH\Controllers\Admin.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:14:37 --> Call to a member function paginate() on array
+in APPPATH\Controllers\Admin.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:14:38 --> Call to a member function paginate() on array
+in APPPATH\Controllers\Admin.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:15:39 --> Call to a member function links() on null
+in APPPATH\Views\admin\all_representatives.php on line 9.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 4 APPPATH\Controllers\Admin.php(56): view()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:33:31 --> syntax error, unexpected 'lastname_manager' (T_STRING), expecting ';' or ','
+in APPPATH\Views\admin\all_representatives.php on line 24.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH\Controllers\Admin.php(61): view()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:33:39 --> syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ','
+in APPPATH\Views\admin\all_representatives.php on line 24.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH\Controllers\Admin.php(61): view()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 13:33:44 --> syntax error, unexpected ''</td>' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ','
+in APPPATH\Views\admin\all_representatives.php on line 25.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH\Controllers\Admin.php(61): view()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->AllRepresentatives()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 15:19:50 --> Call to a member function links() on null
+in APPPATH\Views\admin\activated_representatives.php on line 34.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 4 APPPATH\Controllers\Admin.php(84): view()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->NotActivatedRepresentatives()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:45:54 --> Too few arguments to function App\Controllers\Admin::GetRepresentative(), 0 passed in E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:49:11 --> Argument 2 passed to view() must be of the type array, object given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Admin.php on line 95
+in SYSTEMPATH\Common.php on line 1172.
+ 1 APPPATH\Controllers\Admin.php(95): view()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:49:36 --> Argument 2 passed to view() must be of the type array, object given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Admin.php on line 95
+in SYSTEMPATH\Common.php on line 1172.
+ 1 APPPATH\Controllers\Admin.php(95): view()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:49:45 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+in APPPATH\Models\RepresentativesModel.php on line 52.
+ 1 APPPATH\Controllers\Admin.php(92): App\Models\RepresentativesModel->GetRepresentative()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:52:10 --> Argument 2 passed to view() must be of the type array, object given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Admin.php on line 95
+in SYSTEMPATH\Common.php on line 1172.
+ 1 APPPATH\Controllers\Admin.php(95): view()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 18:59:36 --> Argument 2 passed to view() must be of the type array, object given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Admin.php on line 95
+in SYSTEMPATH\Common.php on line 1172.
+ 1 APPPATH\Controllers\Admin.php(95): view()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-20 19:00:28 --> syntax error, unexpected '<', expecting end of file
+in APPPATH\Views\admin\representatives_view.php on line 8.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH\Controllers\Admin.php(95): view()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
