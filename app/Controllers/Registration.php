@@ -55,9 +55,12 @@ class Registration extends BaseController
         
             $password = $this->request->getVar('password');
 
+            $organization = str_replace('"', "", $this->request->getVar('organization'));
+            $organization = str_replace("'", "", $this->request->getVar('organization'));
+            
             $data = [
                 'cities_id' => $this->request->getVar('cities_id'),
-                'organization' => $this->request->getVar('organization'),
+                'organization' => $organization,
                 'inn' => $this->request->getVar('inn'),
                 'director' => $this->request->getVar('director'),
                 'director_phone' => $this->request->getVar('director_phone'),

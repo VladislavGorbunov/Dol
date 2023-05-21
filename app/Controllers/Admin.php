@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Config\Services;
+use App\Models\Cities;
 use App\Models\RepresentativesModel;
 
 class Admin extends BaseController
@@ -17,6 +18,7 @@ class Admin extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
+        $this->CitiesModel = new Cities();
         // Preload any models, libraries, etc, here.
     }
 
@@ -90,7 +92,7 @@ class Admin extends BaseController
     public function GetRepresentative($id)
     {
         $data['info'] = $this->RepresentativesModel->GetRepresentative($id);
-        
+        $data['city'] = $this->CitiesModel->GetCity($data['info'][0]['cities_id']);
         return view('layouts/admin_header')
         .view('admin/representatives_view', $data)
         .view('layouts/admin_footer');
