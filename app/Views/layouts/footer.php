@@ -39,35 +39,40 @@
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3 text-secondary"></i>Company name
+            Родителям
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            <a href="#!" class="text-reset">Поиск лагеря</a>
           </p>
+          <p>
+            <a href="#!" class="text-reset">Частые вопросы</a>
+          </p>
+          
         </div>
+
+
         <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+            Информация
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">О сервисе</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Контакты</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Полезная информация</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Пользовательское соглашение</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -76,27 +81,26 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            Партнёрам
           </h6>
+          
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" class="text-reset">Добавить лагерь</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="/login" class="text-reset">Личный кабинет</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">Условия сотрудничества</a>
           </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
+          
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
           <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
           <p>
             <i class="fas fa-envelope me-3 text-secondary"></i>

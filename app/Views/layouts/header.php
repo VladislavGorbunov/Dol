@@ -33,9 +33,18 @@
 
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 
       body {
         font-family: 'Raleway', sans-serif;
+      }
+
+      h1, 
+      h2,
+      h3 {
+        font-family: 'Rubik', sans-serif;
+
       }
 
       .navbar-brand {
@@ -173,7 +182,7 @@
     <div class="header-image d-flex align-items-center justify-content-center">
       <div class="container">
         <div class="row">
-          <h1 class="header-h1">Поиск лучших детских оздоровительных лагерей России</h1>
+          <h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>
           <p class="text-center text-light">Наш сервис поможет вам подобрать нужный детский оздоровительный лагерь в вашем регионе</p>
         </div>
 
