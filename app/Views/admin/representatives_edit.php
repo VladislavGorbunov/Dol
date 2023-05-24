@@ -21,6 +21,10 @@ var_dump($city);
                     <input type="text" class="form-control" value="<?= $city[0]['title'] ?>" readonly>
                 </div>
                 <div class="mb-3">
+                    
+                    <input type="text" class="form-control" value="<?= $city[0]['cities_id'] ?>" readonly>
+                </div>
+                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Директор</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" value="<?= $info[0]['director'] ?>">
                 </div>
