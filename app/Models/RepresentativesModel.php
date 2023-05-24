@@ -46,9 +46,9 @@ class RepresentativesModel extends Model
         return $this;
     }
 
-        // Выборка представителя лагеря по ID
-        public function GetRepresentative($id)
-        {
-            return $this->builder()->where('user_id', $id)->get()->getResultArray();
-        }
+    // Выборка представителя лагеря по ID
+    public function GetRepresentative($id)
+    {
+        return $this->builder()->where('user_id', $id)->get()->getResultArray();
+    }
 }

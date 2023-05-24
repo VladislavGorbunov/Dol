@@ -7,6 +7,7 @@ use CodeIgniter\Session\Handlers\FileHandler;
 
 class App extends BaseConfig
 {
+    public string $loginAdmin = 'admin';
     /**
      * --------------------------------------------------------------------------
      * Base Site URL

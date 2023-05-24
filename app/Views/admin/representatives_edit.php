@@ -7,14 +7,18 @@ var_dump($info);
 var_dump($city);
 ?>
 
-    <form>
+    <form action="" method="post"> 
 
         <div class="row">
+        <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">ID</label>
+                    <input type="text" class="form-control" name="user_id" value="<?= $info[0]['user_id'] ?>" readonly>
+                </div>
 
             <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Город</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" value="<?= $city[0]['title'] ?>" readonly>
+                    <input type="text" class="form-control" value="<?= $city[0]['title'] ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Директор</label>
@@ -38,7 +42,7 @@ var_dump($city);
             <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">ИНН</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" value="<?= $info[0]['inn'] ?>">
+                    <input type="text" class="form-control" name="inn" value="<?= $info[0]['inn'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>

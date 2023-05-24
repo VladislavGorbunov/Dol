@@ -1,0 +1,46 @@
+CRITICAL - 2023-05-24 11:23:01 --> App\Controllers\Admin::GetRepresentative(): Return value must be of type int, string returned
+in APPPATH\Controllers\Admin.php on line 98.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-24 11:27:37 --> Undefined array key "user_id"
+in APPPATH\Views\admin\representatives_edit.php on line 15.
+ 1 APPPATH\Views\admin\representatives_edit.php(15): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\admin\\representatives_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Admin.php(97): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-24 11:27:41 --> Undefined array key "user_id"
+in APPPATH\Views\admin\representatives_edit.php on line 15.
+ 1 APPPATH\Views\admin\representatives_edit.php(15): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\admin\\representatives_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Admin.php(97): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-24 11:27:57 --> Undefined array key "users_id"
+in APPPATH\Views\admin\representatives_edit.php on line 15.
+ 1 APPPATH\Views\admin\representatives_edit.php(15): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\admin\\representatives_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Admin.php(97): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->GetRepresentative()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-24 11:29:35 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$getVar
+in APPPATH\Controllers\Admin.php on line 103.
+ 1 APPPATH\Controllers\Admin.php(103): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->UpdateRepresentative()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

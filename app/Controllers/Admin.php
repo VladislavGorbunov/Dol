@@ -89,13 +89,36 @@ class Admin extends BaseController
         .view('layouts/admin_footer');
     }
 
-    public function GetRepresentative($id)
+    public function GetRepresentative(int $id)
     {
         $data['info'] = $this->RepresentativesModel->GetRepresentative($id);
         $data['city'] = $this->CitiesModel->GetCity($data['info'][0]['cities_id']);
         return view('layouts/admin_header')
-        .view('admin/representatives_view', $data)
+        .view('admin/representatives_edit', $data)
         .view('layouts/admin_footer');
+    }
+
+    public function UpdateRepresentative()
+    {
+        var_dump($this->request->getVar('inn'));
+            // $organization = str_replace('"', "", $this->request->getVar('organization'));
+            // $organization = str_replace("'", "", $this->request->getVar('organization'));
+            
+            // $data = [
+            //     'cities_id' => $this->request->getVar('cities_id'),
+            //     'organization' => $organization,
+            //     'inn' => $this->request->getVar('inn'),
+            //     'director' => $this->request->getVar('director'),
+            //     'director_phone' => $this->request->getVar('director_phone'),
+            //     'firstname_manager' => $this->request->getVar('firstname_manager'),
+            //     'lastname_manager' => $this->request->getVar('lastname_manager'),
+            //     'post' => $this->request->getVar('post'),
+            //     'email_manager' => $this->request->getVar('email_manager'),
+            //     'phone_manager' => $this->request->getVar('phone_manager'),
+            //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            // ];
+
+            // $this->RepresentativesModel->save($data);
     }
 
     // Выход из админки
