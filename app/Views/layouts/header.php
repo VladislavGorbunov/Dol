@@ -86,7 +86,7 @@
 
       .header-image {
           width: 100%;
-          min-height: 600px;
+          min-height: 580px;
           background: #222 url(/../public/theme/img/header-dark.jpg) center;
           padding: 20px 0;
           margin-bottom: 30px;
@@ -136,7 +136,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <div class="container py-2">
+        <div class="container py-1">
           <a class="navbar-brand" href="#">KidCamp</a>
           
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
