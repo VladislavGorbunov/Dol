@@ -22,7 +22,8 @@ class RepresentativesModel extends Model
         'email_manager',
         'phone_manager',
         'password',
-        'created_at'
+        'created_at',
+        'activated',
     ];
 
     // Выборка всех представителей лагерей

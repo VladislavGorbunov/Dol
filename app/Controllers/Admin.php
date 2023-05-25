@@ -55,7 +55,7 @@ class Admin extends BaseController
         
         // Пагинация
         $data = [
-            'representatives' => $this->RepresentativesModel->AllRepresentatives()->paginate(10),
+            'representatives' => $this->RepresentativesModel->AllRepresentatives()->paginate(15),
             'pager' => $this->RepresentativesModel->pager,
         ];
 
@@ -68,7 +68,7 @@ class Admin extends BaseController
     {
 
         $data = [
-            'representatives' => $this->RepresentativesModel->ActivatedRepresentatives()->paginate(10),
+            'representatives' => $this->RepresentativesModel->ActivatedRepresentatives()->paginate(15),
             'pager' => $this->RepresentativesModel->pager,
         ];
 
@@ -80,7 +80,7 @@ class Admin extends BaseController
     public function NotActivatedRepresentatives()
     {
         $data = [
-            'representatives' => $this->RepresentativesModel->NotActivatedRepresentatives()->paginate(10),
+            'representatives' => $this->RepresentativesModel->NotActivatedRepresentatives()->paginate(15),
             'pager' => $this->RepresentativesModel->pager,
         ];
 
@@ -100,25 +100,29 @@ class Admin extends BaseController
 
     public function UpdateRepresentative()
     {
-        var_dump($this->request->getVar('inn'));
-            // $organization = str_replace('"', "", $this->request->getVar('organization'));
-            // $organization = str_replace("'", "", $this->request->getVar('organization'));
+        
+            $organization = str_replace('"', "", $this->request->getVar('organization'));
+            $organization = str_replace("'", "", $this->request->getVar('organization'));
             
-            // $data = [
-            //     'cities_id' => $this->request->getVar('cities_id'),
-            //     'organization' => $organization,
-            //     'inn' => $this->request->getVar('inn'),
-            //     'director' => $this->request->getVar('director'),
-            //     'director_phone' => $this->request->getVar('director_phone'),
-            //     'firstname_manager' => $this->request->getVar('firstname_manager'),
-            //     'lastname_manager' => $this->request->getVar('lastname_manager'),
-            //     'post' => $this->request->getVar('post'),
-            //     'email_manager' => $this->request->getVar('email_manager'),
-            //     'phone_manager' => $this->request->getVar('phone_manager'),
-            //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
-            // ];
+            $id = $this->request->getVar('user_id');
 
-            // $this->RepresentativesModel->save($data);
+            $data = [
+                'cities_id' => $this->request->getVar('cities_id'),
+                'organization' => $organization,
+                'inn' => $this->request->getVar('inn'),
+                'director' => $this->request->getVar('director'),
+                'director_phone' => $this->request->getVar('director_phone'),
+                'firstname_manager' => $this->request->getVar('firstname_manager'),
+                'lastname_manager' => $this->request->getVar('lastname_manager'),
+                'post' => $this->request->getVar('post'),
+                'email_manager' => $this->request->getVar('email_manager'),
+                'phone_manager' => $this->request->getVar('phone_manager'),
+                'activated' => $this->request->getVar('activated'),
+                // 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            ];
+
+            $this->RepresentativesModel->update($id, $data);
+            return redirect()->to(site_url("/admin/panel/representatives"));
     }
 
     // Выход из админки
