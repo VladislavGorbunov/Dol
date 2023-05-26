@@ -3,10 +3,9 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Cities;
 use App\Models\RepresentativesModel;
 
-class Admin extends BaseController
+class Panel extends BaseController
 {
 
     public $RepresentativesModel;
@@ -18,27 +17,25 @@ class Admin extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
-        $this->CitiesModel = new Cities();
+        
         // Preload any models, libraries, etc, here.
     }
 
-    // Форма авторизации админа   
-    public function Index()
-    {
-        return view('admin/authAdmin');
-    }
+
 
     // Проверка логина и пароля, открытие сессии
     public function Auth()
     {
-        $login = $this->request->getVar('login');
+        $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-        if ($login == 'admin' && $password == 'admin') {
+        $result = $this->RepresentativesModel->where('email_manager', $email)->findAll();
+
+        if (!empty($result) && $result[0]['activated'] == 1) {
+            echo 'ok';
             $_SESSION['logged'] = 'logged';
-            return redirect()->to(site_url("/admin/panel"));
         } else {
-            return redirect()->to(site_url("/admin"));
+            echo 'Профиль не найден или не активирован!';
         }
     }
 
@@ -122,7 +119,7 @@ class Admin extends BaseController
             ];
 
             $this->RepresentativesModel->update($id, $data);
-            return redirect()->to(site_url("/admin/panel"));
+            return redirect()->to(site_url("/admin/panel/representatives"));
     }
 
     // Выход из админки

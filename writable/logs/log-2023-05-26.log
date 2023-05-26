@@ -1,0 +1,6 @@
+CRITICAL - 2023-05-26 07:06:01 --> Class "App\Controllers\Cities" not found
+in APPPATH\Controllers\Panel.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Panel->initController()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

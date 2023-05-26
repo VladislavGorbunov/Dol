@@ -95,10 +95,10 @@
 
 <div class="loginBox"> 
         <h3>Войти</h3>
-        <form action="login.php" method="post">
+        <form action="" method="post">
             <div class="inputBox"> 
-                <input id="uname" type="text" name="Username" placeholder="Username"> 
-                <input id="pass" type="password" name="Password" placeholder="Password"> </div>
+                <input id="uname" type="text" name="email" placeholder="Email"> 
+                <input id="pass" type="password" name="password" placeholder="Пароль"> </div>
                 <input type="submit" name="" value="Login">
         </form> 
         <a href="#">Forget Password<br> </a>
