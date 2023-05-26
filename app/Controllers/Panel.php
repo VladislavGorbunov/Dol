@@ -23,8 +23,9 @@ class Panel extends BaseController
 
     public function Index()
     {
-        echo 'Панель пользователя';
-        echo '<a href="/panel/logout">Выйти</a>';
+        return view('layouts/panel_header')
+        .view('panel/index')
+        .view('layouts/panel_footer');
     }
 
 
@@ -43,7 +44,6 @@ class Panel extends BaseController
             die;
         }
 
-    
         if($data){
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
