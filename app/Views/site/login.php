@@ -12,7 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url(https://vsegda-pomnim.com/uploads/posts/2022-04/1648957313_31-vsegda-pomnim-com-p-fon-lesa-foto-31.jpg) no-repeat;
+            background: #eee;
             height: 100vh;
             font-family: sans-serif;
             background-size: cover;
@@ -41,7 +41,8 @@
                 background: #fff;
                 border-radius: 10px;
                 padding: 40px;
-                box-sizing: border-box
+                box-sizing: border-box;
+                box-shadow: 0 2px 20px -15px #111;
             } 
             
             .user {
@@ -67,7 +68,7 @@
                 border-bottom: 2px solid #262626;
                 outline: none;
                 height: 40px;
-                color: #fff;
+                color: #222;
                 background: transparent;
                 font-size: 16px;
                 padding-left: 20px;
@@ -75,9 +76,8 @@
             }
             
             .loginBox input[type="text"]:hover, .loginBox input[type="password"]:hover{
-                color: #42F3FA;
-                border: 1px solid #42F3FA;
-                box-shadow: 0 0 5px rgba(0,255,0,.3), 0 0 10px rgba(0,255,0,.2), 0 0 15px rgba(0,255,0,.1), 0 2px 0 black
+                color: #222;
+                
             }
             
             .loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus{
@@ -94,16 +94,16 @@
 <body>
 
 <div class="loginBox"> 
-        <h3>Войти</h3>
+        <h3>Личный кабинет</h3>
         <form action="" method="post">
             <div class="inputBox"> 
                 <input id="uname" type="text" name="email" placeholder="Email"> 
                 <input id="pass" type="password" name="password" placeholder="Пароль"> </div>
-                <input type="submit" name="" value="Login">
+                <input type="submit" name="" value="Войти">
         </form> 
-        <a href="#">Forget Password<br> </a>
+        <a href="#">Восстановить пароль<br> </a>
         <div class="text-center">
-            <p style="color: #59238F;">Sign-Up</p>
+            <p style="color: #59238F;">Зарегистрироваться</p>
         </div>
         
     </div>
