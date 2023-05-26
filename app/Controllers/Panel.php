@@ -21,114 +21,61 @@ class Panel extends BaseController
         // Preload any models, libraries, etc, here.
     }
 
+    public function Index()
+    {
+        echo 'Панель пользователя';
+        echo '<a href="/panel/logout">Выйти</a>';
+    }
 
 
     // Проверка логина и пароля, открытие сессии
     public function Auth()
     {
+        $session = session();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-        $result = $this->RepresentativesModel->where('email_manager', $email)->findAll();
+        $data = $this->RepresentativesModel->where('email_manager', $email)->first();
 
-        if (!empty($result) && $result[0]['activated'] == 1) {
-            echo 'ok';
-            $_SESSION['logged'] = 'logged';
-        } else {
-            echo 'Профиль не найден или не активирован!';
+        if (empty($data) || $data['activated'] == 0) {
+            $session->setFlashdata('msg', 'Профиль не найден или не активен.');
+            return redirect()->to('/login');
+            die;
+        }
+
+    
+        if($data){
+            $pass = $data['password'];
+            $authenticatePassword = password_verify($password, $pass);
+            if($authenticatePassword){
+                $ses_data = [
+                    'id' => $data['user_id'],
+                    'name' => $data['firstname_manager'],
+                    'email' => $data['email_manager'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('/panel');
+            
+            }else{
+                $session->setFlashdata('msg', 'Неверный пароль.');
+                return redirect()->to('/login');
+            }
+        }else{
+            $session->setFlashdata('msg', 'Неверный email.');
+            return redirect()->to('/login');
         }
     }
 
-    // Главная страница админки
-    public function Panel()
-    {
-        return view('layouts/admin_header')
-        .view('admin/index')
-        .view('layouts/admin_footer');
-    }
-
-    public function AllRepresentatives()
-    {
-        
-        // Пагинация
-        $data = [
-            'representatives' => $this->RepresentativesModel->AllRepresentatives()->paginate(15),
-            'pager' => $this->RepresentativesModel->pager,
-        ];
-
-        return view('layouts/admin_header')
-        .view('admin/representatives', $data)
-        .view('layouts/admin_footer');
-    }
-
-    public function ActivatedRepresentatives()
-    {
-
-        $data = [
-            'representatives' => $this->RepresentativesModel->ActivatedRepresentatives()->paginate(15),
-            'pager' => $this->RepresentativesModel->pager,
-        ];
-
-        return view('layouts/admin_header')
-        .view('admin/representatives', $data)
-        .view('layouts/admin_footer');
-    }
-
-    public function NotActivatedRepresentatives()
-    {
-        $data = [
-            'representatives' => $this->RepresentativesModel->NotActivatedRepresentatives()->paginate(15),
-            'pager' => $this->RepresentativesModel->pager,
-        ];
-
-        return view('layouts/admin_header')
-        .view('admin/representatives', $data)
-        .view('layouts/admin_footer');
-    }
-
-    public function GetRepresentative(int $id)
-    {
-        $data['info'] = $this->RepresentativesModel->GetRepresentative($id);
-        $data['city'] = $this->CitiesModel->GetCity($data['info'][0]['cities_id']);
-        return view('layouts/admin_header')
-        .view('admin/representatives_edit', $data)
-        .view('layouts/admin_footer');
-    }
-
-    public function UpdateRepresentative()
-    {
-        
-            $organization = str_replace('"', "", $this->request->getVar('organization'));
-            $organization = str_replace("'", "", $this->request->getVar('organization'));
-            
-            $id = $this->request->getVar('user_id');
-
-            $data = [
-                'cities_id' => $this->request->getVar('cities_id'),
-                'organization' => $organization,
-                'inn' => $this->request->getVar('inn'),
-                'director' => $this->request->getVar('director'),
-                'director_phone' => $this->request->getVar('director_phone'),
-                'firstname_manager' => $this->request->getVar('firstname_manager'),
-                'lastname_manager' => $this->request->getVar('lastname_manager'),
-                'post' => $this->request->getVar('post'),
-                'email_manager' => $this->request->getVar('email_manager'),
-                'phone_manager' => $this->request->getVar('phone_manager'),
-                'activated' => $this->request->getVar('activated'),
-                // 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
-            ];
-
-            $this->RepresentativesModel->update($id, $data);
-            return redirect()->to(site_url("/admin/panel/representatives"));
-    }
-
-    // Выход из админки
+    // Выход из панели
     public function Logout()
     {
-        
-        unset($_SESSION['logged']);
-        session_destroy();
-        return redirect()->to(site_url("/admin"));
+        $session = session();
+        $session->remove('id');
+        $session->remove('name');
+        $session->remove('email');
+        $session->remove('isLoggedIn');
+        return redirect()->to('/login');
     }
     
     

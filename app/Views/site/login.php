@@ -9,27 +9,7 @@
       crossorigin="anonymous">
 
       <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #eee;
-            height: 100vh;
-            font-family: sans-serif;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            overflow: hidden
-        }
         
-        @media screen and (max-width: 600px;) {
-            body {
-                background-size: cover;
-                : fixed}
-            }
-            
-            #particles-js {
-                height: 100%
-            }
             
             .loginBox {
                 position: absolute;
@@ -54,7 +34,7 @@
             h3 {
                 margin: 0;
                 padding: 0 0 20px;
-                color: #59238F;
+                color: #222;
                 text-align: center
             }
             
@@ -67,7 +47,7 @@
                 border: none;
                 border-bottom: 2px solid #262626;
                 outline: none;
-                height: 40px;
+                height: 45px;
                 color: #222;
                 background: transparent;
                 font-size: 16px;
@@ -81,10 +61,31 @@
             }
             
             .loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus{
-                border-bottom: 2px solid #42F3FA
+                border-bottom: 2px solid #59238F
             }
             
-            .inputBox{position: relative}.inputBox span{position: absolute;top: 10px;color: #262626}.loginBox input[type="submit"]{border: none;outline: none;height: 40px;font-size: 16px;background: #59238F;color: #fff;border-radius: 20px;cursor: pointer}.loginBox a{color: #262626;font-size: 14px;font-weight: bold;text-decoration: none;text-align: center;display: block}a:hover{color: #00ffff}p{color: #0000ff}
+            .inputBox{position: relative}.inputBox span{position: absolute;top: 10px;color: #262626}
+            .loginBox input[type="submit"]{
+                border: none;
+                outline: none;
+                height: 50px;
+                font-size: 16px;
+                background: #59238F;
+                color: #fff;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+            
+            .loginBox a{
+                color: #262626;
+                font-size: 14px;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+                display: block;
+            }
+                
+                a:hover{color: #59238F}p{color: #59238F}
         </style>
 
 
@@ -93,12 +94,20 @@
 
 <body>
 
+
+<?php if(session()->getFlashdata('msg')):?>
+                    <div class="alert alert-warning">
+                       <?= session()->getFlashdata('msg') ?>
+                    </div>
+                    <?php endif;?>
+
+
 <div class="loginBox"> 
         <h3>Личный кабинет</h3>
         <form action="" method="post">
             <div class="inputBox"> 
-                <input id="uname" type="text" name="email" placeholder="Email"> 
-                <input id="pass" type="password" name="password" placeholder="Пароль"> </div>
+                <input id="uname" type="text" name="email" placeholder="Email" required> 
+                <input id="pass" type="password" name="password" placeholder="Пароль" required> </div>
                 <input type="submit" name="" value="Войти">
         </form> 
         <a href="#">Восстановить пароль<br> </a>

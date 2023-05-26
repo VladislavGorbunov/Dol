@@ -23,6 +23,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'Auth' => \App\Filters\Auth::class,
+        'PanelAuth' => \App\Filters\PanelAuth::class,
         //'noauth' => \App\Filters\Noauth::class,
     ];
 

@@ -16,6 +16,7 @@ class Site extends BaseController
 
     public function Login()
     {
+        $session = session();
         $cities = new Cities();
         $data['cities'] = $cities->getAllCity();
         return view('site/login', $data);
