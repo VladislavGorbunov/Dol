@@ -100,7 +100,7 @@ body {
       min-height: 140px;
       backdrop-filter: blur(5px);
       border-radius: 10px;
-      padding: 12px 45px 12px 45px;
+      padding: 12px 45px 45px 45px;
       box-shadow: 0 3px 20px -10px #111;
   }
 

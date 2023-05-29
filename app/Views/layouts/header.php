@@ -60,7 +60,7 @@
 
                     </ul>
 
-                    <div class="d-flex" role="search">
+                    <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-auth" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                 height="18" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 18 18">
@@ -124,32 +124,31 @@
             </div>
 
             <div class="filter-block col-lg-12 d-block mx-auto mt-2">
-                <form action="" method="get">
+                <form action="" method="post">
                     <div class="row">
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
-                            <select class="form-select form-select-lg mt-0" name="region">
-                                <option selected>Любой регион</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select id="region" class="form-select form-select-lg mt-0" name="region">
+                                <option selected disabled value="">Любой регион</option>
+                                <option value="moscow">Москва</option>
+                                <option value="spb">Санкт-Петербург</option>
                             </select>
                         </div>
 
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
-                            <select class="form-select form-select-lg mt-0" aria-label="Default select example">
-                                <option selected>Любой сезон</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
+                            <select id="season" class="form-select form-select-lg mt-0" name="season">
+                                <option selected disabled value="">Любой сезон</option>
+                                <option value="leto">Лето</option>
+                                <option value="vasna">Весна</option>
                                 <option value="3">Three</option>
                             </select>
                         </div>
 
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
-                            <select class="form-select form-select-lg mt-0" aria-label="Default select example">
-                                <option selected>Любой тип лагеря</option>
+                            <select id="type" class="form-select form-select-lg mt-0" name="type">
+                                <option selected disabled>Любой тип лагеря</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -158,8 +157,8 @@
 
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
-                            <select class="form-select form-select-lg mt-0" aria-label="Default select example">
-                                <option selected>Любой возраст</option>
+                            <select id="age" class="form-select form-select-lg mt-0" name="age">
+                                <option selected disabled>Любой возраст</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -183,3 +182,27 @@
 
     </div>
     </div>
+
+    <script>
+        // редирект
+        //window.location.href = "/";
+
+        let region = document.getElementById("region");
+        let season = document.getElementById("season");
+        let type = document.getElementById("type");
+        let age = document.getElementById("age");
+
+        let filter_url; 
+
+        addEventListener("change", ()=> {
+            url = '';
+
+            url += '/' + region.value;
+            url += '/' + season.value;
+            url += '/' + type.value;
+            url += '/' + age.value;
+
+            console.log(url);
+
+        });
+    </script>
