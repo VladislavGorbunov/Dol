@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h1, 
+  h2,
+  h3 {
+    font-family: 'Rubik', sans-serif;
+
+  }
+
+  .navbar-brand {
+      margin-right: 30px;
+  }
+
+  .city-link {
+      display: block;
+      margin-top: 8px;
+      margin-right: 10px;
+  }
+
+  .btn-auth {
+    color: #405189;
+    padding: 10px 20px;
+  }
+
+  .modal-header, .modal-footer {
+      border: none;
+  }
+
+  .btn-auth-modal {
+      color: #fff;
+      background: #2955c8;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 25px;
+      margin-bottom: 10px;
+  }
+
+  .btn-auth-modal:hover {
+      color: #fff;
+      background-color:  #405189;
+  }
+
+  .auth-input {
+      border: none;
+      border-bottom: 1px solid #333;
+      border-radius: 0px;
+      padding-left: 0px;
+  }
+
+  .btn-reg {
+      color: #fff;
+      background: #2955c8;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 25px;
+  }
+
+  .btn-reg:hover {
+      color: #fff;
+      background-color:  #405189;
+  }
+
+  .badge {
+      position: relative;
+      top: -2px;
+      background-color: #0ab39c;
+      font-weight: 100;
+      font-size: 12px;
+  }
+
+  .header-image {
+      width: 100%;
+      min-height: 580px;
+      background: #222 url(/../public/theme/img/header-dark.jpg) center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+  }
+
+  .header-h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0px 0px 10px rgba(0,0,0,1);
+  }
+
+  .filter-block {
+      background: rgba(255,255,255, 0.9);
+      max-width: 1200px;
+      min-height: 50px;
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 12px 45px 12px 45px;
+  }
+
+  .filter-block .form-select {
+      display: block;
+      font-size: 16px;
+      padding: 12px 25px 12px 15px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: none;
+      background-color: rgba(255,255,255,0.9);
+      color: rgba(0,0,0,0.6);
+      border-radius: 5px;
+  }
+
+  .filter-block .btn {
+      background: #10ad98;
+      border: none;
+      padding: 12px 30px 12px 30px;
+      font-size: 16px;
+      margin-top: 15px;
+      font-weight: 400;
+      border-radius: 5px;
+  }
+
+  #login:target {
+      height: 200px;
+      background: #fff;
+      border-radius: 5px;
+      overflow-y: auto;
+      z-index: 9;
+      box-shadow: 0 3px 20px -10px #666;
+      transition: 1s;
+  }

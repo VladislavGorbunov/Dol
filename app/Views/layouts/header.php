@@ -7,11 +7,7 @@
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
     <title>Слайдер | Carousel Template for Bootstrap · Версия v5.3.0-alpha1</title>
     <!-- Bootstrap core CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous">
+    <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
       
     <!-- Favicons -->
     <link rel="apple-touch-icon"
@@ -29,133 +25,9 @@
   
 
 
-    <style>
 
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
-
-      body {
-        font-family: 'Raleway', sans-serif;
-      }
-
-      h1, 
-      h2,
-      h3 {
-        font-family: 'Rubik', sans-serif;
-
-      }
-
-      .navbar-brand {
-          margin-right: 30px;
-      }
-
-      .city-link {
-          display: block;
-          margin-top: 8px;
-          margin-right: 10px;
-      }
-
-      .btn-auth {
-        color: #405189;
-        padding: 10px 20px;
-      }
-
-      .modal-header, .modal-footer {
-          border: none;
-      }
-
-      .btn-auth-modal {
-          color: #fff;
-          background: #2955c8;
-          border: none;
-          border-radius: 5px;
-          padding: 10px 25px;
-      }
-
-      .btn-auth-modal:hover {
-          color: #fff;
-          background-color:  #405189;
-      }
-
-      .btn-reg {
-          color: #fff;
-          background: #2955c8;
-          border: none;
-          border-radius: 5px;
-          padding: 10px 25px;
-      }
-
-      .btn-reg:hover {
-          color: #fff;
-          background-color:  #405189;
-      }
-
-      .badge {
-          position: relative;
-          top: -2px;
-          background-color: #0ab39c;
-          font-weight: 100;
-          font-size: 12px;
-      }
-
-      .header-image {
-          width: 100%;
-          min-height: 580px;
-          background: #222 url(/../public/theme/img/header-dark.jpg) center;
-          padding: 20px 0;
-          margin-bottom: 30px;
-      }
-
-      .header-h1 {
-          text-align: center;
-          color: #fff;
-      }
-
-      .filter-block {
-          background: rgba(0, 0, 0, 0.3);
-          max-width: 1200px;
-          min-height: 50px;
-          backdrop-filter: blur(4px);
-          border-radius: 20px;
-          padding: 15px 35px 15px 35px;
-      }
-
-      .filter-block .form-select {
-          font-size: 16px;
-          padding: 12px 25px 12px 25px;
-          margin-top: 15px;
-          margin-bottom: 15px;
-          border: none;
-          background-color: rgba(255,255,255,0.9);
-          color: rgba(0,0,0,0.6);
-          border-radius: 5px;
-      }
-
-      .filter-block .btn {
-          background: #0ab39c;
-          border: none;
-          padding: 12px 30px 12px 30px;
-          font-size: 16px;
-          margin-top: 15px;
-          font-weight: 400;
-          border-radius: 5px;
-      }
-
-      #login:target {
-          height: 200px;
-          background: #fff;
-          border-radius: 5px;
-          overflow-y: auto;
-          z-index: 9;
-          box-shadow: 0 3px 20px -10px #666;
-          transition: 1s;
-      }
-
-    </style>
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="/public/css/main.css" rel="stylesheet">
   </head>
   <body>
 
@@ -197,7 +69,10 @@
             </ul>
 
             <div class="d-flex" role="search">
-            <button type="button" class="btn btn-auth" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Войти</button>
+            <button type="button" class="btn btn-auth" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 18 18">
+  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+</svg> Войти</button>
 
 
              
@@ -216,13 +91,14 @@
       <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
         <form action="/login" method="post">
       <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
-        <input type="email" class="form-control" name="email" placeholder="Email" required/>
+        <input type="text" class="form-control auth-input" name="email" placeholder="Введите свой Email" required/>
                                         
       <label for="exampleDatepicker1" class="form-label mt-3">Пароль</label>
-        <input type="password" class="form-control" name="password" placeholder="Пароль" required/>
+        <input type="password" class="form-control auth-input" name="password" placeholder="Введите пароль" required/>
       </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-auth-modal d-block mx-auto">Войти</button>
+      <div class="col-lg-8 d-block mx-auto mb-3">
+        <button type="submit" class="btn btn-auth-modal d-block mx-auto mt-3">Войти в личный кабинет</button>
+        <a href="" class="d-block mx-auto text-center mb-3">Восстановить пароль</a>
       </div>
     </form>
     </div>
@@ -245,7 +121,7 @@
         <div class="filter-block col-lg-12 d-block mx-auto mt-3">
           <form action="" method="get">
           <div class="row">
-            <div class="col-lg">
+            <div class="col-lg g-1">
             <select class="form-select form-select-lg" name="region">
               <option selected>Любой регион</option>
               <option value="1">One</option>
@@ -254,7 +130,7 @@
             </select>
           </div>
 
-          <div class="col-lg">
+          <div class="col-lg g-1">
             <select class="form-select form-select-lg" aria-label="Default select example">
               <option selected>Любой сезон</option>
               <option value="1">One</option>
@@ -263,7 +139,7 @@
             </select>
           </div>
 
-          <div class="col-lg">
+          <div class="col-lg g-1">
             <select class="form-select form-select-lg" aria-label="Default select example">
               <option selected>Любой тип лагеря</option>
               <option value="1">One</option>
@@ -272,7 +148,7 @@
             </select>
           </div>
 
-          <div class="col-lg">
+          <div class="col-lg g-1">
             <select class="form-select form-select-lg" aria-label="Default select example">
               <option selected>Любой возраст</option>
               <option value="1">One</option>
@@ -281,7 +157,7 @@
             </select>
           </div>
 
-          <div class="col-lg-auto">
+          <div class="col-lg-auto g-1">
             <button type="submit" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg> Найти лагерь</button>
