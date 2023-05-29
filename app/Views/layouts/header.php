@@ -127,6 +127,16 @@
           border-radius: 5px;
       }
 
+      #login:target {
+          height: 200px;
+          background: #fff;
+          border-radius: 5px;
+          overflow-y: auto;
+          z-index: 9;
+          box-shadow: 0 3px 20px -10px #666;
+          transition: 1s;
+      }
+
     </style>
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
@@ -171,9 +181,14 @@
             </ul>
 
             <div class="d-flex" role="search">
-              <!-- <a class="btn btn-auth m-1" href="/login">Войти</a> -->
+              <a class="btn btn-auth m-1" href="#login">Войти</a>
               <a class="btn btn-reg m-1" href="/registration">+ Добавить лагерь</a>
+              <div class="col-lg-3 position-fixed top-50 start-50 translate-middle py-3" id="login">
+                <h4 class="text-center">Войти</h4>
+              </div>
             </div>
+
+            
         </div>
       </nav>
     </header>
