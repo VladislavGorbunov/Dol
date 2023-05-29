@@ -111,7 +111,6 @@
         </nav>
     </header>
 
-
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="row">
