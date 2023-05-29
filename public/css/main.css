@@ -70,15 +70,16 @@ body {
   .badge {
       position: relative;
       top: -2px;
-      background-color: #0ab39c;
+      background-color: #21a663 ;
       font-weight: 100;
       font-size: 12px;
+      border-radius: 5px;
   }
 
   .header-image {
       width: 100%;
-      min-height: 580px;
-      background: #222 url(/../public/theme/img/header-dark.jpg) center;
+      min-height: 600px;
+      background: url(/../public/theme/img/header-dark.jpg) center;
       padding: 20px 0;
       margin-bottom: 30px;
   }
@@ -89,33 +90,44 @@ body {
       text-shadow: 0px 0px 10px rgba(0,0,0,1);
   }
 
+  .header-descript {
+    text-shadow: 0px 0px 10px rgba(0,0,0,1);
+  }
+
   .filter-block {
       background: rgba(255,255,255, 0.9);
       max-width: 1200px;
-      min-height: 50px;
+      min-height: 140px;
       backdrop-filter: blur(5px);
       border-radius: 10px;
       padding: 12px 45px 12px 45px;
+      box-shadow: 0 3px 20px -10px #111;
   }
 
   .filter-block .form-select {
       display: block;
       font-size: 16px;
       padding: 12px 25px 12px 15px;
-      margin-top: 15px;
-      margin-bottom: 15px;
+      margin-top: 5px;
+      margin-bottom: 5px;
       border: none;
       background-color: rgba(255,255,255,0.9);
       color: rgba(0,0,0,0.6);
       border-radius: 5px;
   }
 
+  .filter-block label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
   .filter-block .btn {
-      background: #10ad98;
+      display: block;
+      background: #21a663 ;
       border: none;
       padding: 12px 30px 12px 30px;
       font-size: 16px;
-      margin-top: 15px;
+      margin-top: 42px;
       font-weight: 400;
       border-radius: 5px;
   }
