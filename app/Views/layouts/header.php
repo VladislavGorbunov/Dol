@@ -62,6 +62,23 @@
         padding: 10px 20px;
       }
 
+      .modal-header, .modal-footer {
+          border: none;
+      }
+
+      .btn-auth-modal {
+          color: #fff;
+          background: #2955c8;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 25px;
+      }
+
+      .btn-auth-modal:hover {
+          color: #fff;
+          background-color:  #405189;
+      }
+
       .btn-reg {
           color: #fff;
           background: #2955c8;
@@ -73,7 +90,6 @@
       .btn-reg:hover {
           color: #fff;
           background-color:  #405189;
-          
       }
 
       .badge {
@@ -181,12 +197,37 @@
             </ul>
 
             <div class="d-flex" role="search">
-              <a class="btn btn-auth m-1" href="#login">Войти</a>
+            <button type="button" class="btn btn-auth" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Войти</button>
+
+
+             
               <a class="btn btn-reg m-1" href="/registration">+ Добавить лагерь</a>
-              <div class="col-lg-3 position-fixed top-50 start-50 translate-middle py-3" id="login">
-                <h4 class="text-center">Войти</h4>
-              </div>
             </div>
+
+            <!-- Модальное окно -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
+      <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
+        <form action="/login" method="post">
+      <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" required/>
+                                        
+      <label for="exampleDatepicker1" class="form-label mt-3">Пароль</label>
+        <input type="password" class="form-control" name="password" placeholder="Пароль" required/>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-auth-modal d-block mx-auto">Войти</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 
             
         </div>
