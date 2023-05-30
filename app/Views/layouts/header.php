@@ -133,7 +133,9 @@
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
                                 <option selected disabled value="">Любой регион</option>
                                 <option value="moscow">Москва</option>
+                                <option value="podmoskove">Московская область</option>
                                 <option value="spb">Санкт-Петербург</option>
+                                <option value="leningradskaya-oblast">Ленинградская область</option>
                             </select>
                         </div>
 
@@ -204,7 +206,7 @@
             ['key3', 'value3']
         ]);  
         url = '/camps';
-        addEventListener("input", ()=> {
+        addEventListener("change", ()=> {
             
 
             if (region.value) {
