@@ -21,4 +21,14 @@ class Site extends BaseController
         $data['cities'] = $cities->getAllCity();
         return view('site/login', $data);
     }
+
+    public function Search()
+    {   
+        $filter = explode('/', $_SERVER['REQUEST_URI']);
+        //var_dump($filter);
+        echo $region = $filter[2];
+        echo $season = $filter[3];
+        echo $type = $filter[4];
+        echo $age = $filter[5];
+    }
 }

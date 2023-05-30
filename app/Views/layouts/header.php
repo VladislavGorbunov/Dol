@@ -150,7 +150,7 @@
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
-                                <option selected disabled>Любой тип лагеря</option>
+                                <option selected disabled value="">Любой тип лагеря</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -160,21 +160,21 @@
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
                             <select id="age" class="form-select form-select-lg mt-0" name="age">
-                                <option selected disabled>Любой возраст</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option selected disabled value="">Любой возраст</option>
+                                <option value="51">One</option>
+                                <option value="25">Two</option>
+                                <option value="33">Three</option>
                             </select>
                         </div>
 
                         <div class="col-lg-auto g-1">
 
-                            <button type="submit" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><svg
+                            <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">
                                     <path
                                         d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg> Найти лагеря</button>
+                                </svg> Найти лагеря</div>
                         </div>
                     </div>
                 </form>
@@ -194,6 +194,8 @@
         let type = document.getElementById("type");
         let age = document.getElementById("age");
 
+        const search_btn = document.getElementById("search");
+
         let filter_url; 
 
         var cities = new Map([
@@ -201,30 +203,49 @@
             ['Санкт-Петербург', 'в Санкт-Петербурге'],
             ['key3', 'value3']
         ]);  
-
+        url = '/camps';
         addEventListener("input", ()=> {
-            url = '/camps';
+            
 
             if (region.value) {
                 url += '/' + region.value;
                 document.title = 'Детские лагеря ' + cities.get(region.selectedOptions[0].text);
                 console.log(region);
             } else {
-                url += '/all';
+                url += '/russia';
             }
             
             if (season.value) {
                 url += '/' + season.value;
                 document.title += season.selectedOptions[0].text;
             } else {
-                url += '/all';
+                url += '/season-all';
             }
-            
-           
-            // url += '/' + type.value;
-            // url += '/' + age.value;
 
+            if (type.value) {
+                url += '/' + type.value;
+                document.title += type.selectedOptions[0].text;
+            } else {
+                url += '/type-all';
+            }
+
+            if (age.value) {
+                url += '/' + age.value;
+                document.title += age.selectedOptions[0].text;
+            } else {
+                url += '/age-all';
+            }
+        
             console.log(url);
 
         });
+
+
+
+        search_btn.addEventListener('click', ()=> {
+            window.location.href = url;
+        });
+
+
+
     </script>

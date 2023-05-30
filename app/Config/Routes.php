@@ -48,6 +48,8 @@ $routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresen
 $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 
+$routes->get('/camps/(:any)/(:any)/(:any)/(:any)', 'Site::Search');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
