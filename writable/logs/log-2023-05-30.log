@@ -1,0 +1,18 @@
+CRITICAL - 2023-05-30 15:03:16 --> Too few arguments to function App\Controllers\Site::Search(), 3 passed in E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php on line 934 and exactly 4 expected
+in APPPATH\Controllers\Site.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->Search()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-30 15:03:28 --> Too few arguments to function App\Controllers\Site::Search(), 3 passed in E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php on line 934 and exactly 4 expected
+in APPPATH\Controllers\Site.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->Search()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-30 15:04:01 --> Too few arguments to function App\Controllers\Site::Search(), 3 passed in E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php on line 934 and exactly 4 expected
+in APPPATH\Controllers\Site.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->Search()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

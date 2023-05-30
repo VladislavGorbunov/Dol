@@ -205,14 +205,12 @@
             ['Санкт-Петербург', 'в Санкт-Петербурге'],
             ['key3', 'value3']
         ]);  
-        url = '/camps';
+        
         addEventListener("change", ()=> {
-            
+            url = '/camps';
 
             if (region.value) {
                 url += '/' + region.value;
-                document.title = 'Детские лагеря ' + cities.get(region.selectedOptions[0].text);
-                console.log(region);
             } else {
                 url += '/russia';
             }
@@ -235,7 +233,7 @@
                 url += '/' + age.value;
                 document.title += age.selectedOptions[0].text;
             } else {
-                url += '/age-all';
+                url += '';
             }
         
             console.log(url);

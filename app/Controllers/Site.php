@@ -22,13 +22,25 @@ class Site extends BaseController
         return view('site/login', $data);
     }
 
-    public function Search()
+    public function Search($region = null, $season = null, $type = null, $age = null)
     {   
-        $filter = explode('/', $_SERVER['REQUEST_URI']);
+        //$filter = explode('/', $_SERVER['REQUEST_URI']);
         //var_dump($filter);
-        echo $region = $filter[2];
-        echo $season = $filter[3];
-        echo $type = $filter[4];
-        echo $age = $filter[5];
+        // echo $region = $filter[2];
+        // echo $season = $filter[3];
+        // echo $type = $filter[4];
+        // echo $age = $filter[5];
+
+        $filter = [];
+
+        $filter['region'] = $region;
+        $filter['season'] = $season;
+        $filter['type'] = $type;
+        $filter['age'] = $age;
+        
+
+        echo '<pre>';
+        var_dump($filter);
+        echo '</pre>';
     }
 }
