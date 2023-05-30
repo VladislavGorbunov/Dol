@@ -8,7 +8,6 @@ class Site extends BaseController
 {
     public function index()
     {
-        //return view('layouts/header');
         return view('layouts/header') 
         .view('site/index')
         .view('layouts/footer');
@@ -22,22 +21,22 @@ class Site extends BaseController
         return view('site/login', $data);
     }
 
-    public function Search($region = null, $season = null, $type = null, $age = null)
+    public function FilterCamp($region_slug = null, $season = null, $type = null, $age = null)
     {   
-        //$filter = explode('/', $_SERVER['REQUEST_URI']);
-        //var_dump($filter);
-        // echo $region = $filter[2];
-        // echo $season = $filter[3];
-        // echo $type = $filter[4];
-        // echo $age = $filter[5];
 
         $filter = [];
 
-        $filter['region'] = $region;
+        $filter['region'] = $region_slug;
         $filter['season'] = $season;
         $filter['type'] = $type;
         $filter['age'] = $age;
         
+        // 1) проверяем, существует ли в бд регион с полученным region_slug;
+        // 2) проверяем, существует ли в бд сезон с полученным season;
+        // 3) проверяем, существует ли в бд тип с полученным type;
+        // 4) проверяем, существует ли в бд age с полученным age;
+
+        // делаем выборку всех лагерей где id_cities = region_id и season_id = 
 
         echo '<pre>';
         var_dump($filter);

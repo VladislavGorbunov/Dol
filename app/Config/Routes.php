@@ -38,6 +38,9 @@ $routes->get('/panel/logout', 'Panel::Logout');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 
+$routes->get('/camps/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3');
+$routes->get('/camps/(:any)/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3/$4');
+
 $routes->get('/admin', 'Admin::Index');
 $routes->get('/admin/panel', 'Admin::Panel', ['filter' => 'Auth']);
 $routes->get('/admin/panel/logout', 'Admin::Logout');
@@ -48,8 +51,6 @@ $routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresen
 $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 
-$routes->get('/camps/(:any)/(:any)/(:any)', 'Site::Search/$1/$2/$3');
-$routes->get('/camps/(:any)/(:any)/(:any)/(:any)', 'Site::Search/$1/$2/$3/$4');
 
 /*
  * --------------------------------------------------------------------

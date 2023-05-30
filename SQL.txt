@@ -1,0 +1,3 @@
+SELECT * FROM camps JOIN camps_types ON camps_types.camps_id = 2 WHERE camps.cities_id = 2 GROUP BY camps.camps_id 
+
+SELECT * FROM camps JOIN camps_types ON camps_types.camps_id = 2 WHERE camps.cities_id = 2 and camps.camps_id = 1 GROUP BY camps.camps_id 

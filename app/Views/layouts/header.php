@@ -244,6 +244,7 @@
 
         search_btn.addEventListener('click', ()=> {
             window.location.href = url;
+            
         });
 
 
