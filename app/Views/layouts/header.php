@@ -196,13 +196,33 @@
 
         let filter_url; 
 
-        addEventListener("change", ()=> {
-            url = '';
+        var cities = new Map([
+            ['Москва', 'в Москве'],
+            ['Санкт-Петербург', 'в Санкт-Петербурге'],
+            ['key3', 'value3']
+        ]);  
 
-            url += '/' + region.value;
-            url += '/' + season.value;
-            url += '/' + type.value;
-            url += '/' + age.value;
+        addEventListener("input", ()=> {
+            url = '/camps';
+
+            if (region.value) {
+                url += '/' + region.value;
+                document.title = 'Детские лагеря ' + cities.get(region.selectedOptions[0].text);
+                console.log(region);
+            } else {
+                url += '/all';
+            }
+            
+            if (season.value) {
+                url += '/' + season.value;
+                document.title += season.selectedOptions[0].text;
+            } else {
+                url += '/all';
+            }
+            
+           
+            // url += '/' + type.value;
+            // url += '/' + age.value;
 
             console.log(url);
 
