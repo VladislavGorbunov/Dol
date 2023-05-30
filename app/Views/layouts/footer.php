@@ -93,6 +93,9 @@
           <p>
             <a href="#!" class="text-reset">Условия сотрудничества</a>
           </p>
+          <p>
+            <a href="#!" class="text-reset">Помощь</a>
+          </p>
           
         </div>
         <!-- Grid column -->

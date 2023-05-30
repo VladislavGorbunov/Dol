@@ -4,25 +4,25 @@
     <div class="col-lg-3">
         <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
         <h6 class="text-center mt-2"><b>Бесплатное бронирование путёвок</b></h6>
-        <p class="text-center">Мы не берём комиссию за бронирование, вы видите и цены напрямую.</p>
+        <p class="text-center">Не берём комиссию за бронирование, цены напрямую от лагерей.</p>
     </div>
 
     <div class="col-lg-3">
         <img src="/public/theme/img/handshake.svg" width="64px" class="d-block mx-auto">
-        <h6 class="text-center mt-2"><b>Бесплатное бронирование путёвок</b></h6>
-        <p class="text-center">Мы не берём комиссию за бронирование, вы видите и цены напрямую.</p>
+        <h6 class="text-center mt-2"><b>Договор на прямую с лагерем</b></h6>
+        <p class="text-center">Вы заключаете договор и оплачиваете путёвку напрямую лагерю.</p>
     </div>
 
     <div class="col-lg-3">
-        <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
-        <h6 class="text-center mt-2"><b>Бесплатное бронирование путёвок</b></h6>
-        <p class="text-center">Мы не берём комиссию за бронирование, вы видите и цены напрямую.</p>
+        <img src="/public/theme/img/deposit.svg" width="64px" class="d-block mx-auto">
+        <h6 class="text-center mt-2"><b>Самые выгодные цены</b></h6>
+        <p class="text-center">Скидки и выгодные предложения на путёвки от наших партнёров.</p>
     </div>
 
     <div class="col-lg-3">
-        <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
-        <h6 class="text-center mt-2"><b>Бесплатное бронирование путёвок</b></h6>
-        <p class="text-center">Мы не берём комиссию за бронирование, вы видите и цены напрямую.</p>
+        <img src="/public/theme/img/stars.svg" width="64px" class="d-block mx-auto">
+        <h6 class="text-center mt-2"><b>Лагеря с высоким рейтингом</b></h6>
+        <p class="text-center">Помогаем найти лагерь с хорошими отзывами и высоким рейтингом.</p>
     </div>
 </div>
 

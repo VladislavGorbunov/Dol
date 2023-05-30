@@ -85,8 +85,10 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Закрыть"></button>
                                 </div>
+                                <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
                                 <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
                                 <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
+                                
                                     <form action="/login" method="post">
                                         <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
                                         <input type="text" class="form-control auth-input" name="email"
