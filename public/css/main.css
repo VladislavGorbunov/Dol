@@ -116,6 +116,15 @@ body {
       border-radius: 5px;
   }
 
+  .filter-block .form-select:hover {
+    transition: .5s;
+    color: #2955c8;
+}
+
+.filter-block .form-select option {
+    color: #111;
+}
+
   .filter-block label {
     margin-bottom: 5px;
     font-size: 14px;
