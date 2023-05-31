@@ -50,15 +50,20 @@ class Site extends BaseController
         $filter['type'] = $type;
         $filter['age'] = $age;
 
-        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) echo 'Город не найден';
+        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) $this->error404();
         
-
+        // Проверка существует ли такой тип в БД
         if ($filter['type'] != 'type-all') {
-            if (!$type = $this->Types->where('slug', $filter['type'])->first()) echo 'Тип не найден';
-            $type = $type['types_id'] . '<hr>';
+            if (!$type = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
+            $type = $type['types_id'];
         } else {
             $type = null;
         }   
+        
+
+
+
+        
         
 
         $region = $region['cities_id'] . '<hr>';

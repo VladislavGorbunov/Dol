@@ -771,3 +771,23 @@ in APPPATH\Controllers\Site.php on line 64.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:33:38 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 64.
+ 1 APPPATH\Controllers\Site.php(64): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:35:49 --> syntax error, unexpected token "}"
+in APPPATH\Controllers\BaseController.php on line 71.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 APPPATH\Controllers\Site.php(9): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once('C:\\OSPanel\\domains\\Dol\\app\\Controllers\\Site.php')
+ 5 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 6 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 7 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 8 SYSTEMPATH\CodeIgniter.php(892): class_exists()
+ 9 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

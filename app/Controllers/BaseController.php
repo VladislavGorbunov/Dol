@@ -64,4 +64,9 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    public function error404()
+    {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    }
 }
