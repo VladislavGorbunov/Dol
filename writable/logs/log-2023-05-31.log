@@ -1,0 +1,773 @@
+CRITICAL - 2023-05-31 06:52:49 --> syntax error, unexpected token "(", expecting variable
+in APPPATH\Models\Camps.php on line 10.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 APPPATH\Controllers\Site.php(17): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Site->initController()
+ 5 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 06:53:39 --> mysqli_sql_exception: Unknown column 'content' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 06:53:39 --> Unknown column 'content' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 06:53:57 --> mysqli_sql_exception: Unknown column 'content' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 06:53:57 --> Unknown column 'content' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 07:04:41 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Site.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 07:05:01 --> Array to string conversion
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:09:22 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(18): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:09:22 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:11:18 --> mysqli_sql_exception: Not unique table/alias: 'camps' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:11:18 --> Not unique table/alias: 'camps'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:13:04 --> mysqli_sql_exception: Not unique table/alias: 'types' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:13:04 --> Not unique table/alias: 'types'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:13:20 --> mysqli_sql_exception: Not unique table/alias: 'types' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:13:20 --> Not unique table/alias: 'types'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:13:41 --> mysqli_sql_exception: Unknown column 'camps_types.types_id' in 'on clause' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:13:41 --> Unknown column 'camps_types.types_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:14:11 --> mysqli_sql_exception: Not unique table/alias: 'types' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:14:11 --> Not unique table/alias: 'types'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 07:18:32 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::gropuby()
+in APPPATH\Models\Camps.php on line 19.
+ 1 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:18:59 --> mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:18:59 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:19:20 --> mysqli_sql_exception: Column 'types_id' in group statement is ambiguous in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:19:20 --> Column 'types_id' in group statement is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:19:34 --> mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:19:34 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:19:54 --> mysqli_sql_exception: Column 'title' in group statement is ambiguous in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:19:54 --> Column 'title' in group statement is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:21:13 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:21:13 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:21:43 --> mysqli_sql_exception: Not unique table/alias: 'typess' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:21:43 --> Not unique table/alias: 'typess'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:23:51 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:23:51 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 07:24:36 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::leftJoin()
+in APPPATH\Models\Camps.php on line 18.
+ 1 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:30:10 --> mysqli_sql_exception: Unknown column 'camps_types.types_id' in 'on clause' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(23): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:30:10 --> Unknown column 'camps_types.types_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:32:40 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:32:40 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(21): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:37:21 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:37:21 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:37:34 --> mysqli_sql_exception: Unknown column 'types.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:37:34 --> Unknown column 'types.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:37:59 --> mysqli_sql_exception: Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.typess.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:37:59 --> Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.typess.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(20): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:40:42 --> mysqli_sql_exception: Unknown column 'types_camps' in 'where clause' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:40:42 --> Unknown column 'types_camps' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:40:57 --> mysqli_sql_exception: Unknown column 'types_camps.types_id' in 'where clause' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:40:57 --> Unknown column 'types_camps.types_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:41:30 --> mysqli_sql_exception: Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.typess.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:41:30 --> Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.typess.title' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:41:49 --> mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.camps_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:41:49 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.camps_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 07:41:59 --> mysqli_sql_exception: Unknown column 'typess.title' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(18): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(58): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 07:41:59 --> Unknown column 'typess.title' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:38:30 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::andWhere()
+in APPPATH\Models\Camps.php on line 20.
+ 1 APPPATH\Controllers\Site.php(58): App\Models\Camps->getCamps()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:47:29 --> Undefined property: App\Controllers\Site::$Cities
+in APPPATH\Controllers\Site.php on line 47.
+ 1 APPPATH\Controllers\Site.php(47): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:47:43 --> Undefined property: App\Controllers\Site::$Cities
+in APPPATH\Controllers\Site.php on line 48.
+ 1 APPPATH\Controllers\Site.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:48:33 --> Array to string conversion
+in APPPATH\Controllers\Site.php on line 52.
+ 1 APPPATH\Controllers\Site.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:50:45 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 52.
+ 1 APPPATH\Controllers\Site.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:52:58 --> Undefined property: App\Controllers\Site::$Types
+in APPPATH\Controllers\Site.php on line 52.
+ 1 APPPATH\Controllers\Site.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:55:32 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:59:09 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:00:20 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:01:04 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:01:53 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 58.
+ 1 APPPATH\Controllers\Site.php(58): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:02:28 --> Undefined variable $type
+in APPPATH\Controllers\Site.php on line 73.
+ 1 APPPATH\Controllers\Site.php(73): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:07:53 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 64.
+ 1 APPPATH\Controllers\Site.php(64): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:08:36 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 57.
+ 1 APPPATH\Controllers\Site.php(57): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:09:12 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 57.
+ 1 APPPATH\Controllers\Site.php(57): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:13:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Site.php on line 64.
+ 1 APPPATH\Controllers\Site.php(64): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -153,8 +153,8 @@
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
                                 <option selected disabled value="">Любой тип лагеря</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
+                                <option value="sport">Спортивный</option>
+                                <option value="recreation">Оздоровительный</option>
                                 <option value="3">Three</option>
                             </select>
                         </div>

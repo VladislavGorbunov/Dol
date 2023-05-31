@@ -2,10 +2,29 @@
 
 namespace App\Controllers;
 
+use App\Models\Camps;
 use App\Models\Cities;
+use App\Models\Types;
 
 class Site extends BaseController
 {
+    public $Camps;
+    public $Cities;
+    public $Types;
+
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+    {
+        parent::initController($request, $response, $logger);
+        global $config;
+        $session = \Config\Services::session($config);
+
+        $this->Camps = new Camps();
+        $this->Cities = new Cities();
+        $this->Types = new Types();
+        
+        // Preload any models, libraries, etc, here.
+    }
+
     public function index()
     {
         return view('layouts/header') 
@@ -30,16 +49,23 @@ class Site extends BaseController
         $filter['season'] = $season;
         $filter['type'] = $type;
         $filter['age'] = $age;
+
+        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) echo 'Город не найден';
         
-        // 1) проверяем, существует ли в бд регион с полученным region_slug;
-        // 2) проверяем, существует ли в бд сезон с полученным season;
-        // 3) проверяем, существует ли в бд тип с полученным type;
-        // 4) проверяем, существует ли в бд age с полученным age;
 
-        // делаем выборку всех лагерей где id_cities = region_id и season_id = 
+        if ($filter['type'] != 'type-all') {
+            if (!$type = $this->Types->where('slug', $filter['type'])->first()) echo 'Тип не найден';
+            $type = $type['types_id'] . '<hr>';
+        } else {
+            $type = null;
+        }   
+        
 
+        $region = $region['cities_id'] . '<hr>';
+        echo $type;
+        
         echo '<pre>';
-        var_dump($filter);
+        var_dump($this->Camps->getCamps($region, $type)->getResultArray());
         echo '</pre>';
     }
 }

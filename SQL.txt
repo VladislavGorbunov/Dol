@@ -1,3 +1,12 @@
-SELECT * FROM camps JOIN camps_types ON camps_types.camps_id = 2 WHERE camps.cities_id = 2 GROUP BY camps.camps_id 
+SELECT camps.title, camps_types.types_id, types.title AS type_title FROM camps LEFT JOIN camps_types ON camps_types.camps_id = camps.camps_id LEFT JOIN types ON types.types_id = camps_types.types_id;
 
-SELECT * FROM camps JOIN camps_types ON camps_types.camps_id = 2 WHERE camps.cities_id = 2 and camps.camps_id = 1 GROUP BY camps.camps_id 
+
+
+Выборка лагерей по id выбранного типа
+SELECT camps.title, camps_types.types_id, types.title AS type_title FROM camps LEFT JOIN camps_types ON camps_types.camps_id = camps.camps_id LEFT JOIN types ON types.types_id = camps_types.types_id WHERE camps_types.types_id = 2; 
+
+Выборка лагерей по типу и городу
+SELECT camps.title, camps_types.types_id, types.title, cities.title AS type_title FROM camps 
+LEFT JOIN camps_types ON camps_types.camps_id = camps.camps_id 
+LEFT JOIN types ON types.types_id = camps_types.types_id 
+LEFT JOIN cities ON cities.cities_id = camps.cities_id WHERE camps_types.types_id = 3 AND cities.cities_id = 1; 
