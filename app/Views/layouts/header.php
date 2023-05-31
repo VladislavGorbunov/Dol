@@ -60,7 +60,10 @@
 
                     </ul>
 
+                    
+
                     <div class="d-flex justify-content-center">
+                    <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" style="position:relative;top:10px;">
                         <button type="button" class="btn btn-auth" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                 height="18" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 18 18">
