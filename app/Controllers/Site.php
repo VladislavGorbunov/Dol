@@ -56,6 +56,8 @@ class Site extends BaseController
         if ($filter['type'] != 'type-all') {
             if (!$type = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
             $type = $type['types_id'];
+            $data['type'] = $type['types_id'];
+            //$data['phrase']
         } else {
             $type = null;
         }   
