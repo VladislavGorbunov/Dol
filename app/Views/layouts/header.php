@@ -141,6 +141,7 @@
                                 <option value="spb">Санкт-Петербург</option>
                                 <option value="leningradskaya-oblast">Ленинградская область</option>
                             </select>
+                            <div id="region_msg"></div>
                         </div>
 
                         <div class="col-lg g-1">
@@ -167,9 +168,24 @@
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
                             <select id="age" class="form-select form-select-lg mt-0" name="age">
                                 <option selected disabled value="">Любой возраст</option>
-                                <option value="51">One</option>
-                                <option value="25">Two</option>
-                                <option value="33">Three</option>
+                                <option value="3">3 года</option>
+                                <option value="4">4 года</option>
+                                <option value="5">5 лет</option>
+                                <option value="6">6 лет</option>
+                                <option value="7">7 лет</option>
+                                <option value="8">8 лет</option>
+                                <option value="9">9 лет</option>
+                                <option value="10">10 лет</option>
+                                <option value="11">11 лет</option>
+                                <option value="12">12 лет</option>
+                                <option value="13">13 лет</option>
+                                <option value="14">14 лет</option>
+                                <option value="15">15 лет</option>
+                                <option value="16">16 лет</option>
+                                <option value="17">17 лет</option>
+                                <option value="18">18 лет</option>
+                                <option value="19">19 лет</option>
+                                <option value="20">20 лет</option>
                             </select>
                         </div>
 
@@ -204,6 +220,7 @@
     // редирект
     //window.location.href = "/";
 
+    const region_msg = document.getElementById("region_msg");
     let region = document.getElementById("region");
     let season = document.getElementById("season");
     let type = document.getElementById("type");
@@ -213,11 +230,6 @@
 
     let filter_url;
 
-    var cities = new Map([
-        ['Москва', 'в Москве'],
-        ['Санкт-Петербург', 'в Санкт-Петербурге'],
-        ['key3', 'value3']
-    ]);
 
     addEventListener("change", () => {
         url = '/camps';
@@ -227,13 +239,6 @@
         } else {
             url += '/russia';
         }
-
-        // if (season.value) {
-        //     url += '/' + season.value;
-        //     document.title += season.selectedOptions[0].text;
-        // } else {
-        //     url += '/season-all';
-        // }
 
         if (type.value) {
             url += '/' + type.value;
@@ -256,7 +261,12 @@
 
 
     search_btn.addEventListener('click', () => {
-        window.location.href = url;
+        if (!region.value) {
+            //alert('Выберите регион');
+            region_msg.innerHTML = 'Выберите регион поиска';
+        } else {
+            window.location.href = url;
+        }
 
     });
     </script>

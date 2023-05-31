@@ -60,9 +60,8 @@ class Site extends BaseController
         } else {
             $type = null;
         }   
+
         
-
-
 
         
         
@@ -71,7 +70,7 @@ class Site extends BaseController
         //echo $type;
         
         echo '<pre>';
-        var_dump($this->Camps->getCamps($region, $type)->getResultArray());
+        var_dump($this->Camps->getCamps($region, $type, $age)->getResultArray());
         echo '</pre>';
     }
 }

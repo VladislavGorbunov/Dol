@@ -854,3 +854,165 @@ in APPPATH\Controllers\Site.php on line 58.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:38:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:38:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:39:00 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:39:00 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:39:01 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:39:01 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:39:11 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 8 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:39:11 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:39:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 8 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:39:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 16:39:23 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7 in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(73): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 16:39:23 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL
+AND `camps`.`max_age` > IS NULL' at line 7
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(73): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
