@@ -95,18 +95,21 @@ body {
   }
 
   .filter-block {
-      background: rgba(255,255,255, 0.9);
+      background: rgba(255,255,255, 0.95) url(/public/theme/img/filter-bg.png) center;
+      background-size: auto;
       max-width: 1200px;
       min-height: 130px;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(15px);
       border-radius: 10px;
       padding: 10px 45px 35px 45px;
       box-shadow: 0 3px 20px -10px #111;
   }
 
   #region_msg {
-      color: red;
+      position: relative;
+      color: #ff4444;
       font-size: 12px;
+      left: 2px;
   }
 
   .filter-block .form-select {

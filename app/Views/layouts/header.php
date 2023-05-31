@@ -135,7 +135,7 @@
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
-                                <option selected disabled value="">Любой регион</option>
+                                <option selected disabled value="">Выберите регион</option>
                                 <option value="moscow">Москва</option>
                                 <option value="podmoskove">Московская область</option>
                                 <option value="spb">Санкт-Петербург</option>
@@ -236,6 +236,8 @@
 
         if (region.value) {
             url += '/' + region.value;
+            region_msg.innerHTML = '';
+            region.style.border = 'none';
         } else {
             url += '/russia';
         }
@@ -264,6 +266,7 @@
         if (!region.value) {
             //alert('Выберите регион');
             region_msg.innerHTML = 'Выберите регион поиска';
+            region.style.border = '1px solid #ff4444';
         } else {
             window.location.href = url;
         }
