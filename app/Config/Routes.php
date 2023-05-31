@@ -38,8 +38,8 @@ $routes->get('/panel/logout', 'Panel::Logout');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 
-$routes->get('/camps/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3');
-$routes->get('/camps/(:any)/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3/$4');
+$routes->get('/camps/(:any)/(:any)', 'Site::FilterCamp/$1/$2');
+
 
 $routes->get('/admin', 'Admin::Index');
 $routes->get('/admin/panel', 'Admin::Panel', ['filter' => 'Auth']);

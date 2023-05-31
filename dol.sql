@@ -32,7 +32,8 @@ CREATE TABLE `camps` (
   `cities_id` int NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Дамп данных таблицы `camps`
@@ -53,7 +54,8 @@ CREATE TABLE `camps_types` (
   `id` int NOT NULL,
   `camps_id` int NOT NULL,
   `types_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Дамп данных таблицы `camps_types`
@@ -76,7 +78,8 @@ CREATE TABLE `cities` (
   `cities_id` int NOT NULL,
   `title` varchar(80) NOT NULL,
   `slug` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Дамп данных таблицы `cities`
@@ -107,7 +110,8 @@ CREATE TABLE `representatives` (
   `password` varchar(250) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `activated` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Дамп данных таблицы `representatives`
@@ -131,7 +135,8 @@ CREATE TABLE `types` (
   `types_id` int NOT NULL,
   `title` varchar(60) NOT NULL,
   `slug` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Дамп данных таблицы `types`

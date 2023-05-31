@@ -40,13 +40,12 @@ class Site extends BaseController
         return view('site/login', $data);
     }
 
-    public function FilterCamp($region_slug = null, $season = null, $type = null, $age = null)
+    public function FilterCamp($region_slug = null, $type = null, $age = null)
     {   
 
         $filter = [];
 
         $filter['region'] = $region_slug;
-        $filter['season'] = $season;
         $filter['type'] = $type;
         $filter['age'] = $age;
 
@@ -56,7 +55,7 @@ class Site extends BaseController
         if ($filter['type'] != 'type-all') {
             if (!$type = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
             $type = $type['types_id'];
-            $data['type'] = $type['types_id'];
+            //$data['type'] = $type['types_id'];
             //$data['phrase']
         } else {
             $type = null;
@@ -68,8 +67,8 @@ class Site extends BaseController
         
         
 
-        $region = $region['cities_id'] . '<hr>';
-        echo $type;
+        $region = $region['cities_id'];
+        //echo $type;
         
         echo '<pre>';
         var_dump($this->Camps->getCamps($region, $type)->getResultArray());

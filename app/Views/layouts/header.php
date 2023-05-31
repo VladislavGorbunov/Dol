@@ -88,7 +88,7 @@
                                 <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
                                 <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
                                 <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
-                                
+
                                     <form action="/login" method="post">
                                         <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
                                         <input type="text" class="form-control auth-input" name="email"
@@ -118,14 +118,18 @@
             <div class="row">
                 <h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>
                 <div class="col-lg-9 d-block mx-auto">
-                    <p class="text-center text-light header-descript">Наш сервис создан для быстрого и удобного поиска детских
+                    <p class="text-center text-light header-descript">Наш сервис создан для быстрого и удобного поиска
+                        детских
                         оздоровительных лагерей по всей России!
                         Планируете отправить ребёнка на отдых? Мы поможем найти самый подходящий для вас вариант.
                     </p>
                 </div>
             </div>
 
-            <div class="filter-block col-lg-12 d-block mx-auto mt-2">
+
+
+
+            <div class="filter-block col-lg-11 d-block mx-auto mt-2">
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-lg g-1">
@@ -140,16 +144,6 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
-                            <select id="season" class="form-select form-select-lg mt-0" name="season">
-                                <option selected disabled value="">Любой сезон</option>
-                                <option value="leto">Лето</option>
-                                <option value="vasna">Весна</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-
-                        <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
                                 <option selected disabled value="">Любой тип лагеря</option>
@@ -158,6 +152,16 @@
                                 <option value="3">Three</option>
                             </select>
                         </div>
+
+                        <!-- <div class="col-lg g-1">
+                            <label for="exampleDatepicker1" class="form-label mt-3">Море рядом</label>
+                            <select id="season" class="form-select form-select-lg mt-0" name="season">
+                                <option selected disabled value="">Неважно</option>
+                                <option value="leto">Да</option>
+                                <option value="vasna">Нет</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
 
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
@@ -178,6 +182,15 @@
                                         d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg> Найти лагеря</div>
                         </div>
+
+
+                        <!-- <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Показывать лагеря только с рейтингом выше 4.5
+                            </label>
+                        </div> -->
+
                     </div>
                 </form>
 
@@ -188,65 +201,62 @@
     </div>
 
     <script>
-        // редирект
-        //window.location.href = "/";
+    // редирект
+    //window.location.href = "/";
 
-        let region = document.getElementById("region");
-        let season = document.getElementById("season");
-        let type = document.getElementById("type");
-        let age = document.getElementById("age");
+    let region = document.getElementById("region");
+    let season = document.getElementById("season");
+    let type = document.getElementById("type");
+    let age = document.getElementById("age");
 
-        const search_btn = document.getElementById("search");
+    const search_btn = document.getElementById("search");
 
-        let filter_url; 
+    let filter_url;
 
-        var cities = new Map([
-            ['Москва', 'в Москве'],
-            ['Санкт-Петербург', 'в Санкт-Петербурге'],
-            ['key3', 'value3']
-        ]);  
-        
-        addEventListener("change", ()=> {
-            url = '/camps';
+    var cities = new Map([
+        ['Москва', 'в Москве'],
+        ['Санкт-Петербург', 'в Санкт-Петербурге'],
+        ['key3', 'value3']
+    ]);
 
-            if (region.value) {
-                url += '/' + region.value;
-            } else {
-                url += '/russia';
-            }
-            
-            if (season.value) {
-                url += '/' + season.value;
-                document.title += season.selectedOptions[0].text;
-            } else {
-                url += '/season-all';
-            }
+    addEventListener("change", () => {
+        url = '/camps';
 
-            if (type.value) {
-                url += '/' + type.value;
-                document.title += type.selectedOptions[0].text;
-            } else {
-                url += '/type-all';
-            }
+        if (region.value) {
+            url += '/' + region.value;
+        } else {
+            url += '/russia';
+        }
 
-            if (age.value) {
-                url += '/' + age.value;
-                document.title += age.selectedOptions[0].text;
-            } else {
-                url += '';
-            }
-        
-            console.log(url);
+        // if (season.value) {
+        //     url += '/' + season.value;
+        //     document.title += season.selectedOptions[0].text;
+        // } else {
+        //     url += '/season-all';
+        // }
 
-        });
+        if (type.value) {
+            url += '/' + type.value;
+            document.title += type.selectedOptions[0].text;
+        } else {
+            url += '/type-all';
+        }
 
+        if (age.value) {
+            url += '/' + age.value;
+            document.title += age.selectedOptions[0].text;
+        } else {
+            url += '';
+        }
 
+        console.log(url);
 
-        search_btn.addEventListener('click', ()=> {
-            window.location.href = url;
-            
-        });
+    });
 
 
 
+    search_btn.addEventListener('click', () => {
+        window.location.href = url;
+
+    });
     </script>
