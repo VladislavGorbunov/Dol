@@ -75,7 +75,10 @@ class Site extends BaseController
         
        
         $data['camps'] = $this->Camps->getCamps($region, $type, $age)->getResultArray();
-        
+
+        // echo '<pre>';
+        // print_r($data['camps']);
+        // echo '</pre>';
 
         return view('layouts/header-short', $data) 
         .view('site/filter_page')
