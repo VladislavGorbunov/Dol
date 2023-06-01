@@ -18,6 +18,27 @@
             color: cyan;
         }
 
+    .btn-add {
+      color: #fff;
+      background: #2955c8;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 25px;
+    }
+
+    .btn-add:hover {
+      color: #fff;
+      background: #2955c8;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 25px;
+    }
+
+  .dark {
+      background-color: #111;
+  }
+
+
     </style>
 
 </head>
@@ -26,7 +47,7 @@
 
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <!-- Заголовок меню -->
                     <a href="/admin/panel"
@@ -58,6 +79,7 @@
                             <a href="/admin/representatives/notactivated" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Ожидающие активации</span> </a>
                         </li>
+                        <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
                         <hr>
                         <h5>Личные данные</h5>
                         <li>

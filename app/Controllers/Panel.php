@@ -23,7 +23,12 @@ class Panel extends BaseController
 
     public function Index()
     {
-        return view('layouts/panel_header')
+        $session = session();
+       
+        $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
+
+        //var_dump($data['user']);
+        return view('layouts/panel_header', $data)
         .view('panel/index')
         .view('layouts/panel_footer');
     }
@@ -65,6 +70,14 @@ class Panel extends BaseController
             $session->setFlashdata('msg', 'Неверный email.');
             return redirect()->to('/login');
         }
+    }
+
+
+    public function addCamp()
+    {
+        return view('layouts/panel_header')
+        .view('panel/add-camp')
+        .view('layouts/panel_footer');
     }
 
     // Выход из панели

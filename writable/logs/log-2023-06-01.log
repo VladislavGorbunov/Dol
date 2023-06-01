@@ -1319,3 +1319,57 @@ in APPPATH\Views\site\filter_page.php on line 15.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:17:19 --> Undefined variable $session
+in APPPATH\Controllers\Panel.php on line 26.
+ 1 APPPATH\Controllers\Panel.php(26): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->Index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:18:07 --> Object of type CodeIgniter\Session\Session is not callable
+in APPPATH\Controllers\Panel.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->Index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:18:31 --> Object of type CodeIgniter\Session\Session is not callable
+in APPPATH\Controllers\Panel.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->Index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:21:56 --> Undefined variable $user
+in APPPATH\Views\panel\index.php on line 7.
+ 1 APPPATH\Views\panel\index.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(32): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->Index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:41:58 --> Undefined constant "App\Controllers\fsdf"
+in APPPATH\Controllers\Panel.php on line 78.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:42:50 --> Undefined variable $data
+in APPPATH\Controllers\Panel.php on line 78.
+ 1 APPPATH\Controllers\Panel.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 12:42:57 --> Undefined variable $user
+in APPPATH\Views\panel\index.php on line 11.
+ 1 APPPATH\Views\panel\index.php(11): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(79): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
