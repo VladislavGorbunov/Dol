@@ -130,19 +130,19 @@
             </div>
 
 
-
-
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
+
                                 <option selected disabled value="">Выберите регион</option>
-                                <option value="moscow">Москва</option>
-                                <option value="podmoskove">Московская область</option>
-                                <option value="spb">Санкт-Петербург</option>
-                                <option value="leningradskaya-oblast">Ленинградская область</option>
+                                <?php 
+                                    foreach ($cities as $key => $value) {
+                                        echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                    }
+                                ?>
                             </select>
                             <div id="region_msg"></div>
                         </div>

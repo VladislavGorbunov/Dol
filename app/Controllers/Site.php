@@ -27,7 +27,9 @@ class Site extends BaseController
 
     public function index()
     {
-        return view('layouts/header') 
+        $data['cities'] = $this->Cities->findAll();
+        
+        return view('layouts/header', $data) 
         .view('site/index')
         .view('layouts/footer');
     }
