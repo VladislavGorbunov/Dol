@@ -11,6 +11,7 @@ class Site extends BaseController
     public $Camps;
     public $Cities;
     public $Types;
+    
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -44,6 +45,7 @@ class Site extends BaseController
 
     public function FilterCamp($region_slug = null, $type = null, $age = null)
     {   
+        $data['cities'] = $this->Cities->findAll();
 
         $filter = [];
 
@@ -69,10 +71,15 @@ class Site extends BaseController
         
 
         $region = $region['cities_id'];
-        //echo $type;
         
-        echo '<pre>';
-        var_dump($this->Camps->getCamps($region, $type, $age)->getResultArray());
-        echo '</pre>';
+        
+       
+        $data['camps'] = $this->Camps->getCamps($region, $type, $age)->getResultArray();
+        
+
+        return view('layouts/header-short', $data) 
+        .view('site/filter_page')
+        .view('layouts/footer');
+
     }
 }

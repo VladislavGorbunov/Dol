@@ -117,7 +117,7 @@
         </nav>
     </header>
 
-    <div class="header-image d-flex align-items-center justify-content-center">
+    <div class="header-image-short d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="row">
                 <h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>
@@ -131,91 +131,6 @@
             </div>
 
 
-            <div class="filter-block col-lg-11 d-block mx-auto mt-2">
-                <form action="" method="post">
-                    <div class="row">
-                        <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
-                            <select id="region" class="form-select form-select-lg mt-0" name="region">
-
-                                <option selected disabled value="">Выберите регион</option>
-                                <?php 
-                                    foreach ($cities as $key => $value) {
-                                        echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
-                                    }
-                                ?>
-                            </select>
-                            <div id="region_msg"></div>
-                        </div>
-
-                        <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
-                            <select id="type" class="form-select form-select-lg mt-0" name="type">
-                                <option selected disabled value="">Любой тип лагеря</option>
-                                <option value="sport">Спортивный</option>
-                                <option value="recreation">Оздоровительный</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-
-                        <!-- <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Море рядом</label>
-                            <select id="season" class="form-select form-select-lg mt-0" name="season">
-                                <option selected disabled value="">Неважно</option>
-                                <option value="leto">Да</option>
-                                <option value="vasna">Нет</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div> -->
-
-                        <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
-                            <select id="age" class="form-select form-select-lg mt-0" name="age">
-                                <option selected disabled value="">Любой возраст</option>
-                                <option value="3">3 года</option>
-                                <option value="4">4 года</option>
-                                <option value="5">5 лет</option>
-                                <option value="6">6 лет</option>
-                                <option value="7">7 лет</option>
-                                <option value="8">8 лет</option>
-                                <option value="9">9 лет</option>
-                                <option value="10">10 лет</option>
-                                <option value="11">11 лет</option>
-                                <option value="12">12 лет</option>
-                                <option value="13">13 лет</option>
-                                <option value="14">14 лет</option>
-                                <option value="15">15 лет</option>
-                                <option value="16">16 лет</option>
-                                <option value="17">17 лет</option>
-                                <option value="18">18 лет</option>
-                                <option value="19">19 лет</option>
-                                <option value="20">20 лет</option>
-                            </select>
-                        </div>
-
-                        <div class="col-lg-auto g-1">
-
-                            <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-search" viewBox="0 0 16 16">
-                                    <path
-                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg> Найти лагеря</div>
-                        </div>
-
-
-                        <!-- <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Показывать лагеря только с рейтингом выше 4.5
-                            </label>
-                        </div> -->
-
-                    </div>
-                </form>
-
-            </div>
-        </div>
 
     </div>
     </div>

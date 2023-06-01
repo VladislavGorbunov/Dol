@@ -25,9 +25,18 @@ body {
   }
 
   .btn-auth {
-    color: #405189;
-    padding: 10px 20px;
-  }
+    color: #2955c8;
+    border: 1px solid #c6d4f4;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.btn-auth:hover {
+    color: #2955c8;
+    border: 1px solid #2955c8;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
 
   .modal-header, .modal-footer {
       border: none;
@@ -83,6 +92,14 @@ body {
       padding: 20px 0;
       margin-bottom: 30px;
   }
+
+  .header-image-short {
+    width: 100%;
+    min-height: 300px;
+    background: url(/../public/theme/img/header-dark.jpg) center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
 
   .header-h1 {
       text-align: center;
