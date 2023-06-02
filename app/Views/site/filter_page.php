@@ -51,8 +51,31 @@ echo '
                  <p>
                  На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
                  </p>
-                 
-                 <p>Возраст от 4 до 14 лет</p>
+                 <div class="row">
+                     <div class="col-auto">
+                         <p>Возраст: <b>от 4 до 14 лет</b></p>
+                         <p>Год основания: <b>2011</b></p>
+                     </div>
+
+                     <div class="col-auto">
+                         <p>Охраняемая территория: <b>Да</b></p>
+                         <p>Трансфер включён в стоимость: <b>Да</b></p>
+                     </div>
+                 </div>
+
+
+                 <div class="type-block">
+             ';
+
+             $types = explode(',',$camp['name_type']);
+             
+             foreach ($types as $type) {
+                 echo '<div class="type" role="alert">'.$type.'</div>';
+             }
+
+            echo '</div>
+
+
               </div>
 
              <div class="col-lg-4">
@@ -75,16 +98,7 @@ echo '
              </div>
 
              </div>
-             <div class="type-block">
-             ';
-
-             $types = explode(',',$camp['name_type']);
-             
-             foreach ($types as $type) {
-                 echo '<div class="type" role="alert">'.$type.'</div>';
-             }
-
-            echo '</div></div>
+             </div>
          </div>
 
          
