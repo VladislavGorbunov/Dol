@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\Camps;
 use App\Models\Cities;
 use App\Models\Types;
+use App\Models\Seasons;
 
 class Site extends BaseController
 {
     public $Camps;
     public $Cities;
     public $Types;
+    public $Seasons;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -22,6 +24,7 @@ class Site extends BaseController
         $this->Camps = new Camps();
         $this->Cities = new Cities();
         $this->Types = new Types();
+        $this->Seasons = new Seasons();
         
         // Preload any models, libraries, etc, here.
     }
@@ -29,6 +32,7 @@ class Site extends BaseController
     public function index()
     {
         $data['cities'] = $this->Cities->findAll();
+        $data['seasons'] = $this->Seasons->findAll();
         
         return view('layouts/header', $data) 
         .view('site/index')
@@ -43,7 +47,7 @@ class Site extends BaseController
         return view('site/login', $data);
     }
 
-    public function FilterCamp($region_slug = null, $type = null, $age = null)
+    public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
     {   
         $data['cities'] = $this->Cities->findAll();
 
@@ -51,6 +55,7 @@ class Site extends BaseController
 
         $filter['region'] = $region_slug;
         $filter['type'] = $type;
+        $filter['season'] = $season;
         $filter['age'] = $age;
 
         if (!$region = $this->Cities->where('slug', $filter['region'])->first()) $this->error404();
@@ -65,16 +70,18 @@ class Site extends BaseController
             $type = null;
         }   
 
-        
+        // Проверка существует ли такой сезон в БД
+        if ($filter['season'] != 'season-all') {
+            if (!$season = $this->Seasons->where('slug', $filter['season'])->first()) $this->error404();
+            $season = $season['seasons_id'];
+        } else {
+            $season = null;
+        }   
 
-        
-        
 
         $region = $region['cities_id'];
         
-        
-       
-        $data['camps'] = $this->Camps->getCamps($region, $type, $age)->getResultArray();
+        $data['camps'] = $this->Camps->getCamps($region, $type, $season, $age)->getResultArray();
 
         // echo '<pre>';
         // print_r($data['camps']);

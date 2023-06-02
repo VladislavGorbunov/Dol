@@ -25,3 +25,266 @@ in APPPATH\Views\site\filter_page.php on line 71.
  5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
  6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-02 10:26:26 --> Undefined property: App\Controllers\Site::$Season
+in APPPATH\Controllers\Site.php on line 75.
+ 1 APPPATH\Controllers\Site.php(75): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 10:29:56 --> mysqli_sql_exception: Table 'dol.camps_seasons' doesn't exist in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(92): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 10:29:56 --> Table 'dol.camps_seasons' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(92): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 10:30:44 --> mysqli_sql_exception: Unknown column 'seasons.seasons_id' in 'on clause' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(92): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 10:30:45 --> Unknown column 'seasons.seasons_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(92): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-02 10:31:11 --> Undefined array key "season_id"
+in APPPATH\Controllers\Site.php on line 76.
+ 1 APPPATH\Controllers\Site.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 10:48:51 --> mysqli_sql_exception: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps_seasons.seasons_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(59): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 10:48:51 --> Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps_seasons.seasons_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(59): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:07:34 --> mysqli_sql_exception: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:07:34 --> Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:17:58 --> mysqli_sql_exception: Unknown column 'camps.camp_id' in 'group statement' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:17:58 --> Unknown column 'camps.camp_id' in 'group statement'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:33:23 --> mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.camps_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:33:23 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.camps.camps_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:34:22 --> mysqli_sql_exception: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:34:22 --> Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:34:32 --> mysqli_sql_exception: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:34:32 --> Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dol.reviews.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-02 11:38:09 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(types.title) name_type, `cities`.`title` `city_title`
+FROM `camps`
+' at line 1 in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(84): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-02 11:38:09 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(types.title) name_type, `cities`.`title` `city_title`
+FROM `camps`
+' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(33): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(84): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-02 11:42:10 --> Undefined variable $rating
+in APPPATH\Views\site\filter_page.php on line 83.
+ 1 APPPATH\Views\site\filter_page.php(83): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\site\\filter_page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Site.php(91): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-02 12:21:39 --> syntax error, unexpected token "if"
+in APPPATH\Views\site\filter_page.php on line 48.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH\Controllers\Site.php(91): view()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

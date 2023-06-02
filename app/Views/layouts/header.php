@@ -162,9 +162,11 @@
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
                             <select id="season" class="form-select form-select-lg mt-0" name="season">
                                 <option selected disabled value="">Любой сезон</option>
-                                <option value="leto">Да</option>
-                                <option value="vasna">Нет</option>
-                                <option value="3">Three</option>
+                                <?php 
+                                    foreach ($seasons as $key => $season) {
+                                        echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                    }
+                                ?>
                             </select>
                         </div>
 
@@ -251,6 +253,12 @@
             document.title += type.selectedOptions[0].text;
         } else {
             url += '/type-all';
+        }
+
+        if (season.value) {
+            url += '/' + season.value;
+        } else {
+            url += '/season-all';
         }
 
         if (age.value) {
