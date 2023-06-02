@@ -5,6 +5,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
   }
 
   h1, 
@@ -166,14 +168,26 @@ body {
       border-radius: 5px;
   }
 
-  .type {
+  .type-block {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .type-block .type {
+    
     padding: 5px 10px;
-    margin: 0;
+    margin: 2px;
     border: none;
+    border-radius: 5px;
     background: rgba(41, 85, 200, 0.1);
-    font-size: 14px;
+    font-size: 13px;
     color: #111;
 }
+
+.price {
+    font-size: 18px;
+}
+
 
 
   #login:target {
