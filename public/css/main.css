@@ -155,6 +155,7 @@ body {
   .filter-block label {
     margin-bottom: 5px;
     font-size: 14px;
+    font-weight: 400;
   }
 
   .filter-block .btn {
