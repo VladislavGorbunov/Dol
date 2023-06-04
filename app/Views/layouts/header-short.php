@@ -116,9 +116,9 @@
                 </div>
         </nav>
     </header>
-
+<div class="container mt-4">
     <div class="header-image-short d-flex align-items-center justify-content-center">
-        <div class="container">
+        
             <div class="row">
                 <h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>
                 <div class="col-lg-9 d-block mx-auto">

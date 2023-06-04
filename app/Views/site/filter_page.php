@@ -37,42 +37,63 @@
             font-size: 13px;
             font-weight: bold;
         }
+
+        .form-label {
+            color: #555;
+        }
+
+        .filter {
+            position:
+            border: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            color: #333;
+            padding: 10px;
+        }
+
+        .card {
+            border: none;
+            border: 1px solid #eee;
+        }
         </style>
 
         <div class="col-lg-3">
             <div class="border p-3 rounded mb-3">
-                <h5>Поиск по фильтру:</h5>
-            <label class="form-label mt-2">Выберите регион поиска</label>
-            <select class="form-select">
-                <option selected disabled>Выберите регион</option>
+                <h5 class="mt-2 mb-3">Поиск по параметрам:</h5>
+                
+            <label class="form-label mt-2">Регион поиска:</label>
+            <select class="form-select filter">
+                <option selected disabled>Любой регион</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
-            <label class="form-label mt-3">Выберите тип лагеря</label>
-            <select class="form-select">
-                <option selected disabled>Выберите тип лагеря</option>
+            <label class="form-label mt-3">Тип лагеря:</label>
+            <select class="form-select filter">
+                <option selected disabled>Любой тип лагеря</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
-            <label class="form-label mt-3">Выберите сезон</label>
-            <select class="form-select">
-                <option selected disabled>Выберите сезон</option>
+            <label class="form-label mt-3">Сезон:</label>
+            <select class="form-select filter">
+                <option selected disabled>Любой сезон</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
-            <label class="form-label mt-3">Выберите возраст ребёнка</label>
-            <select class="form-select mb-3">
-                <option selected disabled>Выберите возраст ребёнка</option>
+            <label class="form-label mt-3">Возраст ребёнка:</label>
+            <select class="form-select filter mb-3">
+                <option selected disabled>Любой возраст</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
+
+            <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Найти лагерь</a>
     </div>
         </div>
 
@@ -91,8 +112,9 @@
             
             <div class="card p-3">
             <div class="row">
-             <div class="col-lg-3">
-                 <img src="https://imgholder.ru/250x250/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" class="img-fluid">
+             <div class="col-lg-3 col-12 mb-3">
+                 <img src="https://imgholder.ru/250x250/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson" width="100%">
+                 
               </div>
 
              <div class="col-lg-9">

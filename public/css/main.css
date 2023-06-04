@@ -35,7 +35,7 @@ a {
     color: #2955c8;
     border: 1px solid #c6d4f4;
     border-radius: 5px;
-    padding: 10px 10px;
+    padding: 10px 15px;
 }
 
 .btn-auth:hover {
@@ -114,10 +114,11 @@ a {
 
 .header-image-short {
     width: 100%;
-    min-height: 300px;
+    min-height: 350px;
     background: url(/../public/theme/img/header-dark.jpg) center;
     padding: 20px 0;
     margin-bottom: 30px;
+    border-radius: 20px;
 }
 
 .header-h1 {
