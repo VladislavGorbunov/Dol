@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-lg-3">
-        <img src="/public/theme/img/stars.svg" width="64px" class="d-block mx-auto">
+        <img src="/public/theme/img/best-rating.svg" width="64px" class="d-block mx-auto">
         <h6 class="text-center mt-2"><b>Лагеря с высоким рейтингом</b></h6>
         <p class="text-center">Помогаем найти лагерь с хорошими отзывами и высоким рейтингом.</p>
     </div>

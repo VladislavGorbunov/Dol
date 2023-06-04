@@ -1373,3 +1373,43 @@ in APPPATH\Views\panel\index.php on line 11.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-01 18:57:40 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'dol' in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(174): mysqli->real_connect()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\system\BaseModel.php(618): CodeIgniter\Model->doFindAll()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(48): CodeIgniter\BaseModel->findAll()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'dol' in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\system\BaseModel.php(618): CodeIgniter\Model->doFindAll()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(48): CodeIgniter\BaseModel->findAll()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-01 18:57:40 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'dol'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll()
+ 5 APPPATH\Controllers\Site.php(48): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

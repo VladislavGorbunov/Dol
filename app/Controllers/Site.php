@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Config\Services;
 use App\Models\Camps;
 use App\Models\Cities;
 use App\Models\Types;
@@ -25,7 +26,6 @@ class Site extends BaseController
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
-        
         // Preload any models, libraries, etc, here.
     }
 
@@ -48,7 +48,9 @@ class Site extends BaseController
     }
 
     public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
-    {   
+    {
+        $pager = service('pager');
+
         $data['cities'] = $this->Cities->findAll();
 
         $filter = [];
@@ -64,8 +66,6 @@ class Site extends BaseController
         if ($filter['type'] != 'type-all') {
             if (!$type = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
             $type = $type['types_id'];
-            //$data['type'] = $type['types_id'];
-            //$data['phrase']
         } else {
             $type = null;
         }   
@@ -78,14 +78,39 @@ class Site extends BaseController
             $season = null;
         }   
 
-
         $region = $region['cities_id'];
         
-        $data['camps'] = $this->Camps->getCamps($region, $type, $season, $age)->getResultArray();
+        $page = (int) ($this->request->getGet('page') ?? 1);
+
+        if ($this->request->getGet('page') == 0) $page = 1;
+
+        $kol = 3;  //количество записей для вывода
+        $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
+
+        $camps_data = $this->Camps->getCamps($region, $type, $season, $age, $art, $kol);
+        $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
+        $total = $camps_data['count_row']; // Получаем кол-во записей
 
         // echo '<pre>';
-        // print_r($data['camps']);
+        // var_dump($camps_data);
         // echo '</pre>';
+        
+         // Call makeLinks() to make pagination links.
+         $pager_links = $pager->makeLinks($page, $kol, $total);
+
+        // Создание массива лагерей
+        for ($i = 0; $i < count($camps); $i++) {
+            $data['camps'][$i] = [
+                'camp' => $camps[$i]['camp'],
+                'camp_id' => $camps[$i]['camps_id'],
+                'count_reviews' => $camps[$i]['count_reviews'],
+                'avg_rating' => $camps[$i]['avg_rating'],
+                'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+            ];
+
+        }
+
+        $data['pager_links'] = $pager_links;
 
         return view('layouts/header-short', $data) 
         .view('site/filter_page')

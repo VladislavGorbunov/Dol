@@ -7,26 +7,30 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
-  }
+}
 
-  h1, 
-  h2,
-  h3 {
+h1,
+h2,
+h3 {
     font-family: 'Rubik', sans-serif;
 
-  }
+}
 
-  .navbar-brand {
-      margin-right: 30px;
-  }
+a {
+    text-decoration: none !important;
+}
 
-  .city-link {
-      display: block;
-      margin-top: 8px;
-      margin-right: 10px;
-  }
+.navbar-brand {
+    margin-right: 30px;
+}
 
-  .btn-auth {
+.city-link {
+    display: block;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+.btn-auth {
     color: #2955c8;
     border: 1px solid #c6d4f4;
     border-radius: 5px;
@@ -40,62 +44,74 @@ body {
     padding: 10px 10px;
 }
 
-  .modal-header, .modal-footer {
-      border: none;
-  }
+.modal-header, .modal-footer {
+    border: none;
+}
 
-  .btn-auth-modal {
-      color: #fff;
-      background: #2955c8;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 25px;
-      margin-bottom: 10px;
-  }
+.btn-auth-modal {
+    color: #fff;
+    background: #2955c8;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
 
-  .btn-auth-modal:hover {
-      color: #fff;
-      background-color:  #405189;
-  }
+.btn-auth-modal:hover {
+    color: #fff;
+    background-color: #405189;
+}
 
-  .auth-input {
-      border: none;
-      border-bottom: 1px solid #333;
-      border-radius: 0px;
-      padding-left: 0px;
-  }
+.auth-input {
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0px;
+    padding-left: 0px;
+}
 
-  .btn-reg {
-      color: #fff;
-      background: #2955c8;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 25px;
-  }
+.btn-reg {
+    color: #fff;
+    background: #2955c8;
+    border: 1px solid #2955c8;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
 
-  .btn-reg:hover {
-      color: #fff;
-      background-color:  #405189;
-  }
+.btn-reg:hover {
+    color: #fff;
+    background-color: #405189;
+}
 
-  .badge {
-      position: relative;
-      top: -2px;
-      background-color: #21a663 ;
-      font-weight: 100;
-      font-size: 12px;
-      border-radius: 5px;
-  }
+.btn-detailed {
+    color: #2955c8;
+    border: 1px solid #2955c8;
+    border-radius: 5px;
+    padding: 9px 25px;
+}
 
-  .header-image {
-      width: 100%;
-      min-height: 600px;
-      background: url(/../public/theme/img/header-dark.jpg) center;
-      padding: 20px 0;
-      margin-bottom: 30px;
-  }
+.btn-detailed:hover {
+    color: #2955c8;
+    border: 1px solid #2955c8;
+}
 
-  .header-image-short {
+.badge {
+    position: relative;
+    top: -2px;
+    background-color: #21a663;
+    font-weight: 100;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.header-image {
+    width: 100%;
+    min-height: 600px;
+    background: url(/../public/theme/img/header-dark.jpg) center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.header-image-short {
     width: 100%;
     min-height: 300px;
     background: url(/../public/theme/img/header-dark.jpg) center;
@@ -103,80 +119,79 @@ body {
     margin-bottom: 30px;
 }
 
-  .header-h1 {
-      text-align: center;
-      color: #fff;
-      text-shadow: 0px 0px 10px rgba(0,0,0,1);
-  }
+.header-h1 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
 
-  .header-descript {
-    text-shadow: 0px 0px 10px rgba(0,0,0,1);
-  }
+.header-descript {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
 
-  .filter-block {
-      background: rgba(255,255,255, 0.95) url(/public/theme/img/filter-bg.png) center;
-      background-size: auto;
-      max-width: 1200px;
-      min-height: 130px;
-      backdrop-filter: blur(15px);
-      border-radius: 10px;
-      padding: 10px 45px 35px 45px;
-      box-shadow: 0 3px 20px -10px #111;
-  }
+.filter-block {
+    background: rgba(255, 255, 255, 0.95) url(/public/theme/img/filter-bg.png) center;
+    background-size: auto;
+    max-width: 1200px;
+    min-height: 130px;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    padding: 10px 45px 35px 45px;
+    box-shadow: 0 3px 20px -10px #111;
+}
 
-  #region_msg {
-      position: relative;
-      color: #ff4444;
-      font-size: 12px;
-      left: 2px;
-  }
+#region_msg {
+    position: relative;
+    color: #ff4444;
+    font-size: 12px;
+    left: 2px;
+}
 
-  .filter-block .form-select {
-      display: block;
-      font-size: 16px;
-      padding: 12px 25px 12px 15px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      border: none;
-      background-color: rgba(255,255,255,0.9);
-      color: rgba(0,0,0,0.6);
-      border-radius: 5px;
-  }
+.filter-block .form-select {
+    display: block;
+    font-size: 16px;
+    padding: 12px 25px 12px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
 
-  .filter-block .form-select:hover {
+.filter-block .form-select:hover {
     transition: .5s;
     color: #2955c8;
 }
 
 .filter-block .form-select option {
     color: #111;
-    
+
 }
 
-  .filter-block label {
+.filter-block label {
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 400;
-  }
+}
 
-  .filter-block .btn {
-      display: block;
-      background: #21a663 ;
-      border: none;
-      padding: 12px 30px 12px 30px;
-      font-size: 16px;
-      margin-top: 42px;
-      font-weight: 400;
-      border-radius: 5px;
-  }
+.filter-block .btn {
+    display: block;
+    background: #21a663;
+    border: none;
+    padding: 12px 30px 12px 30px;
+    font-size: 16px;
+    margin-top: 42px;
+    font-weight: 400;
+    border-radius: 5px;
+}
 
-  .type-block {
+.type-block {
     display: flex;
     flex-wrap: wrap;
-  }
+}
 
-  .type-block .type {
-    
+.type-block .type {
     padding: 5px 10px;
     margin: 2px;
     border: none;
@@ -188,16 +203,5 @@ body {
 
 .price {
     font-size: 18px;
+    font-weight: bold;
 }
-
-
-
-  #login:target {
-      height: 200px;
-      background: #fff;
-      border-radius: 5px;
-      overflow-y: auto;
-      z-index: 9;
-      box-shadow: 0 3px 20px -10px #666;
-      transition: 1s;
-  }

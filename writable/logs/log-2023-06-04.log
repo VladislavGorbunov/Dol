@@ -1,0 +1,136 @@
+CRITICAL - 2023-06-04 05:02:07 --> Call to a member function getResultArray() on int
+in APPPATH\Controllers\Site.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:02:32 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::countResults()
+in APPPATH\Models\Camps.php on line 35.
+ 1 APPPATH\Controllers\Site.php(90): App\Models\Camps->getCamps()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-04 05:03:11 --> mysqli_sql_exception: Unknown column 'count_reviews' in 'order clause' in E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 E:\Programms\OpenServer\OpenServer\domains\Dol\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Models\Camps.php(36): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php(90): App\Models\Camps->getCamps()
+#6 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 E:\Programms\OpenServer\OpenServer\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 E:\Programms\OpenServer\OpenServer\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-04 05:03:11 --> Unknown column 'count_reviews' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Site.php(90): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:06:52 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 96
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(96): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:20 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 96
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(96): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:20 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 96
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(96): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:21 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 96
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(96): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:21 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 96
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(96): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:38 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 97
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(97): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:07:39 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 97
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(97): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:08:22 --> Call to undefined method App\Models\Camps::getResultArray
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Site.php(90): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:10:47 --> count(): Parameter must be an array or an object that implements Countable
+in APPPATH\Controllers\Site.php on line 100.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH\Controllers\Site.php(100): count()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:12:02 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 101
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(101): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:12:29 --> Call to undefined method App\Models\Camps::getResultArray
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Site.php(90): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:14:20 --> Call to a member function getResultArray() on array
+in APPPATH\Controllers\Site.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:15:50 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 101
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(101): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-04 05:16:02 --> Argument 3 passed to CodeIgniter\Pager\Pager::makeLinks() must be of the type int, null given, called in E:\Programms\OpenServer\OpenServer\domains\Dol\app\Controllers\Site.php on line 101
+in SYSTEMPATH\Pager\Pager.php on line 104.
+ 1 APPPATH\Controllers\Site.php(101): CodeIgniter\Pager\Pager->makeLinks()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
