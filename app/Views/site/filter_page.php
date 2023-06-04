@@ -13,12 +13,13 @@
             justify-content: center;
             background: gold;
             padding: 5px;
-            border-radius: 5px;
+            border-radius: 10px;
             color: #000;
             font-weight: 400;
             width: 44px;
             height: 44px;
-            font-size: 18px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 16px;
             margin-left: 10px;
         }
 
