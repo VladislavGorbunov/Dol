@@ -53,6 +53,7 @@
             
             echo '
             <div class="col-lg-12 mb-3">
+            
             <div class="card p-3">
             <div class="row">
              <div class="col-lg-3">
@@ -62,7 +63,7 @@
              <div class="col-lg-9">
              <div class="row">
              <div class="col-lg-8">
-                 <h5>'. $camp['camp_id'] . ' ' . $camp['camp'] .'</h5>
+                 <h5><a href="/camp">'. $camp['camp_id'] . ' ' . $camp['camp'] .'</a></h5>
                  <p>Ленинградская обл., п. Петровское</p>
                  <p>
                  На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
@@ -102,15 +103,16 @@
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от 50000 руб.</b></p>
-              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/registration">Посмотреть смены</a>
-              <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/registration">Подробнее</a>
+              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Посмотреть смены</a>
+              <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp">Подробнее</a>
              </div>
 
              </div>
              </div>
          </div>
      </div>
-</div>';
+     
+</div></a>';
   }
 } else {
     echo '<div class="col-lg-12 mb-3"> Ничего не нашли =( </div>';
