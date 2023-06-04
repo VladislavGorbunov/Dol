@@ -39,14 +39,49 @@
         }
         </style>
 
-        <div class="col-lg-3 border">sfsdfsdf</div>
+        <div class="col-lg-3">
+            <div class="border p-3 rounded mb-3">
+                <h5>Поиск по фильтру:</h5>
+            <label class="form-label mt-2">Выберите регион поиска</label>
+            <select class="form-select">
+                <option selected disabled>Выберите регион</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <label class="form-label mt-3">Выберите тип лагеря</label>
+            <select class="form-select">
+                <option selected disabled>Выберите тип лагеря</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <label class="form-label mt-3">Выберите сезон</label>
+            <select class="form-select">
+                <option selected disabled>Выберите сезон</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <label class="form-label mt-3">Выберите возраст ребёнка</label>
+            <select class="form-select mb-3">
+                <option selected disabled>Выберите возраст ребёнка</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+    </div>
+        </div>
 
         <div class="col-lg-9">
             <div class="row">
 
 
 
-<?php 
+                <?php 
     if ($camps) {
         foreach ($camps as $camp) {
             $rating = round($camp['avg_rating'], 1);
@@ -119,7 +154,7 @@
 }
 ?>
 
-<?= $pager_links ?>
+                <?= $pager_links ?>
 
 
             </div>
