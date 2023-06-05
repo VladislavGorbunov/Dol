@@ -78,7 +78,7 @@ class Site extends BaseController
             $season = null;
         }   
 
-        $region = $region['cities_id'];
+        $region_id = $region['cities_id'];
         
         $page = (int) ($this->request->getGet('page') ?? 1);
 
@@ -87,7 +87,7 @@ class Site extends BaseController
         $kol = 3;  //количество записей для вывода
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
 
-        $camps_data = $this->Camps->getCamps($region, $type, $season, $age, $art, $kol);
+        $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
         $total = $camps_data['count_row']; // Получаем кол-во записей
 
@@ -109,6 +109,8 @@ class Site extends BaseController
             ];
 
         }
+
+        $data['title'] = 'Детские лагеря ' . $region['title_in'];
 
         $data['pager_links'] = $pager_links;
 

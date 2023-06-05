@@ -1,0 +1,36 @@
+ERROR - 2023-06-05 06:56:32 --> mysqli_sql_exception: Unknown column 'reviews.camps_id' in 'field list' in C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\OSPanel\domains\Dol\system\Database\MySQLi\Connection.php(295): mysqli->query()
+#1 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 C:\OSPanel\domains\Dol\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 C:\OSPanel\domains\Dol\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query()
+#4 C:\OSPanel\domains\Dol\app\Models\Camps.php(36): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\OSPanel\domains\Dol\app\Controllers\Site.php(90): App\Models\Camps->getCamps()
+#6 C:\OSPanel\domains\Dol\system\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+#7 C:\OSPanel\domains\Dol\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#8 C:\OSPanel\domains\Dol\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\OSPanel\domains\Dol\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-05 06:56:32 --> Unknown column 'reviews.camps_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH\Models\Camps.php(36): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Site.php(90): App\Models\Camps->getCamps()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-05 07:10:17 --> Undefined variable $camps
+in APPPATH\Views\site\filter_page.php on line 107.
+ 1 APPPATH\Views\site\filter_page.php(107): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\site\\filter_page.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Site.php(118): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Site->FilterCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

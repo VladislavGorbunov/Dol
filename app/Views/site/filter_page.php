@@ -104,7 +104,7 @@
 
 
                 <?php 
-    if ($camps) {
+    if (!empty($camps)) {
         foreach ($camps as $camp) {
             $rating = round($camp['avg_rating'], 1);
             
