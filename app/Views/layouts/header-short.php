@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2955c8">
     <meta name="description" content="Пример на bootstrap 5: Слайдер -
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
     <title><?= $title ?></title>
