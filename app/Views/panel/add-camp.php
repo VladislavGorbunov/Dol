@@ -102,10 +102,17 @@
 
 
 
-<div class="mb-3">
+<div class="mb-3 mt-2">
   <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря</label>
   <textarea class="form-control textarea" id="editor" rows="13"></textarea>
 </div>
+
+<div class="mb-3 mt-2">
+  <label for="exampleFormControlTextarea1" class="form-label">Преимущества лагеря (Перечислите основные преимущества вашего лагеря перед остальными, его особенности.)</label>
+  <textarea class="form-control textarea" id="editor2" rows="13"></textarea>
+</div>
+
+
 <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
 
@@ -130,10 +137,26 @@
 
 <script>
        ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        heading: {
-            options: [
+           .create( document.querySelector( '#editor' ), {
+               toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+               heading: {
+               options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+
+
+    ClassicEditor
+           .create( document.querySelector( '#editor2' ), {
+               toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+               heading: {
+               options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
                 { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
                 { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
