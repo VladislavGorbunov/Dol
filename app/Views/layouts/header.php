@@ -26,7 +26,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
+        <nav class="navbar navbar-expand-lg py-3">
 
             <div class="container py-2">
                 <a class="navbar-brand" href="/">
