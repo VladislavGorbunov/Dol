@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Config\Services;
 use App\Models\RepresentativesModel;
+use App\Models\Cities;
 
 class Panel extends BaseController
 {
@@ -17,6 +18,7 @@ class Panel extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
+        $this->CitiesModel = new Cities();
         
         // Preload any models, libraries, etc, here.
     }
@@ -75,7 +77,9 @@ class Panel extends BaseController
 
     public function addCamp()
     {
-        return view('layouts/panel_header')
+        $data['cities'] = $this->CitiesModel->findAll();
+
+        return view('layouts/panel_header', $data)
         .view('panel/add-camp')
         .view('layouts/panel_footer');
     }

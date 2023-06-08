@@ -1,0 +1,73 @@
+CRITICAL - 2023-06-08 07:50:29 --> Class "App\Models\CitiesModel" not found
+in APPPATH\Controllers\Panel.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Panel->initController()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 07:50:39 --> Class "App\Controllers\Cities" not found
+in APPPATH\Controllers\Panel.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Panel->initController()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 07:50:53 --> Class "App\Controllers\Cities" not found
+in APPPATH\Controllers\Panel.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Panel->initController()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 07:51:35 --> Undefined variable $cities
+in APPPATH\Views\panel\add-camp.php on line 21.
+ 1 APPPATH\Views\panel\add-camp.php(21): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\add-camp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(83): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 07:51:37 --> Undefined variable $cities
+in APPPATH\Views\panel\add-camp.php on line 21.
+ 1 APPPATH\Views\panel\add-camp.php(21): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\add-camp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(83): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 08:02:31 --> Undefined variable $date
+in APPPATH\Views\panel\add-camp.php on line 83.
+ 1 APPPATH\Views\panel\add-camp.php(83): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\add-camp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(83): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 08:02:42 --> date() expects at least 1 argument, 0 given
+in APPPATH\Views\panel\add-camp.php on line 83.
+ 1 APPPATH\Views\panel\add-camp.php(83): date()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\add-camp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(83): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-08 08:03:30 --> date() expects at least 1 argument, 0 given
+in APPPATH\Views\panel\add-camp.php on line 83.
+ 1 APPPATH\Views\panel\add-camp.php(83): date()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\OSPanel\\domains\\Dol\\app\\Views\\panel\\add-camp.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Panel.php(83): view()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Panel->addCamp()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

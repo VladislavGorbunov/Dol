@@ -90,10 +90,6 @@ class Site extends BaseController
         $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
         $total = $camps_data['count_row']; // Получаем кол-во записей
-
-        // echo '<pre>';
-        // var_dump($camps_data);
-        // echo '</pre>';
         
          // Call makeLinks() to make pagination links.
          $pager_links = $pager->makeLinks($page, $kol, $total);
@@ -119,4 +115,5 @@ class Site extends BaseController
         .view('layouts/footer');
 
     }
+
 }
