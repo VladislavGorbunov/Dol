@@ -104,7 +104,7 @@
 
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря</label>
-  <textarea class="form-control textarea" id="textarea" rows="3"></textarea>
+  <textarea class="form-control textarea" id="editor" rows="13"></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
@@ -116,13 +116,32 @@
 
 
 
-<script src="https://cdn.tiny.cloud/1/ybea7xfiykesuuu52iz9ufpmn6ntmkt9g0ox7bl7qlulmsu2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <script src="https://cdn.tiny.cloud/1/ybea7xfiykesuuu52iz9ufpmn6ntmkt9g0ox7bl7qlulmsu2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
 
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 
-<script>
+<!-- <script>
     tinymce.init({
       selector: 'textarea',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
-  </script>
+  </script> -->
+
+<script>
+       ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+
+    </script>
