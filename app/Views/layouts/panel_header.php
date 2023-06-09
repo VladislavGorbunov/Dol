@@ -41,6 +41,8 @@
 
     </style>
 
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -81,6 +83,18 @@
                         </li>
                         <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
                         <hr>
+
+                        <h5>Путёвки</h5>
+                        <li>
+                            <a href="/admin/representatives" class="nav-link px-0 align-middle">
+                            <span class="ms-1 d-none d-sm-inline">Все путёвки</span> </a>
+                        </li>
+
+                        <a class="btn btn-add m-1" href="/panel/add-camp">Добавить путёвку</a>
+                        <hr>
+
+
+
                         <h5>Личные данные</h5>
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
