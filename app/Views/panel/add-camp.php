@@ -6,38 +6,83 @@
 .form-label {
     font-weight: 500;
 }
+
+.example-1 .form-group {
+    padding: 1em;
+    margin: 1em
+}
+
+.example-1 input[type=file] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none
+}
+
+.example-1 .label {
+
+    border: 2px dashed grey;
+    border-radius: 5px;
+    display: block;
+    padding: 1.2em;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center
+}
+
+.example-1 .label i {
+    display: block;
+    font-size: 42px;
+    padding-bottom: 16px
+}
+
+.example-1 .label i,
+.example-1 .label .title {
+    color: grey;
+    transition: 200ms color
+}
+
+.example-1 .label:hover {
+    border: 2px solid #000
+}
+
+.example-1 .label:hover i,
+.example-1 .label:hover .title {
+    color: #000
+}
 </style>
 
 <div class="col p-4">
-    <h2>Анкета лагеря</h2>
-    <p>Заполните поля ниже. Все данные проходят проверку. В случае указания недейтвительной информации, добавление
+    <h1 class="mt-2 text-center">Анкета лагеря</h1>
+    <p class="text-center">Заполните поля ниже. Все данные проходят проверку. В случае указания недейтвительной
+        информации, добавление
         лагеря будет отклонено.</p>
 
     <div class="row">
 
-        <div class="col-lg-6">
-            <form>
+        <div class="col-lg-6 mt-2">
+            <form action="" method="post">
                 <div class="mb-3">
                     <label class="form-label">Название лагеря:</label>
-                    <input type="text" class="form-control" placeholder="Например: ДОЛ «Морская волна»">
+                    <input type="text" class="form-control" name="title" placeholder="Например: ДОЛ «Морская волна»">
                 </div>
-                
+
                 <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Год основания:</label>
-                <select class="form-select" aria-label="Default select example">
-                    <?php
+                    <label for="exampleInputPassword1" class="form-label">Год основания:</label>
+                    <select class="form-select" name="year">
+                        <?php
           for ($i = 1990; $i <= date('Y'); $i++) {
               echo '<option value="">'.$i.'</option>';
           }
       ?>
-                </select>
-            </div>
+                    </select>
+                </div>
 
                 <div class="mb-3">
                     <div class="row">
                         <label class="form-label">Возраст детей:</label>
-                        <div class="col-lg-6">
-                            <select class="form-select" aria-label="Default select example">
+                        <div class="col-lg-6 mb-3">
+                            <select class="form-select" name="min_age">
                                 <option value="">от 0</option>
                                 <option value="">от 1</option>
                                 <option value="">от 2</option>
@@ -51,18 +96,13 @@
                                 <option value="">от 10</option>
                             </select>
 
-                            <label class="form-label mt-3">Охраняемая территория:</label>
 
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="">Да</option>
-                                <option value="">Нет</option>
-                            </select>
 
                         </div>
 
 
                         <div class="col-lg-6">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="max_age">
                                 <option value="">до 1</option>
                                 <option value="">до 2</option>
                                 <option value="">до 3</option>
@@ -85,8 +125,16 @@
                                 <option value="">до 20</option>
                             </select>
 
+
+                            <label class="form-label mt-3">Охраняемая территория:</label>
+
+                            <select class="form-select" name="security">
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+
                             <label class="form-label mt-3">Трансфер включён в стоимость:</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="free_transfer">
                                 <option value="">Да</option>
                                 <option value="">Нет</option>
                             </select>
@@ -96,22 +144,22 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label">Ссылка на группу Вконтакте:</label>
-                <input type="text" class="form-control" placeholder="https://vk.com/public">
-            </div>
+                    <label class="form-label">Ссылка на группу Вконтакте:</label>
+                    <input type="text" class="form-control" placeholder="https://vk.com/public" name="vk_link">
+                </div>
 
-            <div class="mb-3">
+                <div class="mb-3">
                     <label class="form-label">Сайт лагеря:</label>
-                    <input type="text" class="form-control" placeholder="https://site.ru">
+                    <input type="text" class="form-control" placeholder="https://site.ru" name="site_link">
                 </div>
 
 
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 mt-2">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Регион:</label>
-                <select id="city" class="form-select" aria-label="Default select example">
+                <select id="city" class="form-select" name="cities_id">
                     <?php 
             foreach($cities as $city) {
                 echo '<option value="'.$city['cities_id'].'">'.$city['title'].'</option>';
@@ -123,20 +171,200 @@
 
             <div class="mb-3">
                 <label class="form-label">Адрес:</label>
-                <input id="adress" type="text" class="form-control" placeholder="Например: гп. Рощино, ул. Песочная, 1">
+                <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress"
+                    disabled>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Координаты:</label>
-                <input id="coords" type="text" class="form-control">
+                <input id="coords" type="text" class="form-control" placeholder="Будет заполнено автоматически"
+                    name="coords" disabled>
             </div>
-            
 
-            <div id="map" style="width: 600px; height: 400px"></div>
 
-           
+            <div id="map" style="width: auto; height: 330px"></div>
+
+
         </div>
 
+
+        
+            <div class="col-lg-12">
+                <h3 class="text-center mt-4">Загрузите фотографии</h3>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-card-image" viewBox="0 0 16 16">
+                                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                            <path
+                                                d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Добавить главную обложку</span>
+                                    <input type="file" id="cover_img">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 1</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 2</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 3</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 4</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 5</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 6</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="example-1">
+                            <div class="form-group">
+                                <label class="label">
+                                    <i class="material-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
+                                            class="bi bi-images" viewBox="0 0 16 16">
+                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                            <path
+                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                                        </svg>
+                                    </i>
+                                    <span class="title">Дополнительное изображение 7</span>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <h3 class="text-center mt-4">Типы лагеря</h3>
+                <p class="text-center">Выберите не более 6 типов к которым относится ваш лагерь.</p>
+            <?php
+
+            foreach ($types as $type) {
+                echo '
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'">
+                    <label class="form-check-label">'.$type['title'].'</label>
+                    </div>';
+            }
+
+            ?>
+
+                
+            </div>
         
 
 
@@ -184,7 +412,7 @@
 
 
         <div class="col-lg-5">
-            <button type="submit" class="btn btn-primary">Отправить на проверку:</button>
+            <button type="submit" class="btn btn-primary">Отправить на проверку</button>
         </div>
         </form>
 
@@ -202,7 +430,9 @@
 ClassicEditor
     .create(document.querySelector('#editor'), {
         removePlugins: ['Link', 'CKFinder'],
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList', 'blockQuote'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
+            'blockQuote'
+        ],
         heading: {
             options: [{
                     model: 'paragraph',
@@ -232,7 +462,9 @@ ClassicEditor
 ClassicEditor
     .create(document.querySelector('#editor2'), {
         removePlugins: ['Link', 'CKFinder'],
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList', 'blockQuote'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
+            'blockQuote'
+        ],
         heading: {
             options: [{
                     model: 'paragraph',
@@ -262,7 +494,9 @@ ClassicEditor
 ClassicEditor
     .create(document.querySelector('#editor3'), {
         removePlugins: ['Link', 'CKFinder'],
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList', 'blockQuote'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
+            'blockQuote'
+        ],
         heading: {
             options: [{
                     model: 'paragraph',
@@ -291,7 +525,9 @@ ClassicEditor
 ClassicEditor
     .create(document.querySelector('#editor4'), {
         removePlugins: ['Link', 'CKFinder'],
-        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList', 'blockQuote'],
+        toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
+            'blockQuote'
+        ],
         heading: {
             options: [{
                     model: 'paragraph',
@@ -319,6 +555,17 @@ ClassicEditor
 </script>
 
 
+<script>
+    let coverImage = document.getElementById('cover_img');
+
+    coverImage.addEventListener('change', (event)=> {
+        console.log(coverImage.value.split(/(\\|\/)/g).pop());
+    })
+    
+</script>
+
+
+
 <script type="text/javascript">
 let adressInput = document.getElementById('adress');
 let coordInput = document.getElementById('coords');
@@ -327,49 +574,182 @@ let cityName;
 
 
 
-ymaps.ready(init);        
+
+ymaps.ready(init);
+
 function init() {
-	var myMap = new ymaps.Map("map", {
-		center: [55.76, 37.64],
-		zoom: 8
-	}, {
-		searchControlProvider: 'yandex#search'
-	});
+    var myPlacemark,
+        myMap = new ymaps.Map('map', {
+            center: [55.753994, 37.622093],
+            zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+
+    // Слушаем клик на карте.
+    myMap.events.add('click', function(e) {
+        var coords = e.get('coords');
+
+        // Если метка уже создана – просто передвигаем ее.
+        if (myPlacemark) {
+            myPlacemark.geometry.setCoordinates(coords);
+
+        }
+        // Если нет – создаем.
+        else {
+            myPlacemark = createPlacemark(coords);
+            myMap.geoObjects.add(myPlacemark);
+            // Слушаем событие окончания перетаскивания на метке.
+            myPlacemark.events.add('dragend', function() {
+                getAddress(myPlacemark.geometry.getCoordinates());
+            });
 
 
-    cityInput.addEventListener('input', ()=> {
-        cityName = cityInput.selectedOptions[0].text;
+        }
+
+
+        getAddress(coords);
     });
-    
- 
-    var address = 'Москва';
- 
-	ymaps.geocode(address).then(function(res) {
-		var coord = res.geoObjects.get(0).geometry.getCoordinates();
- 
-		var myPlacemark = new ymaps.Placemark(coord, null, {
-			preset: 'islands#blueDotIcon',
-			draggable: true,
-		});
- 
-		/* Событие dragend - получение нового адреса */
-		myPlacemark.events.add('dragend', function(e){
-			var cord = e.get('target').geometry.getCoordinates();
-			    
-            coordInput.value = cord;
-			ymaps.geocode(cord).then(function(res) {
-				var data = res.geoObjects.get(0).properties.getAll();
-				
-                adressInput.value = data.text;
 
-                
-			});
-		});
-		
-		myMap.geoObjects.add(myPlacemark);	
-		myMap.setCenter(coord, 5);
-	});
+    // Создание метки.
+    function createPlacemark(coords) {
+        return new ymaps.Placemark(coords, {
+            iconCaption: 'поиск...'
+        }, {
+            preset: 'islands#violetDotIconWithCaption',
+            draggable: true
+        });
+
+
+    }
+
+    // Определяем адрес по координатам (обратное геокодирование).
+    function getAddress(coords) {
+
+        coordInput.value = coords;
+        myPlacemark.properties.set('iconCaption', 'поиск...');
+        ymaps.geocode(coords).then(function(res) {
+            var firstGeoObject = res.geoObjects.get(0);
+
+            myPlacemark.properties
+                .set({
+                    // Формируем строку с данными об объекте.
+                    iconCaption: [
+                        // Название населенного пункта или вышестоящее административно-территориальное образование.
+                        firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() :
+                        firstGeoObject.getAdministrativeAreas(),
+                        // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+                        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                    ].filter(Boolean).join(', '),
+                    // В качестве контента балуна задаем строку с адресом объекта.
+                    balloonContent: firstGeoObject.getAddressLine()
+                });
+            adressInput.value = firstGeoObject.getAddressLine();
+        });
+    }
+
+
+    // Определяем координаты по адресу
+    function getAddressCity(cityName) {
+        // Поиск координат.
+        ymaps.geocode(cityName, {
+            /**
+             * Опции запроса
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
+             */
+            // Сортировка результатов от центра окна карты.
+            // boundedBy: myMap.getBounds(),
+            // strictBounds: true,
+            // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy.
+            // Если нужен только один результат, экономим трафик пользователей.
+            results: 1
+        }).then(function(res) {
+            // Выбираем первый результат геокодирования.
+            var firstGeoObject = res.geoObjects.get(0),
+                // Координаты геообъекта.
+                coords = firstGeoObject.geometry.getCoordinates(),
+                // Область видимости геообъекта.
+                bounds = firstGeoObject.properties.get('boundedBy');
+
+            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            // Получаем строку с адресом и выводим в иконке геообъекта.
+            firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+
+
+
+            // Добавляем первый найденный геообъект на карту.
+            // myMap.geoObjects.add(firstGeoObject);
+            // Масштабируем карту на область видимости геообъекта.
+            myMap.setBounds(bounds, {
+                // Проверяем наличие тайлов на данном масштабе.
+                checkZoomRange: true
+            });
+
+            /**
+             * Все данные в виде javascript-объекта.
+             */
+            console.log('Все данные геообъекта: ', firstGeoObject.properties.getAll());
+            /**
+             * Метаданные запроса и ответа геокодера.
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
+             */
+            console.log('Метаданные ответа геокодера: ', res.metaData);
+            /**
+             * Метаданные геокодера, возвращаемые для найденного объекта.
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
+             */
+            console.log('Метаданные геокодера: ', firstGeoObject.properties.get(
+                'metaDataProperty.GeocoderMetaData'));
+            /**
+             * Точность ответа (precision) возвращается только для домов.
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
+             */
+            console.log('precision', firstGeoObject.properties.get(
+                'metaDataProperty.GeocoderMetaData.precision'));
+            /**
+             * Тип найденного объекта (kind).
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
+             */
+            console.log('Тип геообъекта: %s', firstGeoObject.properties.get(
+                'metaDataProperty.GeocoderMetaData.kind'));
+            console.log('Название объекта: %s', firstGeoObject.properties.get('name'));
+            console.log('Описание объекта: %s', firstGeoObject.properties.get('description'));
+            console.log('Полное описание объекта: %s', firstGeoObject.properties.get('text'));
+            /**
+             * Прямые методы для работы с результатами геокодирования.
+             * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
+             */
+            console.log('\nГосударство: %s', firstGeoObject.getCountry());
+            console.log('Населенный пункт: %s', firstGeoObject.getLocalities().join(', '));
+            console.log('Адрес объекта: %s', firstGeoObject.getAddressLine());
+            console.log('Наименование здания: %s', firstGeoObject.getPremise() || '-');
+            console.log('Номер здания: %s', firstGeoObject.getPremiseNumber() || '-');
+
+            /**
+             * Если нужно добавить по найденным геокодером координатам метку со своими стилями и контентом балуна, создаем новую метку по координатам найденной и добавляем ее на карту вместо найденной.
+             */
+            /**
+             var myPlacemark = new ymaps.Placemark(coords, {
+             iconContent: 'моя метка',
+             balloonContent: 'Содержимое балуна <strong>моей метки</strong>'
+             }, {
+             preset: 'islands#violetStretchyIcon'
+             });
+
+             myMap.geoObjects.add(myPlacemark);
+             */
+
+
+        });
+    }
+
+    cityInput.addEventListener('change', () => {
+        cityName = cityInput.options[cityInput.selectedIndex].text;
+        //console.log(cityName);
+        getAddressCity(cityName);
+    })
+
+
 
 }
-
 </script>

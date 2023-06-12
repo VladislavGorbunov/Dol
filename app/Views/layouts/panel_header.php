@@ -10,126 +10,87 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
     <style>
-        .nav-link {
-            color: white;
-        }
+    .nav-link {
+        color: white;
+    }
 
-        .nav-link:hover {
-            color: cyan;
-        }
+    .nav-link:hover {
+        color: cyan;
+    }
 
     .btn-add {
-      color: #fff;
-      background: #2955c8;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 25px;
+        color: #fff;
+        background: #2955c8;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 25px;
     }
 
     .btn-add:hover {
-      color: #fff;
-      background: #2955c8;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 25px;
+        color: #fff;
+        background: #2955c8;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 25px;
     }
 
-  .dark {
-      background-color: #111;
-  }
-
-
+    .dark {
+        background-color: #111;
+    }
     </style>
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
+        type="text/javascript"></script>
 
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <!-- Заголовок меню -->
-                    <a href="/admin/panel"
-                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">KidsCamp Office</span>
-                    </a>
-                    <!-- элементы меню -->
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="/admin/panel" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i>
-                                <span class="ms-1 d-none d-sm-inline">Главная</span>
-                            </a>
-                        </li>
-
-                        <hr>
-                        <h5>Лагеря</h5>
-                        <li>
-                            <a href="/admin/representatives" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Мои лагеря</span> </a>
-                        </li>
-
-                        <li>
-                            <a href="/admin/representatives/activated" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Активированные лагеря</span> </a>
-                        </li>
-
-                        <li>
-                            <a href="/admin/representatives/notactivated" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Ожидающие активации</span> </a>
-                        </li>
-                        <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
-                        <hr>
-
-                        <h5>Путёвки</h5>
-                        <li>
-                            <a href="/admin/representatives" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Все путёвки</span> </a>
-                        </li>
-
-                        <a class="btn btn-add m-1" href="/panel/add-camp">Добавить путёвку</a>
-                        <hr>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+  <div class="container">
+    <a class="navbar-brand" href="#">ByCamp Office</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Лагеря
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Мои лагеря</a></li>
+            <li><a class="dropdown-item" href="/panel/add-camp">Добавить лагерь</a></li>
+            
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Путёвки
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Клиенты и бронирования</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+      <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
+      <a class="btn btn-add m-1" href="/panel/add-camp">Добавить путёвку</a>
+      </form>
+    </div>
+  </div>
+</nav>
 
 
-
-                        <h5>Личные данные</h5>
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Изменить личные данные</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Изменить пароль</span>
-                            </a>
-                        </li>
-
-                       
-
-                       
-
-                    </ul>
-                    <hr>
-                    <!-- нижнее дополнительное меню -->
-                    <div class="dropdown pb-4 mt-auto">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">Иван</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Новый проект</a></li>
-                            <li><a class="dropdown-item" href="#">Настройки</a></li>
-                            <li><a class="dropdown-item" href="#">Профиль</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="panel/logout">Выйти</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="row">
+            

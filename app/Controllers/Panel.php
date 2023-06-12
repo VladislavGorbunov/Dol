@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Config\Services;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
+use App\Models\Types;
 
 class Panel extends BaseController
 {
@@ -19,6 +20,7 @@ class Panel extends BaseController
 
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CitiesModel = new Cities();
+        $this->TypesModel = new Types();
         
         // Preload any models, libraries, etc, here.
     }
@@ -75,13 +77,21 @@ class Panel extends BaseController
     }
 
 
-    public function addCamp()
+    public function addCampForm()
     {
         $data['cities'] = $this->CitiesModel->findAll();
+        $data['types'] = $this->TypesModel->findAll();
 
         return view('layouts/panel_header', $data)
         .view('panel/add-camp')
         .view('layouts/panel_footer');
+    }
+
+    public function addCamp()
+    {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
     }
 
     // Выход из панели
