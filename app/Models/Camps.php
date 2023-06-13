@@ -9,6 +9,19 @@ class Camps extends Model
     protected $table = 'camps';
     public $count_rows;
 
+    protected $allowedFields = [
+        'camps_id',
+        'cities_id',
+        'title',
+        'adress',
+        'coords',
+        'year',
+        'min_age',
+        'max_age',
+        'free_tranfser',
+        
+    ];
+
     public function getCamps($region, $type, $season, $age, $art, $kol) 
     {
         

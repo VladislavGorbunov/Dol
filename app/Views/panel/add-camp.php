@@ -52,6 +52,7 @@
 }
 </style>
 
+
 <div class="col p-4">
     <h1 class="mt-2 text-center">Анкета лагеря</h1>
     <p class="text-center">Заполните поля ниже. Все данные проходят проверку. В случае указания недейтвительной
@@ -72,7 +73,7 @@
                     <select class="form-select" name="year">
                         <?php
           for ($i = 1990; $i <= date('Y'); $i++) {
-              echo '<option value="">'.$i.'</option>';
+              echo '<option value="'.$i.'">'.$i.'</option>';
           }
       ?>
                     </select>
@@ -83,17 +84,17 @@
                         <label class="form-label">Возраст детей:</label>
                         <div class="col-lg-6 mb-3">
                             <select class="form-select" name="min_age">
-                                <option value="">от 0</option>
-                                <option value="">от 1</option>
-                                <option value="">от 2</option>
-                                <option value="">от 3</option>
-                                <option value="">от 4</option>
-                                <option value="">от 5</option>
-                                <option value="">от 6</option>
-                                <option value="">от 7</option>
-                                <option value="">от 8</option>
-                                <option value="">от 9</option>
-                                <option value="">от 10</option>
+                                <option value="0">от 0</option>
+                                <option value="1">от 1</option>
+                                <option value="2">от 2</option>
+                                <option value="3">от 3</option>
+                                <option value="4">от 4</option>
+                                <option value="5">от 5</option>
+                                <option value="6">от 6</option>
+                                <option value="7">от 7</option>
+                                <option value="8">от 8</option>
+                                <option value="9">от 9</option>
+                                <option value="10">от 10</option>
                             </select>
 
 
@@ -103,26 +104,26 @@
 
                         <div class="col-lg-6">
                             <select class="form-select" name="max_age">
-                                <option value="">до 1</option>
-                                <option value="">до 2</option>
-                                <option value="">до 3</option>
-                                <option value="">до 4</option>
-                                <option value="">до 5</option>
-                                <option value="">до 6</option>
-                                <option value="">до 7</option>
-                                <option value="">до 8</option>
-                                <option value="">до 9</option>
-                                <option value="">до 10</option>
-                                <option value="">до 11</option>
-                                <option value="">до 12</option>
-                                <option value="">до 13</option>
-                                <option value="">до 14</option>
-                                <option value="">до 15</option>
-                                <option value="">до 16</option>
-                                <option value="">до 17</option>
-                                <option value="">до 18</option>
-                                <option value="">до 19</option>
-                                <option value="">до 20</option>
+                                <option value="1">до 1</option>
+                                <option value="2">до 2</option>
+                                <option value="3">до 3</option>
+                                <option value="4">до 4</option>
+                                <option value="5">до 5</option>
+                                <option value="6">до 6</option>
+                                <option value="7">до 7</option>
+                                <option value="8">до 8</option>
+                                <option value="9">до 9</option>
+                                <option value="10">до 10</option>
+                                <option value="11">до 11</option>
+                                <option value="12">до 12</option>
+                                <option value="13">до 13</option>
+                                <option value="14">до 14</option>
+                                <option value="15">до 15</option>
+                                <option value="16">до 16</option>
+                                <option value="17">до 17</option>
+                                <option value="18">до 18</option>
+                                <option value="19">до 19</option>
+                                <option value="20">до 20</option>
                             </select>
 
 
@@ -135,8 +136,8 @@
 
                             <label class="form-label mt-3">Трансфер включён в стоимость:</label>
                             <select class="form-select" name="free_transfer">
-                                <option value="">Да</option>
-                                <option value="">Нет</option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
                             </select>
 
                         </div>
@@ -172,13 +173,13 @@
             <div class="mb-3">
                 <label class="form-label">Адрес:</label>
                 <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress"
-                    disabled>
+                readonly>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Координаты:</label>
                 <input id="coords" type="text" class="form-control" placeholder="Будет заполнено автоматически"
-                    name="coords" disabled>
+                    name="coords" readonly>
             </div>
 
 
@@ -433,7 +434,7 @@
             foreach ($types as $type) {
                 echo '
                     <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'">
+                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[]">
                     <label class="form-check-label">'.$type['title'].'</label>
                     </div>';
             }
@@ -452,7 +453,7 @@
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Размещение:</label>
-            <textarea class="form-control textarea" id="editor2" name=""
+            <textarea class="form-control textarea" id="editor2" name="placement"
                 placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
             Новые современные коттеджи. В коттеджах по 3 комнаты, в комнатах проживает по 3 ребенка!
             Также в домике – общий холл и своя кухня, где дети будут собираться и пить вкусный горячий чай со своими вожатыми и преподавателями. Душевая кабина, туалет и умывальник находится прямо в домике (все новое, чистое, приятное)."></textarea>
@@ -461,7 +462,7 @@
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Преимущества лагеря (Перечислите основные
                 преимущества вашего лагеря перед остальными, его особенности.)</label>
-            <textarea class="form-control textarea" id="editor3"></textarea>
+            <textarea class="form-control textarea" id="editor3" name="advantages"></textarea>
         </div>
 
         <div class="mb-3 mt-2">
@@ -484,7 +485,7 @@
                 </div>
             </div>
 
-            <textarea class="form-control textarea" id="editor4"></textarea>
+            <textarea class="form-control textarea" id="editor4" name="daily_schedule"></textarea>
         </div>
 
 
