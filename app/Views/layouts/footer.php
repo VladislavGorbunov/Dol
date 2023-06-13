@@ -88,7 +88,7 @@
             <a href="#!" class="text-reset">Добавить лагерь</a>
           </p>
           <p>
-            <a href="/login" class="text-reset">Личный кабинет</a>
+            <a href="#" class="text-reset" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Личный кабинет</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Условия сотрудничества</a>
