@@ -91,8 +91,6 @@ class Panel extends BaseController
 
     public function addCamp()
     {
-
-
         $data['title'] = $this->request->getVar('title');
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
@@ -109,19 +107,46 @@ class Panel extends BaseController
         $data['placement'] = $this->request->getVar('placement');
         $data['advantages'] = $this->request->getVar('advantages');
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
+        $data['slug'] = $this->SlugCreate($data['title']);
 
-        if ($this->CampsModel->insert($data)) {
-            echo 'Всё ок';
-            //$this->TypesModel->insert($data);
-        } else {
-            echo 'Лагерь не добавлен';
-        }
+        // if ($this->CampsModel->insert($data)) {
+        //     echo 'Всё ок';
+        //     //$this->TypesModel->insert($data);
+        // } else {
+        //     echo 'Лагерь не добавлен';
+        // }
         
 
         echo '<pre>';
         print_r($data);
         echo '</pre>';
 
+    }
+
+    public function SlugCreate($text)
+    {
+        $converter = array(
+            'а' => 'a',    'б' => 'b',    'в' => 'v',    'г' => 'g',    'д' => 'd',
+            'е' => 'e',    'ё' => 'e',    'ж' => 'zh',   'з' => 'z',    'и' => 'i',
+            'й' => 'y',    'к' => 'k',    'л' => 'l',    'м' => 'm',    'н' => 'n',
+            'о' => 'o',    'п' => 'p',    'р' => 'r',    'с' => 's',    'т' => 't',
+            'у' => 'u',    'ф' => 'f',    'х' => 'h',    'ц' => 'c',    'ч' => 'ch',
+            'ш' => 'sh',   'щ' => 'sch',  'ь' => '',     'ы' => 'y',    'ъ' => '',
+            'э' => 'e',    'ю' => 'yu',   'я' => 'ya',
+     
+            'А' => 'A',    'Б' => 'B',    'В' => 'V',    'Г' => 'G',    'Д' => 'D',
+            'Е' => 'E',    'Ё' => 'E',    'Ж' => 'Zh',   'З' => 'Z',    'И' => 'I',
+            'Й' => 'Y',    'К' => 'K',    'Л' => 'L',    'М' => 'M',    'Н' => 'N',
+            'О' => 'O',    'П' => 'P',    'Р' => 'R',    'С' => 'S',    'Т' => 'T',
+            'У' => 'U',    'Ф' => 'F',    'Х' => 'H',    'Ц' => 'C',    'Ч' => 'Ch',
+            'Ш' => 'Sh',   'Щ' => 'Sch',  'Ь' => '',     'Ы' => 'Y',    'Ъ' => '',
+            'Э' => 'E',    'Ю' => 'Yu',   'Я' => 'Ya',
+        );
+     
+        $text = strtr($text, $converter);
+        $text = strtolower($text);
+        $text = str_replace(' ', '-', $text);
+        return preg_replace("/[^a-zA-Z0-9\s-]/", "", $text);
     }
 
     // Выход из панели
