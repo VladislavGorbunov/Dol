@@ -43,6 +43,15 @@
             color: #555;
         }
 
+        .map-link {
+            color: #2955c8;
+            margin-left: 5px;       
+        }
+
+        .reviews-link {
+            color: #2955c8;
+        }
+
         .filter {
             position:
                 border: none;
@@ -106,6 +115,7 @@
         <div class="col-lg-9">
             <div class="row">
 
+        
 
 
                 <?php 
@@ -127,7 +137,7 @@
              <div class="row">
              <div class="col-lg-8">
                  <h5><a href="/camp">'. $camp['camp_id'] . ' ' . $camp['camp'] .'</a></h5>
-                 <p>Ленинградская обл., п. Петровское</p>
+                 <p>'.$camp['adress'].' <a href="" class="map-link small">(Смотреть на карте)</a></p> 
                  <p>
                  На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
                  </p>
@@ -162,7 +172,7 @@
               <img src="/public/theme/img/star.svg" width="24px" style="margin-right: 5px;"><b>Рейтинг лагеря: </b> <span class="rating">'.$rating.'</span> 
               </div>
               
-              <p class="mt-3"><b>Отзывов: '.$camp['count_reviews'].'</b></p>
+              <p class="mt-3"><a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от 50000 руб.</b></p>

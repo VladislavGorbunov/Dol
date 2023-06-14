@@ -109,12 +109,12 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
-        // if ($this->CampsModel->insert($data)) {
-        //     echo 'Всё ок';
-        //     //$this->TypesModel->insert($data);
-        // } else {
-        //     echo 'Лагерь не добавлен';
-        // }
+        if ($this->CampsModel->insert($data)) {
+            echo 'Всё ок';
+            //$this->TypesModel->insert($data);
+        } else {
+            echo 'Лагерь не добавлен';
+        }
         
 
         echo '<pre>';

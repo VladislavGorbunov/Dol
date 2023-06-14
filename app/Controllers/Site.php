@@ -99,6 +99,7 @@ class Site extends BaseController
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],
                 'camp_id' => $camps[$i]['camps_id'],
+                'adress' => $camps[$i]['adress'],
                 'count_reviews' => $camps[$i]['count_reviews'],
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
