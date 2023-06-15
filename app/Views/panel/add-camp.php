@@ -62,7 +62,7 @@
     <div class="row">
 
         <div class="col-lg-6 mt-2">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Название лагеря:</label>
                     <input type="text" class="form-control" name="title" placeholder="Например: ДОЛ «Морская волна»">
@@ -207,7 +207,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Добавить главную обложку</span>
-                                    <input type="file" id="cover_img">
+                                    <input type="file" id="cover_img" name="cover">
                                 </label>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 1</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 2</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -264,7 +264,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 3</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -283,7 +283,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 4</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -302,7 +302,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 5</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -321,7 +321,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 6</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 7</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -359,7 +359,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 8</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -378,7 +378,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 9</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -397,7 +397,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 10</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>
@@ -416,7 +416,7 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 11</span>
-                                    <input type="file" multiple>
+                                    <input type="file" name="images[]">
                                 </label>
                             </div>
                         </div>

@@ -8,10 +8,14 @@ use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
 
+
+use CodeIgniter\Files\File;
+
 class Panel extends BaseController
 {
 
     public $RepresentativesModel;
+    protected $helpers = ['form'];
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -91,6 +95,7 @@ class Panel extends BaseController
 
     public function addCamp()
     {
+        
         $data['title'] = $this->request->getVar('title');
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
@@ -110,10 +115,25 @@ class Panel extends BaseController
         $data['slug'] = $this->SlugCreate($data['title']);
 
         if ($this->CampsModel->insert($data)) {
-            echo 'Всё ок';
+
+            // Создание папки для загружаемых изображений лагеря
+            $home = $_SERVER['DOCUMENT_ROOT'] . "/";
+            $home = $home . '/public/images/camps/'. $data['slug'];
+
+            // Загрузка изображений
+            if ($imagefiles = $this->request->getFiles()) {
+                foreach ($imagefiles['images'] as $img) {
+                    if ($img->isValid() && ! $img->hasMoved()) {
+                        $newName = $img->getRandomName();
+                        $img->move($home, $newName);
+                    }
+                }
+            }
+
             //$this->TypesModel->insert($data);
         } else {
             echo 'Лагерь не добавлен';
+            
         }
         
 
