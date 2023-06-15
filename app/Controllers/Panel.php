@@ -116,16 +116,27 @@ class Panel extends BaseController
 
         if ($this->CampsModel->insert($data)) {
 
-            // Создание папки для загружаемых изображений лагеря
+            // Путь до папки для загружаемых изображений лагеря
             $home = $_SERVER['DOCUMENT_ROOT'] . "/";
             $home = $home . '/public/images/camps/'. $data['slug'];
 
             // Загрузка изображений
             if ($imagefiles = $this->request->getFiles()) {
+                // echo '<pre>';
+                // var_dump($imagefiles);
+                // echo '</pre>';
+
+                
+                // die;
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
-                        $newName = $img->getRandomName();
-                        $img->move($home, $newName);
+                        if ($img->getClientMimeType() !== 'image/jpeg') {
+                            echo 'Неверный формат файла ' . $img->getName();
+                            
+                        } else {
+                            $newName = $img->getRandomName();
+                            $img->move($home, $newName);
+                        }
                     }
                 }
             }
