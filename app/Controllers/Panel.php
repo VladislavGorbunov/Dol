@@ -95,7 +95,7 @@ class Panel extends BaseController
 
     public function addCamp()
     {
-        
+        $session = session();
         $data['title'] = $this->request->getVar('title');
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
@@ -122,16 +122,13 @@ class Panel extends BaseController
 
             // Загрузка изображений
             if ($imagefiles = $this->request->getFiles()) {
-                // echo '<pre>';
-                // var_dump($imagefiles);
-                // echo '</pre>';
-
-                
-                // die;
+            
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
+
                         if ($img->getClientMimeType() !== 'image/jpeg') {
-                            echo 'Неверный формат файла ' . $img->getName();
+                            $session->setFlashdata('msg', 'Некоторые изображения не загружены так как не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
+                            ');
                             
                         } else {
                             $newName = $img->getRandomName();
@@ -139,18 +136,17 @@ class Panel extends BaseController
                         }
                     }
                 }
+                $session->setFlashdata('msg-success', 'Лагерь добавлен в базу данных и отправлен на модерацию.');
+                return redirect()->to('/panel');
             }
 
             //$this->TypesModel->insert($data);
         } else {
-            echo 'Лагерь не добавлен';
+            $session->setFlashdata('msg-error', 'При добавлении лагеря произошла ошибка. Обратитесь в службу поддержки.');
+            return redirect()->to('/panel');
             
         }
-        
 
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
 
     }
 

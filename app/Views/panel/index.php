@@ -1,6 +1,18 @@
 <!-- содержимое -->
 <div class="col py-3">
 
+<?php if(session()->getFlashdata('msg')):?>
+                    <div class="alert alert-warning">
+                       <?= session()->getFlashdata('msg') ?>
+                    </div>
+                    <?php endif;?>
+
+<?php if(session()->getFlashdata('msg-success')):?>
+<div class="alert alert-success">
+<?= session()->getFlashdata('msg-success') ?>
+</div>
+<?php endif;?>
+
       <div class="row">
       
 

@@ -194,7 +194,7 @@
                 <h3 class="text-center mt-4">Загрузите фотографии</h3>
                 <div class="row">
                     
-                    <div class="col-lg-2">
+                    <div class="col-lg-6">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -212,7 +212,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-6">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -225,13 +225,13 @@
                                         </svg>
                                     </i>
                                     <span class="title">Дополнительное изображение 1</span>
-                                    <input type="file" name="images[]">
+                                    <input type="file" name="images[]" multiple>
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -248,10 +248,10 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -268,9 +268,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -287,9 +287,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -306,9 +306,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -325,9 +325,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -344,9 +344,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -363,9 +363,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -382,9 +382,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -401,9 +401,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <div class="example-1">
                             <div class="form-group">
                                 <label class="label">
@@ -420,7 +420,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>

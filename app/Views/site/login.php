@@ -92,12 +92,13 @@
 
 <body>
 
-
 <?php if(session()->getFlashdata('msg')):?>
-                    <div class="alert alert-warning">
-                       <?= session()->getFlashdata('msg') ?>
-                    </div>
-                    <?php endif;?>
+<div class="alert alert-warning">
+<?= session()->getFlashdata('msg') ?>
+</div>
+<?php endif;?>
+
+
 
 
 <div class="loginBox"> 
