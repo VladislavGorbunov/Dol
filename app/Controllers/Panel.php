@@ -96,6 +96,13 @@ class Panel extends BaseController
 
     public function addCamp()
     {
+        $rules = [
+            'title' => 'required',
+            'year' => 'required',
+            'min_age' => 'required',
+            'max-age'    => 'required',
+        ];
+
         $session = session();
         $data['title'] = $this->request->getVar('title');
         $data['year'] = $this->request->getVar('year');
@@ -114,6 +121,11 @@ class Panel extends BaseController
         $data['advantages'] = $this->request->getVar('advantages');
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
+
+        if (!$this->validate($rules)) {
+            echo validation_list_errors();
+            die;
+        }
 
         if ($this->CampsModel->insert($data)) {
 

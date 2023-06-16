@@ -57,6 +57,7 @@
 }
 </style>
 
+<?= validation_list_errors() ?>
 
 <div class="col p-4">
     <h1 class="mt-2 text-center">Анкета лагеря</h1>
