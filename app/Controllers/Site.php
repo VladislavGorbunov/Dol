@@ -123,6 +123,8 @@ class Site extends BaseController
         for ($i = 0; $i < count($camps); $i++) {
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],
+                'slug' => $camps[$i]['slug'],
+                'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
                 'count_reviews' => $camps[$i]['count_reviews'],
