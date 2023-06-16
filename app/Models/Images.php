@@ -13,6 +13,7 @@ class Images extends Model
         'id',
         'camps_id',
         'name_img',
+        'cover',
     ];
 
     protected function initialize()

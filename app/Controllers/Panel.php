@@ -98,7 +98,6 @@ class Panel extends BaseController
     {
         $session = session();
         $data['title'] = $this->request->getVar('title');
-        $data['cover'] = $this->request->getFile('cover')->getName();
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
         $data['max_age'] = $this->request->getVar('max_age');
@@ -125,6 +124,29 @@ class Panel extends BaseController
             $home = $_SERVER['DOCUMENT_ROOT'] . "/";
             $home = $home . '/public/images/camps/'. $data['slug'];
 
+            
+            if ($cover = $this->request->getFile('cover')) {
+                if ($cover->isValid() && ! $cover->hasMoved()) {
+
+                    if ($cover->getClientMimeType() !== 'image/jpeg') {
+                        $session->setFlashdata('msg', 'Обложка не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
+                        ');
+                        
+                    } else {
+                        $newNameCover = $cover->getRandomName();
+                        $cover->move($home, $newNameCover);
+                        $data_cover = [
+                            'camps_id' => $camps_id,
+                            'name_img' => $newNameCover,
+                            'cover' => 1,
+                        ];
+
+                        $this->ImagesModel->save($data_cover);
+                    }
+                }
+            }
+    
+
             // Загрузка изображений
             if ($imagefiles = $this->request->getFiles()) {
                 
@@ -141,6 +163,7 @@ class Panel extends BaseController
                             $data_image = [
                                 'camps_id' => $camps_id,
                                 'name_img' => $newName,
+                                'cover' => 0,
                             ];
 
                             $this->ImagesModel->save($data_image);

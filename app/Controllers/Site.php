@@ -7,6 +7,7 @@ use App\Models\Camps;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
+use App\Models\Images;
 
 class Site extends BaseController
 {
@@ -26,6 +27,7 @@ class Site extends BaseController
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
+        $this->Images = new Images();
         // Preload any models, libraries, etc, here.
     }
 
@@ -33,7 +35,29 @@ class Site extends BaseController
     {
         $data['cities'] = $this->Cities->findAll();
         $data['seasons'] = $this->Seasons->findAll();
-        $data['camps'] = $this->Camps->findAll();
+        //$data['camps'] = $this->Camps->findAll();
+
+        $camps = $this->Camps->getBestCamps()->getResultArray();
+
+
+        // Создание массива лагерей
+        for ($i = 0; $i < count($camps); $i++) {
+            $data['camps'][$i] = [
+                'camp' => $camps[$i]['camp'],
+                'slug' => $camps[$i]['slug'],
+                'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
+                'camp_id' => $camps[$i]['camps_id'],
+                'adress' => $camps[$i]['adress'],
+                
+                'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+            ];
+
+        }
+        // echo '<pre>';
+        // var_dump($data['camps']);
+        // echo '</pre>';
+        
+
         
         return view('layouts/header', $data) 
         .view('site/index')
