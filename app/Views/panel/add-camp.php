@@ -57,13 +57,19 @@
 }
 </style>
 
-<?= validation_list_errors() ?>
+
 
 <div class="col p-4">
     <h1 class="mt-2 text-center">Анкета лагеря</h1>
     <p class="text-center">Заполните поля ниже. Все данные проходят проверку. В случае указания недейтвительной
         информации, добавление
         лагеря будет отклонено.</p>
+
+        <?php if(session()->getFlashdata('msg-error')):?>
+<div class="alert alert-danger">
+<?= session()->getFlashdata('msg-error') ?>
+</div>
+<?php endif;?>
 
     <div class="row">
 
@@ -440,7 +446,7 @@
             foreach ($types as $type) {
                 echo '
                     <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[]">
+                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[type]">
                     <label class="form-check-label">'.$type['title'].'</label>
                     </div>';
             }
