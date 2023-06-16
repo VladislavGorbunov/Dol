@@ -7,13 +7,13 @@ use App\Models\Camps;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
+use App\Models\Images;
 
 
 use CodeIgniter\Files\File;
 
 class Panel extends BaseController
 {
-
     public $RepresentativesModel;
     protected $helpers = ['form'];
 
@@ -27,6 +27,7 @@ class Panel extends BaseController
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CitiesModel = new Cities();
         $this->TypesModel = new Types();
+        $this->ImagesModel = new Images();
         
         // Preload any models, libraries, etc, here.
     }
@@ -97,6 +98,7 @@ class Panel extends BaseController
     {
         $session = session();
         $data['title'] = $this->request->getVar('title');
+        $data['cover'] = $this->request->getFile('cover')->getName();
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
         $data['max_age'] = $this->request->getVar('max_age');
@@ -116,13 +118,16 @@ class Panel extends BaseController
 
         if ($this->CampsModel->insert($data)) {
 
+            $camp = $this->CampsModel->where('slug', $data['slug'])->first();
+            $camps_id = $camp['camps_id'];
+            
             // Путь до папки для загружаемых изображений лагеря
             $home = $_SERVER['DOCUMENT_ROOT'] . "/";
             $home = $home . '/public/images/camps/'. $data['slug'];
 
             // Загрузка изображений
             if ($imagefiles = $this->request->getFiles()) {
-            
+                
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
 
@@ -133,10 +138,16 @@ class Panel extends BaseController
                         } else {
                             $newName = $img->getRandomName();
                             $img->move($home, $newName);
+                            $data_image = [
+                                'camps_id' => $camps_id,
+                                'name_img' => $newName,
+                            ];
+
+                            $this->ImagesModel->save($data_image);
                         }
                     }
                 }
-                $session->setFlashdata('msg-success', 'Лагерь добавлен в базу данных и отправлен на модерацию.');
+                $session->setFlashdata('msg-success', 'Лагерь добавлен в базу данных и отправлен на проверку.');
                 return redirect()->to('/panel');
             }
 

@@ -33,6 +33,7 @@ class Site extends BaseController
     {
         $data['cities'] = $this->Cities->findAll();
         $data['seasons'] = $this->Seasons->findAll();
+        $data['camps'] = $this->Camps->findAll();
         
         return view('layouts/header', $data) 
         .view('site/index')

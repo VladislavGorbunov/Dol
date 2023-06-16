@@ -13,12 +13,14 @@ class Camps extends Model
         'camps_id',
         'cities_id',
         'title',
+        'cover',
         'adress',
         'coords',
         'year',
         'min_age',
         'max_age',
         'free_tranfser',
+        'slug',
         
     ];
 
