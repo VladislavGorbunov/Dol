@@ -28,6 +28,7 @@ class Site extends BaseController
         $this->Types = new Types();
         $this->Seasons = new Seasons();
         $this->Images = new Images();
+
         // Preload any models, libraries, etc, here.
     }
 
@@ -38,7 +39,6 @@ class Site extends BaseController
         $data['types'] = $this->Types->findAll();
 
         $camps = $this->Camps->getBestCamps()->getResultArray();
-
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {

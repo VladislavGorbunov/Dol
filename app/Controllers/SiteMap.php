@@ -39,6 +39,8 @@ class SiteMap extends BaseController
 
         
         
+
+        
         return view('sitemap/index', $data);
     }
 

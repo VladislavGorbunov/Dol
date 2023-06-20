@@ -30,7 +30,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/sitemap', 'SiteMap::index');
+$routes->get('/sitemap.xml', 'SiteMap::index');
 
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
