@@ -77,7 +77,7 @@
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Название лагеря:</label>
-                    <input type="text" class="form-control" name="title" placeholder="Например: ДОЛ «Морская волна»">
+                    <input type="text" class="form-control" name="title" placeholder="Например: ДОЛ «Морская волна»" required>
                 </div>
 
                 <div class="mb-3">
@@ -219,7 +219,7 @@
                                         </svg>
                                     
                                     <span class="title">Добавить главную обложку</span>
-                                    <input type="file" id="cover_img" name="cover" accept="image/png, image/jpeg">
+                                    <input type="file" id="cover_img" name="cover" accept="image/png, image/jpeg" required>
                                 </label>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                                         </svg>
                                     
                                     <span class="title">Дополнительные изображения (до 15 фото в формате JPG или PNG)</span>
-                                    <input type="file" name="images[]" accept="image/png, image/jpeg" multiple>
+                                    <input type="file" name="images[]" accept="image/png, image/jpeg" multiple required>
                                 </label>
                             </div>
                         </div>
@@ -253,8 +253,6 @@
             <?php
 
             foreach ($types as $type) {
-                
-
                 echo '
                     <div class="form-check col-lg-3 mb-2">
                     <label class="form-check-label">

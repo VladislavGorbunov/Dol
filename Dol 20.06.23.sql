@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 20 2023 г., 09:50
+-- Время создания: Июн 20 2023 г., 14:10
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -121,10 +121,51 @@ CREATE TABLE `cities` (
 --
 
 INSERT INTO `cities` (`cities_id`, `title`, `title_in`, `slug`) VALUES
-(1, 'Москва', '', 'moscow'),
-(2, 'Московская область', '', 'podmoskove'),
-(3, 'Санкт-Петербург', '', 'sankt-peterburg'),
-(4, 'Ленинградская область', '', 'leningradskaya-oblast');
+(1, 'Москва и область', '', 'moskva-i-oblast'),
+(2, 'Санкт-Петербург и область', '', 'sankt-peterburg-i-oblast'),
+(3, 'Краснодарский край', '', 'krasnodarskiy-kray'),
+(4, 'Крым', '', 'crimea'),
+(5, 'Адыгея', '', 'adyigeya'),
+(6, 'Алтай', '', 'altay'),
+(7, 'Алтайский край', '', 'altayskiy-kray'),
+(8, 'Амурская область', '', 'amurskaya-oblast'),
+(9, 'Астраханская область', '', 'astrahanskaya-oblast'),
+(10, 'Башкортостан', '', 'bashkortostan'),
+(11, 'Балгородская область', '', 'belgorodskaya-oblast'),
+(12, 'Брянская область', '', 'bryanskaya-oblast'),
+(13, 'Бурятия', '', 'buryatiya'),
+(14, 'Владимирская область', '', 'vladimirskaya-oblast'),
+(15, 'Вологодская область', '', 'volgogradskaya-oblast'),
+(16, 'Воронежская область', '', 'voronezhskaya-oblast'),
+(17, 'Дагестан', '', 'dagestan'),
+(18, 'Забайкальский край', '', 'zabaykalskiy-kray'),
+(19, 'Ивановская область', '', 'ivanovskaya-oblast'),
+(20, 'Ингушетия', '', 'ingushetia'),
+(21, 'Иркутская область', '', 'irkutskaya-oblast'),
+(22, 'Кабардино-Балкария', '', 'kabardino-balkaria'),
+(23, 'Калининградская область', '', 'kaliningradskaya-oblast'),
+(24, 'Калужская область', '', 'kaluzhskaya-oblast'),
+(25, 'Камчатский край', '', 'kamchatskiy-kray'),
+(26, 'Карачаево-Черкессия', '', 'karachaevo-cherkessiya'),
+(27, 'Карелия', '', 'kareliya'),
+(28, 'Кемеровская область', '', 'kemerovskaya-oblast'),
+(29, 'Кировская область', '', 'kirov'),
+(30, 'Коми', '', 'komi'),
+(31, 'Костромская область', '', 'kostromskaya-oblast'),
+(32, 'Красноярский край', '', 'krasnoyarskiy-kray'),
+(33, 'Курганская область', '', 'kurganskaya-oblast'),
+(34, 'Курская область', '', 'kurskaya-oblast'),
+(35, 'Липецкая область', '', 'lipetskaya-oblast'),
+(36, 'Марий Эл', '', 'mariy-yel'),
+(37, 'Мордовия', '', 'mordoviya'),
+(38, 'Мурманская область', '', 'murmanskaya-oblast'),
+(39, 'Нижегородская область', '', 'nizhegorodskaya-oblast'),
+(40, 'Новгородская область', '', 'novgorodskaya-oblast'),
+(41, 'Новосибирская область', '', 'novosibirskaya-oblast'),
+(42, 'Омская область', '', 'omskaya-oblast'),
+(43, 'Оренбургская область', '', 'orenburgskaya-oblast'),
+(44, 'Орловская область', '', 'orlovskaya-oblast'),
+(45, 'Пензенская область', '', 'penzenskaya-oblast');
 
 -- --------------------------------------------------------
 
@@ -220,7 +261,7 @@ INSERT INTO `seasons` (`seasons_id`, `title`, `slug`) VALUES
 CREATE TABLE `types` (
   `types_id` int NOT NULL,
   `title` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tag_tite` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tag_title` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -228,7 +269,7 @@ CREATE TABLE `types` (
 -- Дамп данных таблицы `types`
 --
 
-INSERT INTO `types` (`types_id`, `title`, `tag_tite`, `slug`) VALUES
+INSERT INTO `types` (`types_id`, `title`, `tag_title`, `slug`) VALUES
 (1, 'Языковой лагерь', 'Языковые лагеря', 'language'),
 (2, 'Лагерь на море', 'Лагеря на море', 'sea'),
 (3, 'Онлайн лагерь', 'Онлайн лагеря', 'online'),
@@ -370,7 +411,7 @@ ALTER TABLE `camps_types`
 -- AUTO_INCREMENT для таблицы `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `cities_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cities_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT для таблицы `representatives`

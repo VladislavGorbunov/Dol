@@ -35,7 +35,7 @@ class Site extends BaseController
     {
         $data['cities'] = $this->Cities->findAll();
         $data['seasons'] = $this->Seasons->findAll();
-        //$data['camps'] = $this->Camps->findAll();
+        $data['types'] = $this->Types->findAll();
 
         $camps = $this->Camps->getBestCamps()->getResultArray();
 

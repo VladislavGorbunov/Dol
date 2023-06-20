@@ -116,7 +116,7 @@
 
                 </div>
         </nav>
-    </header>
+</header>
 
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
@@ -130,7 +130,12 @@
                     </p>
                 </div>
             </div>
-
+<?php
+// echo '<pre>';
+// var_dump($types);
+// echo '</pre>';
+// die;
+?>
 
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
                 <form action="" method="post">
@@ -153,9 +158,11 @@
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
                                 <option selected disabled value="">Любой тип лагеря</option>
-                                <option value="sport">Спортивный</option>
-                                <option value="recreation">Оздоровительный</option>
-                                <option value="3">Three</option>
+                                <?php 
+                                    foreach ($types as $key => $type) {
+                                        echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                    }
+                                ?>
                             </select>
                         </div>
 

@@ -48,7 +48,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
   <div class="container">
-    <a class="navbar-brand" href="#">ByCamp Office</a>
+    <a class="navbar-brand" href="/panel">ByCamp Office</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,10 +72,8 @@
             Путёвки
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Все путёвки</a></li>
+            <li><a class="dropdown-item" href="#">Добавить путёвку</a></li>
           </ul>
         </li>
         <li class="nav-item">

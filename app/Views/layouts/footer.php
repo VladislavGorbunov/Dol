@@ -74,6 +74,9 @@
           <p>
             <a href="#!" class="text-reset">Пользовательское соглашение</a>
           </p>
+          <p>
+            <a href="/sitemap" target="_blank" class="text-reset">Карта сайта</a>
+          </p>
         </div>
         <!-- Grid column -->
 
