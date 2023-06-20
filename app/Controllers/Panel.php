@@ -110,6 +110,7 @@ class Panel extends BaseController
             'free_transfer' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'coords' => ['label' => 'Координаты', 'rules' => 'required'],
             //'types.*.type' => ['label' => 'Типы лагеря', 'rules' => 'required'],
+            'cover' => ['label' => 'Обложка', 'rules' => 'required'],
             'description' => ['label' => 'Описание лагеря', 'rules' => 'required'],
             'placement' => ['label' => 'Размещение', 'rules' => 'required'],
             'advantages' => ['label' => 'Преимущества лагеря', 'rules' => 'required'],

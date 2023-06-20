@@ -242,222 +242,34 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 2</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 3</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 4</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 5</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 6</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 7</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 8</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 9</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 10</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-2">
-                        <div class="example-1">
-                            <div class="form-group">
-                                <label class="label">
-                                    <i class="material-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8"
-                                            class="bi bi-images" viewBox="0 0 16 16">
-                                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                            <path
-                                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                        </svg>
-                                    </i>
-                                    <span class="title">Дополнительное изображение 11</span>
-                                    <input type="file" name="images[]">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
-
-
                 </div>
             </div>
 
             <div class="col-lg-12">
                 <h3 class="text-center mt-4">Типы лагеря</h3>
-                <p class="text-center">Выберите не более 6 типов к которым относится ваш лагерь.</p>
+                <p class="text-center">Выберите типы к которым относится ваш лагерь.</p>
+            <div class="row">
+            
             <?php
 
             foreach ($types as $type) {
+                
+
                 echo '
-                    <div class="form-check">
+                    <div class="form-check col-lg-3 mb-2">
+                    <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[type]">
-                    <label class="form-check-label">'.$type['title'].'</label>
+                    '.$type['title'].'</label>
                     </div>';
             }
 
             ?>
-
+            </div>
                 
             </div>
         
 
-
+            <h3 class="text-center mt-4">Описания</h3>
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря:</label>
             <textarea class="form-control textarea" id="editor" name="description"></textarea>
