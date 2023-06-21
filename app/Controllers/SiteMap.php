@@ -37,10 +37,6 @@ class SiteMap extends BaseController
         $data['seasons'] = $this->Seasons->findAll();
         $data['types'] = $this->Types->findAll();
 
-        
-        
-
-        
         return view('sitemap/index', $data);
     }
 
