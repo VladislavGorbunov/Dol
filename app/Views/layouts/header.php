@@ -88,7 +88,8 @@
                                 <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
                                 <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
 
-                                    <form action="/login" method="post">
+                                    <form action="/login" method="post" id="login-form">
+                                        
                                         <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
                                         <input type="text" class="form-control auth-input" name="email"
                                             placeholder="Введите свой Email" required />
@@ -96,6 +97,10 @@
                                         <label for="exampleDatepicker1" class="form-label mt-3">Пароль</label>
                                         <input type="password" class="form-control auth-input" name="password"
                                             placeholder="Введите пароль" required />
+                                            <div class="h-captcha" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
+
+                                           
+
                                 </div>
                                 <div class="col-lg-8 d-block mx-auto mb-3">
                                     <button type="submit" class="btn btn-auth-modal d-block mx-auto mt-3">Войти в личный
@@ -106,8 +111,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
         </nav>
 </header>

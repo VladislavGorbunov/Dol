@@ -48,7 +48,6 @@ class Site extends BaseController
                 'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
-                
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
             ];
 

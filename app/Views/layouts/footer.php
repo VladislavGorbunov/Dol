@@ -132,6 +132,10 @@
               
 
 <script src="/public/bootstrap-5.3.0-alpha3/dist/js/bootstrap.bundle.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+
 
   
 </body>

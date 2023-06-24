@@ -8,7 +8,7 @@ use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Images;
-
+use App\Controllers\Recaptcha;
 
 use CodeIgniter\Files\File;
 
@@ -28,6 +28,8 @@ class Panel extends BaseController
         $this->CitiesModel = new Cities();
         $this->TypesModel = new Types();
         $this->ImagesModel = new Images();
+
+        $this->Recaptcha = new Recaptcha();
         
         // Preload any models, libraries, etc, here.
     }
@@ -52,10 +54,23 @@ class Panel extends BaseController
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
+        if (empty($_POST['h-captcha-response'])) {
+            $session->setFlashdata('msg', 'Please click on the hCaptcha button.');
+            return redirect()->to('/login');
+        }
+
+        $captcha_result = $this->Recaptcha->RecaptchaCheck($_POST['h-captcha-response']);
+       
         $data = $this->RepresentativesModel->where('email_manager', $email)->first();
 
         if (empty($data) || $data['activated'] == 0) {
             $session->setFlashdata('msg', 'Профиль не найден или не активен.');
+            return redirect()->to('/login');
+            die;
+        }
+
+        if (empty($recaptcha_result)) {
+            $session->setFlashdata('msg', 'Вы не прошли проверку Google Recaptcha. Попробуйте еще раз.');
             return redirect()->to('/login');
             die;
         }
@@ -81,6 +96,33 @@ class Panel extends BaseController
             $session->setFlashdata('msg', 'Неверный email.');
             return redirect()->to('/login');
         }
+    }
+
+
+    public function RecaptchaCheck()
+    {
+        return 0;
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+
+        $data = [
+            'secret' => '6Leg834lAAAAAHxNFzpNRRxyrjdYfStihXpnBngU',
+            'response' => $_POST['g-recaptcha-response'],
+        ];
+        
+        $post_data = http_build_query($data);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POST, true); 
+        $result = curl_exec($curl);
+        $result = json_decode($result, true);
+        
+        if (!$result['success']) {
+            header('Location: /');
+            $_SESSION['message'] = 'Подтвердите что Вы не бот!';
+            die;
+        };
     }
 
 
