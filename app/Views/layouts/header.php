@@ -61,59 +61,21 @@
 
                     </ul>
 
-                    
+
 
                     <div class="d-flex justify-content-center">
-                    <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:10px;">
+                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3"
+                            style="position:relative;top:10px;">
 
-                        <button type="button" class="btn btn-auth m-1" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">Войти</button>
-
-
-
+                        <a href="/login" class="btn btn-auth m-1">Войти</a>
                         <a class="btn btn-reg m-1" href="/registration">Добавить лагерь</a>
                     </div>
 
-                    <!-- Модальное окно -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
 
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Закрыть"></button>
-                                </div>
-                                <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
-                                <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
-                                <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
-
-                                    <form action="/login" method="post" id="login-form">
-                                        
-                                        <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
-                                        <input type="text" class="form-control auth-input" name="email"
-                                            placeholder="Введите свой Email" required />
-
-                                        <label for="exampleDatepicker1" class="form-label mt-3">Пароль</label>
-                                        <input type="password" class="form-control auth-input" name="password"
-                                            placeholder="Введите пароль" required />
-                                            <div class="h-captcha" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
-
-                                           
-
-                                </div>
-                                <div class="col-lg-8 d-block mx-auto mb-3">
-                                    <button type="submit" class="btn btn-auth-modal d-block mx-auto mt-3">Войти в личный
-                                        кабинет</button>
-                                    <a href="" class="d-block mx-auto text-center mb-3">Восстановить пароль</a>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
         </nav>
-</header>
+    </header>
 
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
@@ -127,7 +89,7 @@
                     </p>
                 </div>
             </div>
-<?php
+            <?php
 // echo '<pre>';
 // var_dump($types);
 // echo '</pre>';
