@@ -126,13 +126,14 @@
 
 <body>
 
+
+    <div class="col-lg-3 col-12 loginBox">
     <?php if(session()->getFlashdata('msg')):?>
     <div class="alert alert-warning">
         <?= session()->getFlashdata('msg') ?>
     </div>
     <?php endif;?>
 
-    <div class="col-lg-3 col-12 loginBox">
         <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
         <h3 class="text-center mt-3">ByCamps Office</h3>
         <form action="" method="post">

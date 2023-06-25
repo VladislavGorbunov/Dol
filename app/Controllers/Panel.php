@@ -55,7 +55,7 @@ class Panel extends BaseController
         $password = $this->request->getVar('password');
 
         if (empty($_POST['h-captcha-response'])) {
-            $session->setFlashdata('msg', 'Please click on the hCaptcha button.');
+            $session->setFlashdata('msg', 'Пройдите проверку на робота, нажмите на кнопку "я человек".');
             return redirect()->to('/login');
         }
 
@@ -69,8 +69,8 @@ class Panel extends BaseController
             die;
         }
 
-        if (empty($recaptcha_result)) {
-            $session->setFlashdata('msg', 'Вы не прошли проверку Google Recaptcha. Попробуйте еще раз.');
+        if (empty($captcha_result)) {
+            $session->setFlashdata('msg', 'Вы не прошли проверку на робота. Попробуйте еще раз.');
             return redirect()->to('/login');
             die;
         }

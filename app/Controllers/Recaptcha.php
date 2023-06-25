@@ -49,13 +49,7 @@ class Recaptcha extends BaseController
         
         curl_close($ch);	
          
-        if ($responseData->success) {
-            echo 'captcha ok';
-        } else {
-            echo 'captcha error';
-        }
-        
-        die;
+        return $responseData->success;
     }
 
 }

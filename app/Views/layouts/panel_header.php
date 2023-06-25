@@ -34,6 +34,21 @@
         padding: 10px 25px;
     }
 
+    .btn-logout {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+    }
+
+    .btn-logout:hover {
+      color: #fff;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+    }
+
+
     .dark {
         background-color: #111;
     }
@@ -64,7 +79,6 @@
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             <li><a class="dropdown-item" href="#">Мои лагеря</a></li>
             <li><a class="dropdown-item" href="/panel/add-camp">Добавить лагерь</a></li>
-            
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -81,8 +95,9 @@
         </li>
       </ul>
       <form class="d-flex">
-      <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
-      <a class="btn btn-add m-1" href="/panel/add-camp">Добавить путёвку</a>
+      <!-- <a class="btn btn-add m-1" href="/panel/add-camp">Добавить лагерь</a>
+      <a class="btn btn-add m-1" href="/panel/add-camp">Добавить путёвку</a> -->
+      <a class="btn btn-logout m-1" href="/panel/logout">Выйти</a>
       </form>
     </div>
   </div>
