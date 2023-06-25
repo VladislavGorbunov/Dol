@@ -33,7 +33,6 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
-                
                 min-height: 200px;
                 background: #fff;
                 border-radius: 10px;
@@ -62,27 +61,31 @@
             
             .loginBox input[type="text"], .loginBox input[type="password"]{
                 border: none;
-                border-bottom: 1px solid #999;
+                border-bottom: 1px solid #ccc;
                 outline: none;
                 height: 55px;
                 color: #222;
                 background: transparent;
                 font-size: 16px;
-                padding-left: 20px;
+                padding-left: 10px;
                 box-sizing: border-box
             }
             
 
             .inputBox{position: relative}.inputBox span{position: absolute;top: 10px;color: #262626}
             .loginBox input[type="submit"]{
+                display: block;
                 border: none;
                 outline: none;
-                height: 50px;
+                height: 60px;
                 font-size: 16px;
                 background: #2955c8;
                 color: #fff;
                 border-radius: 5px;
                 cursor: pointer;
+                width: 300px;
+                margin: 0 auto;
+                margin-bottom: 20px;
             }
             
             .loginBox a{
@@ -99,7 +102,7 @@
 
             .h-captcha {
                 display: block;
-                width: 100px;
+                width: 305px;
             }
         </style>
 
@@ -125,7 +128,7 @@
             <div class="inputBox mt-3"> 
                 <input id="uname" type="text" name="email" placeholder="Email" required> 
                 <input id="pass" type="password" name="password" placeholder="Пароль" required> </div>
-                <div class="h-captcha" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
+                <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
                 <input type="submit" name="" value="Войти" class="mt-3">
         </form> 
         <a href="#">Восстановить пароль<br> </a>
