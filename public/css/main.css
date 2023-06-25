@@ -134,11 +134,11 @@ a {
 }
 
 .filter-block {
-    background: rgba(255, 255, 255, 0.95) url(/public/theme/img/filter-bg.png) center;
+    background: rgba(0, 0, 0, 0.1) url(/public/theme/img/filter-bg.png) center;
     background-size: auto;
     max-width: 1200px;
     min-height: 130px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(30px);
     border-radius: 10px;
     padding: 10px 45px 35px 45px;
     box-shadow: 0 3px 20px -10px #111;
@@ -154,7 +154,7 @@ a {
 .filter-block .form-select {
     display: block;
     font-size: 15px;
-    padding: 12px 25px 12px 15px;
+    padding: 15px 25px 15px 15px;
     margin-top: 5px;
     margin-bottom: 5px;
     border: none;
@@ -177,16 +177,17 @@ a {
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 500;
+    color: #fff;
 }
 
 .filter-block .btn {
     display: block;
     background: #21a663;
     border: none;
-    padding: 12px 30px 12px 30px;
+    padding: 15px 30px 15px 30px;
     font-size: 16px;
     margin-top: 42px;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 5px;
 }
 
