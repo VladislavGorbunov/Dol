@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 
-
-
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -113,6 +111,7 @@ a {
     background: url(/../public/theme/img/header-dark.jpg) center;
     padding: 20px 0;
     margin-bottom: 30px;
+    
 }
 
 .header-image-short {
