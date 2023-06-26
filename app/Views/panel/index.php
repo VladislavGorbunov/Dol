@@ -42,16 +42,17 @@
 
         <div class="col-lg-12">
             <h3 class="mb-3 mt-3">Мои лагеря</h3>
-<?php
-            foreach ($camps as $camp) {
-            echo '
-            <div class="col-lg-4">
-            <div class="card shadow-sm">';
+            <?php
+                if (!empty($camps)) {
+                    foreach ($camps as $camp) {
+                        echo '
+                        <div class="col-lg-4">
+                        <div class="card shadow-sm">';
 
-            echo '<div class="card-body">
-                <h4>'.$camp['title'].'</h4>
-                <p>'.$camp['adress'].'</p>
-                    <div class="d-flex justify-content-between align-items-center">
+                        echo '<div class="card-body">
+                        <h4>'.$camp['title'].'</h4>
+                        <p>'.$camp['adress'].'</p>
+                        <div class="d-flex justify-content-between align-items-center">
                         
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <a href="" class="m-2">Смотреть</a>
@@ -60,12 +61,15 @@
                       
                         </div>
                         
-                    </div>
-                </div>
-            </div>
-            </div>';
-        }
-?>
+                        </div>
+                        </div>
+                        </div>
+                        </div>';
+                    }
+                } else {
+                    echo 'Добавьте первый лагерь';
+                }
+            ?>
         </div>
 
     </div>

@@ -16,6 +16,7 @@ class Panel extends BaseController
 {
     public $RepresentativesModel;
     protected $helpers = ['form'];
+    protected $imagesFolder;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -30,6 +31,8 @@ class Panel extends BaseController
         $this->ImagesModel = new Images();
 
         $this->Recaptcha = new Recaptcha();
+
+        $this->imagesFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/images/camps';
         
         // Preload any models, libraries, etc, here.
     }
@@ -167,10 +170,8 @@ class Panel extends BaseController
             $camps_id = $camp['camps_id'];
             
             // Путь до папки для загружаемых изображений лагеря
-            $home = $_SERVER['DOCUMENT_ROOT'];
-            $home = $home . '/public/images/camps/'. $data['slug'];
+            $home = $this->$imagesFolder .'/'. $data['slug'];
 
-            
             if ($cover = $this->request->getFile('cover')) {
                 if ($cover->isValid() && ! $cover->hasMoved()) {
 
@@ -240,13 +241,12 @@ class Panel extends BaseController
             if ($data['representatives_id'] == $session->get('id')) {
                 
                 // Путь до папки изображений лагеря
-                $home = $_SERVER['DOCUMENT_ROOT'];
-                $home = $home . '/public/images/camps/'. $data['slug'];
-                if (!is_dir($home)) {
+                $images_folder = $this->imagesFolder .'/'. $data['slug'];
+                if (!is_dir($images_folder)) {
                     $session->setFlashdata('msg-error', 'Ошибка удаления изображений.');
                     return redirect()->to('/panel');
                 }
-                if (rmdir($home) && $camp = $this->CampsModel->where('camps_id', $camp_id)->delete()) {
+                if (delete_files($images_folder, true) && rmdir($images_folder) && $camp = $this->CampsModel->where('camps_id', $camp_id)->delete()) {
                     $session->setFlashdata('msg-success', 'Лагерь удалён.');
                 }
                 
