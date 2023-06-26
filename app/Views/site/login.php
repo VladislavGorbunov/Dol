@@ -127,7 +127,7 @@
 <body>
 
 
-    <div class="col-lg-3 col-12 loginBox">
+    <div class="col-lg-4 col-12 loginBox">
     <?php if(session()->getFlashdata('msg')):?>
     <div class="alert alert-warning">
         <?= session()->getFlashdata('msg') ?>
@@ -137,7 +137,7 @@
         <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
         <h3 class="text-center mt-3">ByCamps Office</h3>
         <form action="" method="post">
-            <div class="inputBox mt-1">
+            <div class="inputBox mt-1 col-lg-10 d-block mx-auto">
                 <input id="uname" type="text" name="email" placeholder="Email" required>
                 <input id="pass" type="password" name="password" placeholder="Пароль" required>
             </div>

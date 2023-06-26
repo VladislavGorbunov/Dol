@@ -39,8 +39,8 @@ class Panel extends BaseController
         $session = session();
        
         $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
-
-        //var_dump($data['user']);
+        $data['camps'] = $this->CampsModel->where('representatives_id', $data['user']['user_id'])->findAll();
+        //var_dump($data['camps']);
         return view('layouts/panel_header', $data)
         .view('panel/index')
         .view('layouts/panel_footer');
