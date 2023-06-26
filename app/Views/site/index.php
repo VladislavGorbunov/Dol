@@ -34,7 +34,7 @@
 
         <?php
 
-    if ($camps) {
+    if (!empty($camps)) {
         foreach ($camps as $camp) {
             echo '
             <div class="col-lg-4">

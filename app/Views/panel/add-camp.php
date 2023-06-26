@@ -481,7 +481,7 @@ function init() {
     var myPlacemark,
         myMap = new ymaps.Map('map', {
             center: [55.753994, 37.622093],
-            zoom: 9
+            zoom: 11
         }, {
             searchControlProvider: 'yandex#search'
         });
@@ -583,6 +583,7 @@ function init() {
             myMap.setBounds(bounds, {
                 // Проверяем наличие тайлов на данном масштабе.
                 checkZoomRange: true
+                
             });
 
             /**
