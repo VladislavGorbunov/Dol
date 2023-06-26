@@ -1,9 +1,9 @@
 <!-- содержимое -->
 <div class="col py-3">
 
-    <?php if(session()->getFlashdata('msg')):?>
+    <?php if(session()->getFlashdata('msg-error')):?>
     <div class="alert alert-warning">
-        <?= session()->getFlashdata('msg') ?>
+        <?= session()->getFlashdata('msg-error') ?>
     </div>
     <?php endif;?>
 
@@ -54,10 +54,12 @@
                     <div class="d-flex justify-content-between align-items-center">
                         
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        
+                        <a href="" class="m-2">Смотреть</a>
+                        <a href="" class="m-2">Редактировать</a>
+                        <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-2">Удалить</a>
                       
                         </div>
-                        <small class="text-muted">9 mins</small>
+                        
                     </div>
                 </div>
             </div>

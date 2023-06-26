@@ -99,35 +99,9 @@ class Panel extends BaseController
     }
 
 
-    public function RecaptchaCheck()
-    {
-        return 0;
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
-
-        $data = [
-            'secret' => '6Leg834lAAAAAHxNFzpNRRxyrjdYfStihXpnBngU',
-            'response' => $_POST['g-recaptcha-response'],
-        ];
-        
-        $post_data = http_build_query($data);
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_POST, true); 
-        $result = curl_exec($curl);
-        $result = json_decode($result, true);
-        
-        if (!$result['success']) {
-            header('Location: /');
-            $_SESSION['message'] = 'Подтвердите что Вы не бот!';
-            die;
-        };
-    }
-
-
     public function addCampForm()
     {
+        
         $data['cities'] = $this->CitiesModel->findAll();
         $data['types'] = $this->TypesModel->findAll();
 
@@ -138,12 +112,13 @@ class Panel extends BaseController
 
     public function addCamp()
     {
+        
         $validation = \Config\Services::validation();
-    
 
         $validation->setRules([
             'title' => ['label' => 'Название лагеря', 'rules' => 'required'],
             'cities_id' => ['label' => 'Регион', 'rules' => 'required'],
+            'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
             'adress' => ['label' => 'Адрес', 'rules' => 'required'],
             'year' => ['label' => 'Год основания', 'rules' => 'required'],
             'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required'],
@@ -152,15 +127,16 @@ class Panel extends BaseController
             'free_transfer' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'coords' => ['label' => 'Координаты', 'rules' => 'required'],
             //'types.*.type' => ['label' => 'Типы лагеря', 'rules' => 'required'],
-            'cover' => ['label' => 'Обложка', 'rules' => 'required'],
+            //'cover' => ['label' => 'Обложка', 'rules' => 'required'],
             'description' => ['label' => 'Описание лагеря', 'rules' => 'required'],
             'placement' => ['label' => 'Размещение', 'rules' => 'required'],
             'advantages' => ['label' => 'Преимущества лагеря', 'rules' => 'required'],
-            'daily_shedule' => ['label' => 'Распорядок дня', 'rules' => 'required'],
+            'daily_schedule' => ['label' => 'Распорядок дня', 'rules' => 'required'],
         ]);
 
         $session = session();
         $data['title'] = $this->request->getVar('title');
+        $data['representatives_id'] = $session->get('id');
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
         $data['max_age'] = $this->request->getVar('max_age');
@@ -178,10 +154,6 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
-        // echo '<pre>';
-        // var_dump($types_data['types']);
-        // echo '</pre>';
-        // die;
         if (!$validation->run($data)) {
             
             $session->setFlashdata('msg-error', validation_list_errors());
@@ -195,7 +167,7 @@ class Panel extends BaseController
             $camps_id = $camp['camps_id'];
             
             // Путь до папки для загружаемых изображений лагеря
-            $home = $_SERVER['DOCUMENT_ROOT'] . "/";
+            $home = $_SERVER['DOCUMENT_ROOT'];
             $home = $home . '/public/images/camps/'. $data['slug'];
 
             
@@ -221,7 +193,7 @@ class Panel extends BaseController
             }
     
 
-            // Загрузка изображений
+            // Загрузка дополнительных изображений
             if ($imagefiles = $this->request->getFiles()) {
                 
                 foreach ($imagefiles['images'] as $img) {
@@ -257,6 +229,38 @@ class Panel extends BaseController
 
 
     }
+
+
+    public function deleteCamp($camp_id)
+    {
+        helper('filesystem');
+        $session = session();
+        if ($data = $this->CampsModel->where('camps_id', $camp_id)->first()) {
+        
+            if ($data['representatives_id'] == $session->get('id')) {
+                
+                // Путь до папки изображений лагеря
+                $home = $_SERVER['DOCUMENT_ROOT'];
+                $home = $home . '/public/images/camps/'. $data['slug'];
+                if (!is_dir($home)) {
+                    $session->setFlashdata('msg-error', 'Ошибка удаления изображений.');
+                    return redirect()->to('/panel');
+                }
+                if (rmdir($home) && $camp = $this->CampsModel->where('camps_id', $camp_id)->delete()) {
+                    $session->setFlashdata('msg-success', 'Лагерь удалён.');
+                }
+                
+            } else {
+                $session->setFlashdata('msg-error', 'Нет прав для удаления этого лагеря.');
+            }
+        } else {
+            $session->setFlashdata('msg-error', 'Вы пытаетесь удалить несуществующий лагерь.');
+        }
+
+        return redirect()->to('/panel');
+        
+    }
+
 
     public function SlugCreate($text)
     {
