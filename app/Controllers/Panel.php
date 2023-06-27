@@ -179,12 +179,18 @@ class Panel extends BaseController
         // echo '</pre>';
         // die;
 
+        if (count($types_data['types']) > 6) {
+            $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относиться ваш лагерь!');
+            return redirect()->to('/panel/add-camp');
+        }
+
         
         if ($this->CampsModel->insert($data)) {
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
             $camps_id = $camp['camps_id'];
             // Добавление в БД типов лагеря
+            
             foreach ($types_data['types'] as $key => $type) {
                 $types = [
                     'camps_id' => $camps_id,

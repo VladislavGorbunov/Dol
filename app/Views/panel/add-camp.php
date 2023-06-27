@@ -247,8 +247,8 @@
 
             <div class="col-lg-6 d-block mx-auto">
                 <h3 class="text-center mt-4">Сезон работы</h3>
-                
-            <div class="row">
+                <p class="text-center">Если вы работаете круглый год выбирете все сезоны.</p>
+            <div class="row mt-3 mb-3">
             
             <?php
 
