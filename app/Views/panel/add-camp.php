@@ -256,7 +256,7 @@
                 echo '
                     <div class="form-check col-lg-3 mb-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[type]">
+                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[]">
                     '.$type['title'].'</label>
                     </div>';
             }

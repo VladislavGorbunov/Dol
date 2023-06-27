@@ -7,6 +7,7 @@ use App\Models\Camps;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
+use App\Models\campsTypes;
 use App\Models\Images;
 use App\Controllers\Recaptcha;
 
@@ -28,6 +29,7 @@ class Panel extends BaseController
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CitiesModel = new Cities();
         $this->TypesModel = new Types();
+        $this->CampsTypes = new CampsTypes();
         $this->ImagesModel = new Images();
 
         $this->Recaptcha = new Recaptcha();
@@ -157,20 +159,36 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
+        
+
+
         if (!$validation->run($data)) {
-            
             $session->setFlashdata('msg-error', validation_list_errors());
             return redirect()->to('/panel/add-camp');
             die;
         }
 
+        // echo '<pre>';
+        // var_dump($types);
+        // echo '</pre>';
+        // die;
+
+        // Добавление в БД типов лагеря
         if ($this->CampsModel->insert($data)) {
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
             $camps_id = $camp['camps_id'];
-            
+
+            foreach ($types_data['types'] as $key => $type) {
+                $types = [
+                    'camps_id' => $camps_id,
+                    'types_id' => $type,
+                ];
+                $this->CampsTypes->insert($types);
+            }
+
             // Путь до папки для загружаемых изображений лагеря
-            $home = $this->$imagesFolder .'/'. $data['slug'];
+            $home = $this->imagesFolder .'/'. $data['slug'];
 
             if ($cover = $this->request->getFile('cover')) {
                 if ($cover->isValid() && ! $cover->hasMoved()) {
