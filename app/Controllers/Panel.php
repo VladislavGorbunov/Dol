@@ -7,7 +7,9 @@ use App\Models\Camps;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
-use App\Models\campsTypes;
+use App\Models\Seasons;
+use App\Models\CampsTypes;
+use App\Models\CampsSeasons;
 use App\Models\Images;
 use App\Controllers\Recaptcha;
 
@@ -29,7 +31,9 @@ class Panel extends BaseController
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CitiesModel = new Cities();
         $this->TypesModel = new Types();
+        $this->SeasonsModel = new Seasons();
         $this->CampsTypes = new CampsTypes();
+        $this->CampsSeasons = new CampsSeasons();
         $this->ImagesModel = new Images();
 
         $this->Recaptcha = new Recaptcha();
@@ -109,6 +113,7 @@ class Panel extends BaseController
         
         $data['cities'] = $this->CitiesModel->findAll();
         $data['types'] = $this->TypesModel->findAll();
+        $data['seasons'] = $this->SeasonsModel->findAll();
 
         return view('layouts/panel_header', $data)
         .view('panel/add-camp')
@@ -153,6 +158,7 @@ class Panel extends BaseController
         $data['adress'] = $this->request->getVar('adress');
         $data['coords'] = $this->request->getVar('coords');
         $types_data['types'] = $this->request->getVar('types');
+        $seasons_data['seasons'] = $this->request->getVar('seasons');
         $data['description'] = $this->request->getVar('description');
         $data['placement'] = $this->request->getVar('placement');
         $data['advantages'] = $this->request->getVar('advantages');
@@ -173,18 +179,29 @@ class Panel extends BaseController
         // echo '</pre>';
         // die;
 
-        // Добавление в БД типов лагеря
+        
         if ($this->CampsModel->insert($data)) {
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
             $camps_id = $camp['camps_id'];
-
+            // Добавление в БД типов лагеря
             foreach ($types_data['types'] as $key => $type) {
                 $types = [
                     'camps_id' => $camps_id,
                     'types_id' => $type,
                 ];
+
                 $this->CampsTypes->insert($types);
+            }
+
+            // Добавление в БД сезонов лагеря
+            foreach ($seasons_data['seasons'] as $key => $season) {
+                $seasons = [
+                    'camps_id' => $camps_id,
+                    'seasons_id' => $season,
+                ];
+                
+                $this->CampsSeasons->insert($seasons);
             }
 
             // Путь до папки для загружаемых изображений лагеря

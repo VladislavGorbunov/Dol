@@ -12,6 +12,7 @@ class Camps extends Model
     protected $allowedFields = [
         'camps_id',
         'cities_id',
+        'representatives_id',
         'title',
         'cover',
         'adress',

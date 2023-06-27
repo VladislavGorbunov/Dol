@@ -245,6 +245,28 @@
                 </div>
             </div>
 
+            <div class="col-lg-6 d-block mx-auto">
+                <h3 class="text-center mt-4">Сезон работы</h3>
+                
+            <div class="row">
+            
+            <?php
+
+            foreach ($seasons as $season) {
+                echo '
+                    <div class="form-check col-lg-3 mb-2">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="'.$season['seasons_id'].'" name="seasons[]">
+                    '.$season['title'].'</label>
+                    </div>';
+            }
+
+            ?>
+            </div>
+                
+            </div>
+
+
             <div class="col-lg-12">
                 <h3 class="text-center mt-4">Типы лагеря</h3>
                 <p class="text-center">Выберите типы к которым относится ваш лагерь.</p>
