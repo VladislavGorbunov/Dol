@@ -88,8 +88,9 @@ class Site extends BaseController
         
         // Проверка существует ли такой тип в БД
         if ($filter['type'] != 'type-all') {
-            if (!$type = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
-            $type = $type['types_id'];
+            if (!$types = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
+            $type = $types['types_id'];
+            
         } else {
             $type = null;
         }   
