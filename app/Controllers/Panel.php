@@ -234,8 +234,10 @@ class Panel extends BaseController
 
                         $this->ImagesModel->save($data_cover);
 
+                        if (!file_exists($home .'/thumb/')) {
                         // Создание папки для маленьких изображений
-                        mkdir($home .'/thumb/');
+                            mkdir($home .'/thumb/');
+                        }
                         $image->withFile($home .'/'. $newNameCover)
                         ->fit(400, 400, 'center')
                         ->save($home .'/thumb/'. $newNameCover);
