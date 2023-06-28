@@ -41,7 +41,7 @@
             <div class="card shadow-sm">';
 
             if (!empty($camp['cover']['name_img'])) {
-                echo '<img src="/public/images/camps/'.$camp['slug'].'/'.$camp['cover']['name_img'].'">';
+                echo '<a href="/camp/'.$camp['slug'].'"><img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto"></a>';
             } else {
                 echo '<img src="/public/theme/img/nofoto.jpg">';
             }

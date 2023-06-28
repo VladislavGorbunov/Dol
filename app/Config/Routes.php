@@ -44,7 +44,7 @@ $routes->get('/panel/logout', 'Panel::Logout');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 
-$routes->get('/camp/(:alpha)/', 'Camp::GetCamp/$1');
+$routes->get('/camp/(:segment)', 'Camp::GetCamp/$1');
 $routes->get('/camps/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3');
 
 

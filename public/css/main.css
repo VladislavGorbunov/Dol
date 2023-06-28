@@ -24,6 +24,10 @@ a {
     color: #111;
 }
 
+.card {
+    border: 1px solid #eee;
+}
+
 .navbar-brand {
     margin-right: 30px;
 }

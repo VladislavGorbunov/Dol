@@ -237,7 +237,7 @@ class Panel extends BaseController
                         // Создание папки для маленьких изображений
                         mkdir($home .'/thumb/');
                         $image->withFile($home .'/'. $newNameCover)
-                        ->fit(100, 100, 'center')
+                        ->fit(400, 300, 'center')
                         ->save($home .'/thumb/'. $newNameCover);
                     }
                 }
@@ -266,7 +266,7 @@ class Panel extends BaseController
                             $this->ImagesModel->save($data_image);
 
                             $image->withFile($home .'/'. $newName)
-                            ->fit(100, 100, 'center')
+                            ->fit(1200, 600, 'center')
                             ->save($home .'/thumb/'. $newName);
                         }
                     }
