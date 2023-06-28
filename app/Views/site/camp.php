@@ -1,5 +1,5 @@
 <div class="container">
-    <?= 'Страница лагеря ' . $camp['title']?>
+    <?= '<h2 class="text-center">'.$camp['title'].'</h2>'?>
 
     <?php
     echo  $camp['coords'];

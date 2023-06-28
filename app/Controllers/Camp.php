@@ -34,6 +34,9 @@ class Camp extends BaseController
         // $data['cities'] = $this->Cities->findAll();
         // $data['seasons'] = $this->Seasons->findAll();
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
+        if (!$data['camp']) {
+            $this->error404();
+        }
         $data['title'] = 'Детский лагерь - ' . $data['camp']['title'];
         return view('layouts/header-short', $data) 
         .view('site/camp')
