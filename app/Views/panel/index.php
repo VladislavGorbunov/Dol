@@ -42,6 +42,7 @@
 
         <div class="col-lg-12">
             <h3 class="mb-3 mt-3">Мои лагеря</h3>
+            <div class="row">
             <?php
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
@@ -70,6 +71,7 @@
                     echo 'Добавьте первый лагерь';
                 }
             ?>
+            </div>
         </div>
 
     </div>

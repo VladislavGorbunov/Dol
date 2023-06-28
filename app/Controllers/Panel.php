@@ -124,6 +124,7 @@ class Panel extends BaseController
     {
         
         $validation = \Config\Services::validation();
+        $image = \Config\Services::image('gd');
 
         $validation->setRules([
             'title' => ['label' => 'Название лагеря', 'rules' => 'required'],
@@ -165,9 +166,6 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
-        
-
-
         if (!$validation->run($data)) {
             $session->setFlashdata('msg-error', validation_list_errors());
             return redirect()->to('/panel/add-camp');
@@ -181,6 +179,11 @@ class Panel extends BaseController
 
         if (count($types_data['types']) > 6) {
             $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относиться ваш лагерь!');
+            return redirect()->to('/panel/add-camp');
+        }
+
+        if ($this->CampsModel->where('title', $data['title'])->first()) {
+            $session->setFlashdata('msg-error', 'Лагерь с таким названием уже есть. Попробуйте изменить имя или обратитесь в службу поддержки.');
             return redirect()->to('/panel/add-camp');
         }
 
@@ -210,7 +213,7 @@ class Panel extends BaseController
                 $this->CampsSeasons->insert($seasons);
             }
 
-            // Путь до папки для загружаемых изображений лагеря
+            // Путь до папки для загружаемых оригинальных изображений лагеря
             $home = $this->imagesFolder .'/'. $data['slug'];
 
             if ($cover = $this->request->getFile('cover')) {
@@ -230,6 +233,12 @@ class Panel extends BaseController
                         ];
 
                         $this->ImagesModel->save($data_cover);
+
+                        // Создание папки для маленьких изображений
+                        mkdir($home .'/thumb/');
+                        $image->withFile($home .'/'. $newNameCover)
+                        ->fit(100, 100, 'center')
+                        ->save($home .'/thumb/'. $newNameCover);
                     }
                 }
             }
@@ -255,6 +264,10 @@ class Panel extends BaseController
                             ];
 
                             $this->ImagesModel->save($data_image);
+
+                            $image->withFile($home .'/'. $newName)
+                            ->fit(100, 100, 'center')
+                            ->save($home .'/thumb/'. $newName);
                         }
                     }
                 }
