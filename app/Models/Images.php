@@ -21,19 +21,8 @@ class Images extends Model
         
     }
     
-    // Получить все города из БД
-    public function getAllCity()
-    {
-        $data = $this->builder()->get();
-        return $data->getResultArray();
-    }
+   
 
-    // Получить город представителя
-    public function GetCity($id)
-    {
-        $data = $this->builder()->getWhere('cities_id', $id);
-        $data = $this->builder()->get();
-        return $data->getResultArray();
-    }
+   
     
 }

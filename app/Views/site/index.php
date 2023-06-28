@@ -38,10 +38,10 @@
         foreach ($camps as $camp) {
             echo '
             <div class="col-lg-4">
-            <div class="card shadow-sm">';
+            <a href="/camp/'.$camp['slug'].'"><div class="card shadow-sm">';
 
             if (!empty($camp['cover']['name_img'])) {
-                echo '<a href="/camp/'.$camp['slug'].'"><img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto"></a>';
+                echo '<img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto">';
             } else {
                 echo '<img src="/public/theme/img/nofoto.jpg">';
             }
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            </div>';
+            </div></a>';
         }
     } else {
         echo 'Упс.. Ни чего нет.';

@@ -129,7 +129,7 @@
             <div class="card p-3">
             <div class="row">
              <div class="col-lg-4 col-12 mb-3">
-             <img src="/public/images/camps/'.$camp['slug'].'/'.$camp['cover']['name_img'].'" class="img-fluid">
+             <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid">
                  
               </div>
 
@@ -144,12 +144,6 @@
                  <div class="row d-none d-lg-block d-md-block">
                      <div class="col-auto">
                          <p>Возраст: <b>от 4 до 14 лет</b></p>
-                         <p>Год основания: <b>2011</b></p>
-                     </div>
-
-                     <div class="col-auto">
-                         <p>Охраняемая территория: <b>Да</b></p>
-                         <p>Трансфер включён в стоимость: <b>Да</b></p>
                      </div>
                  </div>
 
