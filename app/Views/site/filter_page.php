@@ -114,12 +114,45 @@
         </div>
 
         <div class="col-lg-9">
-            <div class="row">
+        <div class="row">
+
+
+    <?php 
+    if (!empty($camps)) {
+        foreach ($camps as $camp) {
+            $rating = round($camp['avg_rating'], 1);
+            
+            echo '
+            <div class="col-lg-6">
+            <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid d-block mx-auto" width="300px">
+            <h5 class="text-center mt-2"><a href="/camp">'. $camp['camp'] .'</a></h5>
+
+            <p class="mt-3"><a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
+            </div>
+            ';
+    
+        }
+    } else {
+        echo '<div class="col-lg-12 mb-3"> Ничего не нашли =( </div>';
+    }
+    
+    ?>
+
+
+
+
+
+
+
+
+
+
+
 
         
 
 
-                <?php 
+    <?php 
     if (!empty($camps)) {
         foreach ($camps as $camp) {
             $rating = round($camp['avg_rating'], 1);
