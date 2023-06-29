@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: center;
             background: gold;
-            padding: 5px;
+            padding: 0px;
             border-radius: 5px;
             color: #000;
             font-weight: 400;
@@ -115,43 +115,6 @@
 
         <div class="col-lg-9">
         <div class="row">
-
-
-    <?php 
-    if (!empty($camps)) {
-        foreach ($camps as $camp) {
-            $rating = round($camp['avg_rating'], 1);
-            
-            echo '
-            <div class="col-lg-6">
-            <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid d-block mx-auto" width="300px">
-            <h5 class="text-center mt-2"><a href="/camp">'. $camp['camp'] .'</a></h5>
-
-            <p class="mt-3"><a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
-            </div>
-            ';
-    
-        }
-    } else {
-        echo '<div class="col-lg-12 mb-3"> Ничего не нашли =( </div>';
-    }
-    
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
     <?php 
     if (!empty($camps)) {
         foreach ($camps as $camp) {
@@ -170,7 +133,7 @@
              <div class="col-lg-8">
              <div class="row">
              <div class="col-lg-8">
-                 <h5><a href="/camp">'. $camp['camp_id'] . ' ' . $camp['camp'] .'</a></h5>
+                 <h5><a href="/camp">'. $camp['camp'] .'</a></h5>
                  <p>'.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
                  <p>
                  На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
