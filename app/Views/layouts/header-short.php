@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#2955c8">
     <meta name="description" content="Пример на bootstrap 5: Слайдер -
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
-    <title><?= $title ?></title>
+    <title></title>
     <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
@@ -80,68 +80,31 @@
                         <a class="btn btn-reg m-1" href="/registration">Добавить лагерь</a>
                     </div>
 
-                    <!-- Модальное окно -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Закрыть"></button>
-                                </div>
-                                <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
-                                <h5 class="text-center mt-3">Авторизация представителя лагеря</h5>
-                                <div class="modal-body col-lg-10 col-md-12 col-sm-12 col-12 d-block mx-auto">
-
-                                    <form action="/login" method="post">
-                                        <label for="exampleDatepicker1" class="form-label mt-3">Email</label>
-                                        <input type="text" class="form-control auth-input" name="email"
-                                            placeholder="Введите свой Email" required />
-
-                                        <label for="exampleDatepicker1" class="form-label mt-3">Пароль</label>
-                                        <input type="password" class="form-control auth-input" name="password"
-                                            placeholder="Введите пароль" required />
-                                </div>
-                                <div class="col-lg-8 d-block mx-auto mb-3">
-                                    <button type="submit" class="btn btn-auth-modal d-block mx-auto mt-3">Войти в личный
-                                        кабинет</button>
-                                    <a href="" class="d-block mx-auto text-center mb-3">Восстановить пароль</a>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
         </nav>
     </header>
+
+<div class="header-short-bg">
 <div class="container mt-2">
     <div class="header-image-short d-flex align-items-center justify-content-center">
         
             <div class="row">
                 <?php
                 if (!empty($title)) {
-                    echo '<h1 class="header-h1">'.$title.'</h1>';
+                    echo '<h1 class="header-short-h1">'.$title.'</h1>';
                 } else {
                     echo '<h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>';
                 }
 
                 ?>
-                <div class="col-lg-9 d-block mx-auto">
-                    <p class="text-center text-light header-descript">Наш сервис создан для быстрого и удобного поиска
-                        детских
-                        оздоровительных лагерей по всей России!
-                        Планируете отправить ребёнка на отдых? Мы поможем найти самый подходящий для вас вариант.
-                    </p>
-                </div>
+                
             </div>
 
 
 
     </div>
     </div>
+            </div>
 
     <script>
     // редирект

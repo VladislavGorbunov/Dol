@@ -120,17 +120,27 @@ a {
 
 .header-image-short {
     width: 100%;
-    min-height: 350px;
-    background: url(/../public/theme/img/header-dark.jpg) center;
+    min-height: 250px;
+    background: url(/../public/theme/img/header-dark.jpgf) center;
     padding: 20px 0;
     margin-bottom: 30px;
     border-radius: 20px;
+}
+
+.header-short-bg {
+    background: #f1f2f3;
 }
 
 .header-h1 {
     text-align: center;
     color: #fff;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+.header-short-h1 {
+    text-align: center;
+    color: #111;
+    
 }
 
 .header-descript {

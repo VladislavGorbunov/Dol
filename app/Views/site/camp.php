@@ -1,32 +1,66 @@
 <div class="container">
-    <?= '<h2 class="text-center">'.$camp['title'].'</h2>'?>
+
+
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-8 border">dfgdfgdf</div>
+                <div class="col-lg-4 border">dfgdfg</div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+            <div id="map" style="width: auto; height: 400px"></div>
+        </div>
+
+    </div>
 
     <?php
-    echo  $camp['coords'];
+    
 
-    $coord = explode(',', $camp['coords']);
-
-    var_dump($coord);
+    //$coord = explode(',', $camp['coords']);
+    echo '<pre>';
+    var_dump($types);
+    echo '</pre>';
+    
     ?>
 
-    <div id="map" style="width: 600px; height: 400px"></div>
 
-    <script type="text/javascript">
-    ymaps.ready(init);
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+ymaps.ready(init);
 
 function init() {
     var myMap = new ymaps.Map("map", {
-            center: [<?= $coord[0] ?>, <?= $coord[1] ?>],
+            center: [ , ],
             zoom: 12
         }, {
             searchControlProvider: 'yandex#search'
         }),
 
-    // Создаем геообъект с типом геометрии "Точка".
+        // Создаем геообъект с типом геометрии "Точка".
         myGeoObject = new ymaps.GeoObject({
             // Описание геометрии.
-            
-            
+
+
         }, {
             // Опции.
             // Иконка метки будет растягиваться под размер ее содержимого.
@@ -34,25 +68,23 @@ function init() {
             // Метку можно перемещать.
             draggable: false
         })
-       
+
 
     myMap.geoObjects
-        
-       
-        .add(new ymaps.Placemark([<?= $coord[0] ?>, <?= $coord[1] ?>], {
+
+
+        .add(new ymaps.Placemark([ , ], {
             balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
         }, {
             preset: 'islands#icon',
             iconColor: '#0095b6'
         }))
-        
-        
-        
-       
-       
-        
-        
-}
 
+
+
+
+
+
+
+}
 </script>
-</div>

@@ -89,6 +89,30 @@ class Camps extends Model
         $builder->where('camps_types.camps_id', $id);
         return $builder->get(); 
     }
+
+
+    public function getCamp($camp_id)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('camps');
+        $builder->select('camps.camps_id, camps.title camp, camps.min_age, camps.max_age, camps.adress, camps.slug, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
+        
+        $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
+
+        $builder->join('camps_types', 'camps_types.camps_id = camps.camps_id', 'left');
+        $builder->join('types', 'camps_types.types_id = types.types_id', 'left');
+        
+        $builder->join('camps_seasons', 'camps_seasons.camps_id = camps.camps_id', 'left');
+       
+        // if ($type) $builder->where('camps_types.types_id', $type); // id выбранного типа лагеря
+        //$builder->where('camps_seasons.seasons_id', $season);
+        $builder->where('camps.camps_id', $camp_id);
+        $builder->groupBy('camps.camps_id, reviews.camps_id'); // Групировка чтобы не было дублей
+        $builder->orderBy('count_reviews DESC, avg_rating DESC');
+       
+        return $builder->get();
+
+    }
     
 }
 

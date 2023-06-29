@@ -34,10 +34,11 @@ class Camp extends BaseController
         // $data['cities'] = $this->Cities->findAll();
         // $data['seasons'] = $this->Seasons->findAll();
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
-        if (!$data['camp']) {
-            $this->error404();
-        }
-        $data['title'] = 'Детский лагерь - ' . $data['camp']['title'];
+        $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
+        // if (!$data['camp']) {
+        //     $this->error404();
+        // }
+        //$data['title'] = 'Детский лагерь - ' . $data['camp']['title'];
         return view('layouts/header-short', $data) 
         .view('site/camp')
         .view('layouts/footer');
