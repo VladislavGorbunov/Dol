@@ -124,25 +124,26 @@
             <div class="col-lg-12 mb-3">
             
             <div class="card p-3">
-            <div class="row">
-             <div class="col-lg-4 col-12 mb-3">
-             <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-12 mb-3">
+                        <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid">
                  
-              </div>
+                    </div>
 
              <div class="col-lg-8">
-             <div class="row">
-             <div class="col-lg-8">
-                 <h5><a href="/camp">'. $camp['camp'] .'</a></h5>
-                 <p>'.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
-                 <p>
-                 На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
-                 </p>
-                 <div class="row d-none d-lg-block d-md-block">
-                     <div class="col-auto">
-                         <p>Возраст: <b>от 4 до 14 лет</b></p>
+                 <div class="row">
+
+                     <div class="col-lg-8">
+                         <h5><a href="/camp/'.$camp['slug'].'">'. $camp['camp'] .'</a></h5>
+                         <p>'.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
+                         <p>
+                         На смене ребенок научится общаться и строить отношения с новыми людьми не только на русском, но и на английском языке; найдет друзей, раскроет свой потенциал и сможет хорошо отдохнуть. Ребенок прокачает soft skills и speaking English. Каждая смена тематическая, наполненная играми, квестами, мастер-классами и другими творческими мероприятиями.
+                         </p>
+                        <div class="row d-none d-lg-block d-md-block">
+                            <div class="col-auto">
+                            <p>Возраст: <b>от 4 до 14 лет</b></p>
+                        </div>
                      </div>
-                 </div>
 
 
                  <div class="type-block mb-2 d-none d-lg-flex d-md-flex">
@@ -176,7 +177,7 @@
          </div>
      </div>
      
-</div></a>';
+</div>';
   }
 } else {
     echo '<div class="col-lg-12 mb-3"> Ничего не нашли =( </div>';
