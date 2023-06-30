@@ -20,7 +20,7 @@
     <?php
     
 
-    //$coord = explode(',', $camp['coords']);
+    $coord = explode(',', $camp['coords']);
     echo '<pre>';
     var_dump($types);
     echo '</pre>';
@@ -50,7 +50,7 @@ ymaps.ready(init);
 
 function init() {
     var myMap = new ymaps.Map("map", {
-            center: [ , ],
+            center: [<?= $coord[0] ?>, <?= $coord[1] ?>],
             zoom: 12
         }, {
             searchControlProvider: 'yandex#search'
@@ -73,7 +73,7 @@ function init() {
     myMap.geoObjects
 
 
-        .add(new ymaps.Placemark([ , ], {
+        .add(new ymaps.Placemark([<?= $coord[0] ?>, <?= $coord[1] ?>], {
             balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
         }, {
             preset: 'islands#icon',
