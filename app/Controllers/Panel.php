@@ -239,7 +239,7 @@ class Panel extends BaseController
                             mkdir($home .'/cover/');
                         }
                         $image->withFile($home .'/'. $newNameCover)
-                        ->fit(400, 400, 'center')
+                        ->fit(400, 340, 'center')
                         ->save($home .'/cover/'. $newNameCover);
 
                         // Удаление оригинальной обложки
@@ -276,7 +276,8 @@ class Panel extends BaseController
                                 }
                             
                             $image->withFile($home .'/'. $newName)
-                            ->resize(1000, 550, true, 'height')
+                            ->resize(1000, 550, true, 'width')
+                            ->crop(1000, 550, 0, 0)
                             ->save($home .'/photo/'. $newName);
 
                             // Удаление оригинальных изображений

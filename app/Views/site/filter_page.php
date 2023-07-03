@@ -126,7 +126,7 @@
             <div class="card p-3">
                 <div class="row">
                     <div class="col-lg-4 col-12 mb-3">
-                        <img src="/public/images/camps/'.$camp['slug'].'/thumb/'.$camp['cover']['name_img'].'" class="img-fluid">
+                        <img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="img-fluid">
                  
                     </div>
 

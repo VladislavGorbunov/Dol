@@ -4,9 +4,9 @@
 
     <div class="row">
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-3">
             <div class="row">
-                <div class="col-lg-4 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-4 mt-2 g-2"><?= '<img src="'.$cover.'" class="camp-photos" width="100%">' ?></div>
 
                 <div class="col-lg-8">
                 <div class="row">
@@ -14,7 +14,7 @@
                 
                 <?php
                 for ($i = 0; $i < count($images); $i++) {
-                    echo '<div class="col-lg-3 mt-3"><img src="'.$images[$i].'" class="img-fluid"></div>';
+                    echo '<div class="col-lg-3 mt-2 g-2"><img src="'.$images[$i].'" class="img-fluid camp-photos"></div>';
                 }
                 ?>
                 </div>
