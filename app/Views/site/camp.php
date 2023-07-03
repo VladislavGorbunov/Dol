@@ -7,28 +7,16 @@
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-4 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+
                 <div class="col-lg-8">
                 <div class="row">
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
 
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
-                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                
+                <?php
+                for ($i = 0; $i < count($images); $i++) {
+                    echo '<div class="col-lg-3 mt-3"><img src="'.$images[$i].'" class="img-fluid"></div>';
+                }
+                ?>
                 </div>
                 </div>
                 

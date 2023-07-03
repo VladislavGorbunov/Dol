@@ -234,13 +234,16 @@ class Panel extends BaseController
 
                         $this->ImagesModel->save($data_cover);
 
-                        if (!file_exists($home .'/thumb/')) {
+                        if (!file_exists($home .'/cover/')) {
                         // Создание папки для маленьких изображений
-                            mkdir($home .'/thumb/');
+                            mkdir($home .'/cover/');
                         }
                         $image->withFile($home .'/'. $newNameCover)
                         ->fit(400, 400, 'center')
-                        ->save($home .'/thumb/'. $newNameCover);
+                        ->save($home .'/cover/'. $newNameCover);
+
+                        // Удаление оригинальной обложки
+                        unlink($home .'/'. $newNameCover);
                     }
                 }
             }
@@ -266,10 +269,18 @@ class Panel extends BaseController
                             ];
 
                             $this->ImagesModel->save($data_image);
+
+                            if (!file_exists($home .'/photo/')) {
+                                // Создание папки для маленьких изображений
+                                    mkdir($home .'/photo/');
+                                }
                             
                             $image->withFile($home .'/'. $newName)
-                            ->fit(1200, 600, 'center')
-                            ->save($home .'/thumb/'. $newName);
+                            ->resize(1000, 550, true, 'height')
+                            ->save($home .'/photo/'. $newName);
+
+                            // Удаление оригинальных изображений
+                            unlink($home .'/'. $newName);
                         }
                     }
                 }

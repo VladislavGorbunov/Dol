@@ -39,10 +39,17 @@ class Camp extends BaseController
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
         $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
-        $data['cover'] = $this->Images->url_folder . $camp. '/thumb/' .$data['cover'][0]['name_img'];
+        $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
 
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
-        $data['images'] = $this->Images->url_folder . $camp. '/thumb/' .$data['images'][0]['name_img'];
+        // echo '<pre>';
+        // var_dump($data['images']);
+        // echo '</pre>';
+        // die;
+        foreach ($data['images'] as $key => $image) {
+            $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
+        }
+        //$data['images'] = $this->Images->url_folder . $camp. '/photo/' .$data['images'][0]['name_img'];
         // if (!$data['camp']) {
         //     $this->error404();
         // }
