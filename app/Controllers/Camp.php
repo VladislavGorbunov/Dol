@@ -40,6 +40,9 @@ class Camp extends BaseController
         $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
         $data['cover'] = $this->Images->url_folder . $camp. '/thumb/' .$data['cover'][0]['name_img'];
+
+        $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
+        $data['images'] = $this->Images->url_folder . $camp. '/thumb/' .$data['images'][0]['name_img'];
         // if (!$data['camp']) {
         //     $this->error404();
         // }

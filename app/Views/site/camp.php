@@ -1,24 +1,56 @@
 <div class="container">
 
+<h1 class="text-center"><?= $camp['title'] ?></h1>
 
     <div class="row">
 
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-8 border"><?= '<img src="'.$cover.'">' ?></div>
-                <div class="col-lg-4 border">dfgdfg</div>
+                <div class="col-lg-4 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-8">
+                <div class="row">
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                <div class="col-lg-2 mt-3"><?= '<img src="'.$cover.'" class="img-fluid">' ?></div>
+                </div>
+                </div>
+                
             </div>
 
-            <div class="col-lg-12 mt-3">
+            <div class="row mt-3">
+            <div class="col-lg-8 mt-3">
               <h3>Описание</h3>
                 <?= $camp['description'] ?>
+            </div>
+
+            <div class="col-lg-4 mt-3">
+              <h3>Мы на карте</h3>
+              <div id="map" style="width: auto; height: 400px"></div>
+            </div>
             </div>
             
 
         </div>
 
         <div class="col-lg-4">
-            <div id="map" style="width: auto; height: 400px"></div>
+            
         </div>
 
     </div>
