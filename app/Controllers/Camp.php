@@ -7,6 +7,7 @@ use App\Models\Camps;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
+use App\Models\Images;
 
 class Camp extends BaseController
 {
@@ -14,6 +15,7 @@ class Camp extends BaseController
     public $Cities;
     public $Types;
     public $Seasons;
+    public $Images;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -26,6 +28,7 @@ class Camp extends BaseController
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
+        $this->Images = new Images();
         // Preload any models, libraries, etc, here.
     }
 
@@ -35,6 +38,8 @@ class Camp extends BaseController
         // $data['seasons'] = $this->Seasons->findAll();
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
         $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
+        $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
+        $data['cover'] = $this->Images->url_folder . $camp. '/thumb/' .$data['cover'][0]['name_img'];
         // if (!$data['camp']) {
         //     $this->error404();
         // }

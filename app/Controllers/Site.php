@@ -127,6 +127,7 @@ class Site extends BaseController
                 'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
+                'description' => mb_substr(strip_tags($camps[$i]['description']), 0, 340).'...',
                 'count_reviews' => $camps[$i]['count_reviews'],
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря

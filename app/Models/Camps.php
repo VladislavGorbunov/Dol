@@ -30,7 +30,7 @@ class Camps extends Model
         
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.min_age, camps.max_age, camps.adress, camps.slug, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
+        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.max_age, camps.adress, camps.slug, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
         
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
 

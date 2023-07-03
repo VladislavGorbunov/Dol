@@ -5,9 +5,15 @@
 
         <div class="col-lg-8">
             <div class="row">
-                <div class="col-lg-8 border">dfgdfgdf</div>
+                <div class="col-lg-8 border"><?= '<img src="'.$cover.'">' ?></div>
                 <div class="col-lg-4 border">dfgdfg</div>
             </div>
+
+            <div class="col-lg-12 mt-3">
+              <h3>Описание</h3>
+                <?= $camp['description'] ?>
+            </div>
+            
 
         </div>
 

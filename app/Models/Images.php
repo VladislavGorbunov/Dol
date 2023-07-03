@@ -8,6 +8,8 @@ class Images extends Model
 {
     protected $table = 'camps_images';
     protected $primaryKey = 'id';
+    public $url_folder = '/public/images/camps/';
+
 
     protected $allowedFields = [
         'id',
