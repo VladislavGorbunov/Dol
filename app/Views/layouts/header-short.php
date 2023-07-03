@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#2955c8">
     <meta name="description" content="Пример на bootstrap 5: Слайдер -
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
-    <title></title>
+    <title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
     <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"

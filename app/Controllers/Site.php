@@ -52,11 +52,6 @@ class Site extends BaseController
             ];
 
         }
-        // echo '<pre>';
-        // var_dump($data['camps']);
-        // echo '</pre>';
-        
-
         
         return view('layouts/header', $data) 
         .view('site/index')
