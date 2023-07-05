@@ -24,21 +24,56 @@
 
             <div class="row mt-3">
             <div class="col-lg-8 mt-3">
+
+            <div class="border p-3 rounded">
               <h3>Описание</h3>
-                <?= $camp['description'] ?>
+              <?= $camp['description'] ?>
+            </div>
+              
+            <div class="border mt-3 p-3 rounded">
+              <h3>Преимущества</h3>
+              <?= $camp['advantages'] ?>
             </div>
 
-            <div class="col-lg-4 mt-3">
-              <h3>Мы на карте</h3>
-              <div id="map" style="width: auto; height: 400px"></div>
+            <div class="border mt-3 p-3 rounded">
+              <h3>Размещение</h3>
+              <?= $camp['daily_schedule'] ?>
+            </div>
+
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="border mt-3 p-3 rounded">
+                <h3>Мы на карте</h3>
+                    <div id="map" style="width: auto; height: 400px"></div>
+            
+                  <div class="col-lg-12 mt-4">
+                  <p>Регион: <?= $region['title'] ?></p>
+                  <p>Адрес: <?= $camp['adress'] ?></p>
+                  <p>Год начала деятельности: <?= $camp['year'] . ' год' ?></p>
+                  <p>Возраст: <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?></p>
+
+                  <?php
+
+                  foreach ($types as $type) {
+                      echo '<div class="type mt-3">' . $type['title'] . '</div>';
+                  }
+                  ?>
+                  </div>
+
+                </div>
+
+              
+            <div class="border mt-3 p-3 rounded">
+                <h3>Доступные смены</h3>
+            </div>
+
+
             </div>
             </div>
             
 
-        </div>
-
-        <div class="col-lg-4">
-            
         </div>
 
     </div>
@@ -180,9 +215,9 @@
     
 
     $coord = explode(',', $camp['coords']);
-    echo '<pre>';
-    var_dump($types);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($types);
+    // echo '</pre>';
     
     ?>
 

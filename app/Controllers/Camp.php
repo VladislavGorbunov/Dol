@@ -40,20 +40,13 @@ class Camp extends BaseController
         $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
         $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
-
+        $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
-        // echo '<pre>';
-        // var_dump($data['images']);
-        // echo '</pre>';
-        // die;
+        
         foreach ($data['images'] as $key => $image) {
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }
-        //$data['images'] = $this->Images->url_folder . $camp. '/photo/' .$data['images'][0]['name_img'];
-        // if (!$data['camp']) {
-        //     $this->error404();
-        // }
-        //$data['title'] = 'Детский лагерь - ' . $data['camp']['title'];
+        
         return view('layouts/header-short', $data) 
         .view('site/camp')
         .view('layouts/footer');
