@@ -135,7 +135,7 @@
 
                      <div class="col-lg-8">
                          <h5><a href="/camp/'.$camp['slug'].'">'. $camp['camp'] .'</a></h5>
-                         <p>'.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
+                         <p><i class="las la-map-marker-alt"></i> '.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
                          <p>
                          '.$camp['description'].'
                          </p>
@@ -164,11 +164,11 @@
               <img src="/public/theme/img/star.svg" width="24px" style="margin-right: 5px;"><b>Рейтинг: </b> <span class="rating">'.$rating.' из 5</span> 
               </div>
               
-              <p class="mt-3"><a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
+              <p class="mt-3"><i class="las la-comment"></i> <a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от 50000 руб.</b></p>
-              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Смотреть смены</a>
+              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp"><i class="las la-campground"></i> Смены</a>
               <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp">Подробнее</a>
              </div>
 

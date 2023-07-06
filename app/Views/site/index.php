@@ -1,9 +1,10 @@
 <div class="container">
 
-    <div class="row mb-4">
+<div class="info-block-index">
+    <div class="row">
         <div class="col-lg-3">
             <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Бесплатное бронирование путёвок</b></h6>
+            <h6 class="text-center mt-2"><b>Бесплатное бронирование</b></h6>
             <p class="text-center">Не берём комиссию за бронирование, цены напрямую от лагерей.</p>
         </div>
 
@@ -25,7 +26,7 @@
             <p class="text-center">Помогаем найти лагерь с хорошими отзывами и высоким рейтингом.</p>
         </div>
     </div>
-
+</div>
 
     <h2 class="text-center">Топ 15 лучших детских лагерей России</h2>
     <p class="text-center">На основании голосов и отзывов наших пользователей</p>
@@ -38,7 +39,7 @@
         foreach ($camps as $camp) {
             echo '
             <div class="col-lg-4">
-            <a href="/camp/'.$camp['slug'].'"><div class="card shadow-sm">';
+            <a href="/camp/'.$camp['slug'].'"><div class="card">';
 
             if (!empty($camp['cover']['name_img'])) {
                 echo '<img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto">';
@@ -48,7 +49,7 @@
 
             echo '<div class="card-body">
                 <h5>'.$camp['camp'].'</h5>
-                <p>'.$camp['adress'].'</p>
+                <p class="mt-3" style="min-height: 45px;"><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">

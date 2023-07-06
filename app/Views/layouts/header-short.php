@@ -12,6 +12,10 @@
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
         type="text/javascript"></script>
+
+    <!-- Line Awesome icons -->
+    <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
+        
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -65,21 +69,12 @@
                     
 
                     <div class="d-flex justify-content-center">
-                    <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:10px;">
+                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3"
+                            style="position:relative;top:10px;">
 
-                    <a href="/login" class="btn btn-auth m-1"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                height="18" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 18 18">
-                                <path fill-rule="evenodd"
-                                    d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
-                                <path fill-rule="evenodd"
-                                    d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg> Войти</a>
-
-
-
-                        <a class="btn btn-reg m-1" href="/registration">Добавить лагерь</a>
+                        <a href="/login" class="btn btn-auth m-1"><i class="las la-user"></i> Войти</a>
+                        <a class="btn btn-reg m-1" href="/registration"><i class="las la-plus-circle"></i> Добавить лагерь</a>
                     </div>
-
                 </div>
         </nav>
     </header>

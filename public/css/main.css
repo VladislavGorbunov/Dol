@@ -5,8 +5,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 h1,
@@ -23,8 +23,14 @@ h1 {
     font-size: 30px;
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5 {
     font-size: 21px;
+}
+
+.las {
+    position: relative;
+    top: 2px;
+    font-size: 18px;
 }
 
 a {
@@ -33,7 +39,8 @@ a {
 }
 
 .card {
-    border: 1px solid #eee;
+    border: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .navbar-brand {
@@ -58,22 +65,9 @@ a {
     border: 1px solid #2955c8;
 }
 
-.modal-header, .modal-footer {
-    border: none;
-}
-
-.btn-auth-modal {
-    color: #fff;
-    background: #2955c8;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 25px;
-    margin-bottom: 10px;
-}
-
-.btn-auth-modal:hover {
-    color: #fff;
-    background-color: #405189;
+.btn-auth:hover .las {
+    transform: rotate(360deg);
+    transition: .5s;
 }
 
 .auth-input {
@@ -89,11 +83,19 @@ a {
     border: 1px solid #2955c8;
     border-radius: 5px;
     padding: 10px 25px;
+    transition: .5s;
 }
 
 .btn-reg:hover {
     color: #fff;
     background-color: #405189;
+    
+    
+}
+
+.btn-reg:hover .las {
+    transform: rotate(360deg);
+    transition: .5s;
 }
 
 .btn-detailed {
@@ -153,6 +155,14 @@ a {
 
 .header-descript {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+.info-block-index {
+    background-color: #f1f5f9;
+    padding-top: 30px;
+    padding: 30px 10px;
+    margin-bottom: 30px;
+    border-radius: 20px;
 }
 
 .filter-block {
