@@ -62,11 +62,6 @@
             padding: 10px;
         }
 
-        .card {
-            border: none;
-            border: 1px solid #eee;
-        }
-
         .price {
             font-size: 18px;
             font-weight: bold;
@@ -121,7 +116,7 @@
             $rating = round($camp['avg_rating'], 1);
             
             echo '
-            <div class="col-lg-12 mb-3">
+            <div class="col-lg-12 mb-4">
             
             <div class="card p-3">
                 <div class="row">
@@ -168,7 +163,7 @@
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от 50000 руб.</b></p>
-              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp"><i class="las la-campground"></i> Смены</a>
+              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Смотреть смены</a>
               <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp">Подробнее</a>
              </div>
 
