@@ -137,8 +137,6 @@ class Panel extends BaseController
             'security' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'free_transfer' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'coords' => ['label' => 'Координаты', 'rules' => 'required'],
-            //'types.*.type' => ['label' => 'Типы лагеря', 'rules' => 'required'],
-            //'cover' => ['label' => 'Обложка', 'rules' => 'required'],
             'description' => ['label' => 'Описание лагеря', 'rules' => 'required'],
             'placement' => ['label' => 'Размещение', 'rules' => 'required'],
             'advantages' => ['label' => 'Преимущества лагеря', 'rules' => 'required'],
@@ -166,16 +164,31 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
+        // echo '<pre>';
+        // var_dump($types_data['types']);
+        // echo '</pre>';
+        // die;
+
+        if (!$types_data['types']) {
+            $session->setFlashdata('msg-error', 'Не выбраны типы лагеря');
+            return redirect()->to('/panel/add-camp');
+            die;
+        }
+
+        if (!$types_data['seasons']) {
+            $session->setFlashdata('msg-error', 'Не выбраны сезоны');
+            return redirect()->to('/panel/add-camp');
+            die;
+        }
+
         if (!$validation->run($data)) {
             $session->setFlashdata('msg-error', validation_list_errors());
             return redirect()->to('/panel/add-camp');
             die;
         }
 
-        // echo '<pre>';
-        // var_dump($types);
-        // echo '</pre>';
-        // die;
+        
+        
 
         if (count($types_data['types']) > 6) {
             $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относиться ваш лагерь!');
@@ -192,8 +205,9 @@ class Panel extends BaseController
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
             $camps_id = $camp['camps_id'];
-            // Добавление в БД типов лагеря
+
             
+            // Добавление в БД типов лагеря
             foreach ($types_data['types'] as $key => $type) {
                 $types = [
                     'camps_id' => $camps_id,
