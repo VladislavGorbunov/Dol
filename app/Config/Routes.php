@@ -57,6 +57,7 @@ $routes->get('/admin/representatives/activated', 'Admin::ActivatedRepresentative
 $routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresentatives', ['filter' => 'Auth']);
 $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
+$routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
 
 
 /*

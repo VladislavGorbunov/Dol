@@ -11,7 +11,8 @@
       <th scope="col">Представитель</th>
       <th scope="col">Должность</th>
       <th scope="col">Телефон</th>
-      <th scope="col">Лагеря</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +27,7 @@
                 <td>'. $represent['post'] .'</td>
                 <td>'. $represent['phone_manager'] .'</td>
                 <td><a href="/admin/representative/view/'. $represent['user_id'] .'">Смотреть</a></td>
+                <td><a href="/admin/representative/delete/'. $represent['user_id'] .'">Удалить</a></td>
               </tr>';
             }
         ?>

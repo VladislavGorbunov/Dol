@@ -129,7 +129,7 @@
                  <div class="row">
 
                      <div class="col-lg-8">
-                         <h5><a href="/camp/'.$camp['slug'].'">'. $camp['camp'] .'</a></h5>
+                         <h5><a href="/camp/'.$camp['slug'].'" target="_blank">'. $camp['camp'] .'</a></h5>
                          <p><i class="las la-map-marker-alt"></i> '.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
                          <p>
                          '.$camp['description'].'
@@ -163,8 +163,8 @@
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от 50000 руб.</b></p>
-              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Смотреть смены</a>
-              <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp">Подробнее</a>
+              <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp/'.$camp['slug'].'" target="_blank">Смотреть смены</a>
+              <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>
              </div>
 
              </div>

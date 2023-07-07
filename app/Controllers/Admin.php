@@ -125,6 +125,13 @@ class Admin extends BaseController
             return redirect()->to(site_url("/admin/panel"));
     }
 
+
+    public function deleteRepresentative(int $id)
+    {
+        $this->RepresentativesModel->delete(['user_id' => $id]);
+        return redirect()->to(site_url("/admin/representatives"));
+    }
+
     // Выход из админки
     public function Logout()
     {
