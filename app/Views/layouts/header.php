@@ -93,13 +93,7 @@
                     </p>
                 </div>
             </div>
-            <?php
-// echo '<pre>';
-// var_dump($types);
-// echo '</pre>';
-// die;
-?>
-
+           
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
                 <form action="" method="post">
                     <div class="row">

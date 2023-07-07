@@ -125,10 +125,16 @@ a {
     border-radius: 5px;
 }
 
+.navbar {
+    box-shadow: 0 2px 15px -10px #606169;
+} 
+
+
 .header-image {
     width: 100%;
     min-height: 600px;
-    background: url(/../public/theme/img/header-dark.jpg) center;
+    background: url(/../public/theme/img/header4.jpeg) center -200px;
+    background-size: auto;
     padding: 20px 0;
     margin-bottom: 30px;
     
@@ -176,7 +182,7 @@ a {
     background-size: auto;
     max-width: 1200px;
     min-height: 130px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 10px 45px 35px 45px;
     box-shadow: 0 3px 20px -10px #111;
