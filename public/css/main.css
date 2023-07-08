@@ -5,8 +5,9 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-x: hidden;
     
 }
 
@@ -30,8 +31,8 @@ h2, h3, h4, h5 {
 
 .las {
     position: relative;
-    top: 2px;
-    font-size: 18px;
+    top: 0px;
+    font-size: 16px;
 }
 
 a {
@@ -60,15 +61,16 @@ a {
 }
 
 .btn-auth {
-    color: #2955c8;
-    border: 1px solid #c6d4f4;
-    border-radius: 5px;
-    padding: 10px 25px;
+    color: #70aab8;
+    border: 1px solid #70aab8;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
 .btn-auth:hover {
-    color: #2955c8;
-    border: 1px solid #2955c8;
+    color: #243d51;
+    border: 1px solid #243d51;
 }
 
 .btn-auth:hover .las {
@@ -85,16 +87,17 @@ a {
 
 .btn-reg {
     color: #fff;
-    background: #2955c8;
-    border: 1px solid #2955c8;
-    border-radius: 5px;
-    padding: 10px 25px;
+    background: #70aab8;
+    border: 1px solid #70aab8;
+    border-radius: 30px;
+    padding: 10px 20px;
     transition: .5s;
+    font-size: 16px;
 }
 
 .btn-reg:hover {
     color: #fff;
-    background-color: #405189;
+    background-color: #243d51;
     
     
 }
@@ -127,14 +130,15 @@ a {
 
 .navbar {
     box-shadow: 0 2px 15px -10px #606169;
+    z-index: 3;
 } 
 
 
 .header-image {
     width: 100%;
     min-height: 600px;
-    background: url(/../public/theme/img/header4.jpeg) center -200px;
-    background-size: auto;
+    background: url(/../public/theme/img/header4.jpg) center -50px;
+    
     padding: 20px 0;
     margin-bottom: 30px;
     
@@ -143,20 +147,19 @@ a {
 .header-image-short {
     width: 100%;
     min-height: 250px;
-    
     padding: 20px 0;
     margin-bottom: 30px;
     border-radius: 20px;
 }
 
 .header-short-bg {
-    background: url(/../public/theme/img/header-dark.jpg) center;
+    background: url(/../public/theme/img/header4.jpg) center -150px;
 }
 
 .header-h1 {
     text-align: center;
     color: #fff;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    text-shadow: 0px 0px 31px rgba(0, 0, 0, 0.2);
 }
 
 .header-short-h1 {
@@ -166,7 +169,7 @@ a {
 }
 
 .header-descript {
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
 }
 
 .info-block-index {
@@ -178,14 +181,17 @@ a {
 }
 
 .filter-block {
-    background: rgba(0, 0, 0, 0.1) url(/public/theme/img/filter-bg.png) center;
+    display: block;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2) url(/public/theme/img/filter-bg.png) center;
     background-size: auto;
     max-width: 1200px;
     min-height: 130px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
     border-radius: 10px;
     padding: 10px 45px 35px 45px;
-    box-shadow: 0 3px 20px -10px #111;
+    box-shadow: 0 3px 12px -10px #111;
+    z-index: 2;
 }
 
 #region_msg {
@@ -233,6 +239,15 @@ a {
     margin-top: 42px;
     font-weight: 500;
     border-radius: 5px;
+}
+
+.filter-block .btn .las {
+    transition: .5s;
+}
+
+.filter-block .btn:hover .las {
+    transform: rotate(400deg);
+    transition: .5s;
 }
 
 .type-block {

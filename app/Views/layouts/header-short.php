@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2955c8">
+    <meta name="theme-color" content="#fff">
     <meta name="description" content="Пример на bootstrap 5: Слайдер -
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
     <title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
@@ -79,8 +79,73 @@
         </nav>
     </header>
 
+
 <div class="header-short-bg">
-<div class="container mt-2">
+
+<style>
+
+
+
+.cloud img {
+    width: 100%;
+    right: 0;
+    top: 0px;
+    position: absolute;
+    -webkit-user-select: none; 
+    -moz-user-select: none;   
+    -ms-user-select: none;
+    user-select: none;    
+    pointer-events: none;
+    opacity: 0.2;
+    z-index: 1;
+    
+    
+}
+
+
+@keyframes animCloud {
+    from {
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+}
+.cloud1 {
+    -webkit-animation: animCloud 20s infinite linear;
+    -moz-animation: animCloud 20s infinite linear;
+    animation: animCloud 20s infinite linear
+}
+.cloud2 {
+    -webkit-animation: animCloud 40s infinite linear;
+    -moz-animation: animCloud 40s infinite linear;
+    animation: animCloud 40s infinite linear
+}
+.cloud3 {
+    -webkit-animation: animCloud 60s infinite linear;
+    -moz-animation: animCloud 60s infinite linear;
+    animation: animCloud 60s infinite linear
+}
+
+    </style>
+
+    <div class="cloud">
+    <img src="/public/theme/img/cloud-animation/cloud-01.png" alt="" class="cloud1">
+    <img src="/public/theme/img/cloud-animation/cloud-02.png" alt="" class="cloud2">
+    <img src="/public/theme/img/cloud-animation/cloud-03.png" alt="" class="cloud3">
+   
+    </div>
+
+
+<div class="container">
     <div class="header-image-short d-flex align-items-center justify-content-center">
         
             <div class="row">
