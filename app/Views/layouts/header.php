@@ -90,7 +90,7 @@
 .cloud img {
     width: 100%;
     height: 100%;
-    right: 50%;
+    right: 0%;
     top: 0px;
     position: absolute;
     -webkit-user-select: none; 
@@ -127,14 +127,14 @@
     animation: animCloud 20s infinite linear
 }
 .cloud2 {
+    -webkit-animation: animCloud 30s infinite linear;
+    -moz-animation: animCloud 30s infinite linear;
+    animation: animCloud 30s infinite linear
+}
+.cloud3 {
     -webkit-animation: animCloud 40s infinite linear;
     -moz-animation: animCloud 40s infinite linear;
     animation: animCloud 40s infinite linear
-}
-.cloud3 {
-    -webkit-animation: animCloud 60s infinite linear;
-    -moz-animation: animCloud 60s infinite linear;
-    animation: animCloud 60s infinite linear
 }
 
     </style>
