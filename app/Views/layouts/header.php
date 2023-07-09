@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link">Топ-50 лагерей России <span class="badge">NEW</span></a>
+                            <a class="nav-link">Топ-50 лагерей России</a>
                         </li>
 
                     </ul>
@@ -89,6 +89,7 @@
 
 .cloud img {
     width: 100%;
+    height: 100%;
     right: 50%;
     top: 0px;
     position: absolute;
@@ -97,7 +98,7 @@
     -ms-user-select: none;
     user-select: none;    
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.1;
     z-index: 1;
     
     
