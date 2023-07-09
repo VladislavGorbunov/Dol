@@ -67,13 +67,14 @@
 
 
 
+                    <!-- <div class="d-flex justify-content-center">
+                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
+                        <img src="/public/theme/img/mail-logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
+                    </div>
                     <div class="d-flex justify-content-center">
-                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3"
-                            style="position:relative;top:10px;">
-
                         <a href="/login" class="btn btn-auth m-1"><i class="las la-user"></i> Войти</a>
                         <a class="btn btn-reg m-1" href="/registration"><i class="las la-plus-circle"></i> Добавить лагерь</a>
-                    </div>
+                    </div> -->
 
 
                 </div>
