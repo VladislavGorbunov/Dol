@@ -97,7 +97,7 @@
     user-select: none;    
     pointer-events: none;
     opacity: 0.2;
-    z-index: 1;
+    z-index: 0;
     
     
 }
@@ -149,14 +149,7 @@
     <div class="header-image-short d-flex align-items-center justify-content-center">
         
             <div class="row">
-                <?php
-                if (!empty($title)) {
-                    echo '<h1 class="header-short-h1">'.$title.'</h1>';
-                } else {
-                    echo '<h1 class="header-h1">Поиск детских оздоровительных лагерей России</h1>';
-                }
-
-                ?>
+               
                 
             </div>
 

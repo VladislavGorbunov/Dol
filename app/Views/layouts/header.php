@@ -89,7 +89,7 @@
 
 .cloud img {
     width: 100%;
-    right: 0;
+    right: 50%;
     top: 0px;
     position: absolute;
     -webkit-user-select: none; 

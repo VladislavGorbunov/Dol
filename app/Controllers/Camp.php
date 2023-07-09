@@ -34,8 +34,8 @@ class Camp extends BaseController
 
     public function GetCamp($camp)
     {
-        // $data['cities'] = $this->Cities->findAll();
-        // $data['seasons'] = $this->Seasons->findAll();
+        $data['cities'] = $this->Cities->findAll();
+        $data['seasons'] = $this->Seasons->findAll();
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
         $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
@@ -47,7 +47,7 @@ class Camp extends BaseController
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }
         
-        return view('layouts/header-short', $data) 
+        return view('layouts/header', $data) 
         .view('site/camp')
         .view('layouts/footer');
     }

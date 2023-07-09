@@ -11,6 +11,11 @@ body {
     
 }
 
+.container {
+    position: relative;
+    z-index: 2;
+}
+
 h1,
 h2,
 h3,
@@ -136,8 +141,8 @@ a {
 
 .header-image {
     width: 100%;
-    min-height: 600px;
-    background: url(/../public/theme/img/header4.jpg) center -50px;
+    min-height: 550px;
+    background: url(/../public/theme/img/header4.jpg) center -80px;
     
     padding: 20px 0;
     margin-bottom: 30px;
@@ -146,14 +151,14 @@ a {
 
 .header-image-short {
     width: 100%;
-    min-height: 250px;
+    min-height: 520px;
     padding: 20px 0;
     margin-bottom: 30px;
     border-radius: 20px;
 }
 
 .header-short-bg {
-    background: url(/../public/theme/img/header4.jpg) center -150px;
+    background: url(/../public/theme/img/header4.jpg) center -50px;
 }
 
 .header-h1 {
