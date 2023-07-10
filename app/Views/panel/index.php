@@ -48,21 +48,22 @@
                     foreach ($camps as $camp) {
                         echo '
                         <div class="col-lg-4">
-                        <div class="card shadow-sm">';
+                        <div class="card">';
 
                         echo '<div class="card-body">
                         <h4>'.$camp['title'].'</h4>
                         <p>'.$camp['adress'].'</p>
-                        <div class="d-flex justify-content-between align-items-center">
+                       
                         
-                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <a href="" class="m-2">Смотреть</a>
-                        <a href="" class="m-2">Редактировать</a>
-                        <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-2">Удалить</a>
+                        <hr>
+                        <a href="" class="m-1">Смотреть</a><hr>
+                        <a href="" class="m-1">Добавить смену</a><hr>
+                        <a href="" class="m-1">Редактировать</a><hr>
+                        <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-1">Удалить</a>
                       
-                        </div>
+                       
                         
-                        </div>
+                        
                         </div>
                         </div>
                         </div>';
