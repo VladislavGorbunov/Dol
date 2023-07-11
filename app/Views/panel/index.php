@@ -57,13 +57,10 @@
                         
                         <hr>
                         <a href="" class="m-1">Смотреть</a><hr>
-                        <a href="" class="m-1">Добавить смену</a><hr>
+                        <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Добавить смену</a><hr>
                         <a href="" class="m-1">Редактировать</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-1">Удалить</a>
                       
-                       
-                        
-                        
                         </div>
                         </div>
                         </div>';

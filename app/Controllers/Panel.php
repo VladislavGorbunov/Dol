@@ -164,10 +164,6 @@ class Panel extends BaseController
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         $data['slug'] = $this->SlugCreate($data['title']);
 
-        // echo '<pre>';
-        // var_dump($types_data['types']);
-        // echo '</pre>';
-        // die;
 
         if (!$types_data['types']) {
             $session->setFlashdata('msg-error', 'Не выбраны типы лагеря');
@@ -191,7 +187,7 @@ class Panel extends BaseController
         
 
         if (count($types_data['types']) > 6) {
-            $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относиться ваш лагерь!');
+            $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относится ваш лагерь!');
             return redirect()->to('/panel/add-camp');
         }
 
@@ -206,7 +202,6 @@ class Panel extends BaseController
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
             $camps_id = $camp['camps_id'];
 
-            
             // Добавление в БД типов лагеря
             foreach ($types_data['types'] as $key => $type) {
                 $types = [
@@ -367,6 +362,26 @@ class Panel extends BaseController
         $text = strtolower($text);
         $text = str_replace(' ', '-', $text);
         return preg_replace("/[^a-zA-Z0-9\s-]/", "", $text);
+    }
+
+
+    public function AddShift($id)
+    {
+        return view('layouts/panel_header')
+        .view('panel/add-shift')
+        .view('layouts/panel_footer');
+    }
+
+    public function InsertShift($id)
+    {
+        $data['title-shift'] = $this->request->getVar('title-shift');
+        $data['start-date'] = $this->request->getVar('start-date');
+        $data['end-date'] = $this->request->getVar('end-date');
+        $data['price-shift'] = $this->request->getVar('price-shift');
+
+        echo '<pre>';
+        echo var_dump($data);
+        echo '</pre>';
     }
 
     // Выход из панели
