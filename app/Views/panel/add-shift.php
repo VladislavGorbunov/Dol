@@ -1,4 +1,4 @@
-<form action="/panel/add-shift" method="POST">
+<form action="" method="POST">
 <div class="row">
 <div class="col-lg-6">
     <label class="form-label mt-2">Название смены</label>

@@ -11,6 +11,7 @@ use App\Models\Seasons;
 use App\Models\CampsTypes;
 use App\Models\CampsSeasons;
 use App\Models\Images;
+use App\Models\Shifts;
 use App\Controllers\Recaptcha;
 
 use CodeIgniter\Files\File;
@@ -35,6 +36,7 @@ class Panel extends BaseController
         $this->CampsTypes = new CampsTypes();
         $this->CampsSeasons = new CampsSeasons();
         $this->ImagesModel = new Images();
+        $this->ShiftsModel = new Shifts();
 
         $this->Recaptcha = new Recaptcha();
 
@@ -374,14 +376,18 @@ class Panel extends BaseController
 
     public function InsertShift($id)
     {
-        $data['title-shift'] = $this->request->getVar('title-shift');
-        $data['start-date'] = $this->request->getVar('start-date');
-        $data['end-date'] = $this->request->getVar('end-date');
-        $data['price-shift'] = $this->request->getVar('price-shift');
+        $data['title'] = $this->request->getVar('title-shift');
+        $data['start_date'] = $this->request->getVar('start-date');
+        $data['end_date'] = $this->request->getVar('end-date');
+        $data['price'] = $this->request->getVar('price-shift');
+        $data['camp_id'] = $id;
 
-        echo '<pre>';
-        echo var_dump($data);
-        echo '</pre>';
+        // Перед добавление в БД написать проверку, принадлежит ли лагерь с данным id пользователю
+
+        $this->ShiftsModel->insert($data);
+        // echo '<pre>';
+        // echo var_dump($data);
+        // echo '</pre>';
     }
 
     // Выход из панели

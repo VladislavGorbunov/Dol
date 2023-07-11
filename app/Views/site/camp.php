@@ -67,6 +67,11 @@
               
             <div class="border mt-3 p-3 rounded">
                 <h3>Доступные смены</h3>
+                <?php
+
+                var_dump($shifts);
+
+                ?>
             </div>
 
 

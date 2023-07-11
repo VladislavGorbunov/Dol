@@ -28,7 +28,6 @@ class Site extends BaseController
         $this->Types = new Types();
         $this->Seasons = new Seasons();
         $this->Images = new Images();
-
         // Preload any models, libraries, etc, here.
     }
 

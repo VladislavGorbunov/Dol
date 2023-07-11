@@ -14,6 +14,8 @@
     <!-- Line Awesome icons -->
     <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
     
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
+        type="text/javascript"></script>
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">

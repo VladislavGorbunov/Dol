@@ -8,6 +8,7 @@ use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
 use App\Models\Images;
+use App\Models\Shifts;
 
 class Camp extends BaseController
 {
@@ -16,6 +17,7 @@ class Camp extends BaseController
     public $Types;
     public $Seasons;
     public $Images;
+    public $ShiftsModel;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -29,6 +31,7 @@ class Camp extends BaseController
         $this->Types = new Types();
         $this->Seasons = new Seasons();
         $this->Images = new Images();
+        $this->ShiftsModel = new Shifts();
         // Preload any models, libraries, etc, here.
     }
 
@@ -46,6 +49,8 @@ class Camp extends BaseController
         foreach ($data['images'] as $key => $image) {
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }
+
+        $data['shifts'] = $this->ShiftsModel->where(['camp_id' => $data['camp']['camps_id']])->findAll();
         
         return view('layouts/header', $data) 
         .view('site/camp')
