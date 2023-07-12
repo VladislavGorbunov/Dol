@@ -10,7 +10,7 @@ class Shifts extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
-        'camp_id',
+        'camps_id',
         'title',
         'price',
         'start_date',

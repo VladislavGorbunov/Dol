@@ -367,27 +367,34 @@ class Panel extends BaseController
     }
 
 
-    public function AddShift($id)
+    public function AddShift()
     {
         return view('layouts/panel_header')
         .view('panel/add-shift')
         .view('layouts/panel_footer');
     }
 
-    public function InsertShift($id)
+    public function InsertShift($camp_id)
     {
+        $session = session();
         $data['title'] = $this->request->getVar('title-shift');
         $data['start_date'] = $this->request->getVar('start-date');
         $data['end_date'] = $this->request->getVar('end-date');
         $data['price'] = $this->request->getVar('price-shift');
-        $data['camp_id'] = $id;
+        $data['camps_id'] = $camp_id;
 
-        // Перед добавление в БД написать проверку, принадлежит ли лагерь с данным id пользователю
 
-        $this->ShiftsModel->insert($data);
-        // echo '<pre>';
-        // echo var_dump($data);
-        // echo '</pre>';
+        if ($data_camp = $this->CampsModel->where('camps_id', $data['camps_id'])->first()) {
+        
+            if ($data_camp['representatives_id'] == $session->get('id')) {
+                $this->ShiftsModel->insert($data);
+            } 
+        } else {
+            $session->setFlashdata('msg-error', 'Ошибка: вы не можете добавить смены для лагеря с ID '.$data['camps_id'].'.');
+        }
+       
+        return redirect()->to('/panel');
+
     }
 
     // Выход из панели

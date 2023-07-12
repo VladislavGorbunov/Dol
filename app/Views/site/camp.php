@@ -66,10 +66,27 @@
 
               
             <div class="border mt-3 p-3 rounded">
-                <h3>Доступные смены</h3>
+                <h3>Забронировать</h3>
                 <?php
 
-                var_dump($shifts);
+                if (!empty($shifts)) {
+                    $count = count($shifts);
+                    echo '<small>Доступно смен: '. $count  .'</small>';
+                    echo '<select class="form-select mt-2 mb-3" aria-label="Default select example">';
+                    foreach ($shifts as $shift) {
+                        echo '<option selected>'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
+                    }
+                    echo '</select>';
+
+                    echo '<p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатное бронирование без комиссии</p>
+                          <p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатная отмена</p>
+                          <p><i class="las la-check-circle" style="color: #21a663"></i> Договор напрямую с лагерем без посредников</p>
+                    ';
+
+                    echo '<button type="submit" class="btn btn-booking mt-3 col-lg-12">Забронировать путёвку</button>';
+                } else {
+                    
+                }
 
                 ?>
             </div>
@@ -82,10 +99,6 @@
         </div>
 
     </div>
-
-
-
-
 
 
     <section>
@@ -216,15 +229,7 @@
 
 
 
-    <?php
     
-
-    $coord = explode(',', $camp['coords']);
-    // echo '<pre>';
-    // var_dump($types);
-    // echo '</pre>';
-    
-    ?>
 
 
 
@@ -238,10 +243,10 @@
 
 
 
+<script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
+        type="text/javascript"></script>
 
-
-
-
+<?php $coord = explode(',', $camp['coords']); ?>
 
 
 <script type="text/javascript">
@@ -287,3 +292,5 @@ function init() {
 
 }
 </script>
+
+

@@ -50,7 +50,7 @@ class Camp extends BaseController
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }
 
-        $data['shifts'] = $this->ShiftsModel->where(['camp_id' => $data['camp']['camps_id']])->findAll();
+        $data['shifts'] = $this->ShiftsModel->where(['camps_id' => $data['camp']['camps_id']])->findAll();
         
         return view('layouts/header', $data) 
         .view('site/camp')
