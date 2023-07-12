@@ -4,18 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fff">
     <meta name="description" content="Пример на bootstrap 5: Слайдер -
       навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
+    <meta name="theme-color" content="#fff">
     <title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
     <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
-        type="text/javascript"></script>
 
     <!-- Line Awesome icons -->
     <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
-        
+    
+    
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -61,34 +60,38 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link">Топ-50 лагерей России <span class="badge">NEW</span></a>
+                            <a class="nav-link">Топ-50 лагерей России</a>
                         </li>
 
                     </ul>
 
-                    
 
+
+                    <!-- <div class="d-flex justify-content-center">
+                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
+                        <img src="/public/theme/img/mail-logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
+                    </div> -->
                     <div class="d-flex justify-content-center">
-                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3"
-                            style="position:relative;top:10px;">
-
                         <a href="/login" class="btn btn-auth m-1"><i class="las la-user"></i> Войти</a>
                         <a class="btn btn-reg m-1" href="/registration"><i class="las la-plus-circle"></i> Добавить лагерь</a>
-                    </div>
+                    </div> 
+
+
                 </div>
+            </div>
         </nav>
     </header>
 
+    <div class="header-image d-flex align-items-center justify-content-center">
 
-<div class="header-short-bg">
-
-<style>
+    <style>
 
 
 
 .cloud img {
     width: 100%;
-    right: 0;
+    height: 100%;
+    right: 0%;
     top: 0px;
     position: absolute;
     -webkit-user-select: none; 
@@ -96,8 +99,8 @@
     -ms-user-select: none;
     user-select: none;    
     pointer-events: none;
-    opacity: 0.2;
-    z-index: 0;
+    opacity: 0.1;
+    z-index: 1;
     
     
 }
@@ -125,14 +128,14 @@
     animation: animCloud 20s infinite linear
 }
 .cloud2 {
+    -webkit-animation: animCloud 30s infinite linear;
+    -moz-animation: animCloud 30s infinite linear;
+    animation: animCloud 30s infinite linear
+}
+.cloud3 {
     -webkit-animation: animCloud 40s infinite linear;
     -moz-animation: animCloud 40s infinite linear;
     animation: animCloud 40s infinite linear
-}
-.cloud3 {
-    -webkit-animation: animCloud 60s infinite linear;
-    -moz-animation: animCloud 60s infinite linear;
-    animation: animCloud 60s infinite linear
 }
 
     </style>
@@ -144,20 +147,105 @@
    
     </div>
 
-
-<div class="container">
-    <div class="header-image-short d-flex align-items-center justify-content-center">
-        
+        <div class="container">
             <div class="row">
-               
-                
+                <h1 class="header-h1"><?= $camp['title'] ?></h1>
+                <div class="col-lg-9 d-block mx-auto">
+                    <p class="text-center text-light header-descript">Наш сервис создан для быстрого и удобного поиска
+                        детских
+                        оздоровительных лагерей по всей России!
+                        Планируете отправить ребёнка на отдых? Мы поможем найти самый подходящий для вас вариант.
+                    </p>
+                </div>
             </div>
+           
+            <div class="filter-block col-lg-11 d-block mx-auto mt-2">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-lg g-1">
+                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
+                            <select id="region" class="form-select form-select-lg mt-0" name="region">
+
+                                <option selected disabled value="">Выберите регион</option>
+                                <?php 
+                                    foreach ($cities as $key => $value) {
+                                        echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                    }
+                                ?>
+                            </select>
+                            <div id="region_msg"></div>
+                        </div>
+
+                        <div class="col-lg g-1">
+                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
+                            <select id="type" class="form-select form-select-lg mt-0" name="type">
+                                <option selected disabled value="">Любой тип лагеря</option>
+                                <?php 
+                                    foreach ($types as $key => $type) {
+                                        echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="col-lg g-1">
+                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
+                            <select id="season" class="form-select form-select-lg mt-0" name="season">
+                                <option selected disabled value="">Любой сезон</option>
+                                <?php 
+                                    foreach ($seasons as $key => $season) {
+                                        echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="col-lg g-1">
+                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
+                            <select id="age" class="form-select form-select-lg mt-0" name="age">
+                                <option selected disabled value="">Любой возраст</option>
+                                <option value="3">3 года</option>
+                                <option value="4">4 года</option>
+                                <option value="5">5 лет</option>
+                                <option value="6">6 лет</option>
+                                <option value="7">7 лет</option>
+                                <option value="8">8 лет</option>
+                                <option value="9">9 лет</option>
+                                <option value="10">10 лет</option>
+                                <option value="11">11 лет</option>
+                                <option value="12">12 лет</option>
+                                <option value="13">13 лет</option>
+                                <option value="14">14 лет</option>
+                                <option value="15">15 лет</option>
+                                <option value="16">16 лет</option>
+                                <option value="17">17 лет</option>
+                                <option value="18">18 лет</option>
+                                <option value="19">19 лет</option>
+                                <option value="20">20 лет</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-auto g-1">
+
+                            <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
+                        </div>
 
 
+                        <!-- <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Показывать лагеря только с рейтингом выше 4.5
+                            </label>
+                        </div> -->
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
 
     </div>
     </div>
-            </div>
 
     <script>
     // редирект
@@ -190,6 +278,12 @@
             document.title += type.selectedOptions[0].text;
         } else {
             url += '/type-all';
+        }
+
+        if (season.value) {
+            url += '/' + season.value;
+        } else {
+            url += '/season-all';
         }
 
         if (age.value) {

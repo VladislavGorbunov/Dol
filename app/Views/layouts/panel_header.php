@@ -18,6 +18,10 @@
         color: cyan;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .btn-add {
         color: #fff;
         background: #2955c8;

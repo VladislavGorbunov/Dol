@@ -51,7 +51,23 @@ class Panel extends BaseController
        
         $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
         $data['camps'] = $this->CampsModel->where('representatives_id', $data['user']['user_id'])->findAll();
-        //var_dump($data['camps']);
+        
+        
+        // Создание массива лагерей для главной страницы панели
+        for ($i = 0; $i < count($data['camps']); $i++) {
+            $data['camps'][$i] = [
+                'title' => $data['camps'][$i]['title'],
+                'camps_id' => $data['camps'][$i]['camps_id'],
+                'adress' => $data['camps'][$i]['adress'],
+                'shifts' => $this->ShiftsModel->where(['camps_id' => $data['camps'][$i]['camps_id']])->findAll(),
+            ];
+        }
+        
+
+        // echo '<pre>';
+        // var_dump($data['camps']);
+        // echo '</pre>';
+
         return view('layouts/panel_header', $data)
         .view('panel/index')
         .view('layouts/panel_footer');
@@ -388,6 +404,7 @@ class Panel extends BaseController
         
             if ($data_camp['representatives_id'] == $session->get('id')) {
                 $this->ShiftsModel->insert($data);
+                $session->setFlashdata('msg-success', 'Смена для лагеря ' . $data_camp['title'] . ' добавлена.');
             } 
         } else {
             $session->setFlashdata('msg-error', 'Ошибка: вы не можете добавить смены для лагеря с ID '.$data['camps_id'].'.');

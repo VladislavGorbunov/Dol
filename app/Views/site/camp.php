@@ -1,10 +1,10 @@
 <div class="container">
 
-<h1 class="text-center"><?= $camp['title'] ?></h1>
+
 
     <div class="row">
 
-        <div class="col-lg-12 mt-3">
+        <div class="col-lg-12 mt-2">
             <div class="row">
                 <div class="col-lg-4 mt-2 g-2"><?= '<img src="'.$cover.'" class="camp-photos" width="100%">' ?></div>
 
@@ -54,8 +54,8 @@
                   <p>Год начала деятельности: <?= $camp['year'] . ' год' ?></p>
                   <p>Возраст: <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?></p>
 
+                  <p class="mt-4">Таматики лагеря:</p>
                   <?php
-
                   foreach ($types as $type) {
                       echo '<div class="type mt-3">' . $type['title'] . '</div>';
                   }

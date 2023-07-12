@@ -52,7 +52,7 @@ class Camp extends BaseController
 
         $data['shifts'] = $this->ShiftsModel->where(['camps_id' => $data['camp']['camps_id']])->findAll();
         
-        return view('layouts/header', $data) 
+        return view('layouts/header-short', $data) 
         .view('site/camp')
         .view('layouts/footer');
     }
