@@ -68,7 +68,7 @@
         }
         </style>
 
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
             <div class="border p-3 rounded mb-3">
                 <h5 class="mt-2 mb-3">Поиск по параметрам:</h5>
 
@@ -106,9 +106,9 @@
 
                 <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp">Найти лагерь</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="col-lg-9">
+        <div class="col-lg-12">
         <div class="row">
     <?php 
     if (!empty($camps)) {
@@ -120,12 +120,12 @@
             
             <div class="card p-3">
                 <div class="row">
-                    <div class="col-lg-4 col-12 mb-3">
+                    <div class="col-lg-3 col-12 mb-3">
                         <img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="img-fluid">
                  
                     </div>
 
-             <div class="col-lg-8">
+             <div class="col-lg-9">
                  <div class="row">
 
                      <div class="col-lg-8">
@@ -162,7 +162,7 @@
               <p class="mt-3"><i class="las la-comment"></i> <a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
               <p>Гос. компенсация: да</p>
               <p>Городской сертификат: да</p>
-              <p class="price"><b>от 50000 руб.</b></p>
+              <p class="price"><b>от '. $camp['min_price'] .' руб.</b></p>
               <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp/'.$camp['slug'].'" target="_blank">Смотреть смены</a>
               <a class="btn btn-detailed mt-1 mb-3 col-lg-12" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>
              </div>

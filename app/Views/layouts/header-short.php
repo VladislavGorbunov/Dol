@@ -82,7 +82,7 @@
         </nav>
     </header>
 
-    <div class="header-image d-flex align-items-center justify-content-center">
+    <div class="header-image-short d-flex align-items-center justify-content-center">
 
     <style>
 
@@ -149,7 +149,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="header-h1"><?= $camp['title'] ?></h1>
+                <h1 class="header-h1"><?= $title ?></h1>
                 <div class="col-lg-9 d-block mx-auto">
                     <p class="text-center text-light header-descript">Наш сервис создан для быстрого и удобного поиска
                         детских

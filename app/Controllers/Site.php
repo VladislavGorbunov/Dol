@@ -51,7 +51,7 @@ class Site extends BaseController
             ];
 
         }
-        
+        $data['title'] = 'Поиск и бронирование билетов в детские лагеря по всей России';
         return view('layouts/header', $data) 
         .view('site/index')
         .view('layouts/footer');
@@ -70,6 +70,8 @@ class Site extends BaseController
         $pager = service('pager');
 
         $data['cities'] = $this->Cities->findAll();
+        $data['types'] = $this->Types->findAll();
+        $data['seasons'] = $this->Seasons->findAll();
 
         $filter = [];
 
@@ -107,7 +109,12 @@ class Site extends BaseController
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
 
         $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
+       
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
+
+        // echo '<pre>';
+        // var_dump($camps);
+        // echo '</pre>';
         $total = $camps_data['count_row']; // Получаем кол-во записей
         
          // Call makeLinks() to make pagination links.
@@ -125,11 +132,14 @@ class Site extends BaseController
                 'count_reviews' => $camps[$i]['count_reviews'],
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+                'min_price' => $camps[$i]['min_price'],
             ];
 
         }
 
-        $data['title'] = 'Детские лагеря ' . $region['title_in'];
+        $type_name = (!empty($types['title'])) ? $types['title'] . ' ' : '';
+
+        $data['title'] = 'Детские лагеря ' . $type_name . $region['title_in'];
 
         $data['pager_links'] = $pager_links;
 

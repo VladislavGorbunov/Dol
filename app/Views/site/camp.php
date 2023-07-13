@@ -26,7 +26,7 @@
             <div class="col-lg-8 mt-3">
 
             <div class="border p-3 rounded">
-              <h3>Описание</h3>
+              <h3><?= $camp['title'] ?></h3>
               <?= $camp['description'] ?>
             </div>
               
@@ -56,7 +56,7 @@
 
                   <p class="mt-4">Таматики лагеря:</p>
                   <?php
-                  foreach ($types as $type) {
+                  foreach ($types_camp as $type) {
                       echo '<div class="type mt-3">' . $type['title'] . '</div>';
                   }
                   ?>
@@ -74,8 +74,9 @@
                     echo '<small>Доступно смен: '. $count  .'</small>';
                     echo '<select class="form-select mt-2 mb-3" aria-label="Default select example">';
                     foreach ($shifts as $shift) {
-                        echo '<option selected>'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
+                        echo '<option>'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
                     }
+                    echo '<option>Не определились со сменой</option>';
                     echo '</select>';
 
                     echo '<p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатное бронирование без комиссии</p>

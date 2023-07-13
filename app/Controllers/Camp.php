@@ -39,8 +39,10 @@ class Camp extends BaseController
     {
         $data['cities'] = $this->Cities->findAll();
         $data['seasons'] = $this->Seasons->findAll();
+        $data['types'] = $this->Types->findAll();
+
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
-        $data['types'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
+        $data['types_camp'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
         $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
         $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
@@ -51,7 +53,7 @@ class Camp extends BaseController
         }
 
         $data['shifts'] = $this->ShiftsModel->where(['camps_id' => $data['camp']['camps_id']])->findAll();
-        
+        $data['title'] = 'Детский лагерь - «' . $data['camp']['title'] .'»';
         return view('layouts/header-short', $data) 
         .view('site/camp')
         .view('layouts/footer');

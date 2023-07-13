@@ -112,8 +112,6 @@ a {
 .btn-reg:hover {
     color: #fff;
     background-color: #243d51;
-    
-    
 }
 
 .btn-reg:hover .las {
@@ -151,23 +149,17 @@ a {
 .header-image {
     width: 100%;
     min-height: 550px;
-    background: url(/../public/theme/img/header4.jpg) center -80px;
-    
+    background: url(/../public/theme/img/header4.jpg) center -110px;
     padding: 20px 0;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px; 
 }
 
 .header-image-short {
     width: 100%;
-    min-height: 520px;
+    min-height: 450px;
+    background: #111 url(/../public/theme/img/header4.jpg) center -110px;
     padding: 20px 0;
     margin-bottom: 30px;
-    border-radius: 20px;
-}
-
-.header-short-bg {
-    background: url(/../public/theme/img/header4.jpg) center -50px;
 }
 
 .header-h1 {
