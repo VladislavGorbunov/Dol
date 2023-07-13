@@ -137,7 +137,7 @@ class Site extends BaseController
 
         }
 
-        $type_name = (!empty($types['title'])) ? $types['title'] . ' ' : '';
+        $type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
 
         $data['title'] = 'Детские лагеря ' . $type_name . $region['title_in'];
 
