@@ -67,6 +67,7 @@ class Site extends BaseController
 
     public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
     {
+
         $pager = service('pager');
 
         $data['cities'] = $this->Cities->findAll();
@@ -80,21 +81,36 @@ class Site extends BaseController
         $filter['season'] = $season;
         $filter['age'] = $age;
 
-        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) $this->error404();
+        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) {
+            $this->error404();
+        } else {
+            // region_filter_select для установки selected в фильтре
+            $data['region_filter_select'] = $region['title'];
+        }
         
         // Проверка существует ли такой тип в БД
         if ($filter['type'] != 'type-all') {
-            if (!$types = $this->Types->where('slug', $filter['type'])->first()) $this->error404();
-            $type = $types['types_id'];
-            
+            if (!$types = $this->Types->where('slug', $filter['type'])->first()) {
+                $this->error404();
+            } else {
+                $type = $types['types_id'];
+                // type_filter_select для установки selected в фильтре
+                $data['type_filter_select'] = $types['title'];
+            } 
         } else {
             $type = null;
         }   
 
         // Проверка существует ли такой сезон в БД
         if ($filter['season'] != 'season-all') {
-            if (!$season = $this->Seasons->where('slug', $filter['season'])->first()) $this->error404();
-            $season = $season['seasons_id'];
+            if (!$seasons = $this->Seasons->where('slug', $filter['season'])->first()) {
+                $this->error404();
+            } else {
+                $season = $seasons['seasons_id'];
+                // season_filter_select для установки selected в фильтре
+                $data['season_filter_select'] = $seasons['title'];
+            }
+           
         } else {
             $season = null;
         }   
@@ -139,8 +155,31 @@ class Site extends BaseController
 
         $type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
 
-        $data['title'] = 'Детские лагеря ' . $type_name . $region['title_in'];
 
+        $title = null;
+        if (!empty($seasons['title'])) {
+            $title .= $seasons['title_in'] . ' ';
+        } 
+        
+        if (!empty($types['title'])) {
+            $title .= $types['tag_title'] . ' ';
+        } 
+
+        if (empty($types) || empty($seasons)) {
+            $title .= 'Детские лагеря ';
+        }
+
+        if (!empty($region['title'])) {
+            $title .= $region['title_in'];
+        }
+
+        
+
+        
+
+        //echo $title;
+        //$data['title'] = $type_name . $region['title_in'];
+        $data['title'] = $title;
         $data['pager_links'] = $pager_links;
 
         return view('layouts/header-short', $data) 

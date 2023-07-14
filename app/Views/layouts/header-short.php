@@ -166,10 +166,18 @@
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
 
-                                <option selected disabled value="">Выберите регион</option>
+                                <option disabled value="">Выберите регион</option>
                                 <?php 
                                     foreach ($cities as $key => $value) {
-                                        echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                        // Добавляем selected к выбранному городу
+                                        if (!empty($region_filter_select)) {
+                                            if ($region_filter_select == $value['title']) {
+                                                echo '<option selected value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                            }
+                                        }
+                                        
                                     }
                                 ?>
                             </select>
@@ -179,10 +187,20 @@
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
-                                <option selected disabled value="">Любой тип лагеря</option>
+                                <option selected value="type-all">Любой тип лагеря</option>
                                 <?php 
                                     foreach ($types as $key => $type) {
-                                        echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                        // Добавляем selected к выбранному типу
+                                        if (!empty($type_filter_select)) {
+                                            if ($type_filter_select == $type['title']) {
+                                                echo '<option selected value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                            }
+                                        } else {
+                                            echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                        }
+                                        
                                     }
                                 ?>
                             </select>
@@ -191,10 +209,20 @@
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
                             <select id="season" class="form-select form-select-lg mt-0" name="season">
-                                <option selected disabled value="">Любой сезон</option>
+                                <option selected value="season-all">Любой сезон</option>
                                 <?php 
                                     foreach ($seasons as $key => $season) {
-                                        echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        // Добавляем selected к выбранному сезону
+                                        if (!empty($season_filter_select)) {
+                                            if ($season_filter_select == $season['title']) {
+                                                echo '<option selected value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                            }
+                                        } else {
+                                            echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        }
+                                        
                                     }
                                 ?>
                             </select>
