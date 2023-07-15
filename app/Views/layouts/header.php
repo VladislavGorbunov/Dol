@@ -82,71 +82,22 @@
         </nav>
     </header>
 
-    <div class="header-image d-flex align-items-center justify-content-center">
-
-    <style>
 
 
-
-.cloud img {
-    width: 100%;
-    height: 100%;
-    right: 0%;
-    top: 0px;
-    position: absolute;
-    -webkit-user-select: none; 
-    -moz-user-select: none;   
-    -ms-user-select: none;
-    user-select: none;    
-    pointer-events: none;
-    opacity: 0.1;
-    z-index: 1;
-    
-    
-}
-
-
-@keyframes animCloud {
-    from {
-        -webkit-transform: translateX(100%);
-        -moz-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-        -o-transform: translateX(100%);
-        transform: translateX(100%)
-    }
-    to {
-        -webkit-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
-        transform: translateX(-100%)
-    }
-}
-.cloud1 {
-    -webkit-animation: animCloud 20s infinite linear;
-    -moz-animation: animCloud 20s infinite linear;
-    animation: animCloud 20s infinite linear
-}
-.cloud2 {
-    -webkit-animation: animCloud 30s infinite linear;
-    -moz-animation: animCloud 30s infinite linear;
-    animation: animCloud 30s infinite linear
-}
-.cloud3 {
-    -webkit-animation: animCloud 40s infinite linear;
-    -moz-animation: animCloud 40s infinite linear;
-    animation: animCloud 40s infinite linear
-}
-
-    </style>
-
-    <div class="cloud">
-    <img src="/public/theme/img/cloud-animation/cloud-01.png" alt="" class="cloud1">
-    <img src="/public/theme/img/cloud-animation/cloud-02.png" alt="" class="cloud2">
-    <img src="/public/theme/img/cloud-animation/cloud-03.png" alt="" class="cloud3">
-   
+    <div class="stars-block">
+        <div class="star"></div>
+        <div class="star2"></div>
+        <div class="star3"></div>
+        <div class="star4"></div>
+        <div class="star5"></div>
+        <div class="star6"></div>
+        <div class="star7"></div>
+        <div class="star8"></div>
+        <div class="star9"></div>
+        <div class="star10"></div>
     </div>
 
+    <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="row">
                 <h1 class="header-h1"><?= $title ?></h1>

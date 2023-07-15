@@ -1,7 +1,8 @@
 <div class="container">
 
-<div class="info-block-index">
+<div class="info-block-index mt-3">
     <div class="row">
+        
         <div class="col-lg-3">
             <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
             <h6 class="text-center mt-2"><b>Бесплатное бронирование</b></h6>
