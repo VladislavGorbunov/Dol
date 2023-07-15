@@ -176,6 +176,8 @@
                                             } else {
                                                 echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
                                             }
+                                        } else {
+                                            echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
                                         }
                                         
                                     }

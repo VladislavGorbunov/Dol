@@ -54,6 +54,7 @@ class Camp extends BaseController
 
         $data['shifts'] = $this->ShiftsModel->where(['camps_id' => $data['camp']['camps_id']])->findAll();
         $data['title'] = 'Детский лагерь - «' . $data['camp']['title'] .'»';
+
         return view('layouts/header-short', $data) 
         .view('site/camp')
         .view('layouts/footer');
