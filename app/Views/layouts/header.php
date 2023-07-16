@@ -31,9 +31,14 @@
 <body>
 
     <header>
+
+    
         <nav class="navbar navbar-expand-lg py-3">
 
             <div class="container py-2">
+
+           
+
                 <a class="navbar-brand" href="/">
                     <img src="/public/theme/img/logo.png" width="80%">
                 </a>
@@ -80,12 +85,15 @@
                 </div>
             </div>
         </nav>
+
+        <div class="moon"></div>
     </header>
 
     
 
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
+        
             <div class="row">
                 <h1 class="header-h1"><?= $title ?></h1>
                 <div class="col-lg-9 d-block mx-auto">

@@ -78,6 +78,7 @@
                 </div>
             </div>
         </nav>
+        <div class="moon"></div>
     </header>
 
     <div class="header-image-short d-flex align-items-center justify-content-center">

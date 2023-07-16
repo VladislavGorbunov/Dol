@@ -162,8 +162,10 @@ a {
 }
 
 .header-h1 {
+    position: relative;
     text-align: center;
     color: #fff;
+    z-index: 9;
 }
 
 .header-short-h1 {
@@ -274,3 +276,31 @@ a {
     border-radius: 10px;
 }
 
+.moon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 120px;
+    right: 25%;
+    background: url(/public/theme/img/moon.png) center center;
+    background-size: cover;
+    animation: moon-animation 2s infinite ease;
+}
+
+@keyframes moon-animation {
+    0% {
+        opacity: 0.6;
+        top: 120px;
+    }
+
+    50% {
+        opacity: 0.3;
+        top: 135px;
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        opacity: 0.6;
+        top: 120px;
+    }
+}
