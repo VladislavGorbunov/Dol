@@ -281,26 +281,25 @@ a {
     width: 70px;
     height: 70px;
     top: 120px;
-    right: 25%;
-    background: url(/public/theme/img/moon.png) center center;
-    background-size: cover;
-    animation: moon-animation 2s infinite ease;
+    right: 22%;
+    background: url(/public/theme/img/moon.png) center center no-repeat;
+    background-size: 100%;
+    animation: moon-animation 4s infinite ease;
+    z-index: 1;
 }
 
 @keyframes moon-animation {
     0% {
         opacity: 0.9;
-        top: 120px;
     }
 
     50% {
-        opacity: 0.6;
-        top: 145px;
-        transform: rotate(-8deg);
+        opacity: 0.9;
+        transform: rotate(-15deg);
+        right: 24%;
     }
 
     100% {
         opacity: 0.9;
-        top: 120px;
     }
 }
