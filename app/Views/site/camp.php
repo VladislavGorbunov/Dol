@@ -79,9 +79,16 @@
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
 
+                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="">
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="">
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Email" name="">
+
+                    ';
+
                     echo '<p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатное бронирование без комиссии</p>
                           <p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатная отмена</p>
                           <p><i class="las la-check-circle" style="color: #21a663"></i> Договор напрямую с лагерем без посредников</p>
+                          <p class="text-center mt-4" style="font-size:13px;">После отправки формы в течении дня с вами свяжется менеджер лагеря.</p>
                     ';
 
                     echo '<button type="submit" class="btn btn-booking mt-3 col-lg-12">Забронировать путёвку</button>';

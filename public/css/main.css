@@ -151,6 +151,7 @@ a {
     background: url(/../public/theme/img/header4.jpg) center -70px;
     padding: 20px 0;
     margin-bottom: 30px; 
+    
 }
 
 .header-image-short {
@@ -303,3 +304,4 @@ a {
         opacity: 0.9;
     }
 }
+
