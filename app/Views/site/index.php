@@ -43,7 +43,7 @@
             <a href="/camp/'.$camp['slug'].'"><div class="card">';
 
             if (!empty($camp['cover']['name_img'])) {
-                echo '<img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto">';
+                echo '<img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto img-fluid">';
             } else {
                 echo '<img src="/public/theme/img/nofoto.jpg">';
             }

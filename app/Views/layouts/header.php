@@ -82,20 +82,7 @@
         </nav>
     </header>
 
-
-
-    <div class="stars-block">
-        <div class="star"></div>
-        <div class="star2"></div>
-        <div class="star3"></div>
-        <div class="star4"></div>
-        <div class="star5"></div>
-        <div class="star6"></div>
-        <div class="star7"></div>
-        <div class="star8"></div>
-        <div class="star9"></div>
-        <div class="star10"></div>
-    </div>
+    
 
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
@@ -191,12 +178,13 @@
 
                     </div>
                 </form>
-
+            
             </div>
         </div>
 
     </div>
     </div>
+
 
     <script>
     // редирект

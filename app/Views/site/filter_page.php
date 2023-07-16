@@ -130,15 +130,11 @@
 
                      <div class="col-lg-8">
                          <h5><a href="/camp/'.$camp['slug'].'" target="_blank">'. $camp['camp'] .'</a></h5>
-                         <p><i class="las la-map-marker-alt"></i> '.$camp['adress'].' <br><a href="" class="map-link small">(Смотреть на карте)</a></p> 
+                         <p><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p> 
                          <p>
                          '.$camp['description'].'
                          </p>
-                        <div class="row d-none d-lg-block d-md-block">
-                            <div class="col-auto">
-                            <p>Возраст: <b>от 4 до 14 лет</b></p>
-                        </div>
-                     </div>
+                        
 
 
                  <div class="type-block mb-2 d-none d-lg-flex d-md-flex">
@@ -156,11 +152,11 @@
              <div class="col-lg-4 ">
 
               <div class="rating-block">
-              <img src="/public/theme/img/star.svg" width="24px" style="margin-right: 5px;"><b>Рейтинг: </b> <span class="rating">'.$rating.' из 5</span> 
+                  <img src="/public/theme/img/star.svg" width="24px" style="margin-right: 5px;"><b>Рейтинг: </b> <span class="rating">'.$rating.' из 5</span> 
               </div>
               
               <p class="mt-3"><i class="las la-comment"></i> <a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
-              <p>Гос. компенсация: да</p>
+              <p>Возраст: <b>от 4 до 14 лет</b></p>
               <p>Городской сертификат: да</p>
               <p class="price"><b>от '. $camp['min_price'] .' руб.</b></p>
               <a class="btn btn-reg mt-1 mb-3 col-lg-12" href="/camp/'.$camp['slug'].'" target="_blank">Смотреть смены</a>
