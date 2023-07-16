@@ -37,10 +37,8 @@
 
             <div class="container py-2">
 
-           
-
                 <a class="navbar-brand" href="/">
-                    <img src="/public/theme/img/logo.png" width="80%">
+                    <img src="/public/theme/img/logo.png" width="200px">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"

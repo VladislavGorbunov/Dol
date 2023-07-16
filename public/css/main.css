@@ -148,7 +148,7 @@ a {
 .header-image {
     width: 100%;
     min-height: 580px;
-    background: url(/../public/theme/img/header4.jpg) center -90px;
+    background: url(/../public/theme/img/header4.jpg) center -70px;
     padding: 20px 0;
     margin-bottom: 30px; 
 }
@@ -156,7 +156,7 @@ a {
 .header-image-short {
     width: 100%;
     min-height: 450px;
-    background: #111 url(/../public/theme/img/header4.jpg) center -90px;
+    background: #111 url(/../public/theme/img/header4.jpg) center -70px;
     padding: 20px 0;
     margin-bottom: 30px;
 }
@@ -289,18 +289,18 @@ a {
 
 @keyframes moon-animation {
     0% {
-        opacity: 0.6;
+        opacity: 0.9;
         top: 120px;
     }
 
     50% {
-        opacity: 0.3;
-        top: 135px;
-        transform: rotate(-5deg);
+        opacity: 0.6;
+        top: 145px;
+        transform: rotate(-8deg);
     }
 
     100% {
-        opacity: 0.6;
+        opacity: 0.9;
         top: 120px;
     }
 }

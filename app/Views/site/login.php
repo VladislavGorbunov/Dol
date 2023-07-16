@@ -134,8 +134,8 @@
     </div>
     <?php endif;?>
 
-        <img src="/public/theme/img/login-form-img.svg" width="64px" class="d-block mx-auto">
-        <h3 class="text-center mt-3">ByCamps Office</h3>
+        <img src="/public/theme/img/login-form-logo.png" width="200px" class="d-block mx-auto">
+        <h3 class="text-center mt-2">ByCamps Office</h3>
         <form action="" method="post">
             <div class="inputBox mt-1 col-lg-10 d-block mx-auto">
                 <input id="uname" type="text" name="email" placeholder="Email" required>
