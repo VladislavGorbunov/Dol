@@ -86,6 +86,7 @@ class Registration extends BaseController
 
     public function SendEmailReg($emailto, $password)
     {
+        
         $this->email->setFrom('KidsCamps', 'Your Name');
         $this->email->setTo($emailto);
         $this->email->setSubject('Регистрация');
