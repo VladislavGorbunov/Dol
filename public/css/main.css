@@ -15,6 +15,10 @@ body {
     z-index: 2;
 }
 
+.border {
+    border: 1px solid rgb(242, 245, 250) !important;
+}
+
 h1,
 h2,
 h3,

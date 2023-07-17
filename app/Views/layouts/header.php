@@ -104,7 +104,7 @@
             </div>
            
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
-                <form action="" method="post">
+                <form method="post">
                     <div class="row">
                         <div class="col-lg g-1">
                             <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
@@ -168,6 +168,8 @@
                                 <option value="20">20 лет</option>
                             </select>
                         </div>
+
+                        
 
                         <div class="col-lg-auto g-1">
 
