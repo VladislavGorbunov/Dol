@@ -9,6 +9,7 @@ use App\Models\Types;
 use App\Models\Seasons;
 use App\Models\Images;
 use App\Models\Shifts;
+use App\Models\Reviews;
 
 class Camp extends BaseController
 {
@@ -18,6 +19,7 @@ class Camp extends BaseController
     public $Seasons;
     public $Images;
     public $ShiftsModel;
+    public $Reviews;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -32,6 +34,7 @@ class Camp extends BaseController
         $this->Seasons = new Seasons();
         $this->Images = new Images();
         $this->ShiftsModel = new Shifts();
+        $this->Reviews = new Reviews();
         // Preload any models, libraries, etc, here.
     }
 
@@ -47,7 +50,7 @@ class Camp extends BaseController
         $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
         $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
-        
+        $data['reviews'] = $this->Reviews->selectAvg('rating')->where(['camps_id'=> $data['camp']['camps_id']])->first();
         foreach ($data['images'] as $key => $image) {
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }

@@ -172,7 +172,6 @@
                         
 
                         <div class="col-lg-auto g-1">
-
                             <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
                         </div>
 

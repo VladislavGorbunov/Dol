@@ -403,8 +403,11 @@ class Panel extends BaseController
         if ($data_camp = $this->CampsModel->where('camps_id', $data['camps_id'])->first()) {
         
             if ($data_camp['representatives_id'] == $session->get('id')) {
-                $this->ShiftsModel->insert($data);
-                $session->setFlashdata('msg-success', 'Смена для лагеря ' . $data_camp['title'] . ' добавлена.');
+                if ($this->ShiftsModel->insert($data)) {
+                    $session->setFlashdata('msg-success', 'Смена для лагеря ' . $data_camp['title'] . ' добавлена.');
+                } else {
+                    $session->setFlashdata('msg-error', 'Произошла ошибка добавления смены.');
+                }
             } 
         } else {
             $session->setFlashdata('msg-error', 'Ошибка: вы не можете добавить смены для лагеря с ID '.$data['camps_id'].'.');

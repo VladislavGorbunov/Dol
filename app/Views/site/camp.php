@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row">
 
+
+
+
         <div class="col-lg-12 mt-2">
 
             <div class="row">
@@ -49,6 +52,7 @@
                         <div id="map" style="width: auto; height: 400px"></div>
 
                         <div class="col-lg-12 mt-4">
+                            <p><?= round($reviews['rating'], 2) ?></p>
                             <p><b>Регион:</b> <?= $region['title'] ?></p>
                             <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                             <p><b>Год начала деятельности:</b> <?= $camp['year'] . ' год' ?></p>
