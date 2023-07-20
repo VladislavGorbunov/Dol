@@ -108,7 +108,7 @@
 
                     echo '<button type="submit" class="btn btn-booking mt-3 col-lg-12">Забронировать путёвку</button>';
                 } else {
-                    
+                    echo '<p class="mt-3">На данный момент нет доступных смен.</p>';
                 }
 
                 ?>

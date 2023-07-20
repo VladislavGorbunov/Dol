@@ -326,7 +326,7 @@ class Panel extends BaseController
             }
 
         } else {
-            $session->setFlashdata('msg-error', 'При добавлении лагеря произошла ошибка. Обратитесь в службу поддержки. Код ошибки: Controller#panel#167');
+            $session->setFlashdata('msg-error', 'При добавлении лагеря произошла ошибка. Обратитесь в службу поддержки. Код ошибки: Controller#panel#216');
             return redirect()->to('/panel');
         }
     }
@@ -349,7 +349,7 @@ class Panel extends BaseController
                 if (delete_files($images_folder, true) && rmdir($images_folder) && $camp = $this->CampsModel->where('camps_id', $camp_id)->delete()) {
                     $session->setFlashdata('msg-success', 'Лагерь удалён.');
                 } else {
-                    $session->setFlashdata('msg-error', 'При удалении произошла ошибка. Код ошибки: Controller#panel#246');
+                    $session->setFlashdata('msg-error', 'При удалении произошла ошибка. Код ошибки: Controller#panel#349');
                 }
                 
             } else {
