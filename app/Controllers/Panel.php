@@ -189,7 +189,7 @@ class Panel extends BaseController
             die;
         }
 
-        if (!$types_data['seasons']) {
+        if (!$seasons_data['seasons']) {
             $session->setFlashdata('msg-error', 'Не выбраны сезоны');
             return redirect()->to('/panel/add-camp');
             die;
@@ -200,9 +200,6 @@ class Panel extends BaseController
             return redirect()->to('/panel/add-camp');
             die;
         }
-
-        
-        
 
         if (count($types_data['types']) > 6) {
             $session->setFlashdata('msg-error', 'Отметьте не более 6 типов к которому относится ваш лагерь!');
@@ -215,6 +212,7 @@ class Panel extends BaseController
         }
 
         
+
         if ($this->CampsModel->insert($data)) {
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();
@@ -227,7 +225,12 @@ class Panel extends BaseController
                     'types_id' => $type,
                 ];
 
-                $this->CampsTypes->insert($types);
+                // Если произошла ошибка добавления типов, удаляем лагерь и выводим сообщение
+                if (!$this->CampsTypes->insert($types)) {
+                    $this->CampsModel->where(['camps_id' => $camps_id])->delete();
+                    $session->setFlashdata('msg-error', 'Произошла ошибка добавления типов лагеря. Попробуйте снова или обратитесь в службу поддержки.');
+                    return redirect()->to('/panel');
+                }
             }
 
             // Добавление в БД сезонов лагеря
@@ -237,7 +240,12 @@ class Panel extends BaseController
                     'seasons_id' => $season,
                 ];
                 
-                $this->CampsSeasons->insert($seasons);
+                // Если произошла ошибка добавления сезонов, удаляем лагерь и выводим сообщение
+                if (!$this->CampsSeasons->insert($seasons)) {
+                    $this->CampsModel->where(['camps_id' => $camps_id])->delete();
+                    $session->setFlashdata('msg-error', 'Произошла ошибка добавления сезонов лагеря. Попробуйте снова или обратитесь в службу поддержки.');
+                    return redirect()->to('/panel');
+                }
             }
 
             // Путь до папки для загружаемых оригинальных изображений лагеря
@@ -265,7 +273,7 @@ class Panel extends BaseController
                         // Создание папки для маленьких изображений
                             mkdir($home .'/cover/');
                         }
-                        $image->withFile($home .'/'. $newNameCover)
+                        $cover_flag = $image->withFile($home .'/'. $newNameCover)
                         ->fit(400, 340, 'center')
                         ->save($home .'/cover/'. $newNameCover);
 
@@ -302,7 +310,7 @@ class Panel extends BaseController
                                     mkdir($home .'/photo/');
                                 }
                             
-                            $image->withFile($home .'/'. $newName)
+                            $images_flag = $image->withFile($home .'/'. $newName)
                             ->resize(1000, 550, true, 'width')
                             ->crop(1000, 550, 0, 0)
                             ->save($home .'/photo/'. $newName);
@@ -312,11 +320,11 @@ class Panel extends BaseController
                         }
                     }
                 }
+
                 $session->setFlashdata('msg-success', 'Лагерь добавлен в базу данных и отправлен на проверку.');
                 return redirect()->to('/panel');
             }
 
-            //$this->TypesModel->insert($data);
         } else {
             $session->setFlashdata('msg-error', 'При добавлении лагеря произошла ошибка. Обратитесь в службу поддержки. Код ошибки: Controller#panel#167');
             return redirect()->to('/panel');

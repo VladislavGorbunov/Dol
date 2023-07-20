@@ -80,7 +80,7 @@ a {
     background: #21a663;
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 13px 20px;
     font-size: 16px;
 }
@@ -120,6 +120,18 @@ a {
 .btn-reg:hover .las {
     transform: rotate(360deg);
     transition: .5s;
+}
+
+.btn-add-review {
+    
+    color: #fff;
+    background: #2955c8;
+    border: 1px solid #2955c8;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: .5s;
+    font-size: 16px;
+    
 }
 
 .btn-detailed {

@@ -52,11 +52,22 @@
                         <div id="map" style="width: auto; height: 400px"></div>
 
                         <div class="col-lg-12 mt-4">
-                            <p><?= round($reviews['rating'], 2) ?></p>
+                            <div class="d-flex flex-row justify-content-around">
+                                <div>
+                                <p><i class="las la-star" style="color:gold"></i> Рейтинг: <b><?= round($reviews['rating'], 2) ?> из 5</b></p>
+                                </div>
+
+                                <div>
+                                <p><i class="las la-comment"></i> Отзывов: <b>0</b></p>
+                                </div>
+                            </div>
+                            <a href="" class="btn-add-review d-block mx-auto text-center col-10">Оставить отзыв</a>
+                            <div class="mt-4">
                             <p><b>Регион:</b> <?= $region['title'] ?></p>
                             <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                             <p><b>Год начала деятельности:</b> <?= $camp['year'] . ' год' ?></p>
                             <p><b>Возраст:</b> <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?></p>
+                            </div>
 
                             <p class="mt-4"><b>Таматики лагеря:</b></p>
                   <?php
