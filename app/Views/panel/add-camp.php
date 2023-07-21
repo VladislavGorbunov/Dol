@@ -65,7 +65,7 @@
         информации, добавление
         лагеря будет отклонено.</p>
 
-        <?php if(session()->getFlashdata('msg-error')):?>
+<?php if(session()->getFlashdata('msg-error')):?>
 <div class="alert alert-danger">
 <?= session()->getFlashdata('msg-error') ?>
 </div>

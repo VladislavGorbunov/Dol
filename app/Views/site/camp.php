@@ -1,8 +1,18 @@
 <div class="container">
+
+<?php if(session()->getFlashdata('msg-error')):?>
+    <div class="alert alert-warning">
+        <?= session()->getFlashdata('msg-error') ?>
+    </div>
+    <?php endif;?>
+
+    <?php if(session()->getFlashdata('msg-success')):?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('msg-success') ?>
+    </div>
+    <?php endif;?>
+
     <div class="row">
-
-
-
 
         <div class="col-lg-12 mt-2">
 
@@ -82,22 +92,23 @@
 
                     <div class="border mt-3 p-3 rounded">
                         <h3>Забронировать</h3>
-                        <?php
+                <form action="/booking" method="post">
+                <?php
 
                 if (!empty($shifts)) {
                     $count = count($shifts);
                     echo '<small>Доступно смен: '. $count  .'</small>';
-                    echo '<select class="form-select mt-2 mb-3" aria-label="Default select example">';
+                    echo '<select class="form-select mt-2 mb-3" aria-label="Default select example" name="shift_id">';
                     foreach ($shifts as $shift) {
-                        echo '<option>'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
+                        echo '<option value="'.$shift['id'].'">'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
                     }
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
 
-                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="">
-                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="">
-                          <input type="text" class="form-control mt-2 mb-3" placeholder="Email" name="">
-
+                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio">
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone">
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Email" name="email">
+                          <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
                     ';
 
                     echo '<p><i class="las la-check-circle" style="color: #21a663"></i> Бесплатное бронирование без комиссии</p>
@@ -112,6 +123,7 @@
                 }
 
                 ?>
+                </form>
                     </div>
 
 

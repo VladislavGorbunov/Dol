@@ -10,6 +10,7 @@ use App\Models\Seasons;
 use App\Models\Images;
 use App\Models\Shifts;
 use App\Models\Reviews;
+use App\Models\Bookings;
 
 class Camp extends BaseController
 {
@@ -20,6 +21,7 @@ class Camp extends BaseController
     public $Images;
     public $ShiftsModel;
     public $Reviews;
+    public $bookings;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -35,6 +37,7 @@ class Camp extends BaseController
         $this->Images = new Images();
         $this->ShiftsModel = new Shifts();
         $this->Reviews = new Reviews();
+        $this->Bookings = new Bookings();
         // Preload any models, libraries, etc, here.
     }
 
@@ -63,7 +66,23 @@ class Camp extends BaseController
         .view('layouts/footer');
     }
 
-    
 
+    public function Booking()
+    {
+        $session = session();
+        $data['camps_id_booking'] =  $this->request->getVar('camps_id_booking');
+        $data['fio'] =  $this->request->getVar('fio');
+        $data['telephone'] =  $this->request->getVar('telephone');
+        $data['email'] =  $this->request->getVar('email');
+        $data['camp_id'] = $this->request->getVar('camps_id_booking');
+        $data['shift_id'] = $this->request->getVar('shift_id');
+
+        $this->Bookings->insert($data);
+        $session->setFlashdata('msg-success', 'Путёвка забронирована. Ожидайте звонка менеджера лагеря.');
+
+        //echo previous_url();
+        $redirect = $_SERVER['HTTP_REFERER'];
+        return redirect()->to($redirect);
+    }
    
 }

@@ -44,6 +44,7 @@ $routes->get('/panel/camp/(:num)/delete', 'Panel::deleteCamp/$1', ['filter' => '
 
 $routes->get('/panel/camp/(:num)/add-shift', 'Panel::AddShift/$1', ['filter' => 'PanelAuth']);
 $routes->post('/panel/camp/(:num)/add-shift', 'Panel::InsertShift/$1', ['filter' => 'PanelAuth']);
+$routes->post('/booking', 'Camp::Booking');
 
 $routes->get('/panel/logout', 'Panel::Logout');
 $routes->get('/registration', 'Registration::index');
