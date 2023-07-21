@@ -80,11 +80,13 @@
                             </div>
 
                             <p class="mt-4"><b>Таматики лагеря:</b></p>
+                            <div class="d-flex flex-wrap justify-content-start flex-row">
                   <?php
                       foreach ($types_camp as $type) {
-                          echo '<div class="type d-inline-flex flex-row">' . $type['title'] . '</div>';
+                          echo '<div class="type m-2">' . $type['title'] . '</div>';
                       }
                   ?>
+                            </div>
                         </div>
 
                     </div>
