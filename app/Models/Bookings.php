@@ -14,6 +14,7 @@ class Bookings extends Model
         'email',
         'camp_id',
         'shift_id',
+        'booking_number',
     ];
 
     

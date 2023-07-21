@@ -76,13 +76,38 @@ class Camp extends BaseController
         $data['email'] =  $this->request->getVar('email');
         $data['camp_id'] = $this->request->getVar('camps_id_booking');
         $data['shift_id'] = $this->request->getVar('shift_id');
+        $data['booking_number'] = $this->CreateRandomBookingNumber();
 
         $this->Bookings->insert($data);
-        $session->setFlashdata('msg-success', 'Путёвка забронирована. Ожидайте звонка менеджера лагеря.');
-
-        //echo previous_url();
+        $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
+    
         $redirect = $_SERVER['HTTP_REFERER'];
         return redirect()->to($redirect);
+    }
+
+
+    public function CreateRandomBookingNumber()
+    {
+        $arr = [
+            1 => 'A', 
+            2 => 'Б',
+            3 => 'В',
+            4 => 'Г',
+            5 => 'Д',
+            6 => 'Е',
+            7 => 'Ж',
+            8 => 'З',
+            9 => 'И',
+            10 => 'К',
+        ];
+
+        $number = date("d");
+        $month = date("m");
+        $year = date("y");
+        $minutes = date("i");
+        $seconds = date("s");
+
+        return $arr[rand(1, 10)] .'-'. $number . $month . $year . $minutes . $seconds . '-' . rand(10, 1000);
     }
    
 }

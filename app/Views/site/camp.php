@@ -1,13 +1,13 @@
 <div class="container">
 
 <?php if(session()->getFlashdata('msg-error')):?>
-    <div class="alert alert-warning">
+    <div class="alert alert-warning text-center">
         <?= session()->getFlashdata('msg-error') ?>
     </div>
     <?php endif;?>
 
     <?php if(session()->getFlashdata('msg-success')):?>
-    <div class="alert alert-success">
+    <div class="alert alert-success text-center">
         <?= session()->getFlashdata('msg-success') ?>
     </div>
     <?php endif;?>
@@ -105,9 +105,9 @@
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
 
-                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio">
-                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone">
-                          <input type="text" class="form-control mt-2 mb-3" placeholder="Email" name="email">
+                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" required>
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone" required>
+                          <input type="email" class="form-control mt-2 mb-3" placeholder="Email" name="email" required>
                           <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
                     ';
 
