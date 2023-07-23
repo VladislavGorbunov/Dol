@@ -144,7 +144,7 @@
                 $link = explode('/', $_SERVER['REQUEST_URI']);
                 $link[3] = $type['slug'];
                 $link =  implode('/', $link);
-                echo '<a href="'.$link.'"><div class="type">' . $type['title']. '</div></a>';
+                echo '<a href="'.$link.'"><div class="type m-1">' . $type['title']. '</div></a>';
             }
 
             echo '</div></div>

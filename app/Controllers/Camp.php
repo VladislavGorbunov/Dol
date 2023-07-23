@@ -59,6 +59,32 @@ class Camp extends BaseController
         }
 
         $data['shifts'] = $this->ShiftsModel->where(['camps_id' => $data['camp']['camps_id']])->findAll();
+
+        foreach ($data['shifts'] as $key => $shift) {
+
+            $start = date_create($shift['start_date']);
+            $end = date_create($shift['end_date']);
+            $diff = date_diff($start, $end);
+
+            $start_data = explode('-', $shift['start_date']);
+            $start_data = $start_data[2] . '.' . $start_data[1] .'.'. $start_data[0];
+
+            $end_data = explode('-', $shift['end_date']);
+            $end_data = $end_data[2] . '.' . $end_data[1] .'.'. $end_data[0];
+
+            $data['shift_arr'][] = 
+            [
+                'id' => $shift['id'],
+                'camps_id' => $shift['camps_id'],
+                'title' => $shift['title'],
+                'price' => $shift['price'],
+                'days' => $diff->format('%a дней'),
+                'start_date' => $start_data,
+                'end_date' => $end_data,
+            ]; 
+        }
+        
+
         $data['title'] = 'Детский лагерь - «' . $data['camp']['title'] .'»';
 
         return view('layouts/header-short', $data) 
@@ -70,6 +96,12 @@ class Camp extends BaseController
     public function Booking()
     {
         $session = session();
+        $validation = \Config\Services::validation();
+        
+        $validation->setRules([
+            'fio' => ['label' => 'Ф.И.О', 'rules' => 'required|strip_tags'],
+        ]);
+
         $data['camps_id_booking'] =  $this->request->getVar('camps_id_booking');
         $data['fio'] =  $this->request->getVar('fio');
         $data['telephone'] =  $this->request->getVar('telephone');

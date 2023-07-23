@@ -83,7 +83,7 @@
                             <div class="d-flex flex-wrap justify-content-start flex-row">
                   <?php
                       foreach ($types_camp as $type) {
-                          echo '<div class="type m-2">' . $type['title'] . '</div>';
+                          echo '<div class="type m-1">' . $type['title'] . '</div>';
                       }
                   ?>
                             </div>
@@ -93,21 +93,79 @@
 
 
                     <div class="border mt-3 p-3 rounded">
-                        <h3>Забронировать</h3>
+                    <h3>Забронировать</h3>
+
+
                 <form action="/booking" method="post">
                 <?php
+                
 
-                if (!empty($shifts)) {
-                    $count = count($shifts);
+                if (!empty($shift_arr)) {
+                    
+                    $count = count($shift_arr);
                     echo '<small>Доступно смен: '. $count  .'</small>';
-                    echo '<select class="form-select mt-2 mb-3" aria-label="Default select example" name="shift_id">';
-                    foreach ($shifts as $shift) {
-                        echo '<option value="'.$shift['id'].'">'.$shift['title'].' - '. $shift['price'] .' руб. </option>';
+                    echo '<select id="shift_select" class="form-select shift-select mt-2 mb-3" name="shift_id">';
+                    foreach ($shift_arr as $shift) {
+                        echo '<option value="'.$shift['id'].'">'.$shift['title'].' | '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['start_date'] . '</option>';
                     }
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
 
-                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" required>
+                ?>
+
+                
+                <div id="name_shift"></div>
+                <div id="days_shift"></div>
+                <div id="price_shift"></div>
+                <div id="date_shift"></div>
+                
+
+                <script>
+                    let name_shift = document.getElementById("name_shift");
+                    let days_shift = document.getElementById("days_shift");
+                    let price_shift = document.getElementById("price_shift");
+                    let date_shift = document.getElementById("date_shift");
+                    let shift_select = document.getElementById("shift_select");
+
+                    //name_shift.innerHTML = shift_select.options[shift_select.selectedIndex].text;
+                    
+                    shiftData();
+
+                    function shiftData() {
+        
+                        let text = shift_select.options[shift_select.selectedIndex].text;
+
+                        let textArr = text.split('|');
+
+                        if (textArr.length > 1) {
+
+                            name_shift.innerHTML = '<p><b>Название:</b> ' + textArr[0] + '</p>'; // Название смены
+                            days_shift.innerHTML = '<p><b>Продолжительность:</b> ' + textArr[1] + '</p>'; // Количество дней
+                            price_shift.innerHTML = 'Стоимость путёвки' + textArr[2]; // Цена путёвки
+                            date_shift.innerHTML = 'Даты: ' + textArr[3]; // Дата
+                        } else {
+                            name_shift.innerHTML = null; // Название смены
+                            days_shift.innerHTML = null; // Количество дней
+                            price_shift.innerHTML = null; // Цена путёвки
+                            date_shift.innerHTML = null; // Дата
+                        }
+                    }
+
+
+
+                    shift_select.addEventListener('change', (e)=> {
+                        shiftData();
+                    });
+
+                    
+
+                    
+
+                    
+                </script>
+
+                <?php
+                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" >
                           <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone" required>
                           <input type="email" class="form-control mt-2 mb-3" placeholder="Email" name="email" required>
                           <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
