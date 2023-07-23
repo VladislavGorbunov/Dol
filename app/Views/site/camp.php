@@ -59,7 +59,7 @@
                 <div class="col-lg-4">
                     <div class="border mt-3 p-3 rounded">
                         <h3>Мы на карте</h3>
-                        <div id="map" style="width: auto; height: 400px"></div>
+                        <div id="map" style="width: auto; height: 300px"></div>
 
                         <div class="col-lg-12 mt-4">
                             <div class="d-flex flex-row justify-content-around">
@@ -71,7 +71,7 @@
                                 <p><i class="las la-comment"></i> Отзывов: <b>0</b></p>
                                 </div>
                             </div>
-                            <a href="" class="btn-add-review d-block mx-auto text-center col-10">Оставить отзыв</a>
+                            <a href="" class="btn-add-review d-block mx-auto text-center col-12">Оставить отзыв</a>
                             <div class="mt-4">
                             <p><b>Регион:</b> <?= $region['title'] ?></p>
                             <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
@@ -139,10 +139,10 @@
 
                         if (textArr.length > 1) {
 
-                            name_shift.innerHTML = '<p><b>Название:</b> ' + textArr[0] + '</p>'; // Название смены
-                            days_shift.innerHTML = '<p><b>Продолжительность:</b> ' + textArr[1] + '</p>'; // Количество дней
-                            price_shift.innerHTML = 'Стоимость путёвки' + textArr[2]; // Цена путёвки
-                            date_shift.innerHTML = 'Даты: ' + textArr[3]; // Дата
+                            name_shift.innerHTML = '<p>Название: ' + textArr[0] + '</p>'; // Название смены
+                            days_shift.innerHTML = '<p>Продолжительность: ' + textArr[1] + '</p>'; // Количество дней
+                            price_shift.innerHTML = '<p>Стоимость путёвки: <span style="font-size: 19px; font-weight: bold">' + textArr[2] + '</span></p>'; // Цена путёвки
+                            date_shift.innerHTML = '<p>Даты: ' + textArr[3] + '</p>'; // Дата
                         } else {
                             name_shift.innerHTML = null; // Название смены
                             days_shift.innerHTML = null; // Количество дней
@@ -165,7 +165,7 @@
                 </script>
 
                 <?php
-                    echo '<input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" >
+                    echo '<input type="text" class="form-control mt-4 mb-3" placeholder="Ф.И.О" name="fio" >
                           <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone" required>
                           <input type="email" class="form-control mt-2 mb-3" placeholder="Email" name="email" required>
                           <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
@@ -177,7 +177,7 @@
                           <p class="text-center mt-4" style="font-size:13px;">После отправки формы в течении дня с вами свяжется менеджер лагеря.</p>
                     ';
 
-                    echo '<button type="submit" class="btn btn-booking mt-3 col-lg-12">Забронировать путёвку</button>';
+                    echo '<button type="submit" class="btn btn-booking mt-2 col-lg-12">Забронировать путёвку</button>';
                 } else {
                     echo '<p class="mt-3">На данный момент нет доступных смен.</p>';
                 }
