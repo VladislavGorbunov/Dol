@@ -106,7 +106,7 @@
                     echo '<small>Доступно смен: '. $count  .'</small>';
                     echo '<select id="shift_select" class="form-select shift-select mt-2 mb-3" name="shift_id">';
                     foreach ($shift_arr as $shift) {
-                        echo '<option value="'.$shift['id'].'">'.$shift['title'].' | '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['start_date'] . '</option>';
+                        echo '<option value="'.$shift['id'].'">'.$shift['title'].' | '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['end_date'] . '</option>';
                     }
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
