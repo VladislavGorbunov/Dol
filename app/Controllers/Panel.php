@@ -62,11 +62,6 @@ class Panel extends BaseController
                 'shifts' => $this->ShiftsModel->where(['camps_id' => $data['camps'][$i]['camps_id']])->findAll(),
             ];
         }
-        
-
-        // echo '<pre>';
-        // var_dump($data['camps']);
-        // echo '</pre>';
 
         return view('layouts/panel_header', $data)
         .view('panel/index')
@@ -82,7 +77,7 @@ class Panel extends BaseController
         $password = $this->request->getVar('password');
 
         if (empty($_POST['h-captcha-response'])) {
-            $session->setFlashdata('msg', 'Пройдите проверку на робота, нажмите на кнопку "я человек".');
+            $session->setFlashdata('msg', 'Пройдите проверку на робота, нажмите на кнопку "Я человек".');
             return redirect()->to('/login');
         }
 

@@ -32,10 +32,32 @@
 
     <header>
 
+    <div class="top-nav d-lg-block d-none">
+    <div class="container">
+
+     <div class="d-flex">
+        <div class="p-1 flex-grow-1 d-flex flex-wrap">
+            <a href="" class="nav-link mx-2">О сервисе</a> 
+            <a href="" class="nav-link mx-2">Информация для родителей</a> 
+            <a href="" class="nav-link mx-2">Партнёрам</a> 
+            <a href="" class="nav-link mx-2">Вакансии</a>
+            <a href="" class="nav-link mx-2">Помощь</a> 
+        </div> 
+
+        <div class="p-1">bycamps@yandex.ru</div>
+        <div class="p-1">
+            <img src="/public/theme/img/vk_logo.png" width="18px" height="18px" class="mx-2" style="position:relative;top:0px;">
+            
+        </div>
+     </div>
+
+    
+    </div>
+    </div>
     
         <nav class="navbar navbar-expand-lg py-3">
 
-            <div class="container py-2">
+            <div class="container">
 
                 <a class="navbar-brand" href="/">
                     <img src="/public/theme/img/logo.png" width="200px">
@@ -45,9 +67,9 @@
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-
+                
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                         <li class="nav-item">
@@ -55,7 +77,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link" href="#">Наши контакты</a>
                         </li>
 
                         <li class="nav-item">
@@ -63,17 +85,16 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link">Топ-50 лагерей России</a>
+                            <a class="nav-link">Отзывы</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Оплата</a>
                         </li>
 
                     </ul>
-                    
+                
 
-
-                    <!-- <div class="d-flex justify-content-center">
-                        <img src="/public/theme/img/vk_logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
-                        <img src="/public/theme/img/mail-logo.png" width="32px" height="32px" class="mx-3" style="position:relative;top:0px;">
-                    </div> -->
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1"><i class="las la-user"></i> Войти</a>
                         <a class="btn btn-reg m-1" href="/registration"><i class="las la-plus-circle"></i> Добавить лагерь</a>
@@ -83,7 +104,7 @@
                 </div>
             </div>
         </nav>
-        <div class="moon"></div>
+       
         
     </header>
 
@@ -104,15 +125,18 @@
             </div>
            
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
+                
                 <form method="post">
                     <div class="row">
                         <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите регион поиска</label>
+                           
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
 
                                 <option selected disabled value="">Выберите регион</option>
                                 <?php 
+
                                     foreach ($cities as $key => $value) {
+
                                         echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
                                     }
                                 ?>
@@ -121,7 +145,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите тип лагеря</label>
+                            
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
                                 <option selected value="type-all">Любой тип лагеря</option>
                                 <?php 
@@ -133,7 +157,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите сезон</label>
+                            
                             <select id="season" class="form-select form-select-lg mt-0" name="season">
                                 <option selected value="season-all">Любой сезон</option>
                                 <?php 
@@ -145,7 +169,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            <label for="exampleDatepicker1" class="form-label mt-3">Выберите возраст ребёнка</label>
+                            
                             <select id="age" class="form-select form-select-lg mt-0" name="age">
                                 <option selected disabled value="">Любой возраст</option>
                                 <option value="3">3 года</option>

@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     overflow-x: hidden;
 }
@@ -40,7 +40,7 @@ h2, h3, h4, h5 {
 .las {
     position: relative;
     top: 0px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 a {
@@ -62,18 +62,31 @@ a {
     margin-right: 30px;
 }
 
-.city-link {
-    display: block;
-    margin-top: 8px;
-    margin-right: 10px;
+.navbar {
+    background: #fff;
 }
+
+.top-nav {
+    background: #f7f9fd;
+    padding: 7px 0;
+    border-bottom: 1px solid #f3f5f8;
+    color: #b1b0c0;
+    font-size: 13px;
+}
+
+.top-nav a:hover {
+    color: #222;
+}
+
+
 
 .btn-auth {
     color: #70aab8;
     border: 1px solid #70aab8;
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    height: 42px;
+    font-size: 14px;
 }
 
 .btn-booking {
@@ -104,12 +117,13 @@ a {
 
 .btn-reg {
     color: #fff;
-    background: #70aab8;
-    border: 1px solid #70aab8;
-    border-radius: 30px;
-    padding: 10px 20px;
+    background: #243d51;
+    border: 1px solid #243d51;
+    border-radius: 20px;
+    padding: 10px 15px;
+    height: 42px;
+    font-size: 14px;
     transition: .5s;
-    font-size: 16px;
 }
 
 .btn-reg:hover {
@@ -155,25 +169,25 @@ a {
     border-radius: 5px;
 }
 
-.navbar {
-    box-shadow: 0 2px 15px -10px #606169;
-    z-index: 3;
-} 
+
 
 
 .header-image {
+    display: block;
     width: 100%;
-    min-height: 580px;
-    background: url(/../public/theme/img/header4.jpg) center -70px;
-    padding: 20px 0;
+    min-height: 540px;
+    background: url(/../public/theme/img/header-dark.jpg) center bottom;
+    background-size: cover;
+    padding: 80px 0;
     margin-bottom: 30px; 
+    margin-top: 0px;
     
 }
 
 .header-image-short {
     width: 100%;
-    min-height: 450px;
-    background: #111 url(/../public/theme/img/header4.jpg) center -70px;
+    min-height: 380px;
+    background: #111 url(/../public/theme/img/header-dark.jpg) center bottom;
     padding: 20px 0;
     margin-bottom: 30px;
 }
@@ -183,6 +197,7 @@ a {
     text-align: center;
     color: #fff;
     z-index: 9;
+    margin-top: 0px;
 }
 
 .header-short-h1 {
@@ -196,42 +211,43 @@ a {
 }
 
 .info-block-index {
-    background-color: #f1f5f9;
+    display: block;
+    position:relative;
+    background-color: #f7f9fd;
     padding-top: 30px;
     padding: 30px 10px;
     margin-bottom: 30px;
+    top: 0px;
     border-radius: 20px;
 }
 
 .filter-block {
     display: block;
     position: relative;
-    background: rgba(0, 0, 0, 0.2) url(/public/theme/img/filter-bg.png) center;
+    background: rgba(247, 249, 253, 0.92) url(/public/theme/img/filter-bg.png) center;
     background-size: auto;
     max-width: 1200px;
-    min-height: 130px;
-    backdrop-filter: blur(15px);
     border-radius: 10px;
-    padding: 10px 45px 35px 45px;
-    box-shadow: 0 3px 12px -10px #111;
+    padding: 30px 45px 30px 45px;
     z-index: 2;
+    backdrop-filter: blur(10px);
 }
 
 #region_msg {
     position: relative;
-    color: #ff4444;
+    color: #f35353;
     font-size: 12px;
     left: 2px;
 }
 
 .filter-block .form-select {
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     padding: 15px 25px 15px 15px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #d9dee7;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #243d51;
     border-radius: 5px;
 }
@@ -246,21 +262,15 @@ a {
 
 }
 
-.filter-block label {
-    margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    opacity: 0.5;
-}
 
 .filter-block .btn {
     display: block;
-    background: #21a663;
+    background:  #36b351;
     border: none;
-    padding: 15px 30px 15px 30px;
-    font-size: 16px;
-    margin-top: 41px;
+    height: 52px;
+    padding: 15px 30px;
+    font-size: 15px;
+    margin-top: 0px;
     font-weight: 500;
     border-radius: 5px;
 }
@@ -296,7 +306,7 @@ a {
     position: absolute;
     width: 70px;
     height: 70px;
-    top: 120px;
+    top: 100px;
     right: 22%;
     background: url(/public/theme/img/moon.png) center center no-repeat;
     background-size: 100%;

@@ -51,7 +51,7 @@ class Site extends BaseController
             ];
 
         }
-        $data['title'] = 'Поиск и бронирование билетов в детские лагеря по всей России';
+        $data['title'] = 'Поиск и бронирование путёвок в детские лагеря по всей России';
         return view('layouts/header', $data) 
         .view('site/index')
         .view('layouts/footer');

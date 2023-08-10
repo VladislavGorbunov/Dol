@@ -101,9 +101,9 @@
                 
 
                 if (!empty($shift_arr)) {
-                    
                     $count = count($shift_arr);
-                    echo '<small>Доступно смен: '. $count  .'</small>';
+                    // echo '<small>Доступно смен: '. $count  .'</small>';
+                    echo '<label class="form-label mt-3">Выберите смену:</label>';
                     echo '<select id="shift_select" class="form-select shift-select mt-2 mb-3" name="shift_id">';
                     foreach ($shift_arr as $shift) {
                         echo '<option value="'.$shift['id'].'">'.$shift['title'].' | '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['end_date'] . '</option>';
@@ -113,7 +113,6 @@
 
                 ?>
 
-                
                 <div id="name_shift"></div>
                 <div id="days_shift"></div>
                 <div id="price_shift"></div>
