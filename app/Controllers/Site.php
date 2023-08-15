@@ -149,6 +149,8 @@ class Site extends BaseController
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 'min_price' => $camps[$i]['min_price'],
+                'min_age' => $camps[$i]['min_age'],
+                'max_age' => $camps[$i]['max_age'],
             ];
 
         }
@@ -181,7 +183,7 @@ class Site extends BaseController
         //$data['title'] = $type_name . $region['title_in'];
         $data['title'] = $title;
         $data['pager_links'] = $pager_links;
-
+        $data['total'] = $total;
         return view('layouts/header-short', $data) 
         .view('site/filter_page')
         .view('layouts/footer');

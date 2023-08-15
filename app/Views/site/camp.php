@@ -10,7 +10,7 @@
     <div class="alert alert-success text-center">
         <?= session()->getFlashdata('msg-success') ?>
     </div>
-    <?php endif;?>
+<?php endif;?>
 
     <div class="row">
 
@@ -93,7 +93,7 @@
 
 
                     <div class="border mt-3 p-3 rounded">
-                    <h3>Забронировать</h3>
+                    <h3>Бронирование</h3>
 
 
                 <form action="/booking" method="post">
@@ -101,8 +101,8 @@
                 
 
                 if (!empty($shift_arr)) {
-                    $count = count($shift_arr);
-                    // echo '<small>Доступно смен: '. $count  .'</small>';
+                    // $count = count($shift_arr);
+                    // echo '<small>Доступно смен: '. $count  .'</small><br>';
                     echo '<label class="form-label mt-3">Выберите смену:</label>';
                     echo '<select id="shift_select" class="form-select shift-select mt-2 mb-3" name="shift_id">';
                     foreach ($shift_arr as $shift) {
@@ -162,9 +162,11 @@
 
                     
                 </script>
-
+                <hr>
                 <?php
-                    echo '<input type="text" class="form-control mt-4 mb-3" placeholder="Ф.И.О" name="fio" >
+                    echo '<label class="form-label" for="typeNumber">Количество путёвок</label>
+                          <input min="1" max="5" type="number" id="typeNumber" class="form-control mb-3" value="1" required/>
+                          <input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" >
                           <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone" required>
                           <input type="email" class="form-control mt-2 mb-3" placeholder="Email" name="email" required>
                           <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
