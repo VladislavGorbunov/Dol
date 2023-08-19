@@ -1,4 +1,5 @@
-# CodeIgniter 4 Framework
+# Сервис поиска и бронирования путёвок в детские лагеря России на фреймворке CodeIgniter 4
+
 
 ## What is CodeIgniter?
 
