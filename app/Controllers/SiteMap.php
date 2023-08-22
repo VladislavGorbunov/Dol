@@ -7,7 +7,6 @@ use App\Models\Camps;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
-use App\Models\Images;
 
 class SiteMap extends BaseController
 {
@@ -27,7 +26,6 @@ class SiteMap extends BaseController
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
-        $this->Images = new Images();
         // Preload any models, libraries, etc, here.
     }
 

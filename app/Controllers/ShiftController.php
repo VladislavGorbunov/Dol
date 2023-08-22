@@ -13,7 +13,7 @@ class ShiftController extends BaseController
 
     public $RepresentativesModel;
     public $CampsModel;
-    public $shiftsModel;
+    public $ShiftsModel;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {

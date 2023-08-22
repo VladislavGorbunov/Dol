@@ -13,6 +13,11 @@ class Recaptcha extends BaseController
 {
 
     public $api_url = 'https://hcaptcha.com/siteverify';
+    public $Camps;
+    public $Cities;
+    public $Types;
+    public $Seasons;
+    public $Images;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {

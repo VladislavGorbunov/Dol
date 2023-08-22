@@ -15,6 +15,7 @@ class Site extends BaseController
     public $Cities;
     public $Types;
     public $Seasons;
+    public $Images;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -180,6 +181,12 @@ class Site extends BaseController
         return view('layouts/header-short', $data) 
         .view('site/filter_page')
         .view('layouts/footer');
+
+    }
+
+
+    public function getFetchData()
+    {
 
     }
 

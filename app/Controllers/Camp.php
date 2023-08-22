@@ -21,7 +21,7 @@ class Camp extends BaseController
     public $Images;
     public $ShiftsModel;
     public $Reviews;
-    public $bookings;
+    public $Bookings;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)

@@ -19,6 +19,16 @@ use CodeIgniter\Files\File;
 class Panel extends BaseController
 {
     public $RepresentativesModel;
+    public $CampsModel;
+    public $CitiesModel;
+    public $TypesModel;
+    public $SeasonsModel;
+    public $CampsTypes;
+    public $CampsSeasons;
+    public $ImagesModel;
+    public $ShiftsModel;
+    public $Recaptcha;
+    
     protected $helpers = ['form'];
     protected $imagesFolder;
 
