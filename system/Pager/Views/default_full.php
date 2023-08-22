@@ -5,7 +5,7 @@ use CodeIgniter\Pager\PagerRenderer;
 /**
  * @var PagerRenderer $pager
  */
-$pager->setSurroundCount(2);
+$pager->setSurroundCount(0);
 ?>
 
 <nav aria-label="<?= lang('Pager.pageNavigation') ?>">
@@ -24,7 +24,7 @@ $pager->setSurroundCount(2);
 		<?php endif ?>
 
 		<?php foreach ($pager->links() as $link) : ?>
-			<li <?= $link['active'] ? 'class="active"' : '' ?>>
+			<li <?= $link['active'] ? 'class="active"' : 'class="no-active"' ?>>
 				<a href="<?= $link['uri'] ?>">
 					<?= $link['title'] ?>
 				</a>
@@ -33,12 +33,12 @@ $pager->setSurroundCount(2);
 
 		<?php if ($pager->hasNext()) : ?>
 			<li>
-				<a href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
+				<a href="<?= $pager->getNext() ?>" class="next-page" aria-label="<?= lang('Pager.next') ?>">
 					<span aria-hidden="true"><?= lang('Pager.next') ?></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
+				<a href="<?= $pager->getLast() ?>" class="last-page" aria-label="<?= lang('Pager.last') ?>">
 					<span aria-hidden="true"><?= lang('Pager.last') ?></span>
 				</a>
 			</li>

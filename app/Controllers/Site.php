@@ -121,20 +121,17 @@ class Site extends BaseController
 
         if ($this->request->getGet('page') == 0) $page = 1;
 
-        $kol = 3;  //количество записей для вывода
+        $kol = 1;  //количество записей для вывода на страницу
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
 
         $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
-       
+        
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
 
-        // echo '<pre>';
-        // var_dump($camps);
-        // echo '</pre>';
         $total = $camps_data['count_row']; // Получаем кол-во записей
         
          // Call makeLinks() to make pagination links.
-         $pager_links = $pager->makeLinks($page, $kol, $total);
+         $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
@@ -144,7 +141,8 @@ class Site extends BaseController
                 'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
-                'description' => mb_substr(strip_tags($camps[$i]['description']), 0, 340).'...',
+                'description' => $camps[$i]['description'],
+                'short-description' => mb_substr(strip_tags($camps[$i]['description']), 0, 450).'... <a href="/camp/'.$camps[$i]['slug'].'" style="color:#2955c8">Читать далее</a>',
                 'count_reviews' => $camps[$i]['count_reviews'],
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
@@ -174,10 +172,6 @@ class Site extends BaseController
         if (!empty($region['title'])) {
             $title .= $region['title_in'];
         }
-
-        
-
-        
 
         //echo $title;
         //$data['title'] = $type_name . $region['title_in'];
