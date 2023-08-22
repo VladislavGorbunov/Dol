@@ -110,7 +110,7 @@ a {
     color: #70aab8;
     border: 1px solid #70aab8;
     border-radius: 5px;
-    padding: 10px 25px;
+    padding: 10px 15px;
     height: 42px;
     font-size: 14px;
 }
@@ -357,7 +357,7 @@ a {
 .rating .las {
     margin-right: 1px;
     position: relative;
-    top: 0px;
+    top: -1px;
     right: 5px;
     font-size: 18px;
     color: rgb(255, 217, 0);
