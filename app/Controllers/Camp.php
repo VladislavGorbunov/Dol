@@ -54,6 +54,7 @@ class Camp extends BaseController
         $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
         $data['reviews'] = $this->Reviews->selectAvg('rating')->where(['camps_id'=> $data['camp']['camps_id']])->first();
+        
         foreach ($data['images'] as $key => $image) {
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];
         }
@@ -63,8 +64,10 @@ class Camp extends BaseController
         foreach ($data['shifts'] as $key => $shift) {
 
             $start = date_create($shift['start_date']);
+            
             $end = date_create($shift['end_date']);
-            $diff = date_diff($start, $end);
+            $modify = date_modify($end, '+1 day');
+            $diff = date_diff($start, $modify);
 
             $start_data = explode('-', $shift['start_date']);
             $start_data = $start_data[2] . '.' . $start_data[1] .'.'. $start_data[0];
@@ -72,13 +75,15 @@ class Camp extends BaseController
             $end_data = explode('-', $shift['end_date']);
             $end_data = $end_data[2] . '.' . $end_data[1] .'.'. $end_data[0];
 
+            $days = $diff->format('%a');
+
             $data['shift_arr'][] = 
             [
                 'id' => $shift['id'],
                 'camps_id' => $shift['camps_id'],
                 'title' => $shift['title'],
                 'price' => $shift['price'],
-                'days' => $diff->format('%a дней'),
+                'days' => $days,
                 'start_date' => $start_data,
                 'end_date' => $end_data,
             ]; 

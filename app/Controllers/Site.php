@@ -155,7 +155,6 @@ class Site extends BaseController
 
         $type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
 
-
         $title = null;
         if (!empty($seasons['title'])) {
             $title .= $seasons['title_in'] . ' ';
@@ -173,11 +172,11 @@ class Site extends BaseController
             $title .= $region['title_in'];
         }
 
-        //echo $title;
-        //$data['title'] = $type_name . $region['title_in'];
+       
         $data['title'] = $title;
         $data['pager_links'] = $pager_links;
         $data['total'] = $total;
+
         return view('layouts/header-short', $data) 
         .view('site/filter_page')
         .view('layouts/footer');

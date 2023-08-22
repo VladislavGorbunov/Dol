@@ -31,7 +31,7 @@
                     <div class="d-flex flex-wrap justify-content-start flex-row">
                     <?php
                         foreach ($types_camp as $type) {
-                            echo '<div class="type m-1">' . $type['title'] . '</div>';
+                            echo '<a href="/camps/'.$region['slug'].'/'.$type['slug'].'/season-all"><div class="type m-1">' . $type['title'] . '</div></a>';
                         }
                     ?>
                     </div>
@@ -52,7 +52,7 @@
                     echo '<label class="form-label mt-3">Выберите смену:</label>';
                     echo '<select id="shift_select" class="form-select shift-select mt-2 mb-3" name="shift_id">';
                         foreach ($shift_arr as $shift) {
-                            echo '<option value="'.$shift['id'].'">'.$shift['title'].' | '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['end_date'] . '</option>';
+                            echo '<option value="'.$shift['id'].'">'.$shift['title'].' | Дней: '.$shift['days'].' | '. $shift['price'] .' руб. | '. $shift['start_date'] .' - ' . $shift['end_date'] . '</option>';
                         }
                     echo '<option>Не определились со сменой</option>';
                     echo '</select>';
@@ -85,10 +85,10 @@
                                 if (textArr.length > 1) {
 
                                     name_shift.innerHTML = '<p>Название: ' + textArr[0] + '</p>'; // Название смены
-                                    days_shift.innerHTML = '<p>Продолжительность: ' + textArr[1] +
+                                    days_shift.innerHTML = '<p>' + textArr[1] +
                                     '</p>'; // Количество дней
                                     price_shift.innerHTML =
-                                        '<p>Стоимость путёвки: <span style="font-size: 19px; font-weight: bold">' +
+                                        '<p>Стоимость путёвки: <span style="font-size: 18px;font-weight: bold;">' +
                                         textArr[2] + '</span></p>'; // Цена путёвки
                                     date_shift.innerHTML = '<p>Даты: ' + textArr[3] + '</p>'; // Дата
                                 } else {

@@ -45,6 +45,7 @@ class Panel extends BaseController
         // Preload any models, libraries, etc, here.
     }
 
+
     public function Index()
     {
         $session = session();
@@ -97,7 +98,7 @@ class Panel extends BaseController
             die;
         }
 
-        if($data){
+        if ($data) {
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
             if($authenticatePassword){
@@ -123,7 +124,6 @@ class Panel extends BaseController
 
     public function addCampForm()
     {
-        
         $data['cities'] = $this->CitiesModel->findAll();
         $data['types'] = $this->TypesModel->findAll();
         $data['seasons'] = $this->SeasonsModel->findAll();
@@ -135,7 +135,6 @@ class Panel extends BaseController
 
     public function addCamp()
     {
-        
         $validation = \Config\Services::validation();
         $image = \Config\Services::image('gd');
 
@@ -326,7 +325,10 @@ class Panel extends BaseController
         }
     }
 
-
+    
+    /*
+    * Метод удаления лагеря из базы по id
+    */ 
     public function deleteCamp($camp_id)
     {
         helper('filesystem');
@@ -341,6 +343,7 @@ class Panel extends BaseController
                     $session->setFlashdata('msg-error', 'Ошибка удаления изображений.');
                     return redirect()->to('/panel');
                 }
+
                 if (delete_files($images_folder, true) && rmdir($images_folder) && $camp = $this->CampsModel->where('camps_id', $camp_id)->delete()) {
                     $session->setFlashdata('msg-success', 'Лагерь удалён.');
                 } else {
@@ -385,40 +388,6 @@ class Panel extends BaseController
         return preg_replace("/[^a-zA-Z0-9\s-]/", "", $text);
     }
 
-
-    public function AddShift()
-    {
-        return view('layouts/panel_header')
-        .view('panel/add-shift')
-        .view('layouts/panel_footer');
-    }
-
-    public function InsertShift($camp_id)
-    {
-        $session = session();
-        $data['title'] = $this->request->getVar('title-shift');
-        $data['start_date'] = $this->request->getVar('start-date');
-        $data['end_date'] = $this->request->getVar('end-date');
-        $data['price'] = $this->request->getVar('price-shift');
-        $data['camps_id'] = $camp_id;
-
-
-        if ($data_camp = $this->CampsModel->where('camps_id', $data['camps_id'])->first()) {
-        
-            if ($data_camp['representatives_id'] == $session->get('id')) {
-                if ($this->ShiftsModel->insert($data)) {
-                    $session->setFlashdata('msg-success', 'Смена для лагеря ' . $data_camp['title'] . ' добавлена.');
-                } else {
-                    $session->setFlashdata('msg-error', 'Произошла ошибка добавления смены.');
-                }
-            } 
-        } else {
-            $session->setFlashdata('msg-error', 'Ошибка: вы не можете добавить смены для лагеря с ID '.$data['camps_id'].'.');
-        }
-       
-        return redirect()->to('/panel');
-
-    }
 
     // Выход из панели
     public function Logout()

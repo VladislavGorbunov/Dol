@@ -5,8 +5,9 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px !important;
+    font-size: 14px !important;
     font-weight: 400;
+    color: #333;
     overflow-x: hidden;
     background: #f7f9fd;
 }
@@ -93,7 +94,7 @@ a {
 
 .top-nav {
     background: #f7f9fd;
-    padding: 7px 0;
+    padding: 6px 0;
     border-bottom: 1px solid #f3f5f8;
     color: #b1b0c0;
     font-size: 13px;
@@ -108,7 +109,7 @@ a {
 .btn-auth {
     color: #70aab8;
     border: 1px solid #70aab8;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 10px 25px;
     height: 42px;
     font-size: 14px;
@@ -143,8 +144,8 @@ a {
 .btn-reg {
     color: #fff;
     background: #243d51;
-    border: 1px solid #243d51;
-    border-radius: 20px;
+    border: none;
+    border-radius: 5px;
     padding: 10px 15px;
     height: 42px;
     font-size: 14px;
@@ -343,17 +344,23 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: gold;
+    background: none;
     padding: 0px;
     border-radius: 5px;
-    border: 2px solid gold;
+    border: none;
     color: #000;
-    font-weight: 400;
-    width: 95px;
-    height: 40px;
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 0px;
+}
+
+.rating .las {
+    margin-right: 1px;
+    position: relative;
+    top: 0px;
+    right: 5px;
+    font-size: 18px;
+    color: rgb(255, 217, 0);
 }
 
 .bi-star-fill {
@@ -370,12 +377,15 @@ a {
 }
 
 .price {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
 }
 
 .adress {
     color: #2955c8;
+}
+
+.shift-select {
+    font-size: 13px;
 }
 
 

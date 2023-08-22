@@ -42,8 +42,11 @@ $routes->post('/panel/add-camp', 'Panel::addCamp', ['filter' => 'PanelAuth']);
 
 $routes->get('/panel/camp/(:num)/delete', 'Panel::deleteCamp/$1', ['filter' => 'PanelAuth']);
 
-$routes->get('/panel/camp/(:num)/add-shift', 'Panel::AddShift/$1', ['filter' => 'PanelAuth']);
-$routes->post('/panel/camp/(:num)/add-shift', 'Panel::InsertShift/$1', ['filter' => 'PanelAuth']);
+// Работа со сменами лагеря
+$routes->get('/panel/camp/(:num)/add-shift', 'ShiftController::AddShift/$1', ['filter' => 'PanelAuth']);
+$routes->post('/panel/camp/(:num)/add-shift', 'ShiftController::InsertShift/$1', ['filter' => 'PanelAuth']);
+
+// Бронирование путёвки
 $routes->post('/booking', 'Camp::Booking');
 
 $routes->get('/panel/logout', 'Panel::Logout');

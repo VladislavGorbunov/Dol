@@ -16,12 +16,12 @@
     
     
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
     <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico"> -->
     <meta name="theme-color" content="#7952b3">
 
     <!-- Custom styles for this template -->
@@ -210,14 +210,6 @@
                         <div class="col-lg-auto g-1">
                             <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
                         </div>
-
-
-                        <!-- <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Показывать лагеря только с рейтингом выше 4.5
-                            </label>
-                        </div> -->
 
                     </div>
                 </form>
