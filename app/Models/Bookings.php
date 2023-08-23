@@ -13,6 +13,7 @@ class Bookings extends Model
         'telephone',
         'email',
         'camp_id',
+        'representative_id',
         'shift_id',
         'booking_number',
     ];

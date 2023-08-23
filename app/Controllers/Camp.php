@@ -11,6 +11,7 @@ use App\Models\Images;
 use App\Models\Shifts;
 use App\Models\Reviews;
 use App\Models\Bookings;
+use App\Models\RepresentativesModel;
 
 class Camp extends BaseController
 {
@@ -22,6 +23,7 @@ class Camp extends BaseController
     public $ShiftsModel;
     public $Reviews;
     public $Bookings;
+    public $Representatives;
     
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -38,6 +40,7 @@ class Camp extends BaseController
         $this->ShiftsModel = new Shifts();
         $this->Reviews = new Reviews();
         $this->Bookings = new Bookings();
+        $this->Representatives = new RepresentativesModel();
         // Preload any models, libraries, etc, here.
     }
 
@@ -106,15 +109,16 @@ class Camp extends BaseController
         $validation->setRules([
             'fio' => ['label' => 'Ф.И.О', 'rules' => 'required|strip_tags'],
         ]);
-
-        $data['camps_id_booking'] =  $this->request->getVar('camps_id_booking');
+        $camps_id_booking = $this->request->getVar('camps_id_booking');
+        $data['camps_id_booking'] =  $camps_id_booking;
+        $data['representative_id'] = $this->Camps->where('camps_id', $camps_id_booking)->findColumn('representatives_id');
         $data['fio'] =  $this->request->getVar('fio');
         $data['telephone'] =  $this->request->getVar('telephone');
         $data['email'] =  $this->request->getVar('email');
         $data['camp_id'] = $this->request->getVar('camps_id_booking');
         $data['shift_id'] = $this->request->getVar('shift_id');
         $data['booking_number'] = $this->CreateRandomBookingNumber();
-
+        
         $this->Bookings->insert($data);
         $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
     
