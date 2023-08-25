@@ -417,4 +417,6 @@ class Panel extends BaseController
         $session->remove('isLoggedIn');
         return redirect()->to('/login');
     }
+
+
 }

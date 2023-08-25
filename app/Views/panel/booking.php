@@ -15,10 +15,7 @@
   <tbody>
 
   <?php
-//   echo '<pre>';
-//     print_r($data_bookings);
-//     echo '</pre>';
-    // die;
+
     foreach ($data_bookings as $key => $booking) {
 
         if ($booking['confirmed'] == 1) {
@@ -36,6 +33,7 @@
           echo ($booking['confirmed'] == 1) ? 'Подтверждена' : 'Не подтверждена';
           echo '</td>
           <td><a href="/panel/booking/'.$booking['id'].'">Посмотреть</a></td>
+          <td><button id="delete-btn" class="btn btn-md btn-danger" data-id="'.$booking['id'].'">Удалить</button></td>
           </tr>
         
         ';
@@ -46,4 +44,33 @@
 </table>
     
 
+<script>
 
+   const btnDelete = document.querySelectorAll('#delete-btn');
+   
+   // Вешаем событие на все кнопки удаления
+   btnDelete.forEach(item => {
+       item.addEventListener('click', (e) => {
+          deleteBooking(item.dataset.id, item);
+       })
+  });
+
+  // Удаление бронирования
+  function deleteBooking(id, item) {
+    fetch('/panel/booking/delete/' + id)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      if (data.success == 'ok') {
+          // Удаление строки из таблицы
+          let parentTD = item.parentNode;
+          parentTD.parentNode.remove();
+          alert('Удалено');
+      } else {
+        alert('При удалении произошла ошибка');
+      }
+    })
+  }
+
+</script>

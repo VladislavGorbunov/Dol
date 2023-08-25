@@ -56,7 +56,23 @@ class BookingController extends BaseController
     }
 
 
+    public function BookingDelete($id)
+    {
+        $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
+     
+        if ($this->BookingModel->where('id', $id)->delete()) {
+            $data = ['success' => 'ok'];
+        } else {
+            $data = ['success' => 'Delete error'];
+        }
 
+        $data = json_encode($data);
+
+        return $data;
+
+        
+       
+    }
 
 
 
