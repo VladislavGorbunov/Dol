@@ -109,6 +109,7 @@ class Camp extends BaseController
         $validation->setRules([
             'fio' => ['label' => 'Ф.И.О', 'rules' => 'required|strip_tags'],
         ]);
+        
         $camps_id_booking = $this->request->getVar('camps_id_booking');
         $data['camps_id_booking'] =  $camps_id_booking;
         $data['representative_id'] = $this->Camps->where('camps_id', $camps_id_booking)->findColumn('representatives_id');

@@ -1,3 +1,4 @@
+<?php $session = session(); ?>
 <!doctype html>
 <html lang="ru">
 
@@ -74,28 +75,16 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+          <a class="nav-link active" aria-current="page" href="/panel">Главная</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Лагеря
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Мои лагеря</a></li>
-            <li><a class="dropdown-item" href="/panel/add-camp">Добавить лагерь</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Путёвки
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Все путёвки</a></li>
-            <li><a class="dropdown-item" href="#">Добавить путёвку</a></li>
-          </ul>
-        </li>
+        
+        
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Клиенты и бронирования</a>
+          <a class="nav-link active position-relative" aria-current="page" href="/panel/booking">Клиенты и бронирования 
+          <span class="badge bg-danger"><?= $session->get('booking_count') ?></span>
+
+
+</a>
         </li>
       </ul>
       <form class="d-flex">

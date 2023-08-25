@@ -50,6 +50,7 @@ $routes->post('/panel/camp/(:num)/add-shift', 'ShiftController::InsertShift/$1',
 $routes->post('/booking', 'Camp::Booking');
 
 $routes->get('/panel/logout', 'Panel::Logout');
+$routes->get('panel/booking', 'BookingController::index');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 
@@ -68,6 +69,7 @@ $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1',
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 $routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
 
+$routes->get('/delete/ajax', 'Panel::AjaxRequest');
 
 /*
  * --------------------------------------------------------------------

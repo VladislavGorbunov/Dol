@@ -13,8 +13,10 @@ use App\Models\CampsSeasons;
 use App\Models\Images;
 use App\Models\Shifts;
 use App\Controllers\Recaptcha;
+use App\Models\Bookings;
 
 use CodeIgniter\Files\File;
+
 
 class Panel extends BaseController
 {
@@ -28,6 +30,10 @@ class Panel extends BaseController
     public $ImagesModel;
     public $ShiftsModel;
     public $Recaptcha;
+    public $BookingsModel;
+
+    public $booking_count;
+    
     
     protected $helpers = ['form'];
     protected $imagesFolder;
@@ -47,10 +53,12 @@ class Panel extends BaseController
         $this->CampsSeasons = new CampsSeasons();
         $this->ImagesModel = new Images();
         $this->ShiftsModel = new Shifts();
-
+        $this->BookingsModel = new Bookings();
         $this->Recaptcha = new Recaptcha();
 
         $this->imagesFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/images/camps';
+
+        $session->set(['booking_count' => $this->booking_count = count($this->BookingsModel->where('representative_id', $session->get('id'))->where('confirmed', 0)->findAll())]);
         
         // Preload any models, libraries, etc, here.
     }
@@ -59,7 +67,7 @@ class Panel extends BaseController
     public function Index()
     {
         $session = session();
-       
+        
         $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
         $data['camps'] = $this->CampsModel->where('representatives_id', $data['user']['user_id'])->findAll();
         
@@ -73,7 +81,7 @@ class Panel extends BaseController
                 'shifts' => $this->ShiftsModel->where(['camps_id' => $data['camps'][$i]['camps_id']])->findAll(),
             ];
         }
-
+       
         return view('layouts/panel_header', $data)
         .view('panel/index')
         .view('layouts/panel_footer');
@@ -409,6 +417,4 @@ class Panel extends BaseController
         $session->remove('isLoggedIn');
         return redirect()->to('/login');
     }
-    
-    
 }
