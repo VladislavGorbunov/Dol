@@ -122,7 +122,7 @@ class Site extends BaseController
 
         if ($this->request->getGet('page') == 0) $page = 1;
 
-        $kol = 1;  //количество записей для вывода на страницу
+        $kol = 10;  //количество записей для вывода на страницу
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
 
         $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
@@ -183,11 +183,4 @@ class Site extends BaseController
         .view('layouts/footer');
 
     }
-
-
-    public function getFetchData()
-    {
-
-    }
-
 }

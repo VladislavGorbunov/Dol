@@ -46,8 +46,7 @@ $routes->get('/panel/camp/(:num)/delete', 'Panel::deleteCamp/$1', ['filter' => '
 $routes->get('/panel/camp/(:num)/add-shift', 'ShiftController::AddShift/$1', ['filter' => 'PanelAuth']);
 $routes->post('/panel/camp/(:num)/add-shift', 'ShiftController::InsertShift/$1', ['filter' => 'PanelAuth']);
 
-// Бронирование путёвки
-$routes->post('/booking', 'Camp::Booking');
+
 
 $routes->get('/panel/logout', 'Panel::Logout');
 $routes->get('panel/booking', 'BookingController::index');
@@ -68,6 +67,10 @@ $routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresen
 $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 $routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
+
+
+// Бронирование путёвки
+$routes->post('/booking', 'BookingController::Booking');
 
 $routes->get('/panel/booking/delete/(:num)', 'BookingController::BookingDelete/$1');
 
