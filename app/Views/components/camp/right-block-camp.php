@@ -20,6 +20,9 @@
             <a href="" class="btn-add-review d-block mx-auto text-center col-lg-9 d-block mx-auto">Оставить отзыв</a>
         
             <div class="mt-4">
+                <p><b>Сайт лагеря: - </b></p>
+                <p><b>Вконтакте: - </b></p>
+                <p><b>Телефон: - </b></p>
                 <p><b>Регион:</b> <?= $region['title'] ?></p>
                 <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                 <p><b>Год начала деятельности:</b> <?= $camp['year'] . ' год' ?></p>
@@ -27,7 +30,7 @@
                 </p>
             </div>
 
-                <p class="mt-4"><b>Таматики лагеря:</b></p>
+                <p class="mt-3"><b>Направления лагеря:</b></p>
                     <div class="d-flex flex-wrap justify-content-start flex-row">
                     <?php
                         foreach ($types_camp as $type) {
@@ -42,7 +45,7 @@
 
                     
 <div class="border mt-3 p-3 rounded bg-white">
-    <h3 style="color:#405189">Бронирование</h3>
+    <h3 style="color:#0ab39c">Бронирование</h3>
 
 
         <form action="/booking" method="post">
