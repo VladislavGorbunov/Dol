@@ -278,13 +278,38 @@
                 echo '
                     <div class="form-check col-lg-3 mb-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="'.$type['types_id'].'" name="types[]">
+                    <input class="form-check-input check-types" type="checkbox" value="'.$type['types_id'].'" name="types[]">
                     '.$type['title'].'</label>
                     </div>';
             }
 
             ?>
             </div>
+
+            <script>
+                let counter = 0;
+                let arrValue = [];
+                let types_checkbox = document.querySelectorAll('.check-types')
+
+                types_checkbox.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log(arrValue.length)
+                    if (arrValue.length < 6) {
+                        if (arrValue.includes(item.value)) {
+                            let index = arrValue.indexOf(item.value)
+                            arrValue.splice(index);
+                        } else {
+                            arrValue.push(item.value)
+                        }
+                    } else {
+                        
+
+                    }
+                        
+                        console.log(arrValue)
+                    })
+                })
+            </script>
                 
             </div>
         
@@ -493,9 +518,6 @@ let adressInput = document.getElementById('adress');
 let coordInput = document.getElementById('coords');
 let cityInput = document.getElementById('city');
 let cityName;
-
-
-
 
 ymaps.ready(init);
 
