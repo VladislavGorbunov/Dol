@@ -36,7 +36,8 @@ class BookingController extends BaseController
         $session = session();
         
         $bookings = $this->BookingModel->where('representative_id', $session->get('id'))->findAll();
-
+        
+        if ($bookings) {
         foreach($bookings as $key => $booking) {
             $data['data_bookings'][] = [
                 'id' => $booking['id'],
@@ -48,6 +49,9 @@ class BookingController extends BaseController
                 'booking_number' => $booking['booking_number'],
                 'confirmed' => $booking['confirmed'],
             ];
+        }
+        } else {
+            $data['data_bookings'] = null;
         }
 
         return view('layouts/panel_header', $data)

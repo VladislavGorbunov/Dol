@@ -1,28 +1,31 @@
 <h2>Ваши клиенты и бронирования</h2>
-<table class="table mt-3">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Ф.И.О клиента</th>
-      <th scope="col">Телефон</th>
-      <th scope="col">Email</th>
-
-      <th scope="col">Номер бронирования</th>
-      <th scope="col">Статус</th>
-      
-    </tr>
-  </thead>
-  <tbody>
 
   <?php
 
-    foreach ($data_bookings as $key => $booking) {
+    if ($data_bookings) {
 
-        if ($booking['confirmed'] == 1) {
-            echo '<tr class="table-success">';
-        } else {
-            echo '<tr>';
-        }
+        echo '
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Ф.И.О клиента</th>
+              <th scope="col">Телефон</th>
+              <th scope="col">Email</th>
+              <th scope="col">Номер бронирования</th>
+              <th scope="col">Статус</th>
+            </tr>
+          </thead>
+        <tbody>
+        ';
+
+        foreach ($data_bookings as $key => $booking) {
+            if ($booking['confirmed'] == 1) {
+                echo '<tr class="table-success">';
+            } else {
+               echo '<tr>';
+            }
+
         echo '
           <th scope="row">'.$booking['id'].'</th>
           <td>'.$booking['fio'].'</td>
@@ -37,6 +40,9 @@
           </tr>
         
         ';
+        }
+    } else {
+        echo 'На данный момент нет бронирований'; 
     }
     ?>
     
