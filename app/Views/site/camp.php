@@ -32,6 +32,13 @@
         <div class="col-lg-4">
             <?= $this->include('components/camp/right-block-camp') ?>
         </div>
+
+        <!-- reviews-block -->
+        <div class="col-lg-12">
+            <?= $this->include('components/camp/reviews') ?>
+        </div>
+
+
     </div> <!-- end row -->
             
 </div>

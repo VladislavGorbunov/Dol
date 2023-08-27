@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
     <style>
+
+    body {
+      
+    }
+
     .nav-link {
         color: white;
     }
@@ -21,6 +26,11 @@
 
     a {
         text-decoration: none;
+        color: #243d51;
+    }
+
+    .card {
+      border: 1px solid #eee;
     }
 
     .btn-add {

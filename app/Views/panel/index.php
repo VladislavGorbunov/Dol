@@ -21,7 +21,7 @@
             <div class="alert alert-light" role="alert">
 
                 <?php
-          echo 'Здравствуйте ' . $user['firstname_manager'] . ' ' . $user['lastname_manager'] . '<hr>';
+          echo 'Здравствуйте <b>' . $user['firstname_manager'] . ' ' . $user['lastname_manager'] . '</b><hr>';
           echo 'Ваш ID в системе: ' . $user['user_id'];
          
       ?>
@@ -32,7 +32,7 @@
             <div class="alert alert-light" role="alert">
 
                 <?php
-          echo 'Организация: ' . $user['organization'] . '<hr>';
+          echo 'Организация: <b>' . $user['organization'] . '</b><hr>';
           echo 'Дата регистрации: ' . $user['created_at'];
           
       ?>
@@ -48,7 +48,7 @@
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
                         echo '
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 mb-4">
                         <div class="card">';
 
                         echo '<div class="card-body">
@@ -59,7 +59,7 @@
                         <hr>
                         <a href="" class="m-1">Посмотреть страницу лагеря</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Добавить смену</a>
-                        <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Посмотреть все смены</a> <span class="badge text-bg-info">'. count($camp['shifts']) .'</span>
+                        <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Посмотреть все смены</a>
                         <hr>
                         <a href="" class="m-1">Редактировать лагерь</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-1">Удалить лагерь</a>

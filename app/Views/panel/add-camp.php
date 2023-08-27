@@ -263,7 +263,7 @@
 
         <div class="col-lg-12">
             <h3 class="text-center mt-4">Типы лагеря</h3>
-            <p class="text-center">Выберите типы к которым относится ваш лагерь.</p>
+            <p class="text-center">Выберите <span class="text-danger">не более шести</span> типов к которым относится ваш лагерь.</p>
             <div class="row">
 
                 <?php
@@ -294,18 +294,20 @@
                                 checkbox.checked = true
                                 checkArray.push(checkbox.value)
                             } else {
-                                checkArray.splice(checkArray.indexOf(checkbox.value))
+                                checkArray.splice(checkArray.indexOf(checkbox.value), 1)
                             }
 
                         } else {
                             checkbox.checked = false
-
+                            
                             if (checkArray.includes(checkbox.value)) {
                                 checkbox.checked = false
-                                checkArray.splice(checkArray.indexOf(checkbox.value))
-                            }
+                                checkArray.splice(checkArray.indexOf(checkbox.value), 1)
+                           
                         }
-                        //console.log(checkArray)
+                        }
+                        console.log(checkArray.length)
+                        console.log(checkArray)
                     })
                 })
             </script>
