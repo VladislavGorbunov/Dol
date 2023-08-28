@@ -5,8 +5,8 @@ namespace App\Controllers;
 use Config\Services;
 use App\Models\Bookings;
 use App\Models\RepresentativesModel;
-use App\Models\Camps;
-use App\Models\Shifts;
+use App\Models\Reviews;
+
 
 
 class ReviewsController extends BaseController
@@ -18,6 +18,7 @@ class ReviewsController extends BaseController
     public $CampsModel;
     public $ShiftModel;
     public $Bookings;
+    public $ReviewsModel;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -27,8 +28,8 @@ class ReviewsController extends BaseController
         
         $this->RepresentativesModel = new RepresentativesModel();
         $this->BookingModel = new Bookings();
-        $this->CampsModel = new Camps();
-        $this->ShiftModel = new Shifts();
+        $this->ReviewsModel = new Reviews();
+        
         // Preload any models, libraries, etc, here.
     }
 
@@ -47,13 +48,26 @@ class ReviewsController extends BaseController
         
         if (!$this->validate($rules)) {
             var_dump($this->validator->getErrors());
-            //return redirect()->to(previous_url());
+            return redirect()->to(previous_url());
         }
 
         // Проверяем есть ли в таблице запись с booking_number и id лагеря
         // Если есть добавляем отзыв в базу
-        echo $data['name'] = $this->request->getVar('name');
-        echo previous_url();
+        $booking_number = $this->request->getVar('booking_number');
+        $camp_id = $this->request->getVar('id');
+        
+
+        if (!$this->BookingModel->where('booking_number', $booking_number)->where('camp_id', $camp_id)->first()) {
+            return redirect()->to(previous_url());
+        } 
+
+        $data['camps_id'] = $this->request->getVar('id');
+        $data['name'] = $this->request->getVar('name');
+
+        $this->ReviewsModel->insert($data);
+
+        // echo $data['name'] = $this->request->getVar('name');
+        // echo previous_url();
 
         
         // $this->BookingModel->insert($data);
