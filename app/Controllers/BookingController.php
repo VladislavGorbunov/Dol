@@ -88,6 +88,7 @@ class BookingController extends BaseController
         ]);
         
         $camps_id_booking = $this->request->getVar('camps_id_booking');
+        $data['number_of_tickets'] = $this->request->getVar('number_of_tickets');
         $data['camps_id_booking'] =  $camps_id_booking;
         $data['representative_id'] = $this->CampsModel->where('camps_id', $camps_id_booking)->findColumn('representatives_id');
         $data['fio'] =  $this->request->getVar('fio');

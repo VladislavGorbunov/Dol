@@ -2,7 +2,7 @@
 
 <div class="border p-3 rounded bg-white">
                     
-    <div id="map" style="width: auto; height: 300px"></div>
+    <div id="map" style="width: auto; height: 350px"></div>
 
         <div class="col-lg-12 mt-4">
 
@@ -16,8 +16,16 @@
                     <p><i class="las la-comment"></i> Отзывов: <b>0</b></p>
                  </div>
             </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                  <a href="" class="btn-view-review text-center d-block mx-auto mb-2">Смотреть отзывы</a>
+                </div>
 
-            <a href="" class="btn-add-review d-block mx-auto text-center col-lg-9 d-block mx-auto">Оставить отзыв</a>
+                <div class="col-lg-6">
+                  <a href="#reviews-add" class="btn-add-review text-center d-block mx-auto mb-2">Оставить отзыв</a>
+                </div>
+            </div>
         
             <div class="mt-4">
                 <p><b>Сайт лагеря: - </b></p>
@@ -44,7 +52,7 @@
 
 
                     
-<div class="border mt-3 p-3 rounded bg-white">
+<div class="border mt-4 p-3 rounded bg-white">
     <h3 style="color:#0ab39c">Бронирование</h3>
 
 
@@ -110,10 +118,10 @@
                             </script>
                             <hr>
                             <?php
-                    echo '<label class="form-label" for="typeNumber">Количество путёвок</label>
-                          <input min="1" max="5" type="number" id="typeNumber" class="form-control mb-3" value="1" required/>
+                    echo '<label class="form-label" for="typeNumber" >Количество путёвок</label>
+                          <input min="1" max="5" type="number" id="typeNumber" class="form-control mb-3" value="1" name="number_of_tickets" required/>
                           <input type="text" class="form-control mt-2 mb-3" placeholder="Ф.И.О" name="fio" >
-                          <input type="text" class="form-control mt-2 mb-3" placeholder="Телефон" name="telephone" required>
+                          <input type="tel" class="form-control mt-2 mb-3" placeholder="+7 (___) ___-__-__" name="telephone" data-phone-pattern = "+7 (___) ___-__-__" required>
                           <input type="email" class="form-control mt-2 mb-3" placeholder="Email" name="email" required>
                           <input type="hidden" name="camps_id_booking" value="'.$camp['camps_id'].'">
                     ';
@@ -124,7 +132,7 @@
                           <p class="text-center mt-4" style="font-size:13px;">После отправки формы в течении дня с вами свяжется менеджер лагеря.</p>
                     ';
 
-                    echo '<button type="submit" class="btn btn-booking mt-2 col-lg-9 d-block mx-auto">Забронировать путёвку</button>';
+                    echo '<button type="submit" class="btn btn-booking mt-2 col-lg-12 d-block mx-auto">Забронировать путёвку</button>';
                 } else {
                     echo '<p class="mt-3">На данный момент нет доступных смен.</p>';
                 }

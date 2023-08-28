@@ -9,6 +9,7 @@ class Bookings extends Model
     protected $table = 'bookings';
 
     protected $allowedFields = [
+        'number_of_tickets',
         'fio',
         'telephone',
         'email',
