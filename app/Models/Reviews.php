@@ -11,9 +11,9 @@ class Reviews extends Model
 
     protected $allowedFields = [
         'camps_id',
-        'firstname',
-        'lastname',
-        'text',
+        'name',
+        'advantages',
+        'disadvantages',
         'rating',
     ];
 

@@ -38,7 +38,7 @@ class ReviewsController extends BaseController
     {
         $session = session();
         $rules = [
-            'name' => 'required|min_length[5]',
+            'name' => 'required',
             'booking_number' => 'required',
             'rating' => 'required',
             'advantages' => 'required',
@@ -48,7 +48,7 @@ class ReviewsController extends BaseController
         
         if (!$this->validate($rules)) {
             var_dump($this->validator->getErrors());
-            return redirect()->to(previous_url());
+            //return redirect()->to(previous_url());
         }
 
         // Проверяем есть ли в таблице запись с booking_number и id лагеря
@@ -58,13 +58,28 @@ class ReviewsController extends BaseController
         
 
         if (!$this->BookingModel->where('booking_number', $booking_number)->where('camp_id', $camp_id)->first()) {
+            $session->setFlashdata('msg-error', 'Номер бронирования не совпадает, мы вынуждены отклонить добавление отзыва..');
             return redirect()->to(previous_url());
         } 
 
         $data['camps_id'] = $this->request->getVar('id');
         $data['name'] = $this->request->getVar('name');
+        $data['advantages'] = $this->request->getVar('advantages');
+        $data['disadvantages'] = $this->request->getVar('disadvantages');
+        $data['rating'] = $this->request->getVar('rating');
 
-        $this->ReviewsModel->insert($data);
+        // echo '<pre>';
+        // var_dump($data);
+        // echo '</pre>';
+        // die;
+
+        if ($this->ReviewsModel->insert($data)) {
+            $session->setFlashdata('msg-success', 'Отзыв отправлен! Спасибо что поделились своим мнением!');
+        } else {
+            $session->setFlashdata('msg-error', 'При добавлении отзыва произошла ошибка..');
+        }
+
+        return redirect()->to(previous_url());
 
         // echo $data['name'] = $this->request->getVar('name');
         // echo previous_url();
