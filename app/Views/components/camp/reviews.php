@@ -45,25 +45,22 @@
 <style>
  .form-range {
     width: 100%;
-    height: 0.3rem;
+    height: 0.5rem;
     padding: 0;
     background-color: transparent;
     appearance: none;
 }
 
-.form-range::-webkit-slider-thumb {
-    margin-top: 0.25rem;
-}
 
 .form-range::-webkit-slider-runnable-track {
     width: 100%;
-    height: 0.3rem;
+    height: 0.5rem;
     background-color: #111;
 }
 
 .form-range::-moz-range-track {
     width: 100%;
-    height: 0.3rem;
+    height: 0.5rem;
     background-color: #111;
 }
 
@@ -71,6 +68,11 @@
     
     background-color: #0ab39c;
 }
+
+.form-range::-webkit-slider-thumb {
+    background-color: #0ab39c;
+}
+
 
 .form-range::-webkit-range-thumb {
     background-color: #0ab39c;
