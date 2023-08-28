@@ -115,9 +115,9 @@ a {
     font-size: 14px;
 }
 
-.btn-booking {
-    background: #21a663;
-    border: 1px solid #21a663;
+.btn-booking, .btn-add-review-form {
+    background: #0ab39c;
+    border: 1px solid #0ab39c;
     color: #fff;
     border-radius: 5px;
     padding: 13px 20px;
@@ -125,13 +125,14 @@ a {
     transition: .5s;
 }
 
-.btn-booking:hover {
-    border: 1px solid #21a663;
-    color: #21a663;
+.btn-booking:hover, .btn-add-review-form:hover {
+    border: 1px solid #0ab39c;
+    color: #0ab39c;
     border-radius: 5px;
     padding: 13px 20px;
     font-size: 16px;
 }
+
 
 .btn-auth:hover {
     color: #243d51;
@@ -173,9 +174,9 @@ a {
 
 .btn-view-review {
 
-    color: #2955c8;
+    color: #111;
     background: none;
-    border: 1px solid #2955c8;
+    border: 1px solid #111;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -186,8 +187,8 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #2955c8;
-    border: 1px solid #2955c8;
+    background: #0ab39c;
+    border: 1px solid #0ab39c;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;

@@ -130,7 +130,4 @@ class BookingController extends BaseController
         return $arr[rand(1, 10)] .'-'. $number . $month . $year . $minutes . $seconds . '-' . rand(10, 1000);
     }
 
-
-    
-    
 }

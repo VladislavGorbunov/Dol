@@ -55,7 +55,7 @@ $routes->post('/registration', 'Registration::save');
 
 $routes->get('/camp/(:segment)', 'Camp::GetCamp/$1');
 $routes->get('/camps/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3');
-
+$routes->post('/review-insert', 'ReviewsController::ReviewInsert');
 
 $routes->get('/admin', 'Admin::Index');
 $routes->get('/admin/panel', 'Admin::Panel', ['filter' => 'Auth']);
