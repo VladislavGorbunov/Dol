@@ -50,13 +50,25 @@ class Camp extends BaseController
         $data['seasons'] = $this->Seasons->findAll();
         $data['types'] = $this->Types->findAll();
 
+       
+
         $data['camp'] = $this->Camps->where('slug', $camp)->first();
+
+        //$data['camp_data'] = $this->Camps->getCamp($data['camp']['camps_id'])->getResultArray();
+
         $data['types_camp'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
         $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
         $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
         $data['reviews'] = $this->Reviews->selectAvg('rating')->where(['camps_id'=> $data['camp']['camps_id']])->first();
+
+        if ($result = $this->Reviews->where(['camps_id'=> $data['camp']['camps_id']])->findColumn('id')) {
+            $data['reviews_count'] = count($result);
+        } else {
+            $data['reviews_count'] = 0;
+        }
+        
         
         foreach ($data['images'] as $key => $image) {
             $data['images'][$key] = $this->Images->url_folder . $camp. '/photo/' .$image['name_img'];

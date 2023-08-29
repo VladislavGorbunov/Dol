@@ -13,7 +13,7 @@
                 </div>
 
                 <div>
-                    <p><i class="las la-comment"></i> Отзывов: <b>0</b></p>
+                    <p><i class="las la-comment"></i> Отзывов: <b><?= $reviews_count ?></b></p>
                  </div>
             </div>
             

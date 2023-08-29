@@ -102,8 +102,6 @@ class Camps extends Model
         
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
 
-        $builder->join('camps_types', 'camps_types.camps_id = camps.camps_id', 'left');
-        $builder->join('types', 'camps_types.types_id = types.types_id', 'left');
         
         $builder->join('camps_seasons', 'camps_seasons.camps_id = camps.camps_id', 'left');
        

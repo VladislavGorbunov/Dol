@@ -50,13 +50,15 @@
                             <p class="mt-3"><i class="las la-comment"></i> <a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
                             <p>Возраст: <b>от '.$camp['min_age'].' до '.$camp['max_age'].' лет</b></p>
                             ';
-                            if ($camp['min_price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' руб.</b> <span style="font-size: 14px;">за путёвку</span></p>';
+                            if ($camp['min_price'][0]['price']) {
+                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' руб.</b> <span style="font-size: 14px;">за путёвку</span></p>
+                                <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
+                                ';
                             } else {
-                                echo '<p><b>Доступных смен нет.</b></p>';
+                                echo '<p><b>Доступных смен нет.</b></p><a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>';
                             }
                         
-                            echo '<a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
+                            echo '
                         </div>
                         <!-- Конец правого блока -->
 

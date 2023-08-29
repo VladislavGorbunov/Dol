@@ -64,9 +64,9 @@ class Site extends BaseController
     public function Login()
     {
         $session = session();
-        $cities = new Cities();
-        $data['cities'] = $cities->getAllCity();
-        return view('site/login', $data);
+        // $cities = new Cities();
+        // $data['cities'] = $cities->getAllCity();
+        return view('site/login');
     }
 
     public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
