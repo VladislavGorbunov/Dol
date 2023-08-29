@@ -5,6 +5,10 @@
             <p class="mb-3">Подобрано лагерей: <?= $total ?></p>
             
             <?php 
+            // echo '<pre>';
+            // var_dump($camps);
+            // echo '</pre>';
+            // die;
                 
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
@@ -47,7 +51,7 @@
                             <p>Возраст: <b>от '.$camp['min_age'].' до '.$camp['max_age'].' лет</b></p>
                             ';
                             if ($camp['min_price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'] .' руб.</b> <span style="font-size: 14px;">за путёвку</span></p>';
+                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' руб.</b> <span style="font-size: 14px;">за путёвку</span></p>';
                             } else {
                                 echo '<p><b>Доступных смен нет.</b></p>';
                             }
