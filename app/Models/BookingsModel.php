@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Bookings extends Model
+class BookingsModel extends Model
 {
     protected $table = 'bookings';
 

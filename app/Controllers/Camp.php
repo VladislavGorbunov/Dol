@@ -3,26 +3,24 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
 use App\Models\Images;
 use App\Models\Shifts;
 use App\Models\Reviews;
-use App\Models\Bookings;
 use App\Models\RepresentativesModel;
 
 class Camp extends BaseController
 {
-    public $Camps;
+    public $CampsModel;
     public $Cities;
     public $Types;
     public $Seasons;
     public $Images;
     public $ShiftsModel;
     public $Reviews;
-    public $Bookings;
     public $Representatives;
     
 
@@ -32,14 +30,13 @@ class Camp extends BaseController
         global $config;
         $session = \Config\Services::session($config);
 
-        $this->Camps = new Camps();
+        $this->CampsModel = new CampsModel();
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
         $this->Images = new Images();
         $this->ShiftsModel = new Shifts();
         $this->Reviews = new Reviews();
-        $this->Bookings = new Bookings();
         $this->Representatives = new RepresentativesModel();
         // Preload any models, libraries, etc, here.
     }
@@ -50,21 +47,18 @@ class Camp extends BaseController
         $data['seasons'] = $this->Seasons->findAll();
         $data['types'] = $this->Types->findAll();
 
-       
-
-        $data['camp'] = $this->Camps->where('slug', $camp)->first();
-
-        //$data['camp_data'] = $this->Camps->getCamp($data['camp']['camps_id'])->getResultArray();
-
-        $data['types_camp'] = $this->Camps->getTypes($data['camp']['camps_id'])->getResultArray();
+        $data['camp'] = $this->CampsModel->where('slug', $camp)->first();
+        $data['organization'] = $this->Representatives->select('organization, inn')->where('user_id', $data['camp']['representatives_id'])->first();
+        $data['types_camp'] = $this->CampsModel->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
         $data['cover'] = $this->Images->url_folder . $camp. '/cover/' .$data['cover'][0]['name_img'];
         $data['region'] = $this->Cities->where(['cities_id' => $data['camp']['cities_id']])->first();
         $data['images'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 0])->findAll();
         $data['reviews'] = $this->Reviews->selectAvg('rating')->where(['camps_id'=> $data['camp']['camps_id']])->first();
 
-        if ($result = $this->Reviews->where(['camps_id'=> $data['camp']['camps_id']])->findColumn('id')) {
+        if ($result = $this->Reviews->where(['camps_id'=> $data['camp']['camps_id']])->findAll()) {
             $data['reviews_count'] = count($result);
+            $data['reviews_data'] = $result;
         } else {
             $data['reviews_count'] = 0;
         }

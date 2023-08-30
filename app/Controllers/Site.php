@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
@@ -12,7 +12,7 @@ use App\Models\Shifts;
 
 class Site extends BaseController
 {
-    public $Camps;
+    public $CampsModel;
     public $Cities;
     public $Types;
     public $Seasons;
@@ -26,7 +26,7 @@ class Site extends BaseController
         global $config;
         $session = \Config\Services::session($config);
 
-        $this->Camps = new Camps();
+        $this->CampsModel = new CampsModel();
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
@@ -41,7 +41,7 @@ class Site extends BaseController
         $data['seasons'] = $this->Seasons->findAll();
         $data['types'] = $this->Types->findAll();
 
-        $camps = $this->Camps->getBestCamps()->getResultArray();
+        $camps = $this->CampsModel->getBestCamps()->getResultArray();
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
@@ -51,7 +51,7 @@ class Site extends BaseController
                 'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
-                'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+                'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
             ];
 
         }
@@ -128,7 +128,7 @@ class Site extends BaseController
         $kol = 10;  //количество записей для вывода на страницу
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
 
-        $camps_data = $this->Camps->getCamps($region_id, $type, $season, $age, $art, $kol);
+        $camps_data = $this->CampsModel->getCamps($region_id, $type, $season, $age, $art, $kol);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
         
@@ -157,7 +157,7 @@ class Site extends BaseController
                 'count_reviews' => $camps[$i]['count_reviews'],
                 //'count_reviews' => count($this->ReviewsModel->where('camps_id', $camps[$i]['camps_id'])->findAll()),
                 'avg_rating' => $camps[$i]['avg_rating'],
-                'types' => $this->Camps->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+                'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 //'min_price' => $camps[$i]['min_price'],
                 'min_price' => $query->getResultArray(),
                 'min_age' => $camps[$i]['min_age'],

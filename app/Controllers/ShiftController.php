@@ -5,7 +5,7 @@ namespace App\Controllers;
 use Config\Services;
 use App\Models\Cities;
 use App\Models\RepresentativesModel;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\Shifts;
 
 class ShiftController extends BaseController
@@ -22,7 +22,7 @@ class ShiftController extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
-        $this->CampsModel = new Camps();
+        $this->CampsModel = new CampsModel();
         $this->ShiftsModel = new Shifts();
         // Preload any models, libraries, etc, here.
     }

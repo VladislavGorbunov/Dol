@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
 use App\Models\Types;
@@ -13,7 +13,7 @@ use App\Models\CampsSeasons;
 use App\Models\Images;
 use App\Models\Shifts;
 use App\Controllers\Recaptcha;
-use App\Models\Bookings;
+use App\Models\BookingsModel;
 
 use CodeIgniter\Files\File;
 
@@ -44,7 +44,7 @@ class Panel extends BaseController
         global $config;
         $session = \Config\Services::session($config);
 
-        $this->CampsModel = new Camps();
+        $this->CampsModel = new CampsModel();
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CitiesModel = new Cities();
         $this->TypesModel = new Types();
@@ -53,7 +53,7 @@ class Panel extends BaseController
         $this->CampsSeasons = new CampsSeasons();
         $this->ImagesModel = new Images();
         $this->ShiftsModel = new Shifts();
-        $this->BookingsModel = new Bookings();
+        $this->BookingsModel = new BookingsModel();
         $this->Recaptcha = new Recaptcha();
 
         $this->imagesFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/images/camps';

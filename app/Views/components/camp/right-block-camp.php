@@ -19,18 +19,25 @@
             
             <div class="row">
                 <div class="col-lg-6">
-                  <a href="" class="btn-view-review text-center d-block mx-auto mb-2">Смотреть отзывы</a>
+                  <a href="" class="btn-view-review text-center d-block mx-auto mb-2">Читать отзывы</a>
                 </div>
 
                 <div class="col-lg-6">
-                  <a href="#reviews-add" class="btn-add-review text-center d-block mx-auto mb-2">Оставить отзыв</a>
+                  <a href="#reviews-add" class="btn-add-review text-center d-block mx-auto mb-2">Написать отзыв</a>
                 </div>
             </div>
+
+            <?php
+            // var_dump($organization);
+            // die;
+            ?>
         
             <div class="mt-4">
+                <p><b>Организатор: </b><?= $organization['organization'] ?></p>
+                <p><b>ИНН: </b><?= $organization['inn'] ?></p>
                 <p><b>Сайт лагеря: - </b></p>
                 <p><b>Вконтакте: - </b></p>
-                <p><b>Телефон: - </b></p>
+                <p><b>Телефон: </b></p>
                 <p><b>Регион:</b> <?= $region['title'] ?></p>
                 <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                 <p><b>Год начала деятельности:</b> <?= $camp['year'] . ' год' ?></p>

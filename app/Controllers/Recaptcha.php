@@ -13,23 +13,10 @@ class Recaptcha extends BaseController
 {
 
     public $api_url = 'https://hcaptcha.com/siteverify';
-    public $Camps;
-    public $Cities;
-    public $Types;
-    public $Seasons;
-    public $Images;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
-        global $config;
-        $session = \Config\Services::session($config);
-
-        $this->Camps = new Camps();
-        $this->Cities = new Cities();
-        $this->Types = new Types();
-        $this->Seasons = new Seasons();
-        $this->Images = new Images();
         // Preload any models, libraries, etc, here.
     }
 

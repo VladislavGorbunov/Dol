@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Bookings;
+use App\Models\BookingsModel;
 use App\Models\RepresentativesModel;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\Shifts;
 
 
@@ -14,7 +14,7 @@ class BookingController extends BaseController
 
     public $RepresentativesModel;
     public $CitiesModel;
-    public $BookingModel;
+    public $BookingsModel;
     public $CampsModel;
     public $ShiftModel;
     public $Bookings;
@@ -26,8 +26,8 @@ class BookingController extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
-        $this->BookingModel = new Bookings();
-        $this->CampsModel = new Camps();
+        $this->BookingsModel = new BookingsModel();
+        $this->CampsModel = new CampsModel();
         $this->ShiftModel = new Shifts();
         // Preload any models, libraries, etc, here.
     }
@@ -37,7 +37,7 @@ class BookingController extends BaseController
     {
         $session = session();
         
-        $bookings = $this->BookingModel->where('representative_id', $session->get('id'))->findAll();
+        $bookings = $this->BookingsModel->where('representative_id', $session->get('id'))->findAll();
         
         if ($bookings) {
         foreach($bookings as $key => $booking) {
@@ -66,7 +66,7 @@ class BookingController extends BaseController
     {
         $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
      
-        if ($this->BookingModel->where('id', $id)->delete()) {
+        if ($this->BookingsModel->where('id', $id)->delete()) {
             $data = ['success' => 'ok'];
         } else {
             $data = ['success' => 'Delete error'];
@@ -98,7 +98,7 @@ class BookingController extends BaseController
         $data['shift_id'] = $this->request->getVar('shift_id');
         $data['booking_number'] = $this->CreateRandomBookingNumber();
         
-        $this->BookingModel->insert($data);
+        $this->BookingsModel->insert($data);
         $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
     
         $redirect = $_SERVER['HTTP_REFERER'];
