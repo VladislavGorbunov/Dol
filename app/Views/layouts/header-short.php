@@ -133,6 +133,7 @@
                                 $uri = explode('/', $_SERVER['REQUEST_URI']); 
                                 $region_select = $uri[2];
                                 $type_select = $uri[3];
+                                $season_select = $uri[4];
                             ?>
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
 
@@ -162,7 +163,6 @@
                                         } else {
                                             echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
                                         }
-                                        
                                     }
                                 ?>
                             </select>
@@ -174,7 +174,11 @@
                                 <option selected value="season-all">Любой сезон</option>
                                 <?php 
                                     foreach ($seasons as $key => $season) {
-                                        echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        if ($season_select == $season['slug']) {
+                                            echo '<option selected value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        } else {
+                                            echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        }
                                     }
                                 ?>
                             </select>

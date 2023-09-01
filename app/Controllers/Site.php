@@ -131,20 +131,23 @@ class Site extends BaseController
         $camps_data = $this->CampsModel->getCamps($region_id, $type, $season, $age, $art, $kol);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
-        
+   
+        // echo '<pre>';
+        // var_dump($camps);
+        // echo '</pre>';
         $total = $camps_data['count_row']; // Получаем кол-во записей
         
          // Call makeLinks() to make pagination links.
          $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('shifts');
+        // $db      = \Config\Database::connect();
+        // $builder = $db->table('shifts');
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
 
-            $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
-            $query = $builder->get();
+            // $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
+            // $query = $builder->get();
 
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],
@@ -152,6 +155,7 @@ class Site extends BaseController
                 'cover' => $this->Images->where(['camps_id' => $camps[$i]['camps_id'], 'cover' => 1])->first(),
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
+                'year' => $camps[$i]['year'],
                 'description' => $camps[$i]['description'],
                 'short-description' => mb_substr(strip_tags($camps[$i]['description']), 0, 450).'... <a href="/camp/'.$camps[$i]['slug'].'" style="color:#2955c8">Читать далее</a>',
                 'count_reviews' => $camps[$i]['count_reviews'],
@@ -159,7 +163,8 @@ class Site extends BaseController
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 //'min_price' => $camps[$i]['min_price'],
-                'min_price' => $query->getResultArray(),
+                //'min_price' => $query->getResultArray(),
+                'min_price' => $camps[$i]['min_price_shift'],
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
             ];

@@ -2,13 +2,13 @@
 <h2 class="text-center mt-3">Последние отзывы о лагере</h2>
 
 <div class="col-lg-8 d-block mx-auto">
-<div class="row">
+
 <?php
 
 // var_dump($reviews_data);
     
     if (!empty($reviews_data)) {
-        for ($i = 0; ($i < count($reviews_data) && $i < 5); $i++) {
+        for ($i = 0; ($i < count($reviews_data) && $i < 4); $i++) {
             echo '<div class="col-lg-12 mt-3">
             <img src="https://img.icons8.com/color/452/user-group-man-woman.png" width="70px">
             ';
@@ -28,8 +28,7 @@
                 
                 //echo '<div class="d-flex justify-content-center"><div class="mb-3"> ' . $star_render . ' </div></div>';
 
-                echo '<div class="col-lg-12 mt-3">
-                <b style="color:#0ab39c">Преимущества:</b> '.$reviews_data[$i]['advantages'].'</div>
+                echo '<div class="col-lg-12 mt-3"><b style="color:#0ab39c">Преимущества:</b> '.$reviews_data[$i]['advantages'].'</div>
                 <div class="col-lg-12 mt-3"><b>Недостатки:</b> '.$reviews_data[$i]['disadvantages'].'</div>
                 <div class="col-lg-12 mt-3 mb-4"><b>Оценка:</b> ' . $star_render . '</div>
             ';
@@ -37,8 +36,10 @@
     }
 ?>
 </div>
+<p class="text-center mt-3 mb-3"><a href="" style="color:#2955c8 !important;border-bottom:1px solid #2955c8">Читать все отзывы</a></p>
 </div>
-</div>
+
+
 
 <div id="reviews-add" class="mt-4 p-3 bg-white rounded">
 

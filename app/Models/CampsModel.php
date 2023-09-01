@@ -31,8 +31,8 @@ class CampsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.max_age, camps.adress, camps.slug, AVG(reviews.rating) avg_rating, COUNT(reviews.camps_id) count_reviews');
-        
+        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, AVG(reviews.rating) avg_rating, COUNT(reviews.camps_id) count_reviews, MIN(shifts.price) min_price_shift');
+        $builder->join('shifts', 'shifts.camps_id = camps.camps_id');
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
         //$builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');
         if ($type) $builder->join('camps_types', 'camps_types.camps_id = camps.camps_id', 'left');
@@ -51,9 +51,11 @@ class CampsModel extends Model
             $builder->where('camps.max_age >=', $age); // максимальный возраст
         }
 
-        $builder->groupBy(['camps.camps_id', 'reviews.camps_id']); // Групировка чтобы не было дублей
-        $builder->orderBy('avg_rating DESC');
-        $builder->orderBy('count_reviews DESC');
+        $builder->groupBy(['camps.camps_id', 'reviews.camps_id', 'shifts.camps_id']); // Групировка чтобы не было дублей
+        
+        $builder->orderBy('avg_rating', 'DESC');
+        $builder->orderBy('count_reviews', 'DESC');
+        
         $this->count_rows = $builder->countAllResults(false); // Количество записей
 
         return $data = [

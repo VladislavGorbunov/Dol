@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px !important;
+    font-size: 15px !important;
     font-weight: 400;
     color: #333;
     overflow-x: hidden;
@@ -42,7 +42,7 @@ h2, h3, h4, h5 {
 .las {
     position: relative;
     top: 0px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 a {
@@ -70,6 +70,19 @@ a {
     border-radius: 15px;
 }
 
+.badge-card {
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    background-color: gold;
+    color: #111;
+    font-weight: bold;
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    transform: rotate(-45deg);
+}
+
 .rounded {
     border-radius: 10px !important;
     border: none !important;
@@ -80,7 +93,7 @@ a {
 }
 
 .best {
-    background: rgb(247, 255, 244);
+    border: 4px solid gold;
 }
 
 
@@ -106,15 +119,6 @@ a {
 
 
 
-.btn-auth {
-    color: #70aab8;
-    border: 1px solid #70aab8;
-    border-radius: 5px;
-    padding: 10px 15px;
-    height: 42px;
-    font-size: 14px;
-}
-
 .btn-booking, .btn-add-review-form {
     background: #0ab39c;
     border: 1px solid #0ab39c;
@@ -133,6 +137,15 @@ a {
     font-size: 16px;
 }
 
+
+
+.btn-auth {
+    color: #70aab8;
+    border: 1px solid #70aab8;
+    border-radius: 5px;
+    padding: 9px 15px;
+    height: 42px;
+}
 
 .btn-auth:hover {
     color: #243d51;
@@ -156,9 +169,8 @@ a {
     background: #243d51;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 9px 15px;
     height: 42px;
-    font-size: 14px;
     transition: .5s;
 }
 
@@ -173,7 +185,6 @@ a {
 }
 
 .btn-view-review {
-
     color: #111;
     background: none;
     border: 1px solid #111;
@@ -193,7 +204,6 @@ a {
     padding: 10px 20px;
     transition: .5s;
     font-size: 15px;
-
 }
 
 .btn-detailed {
@@ -228,7 +238,6 @@ a {
     padding: 80px 0;
     margin-bottom: 50px;
     margin-top: 0px;
-
 }
 
 .header-image-short {
@@ -297,7 +306,7 @@ a {
 
 .filter-block .form-select {
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     padding: 15px 25px 15px 15px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -372,7 +381,7 @@ a {
     border: none;
     color: #000;
     font-family: 'Rubik', sans-serif;
-    font-size: 16px;
+    font-size: 19px;
     margin-left: 0px;
 }
 
@@ -399,7 +408,8 @@ a {
 }
 
 .price {
-    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
 }
 
 .adress {

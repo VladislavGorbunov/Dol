@@ -19,7 +19,7 @@
             
             <div class="row">
                 <div class="col-lg-6">
-                  <a href="" class="btn-view-review text-center d-block mx-auto mb-2">Читать отзывы</a>
+                  <a href="" class="btn-view-review text-center d-block mx-auto mb-2"><i class="las la-eye"></i> Читать отзывы</a>
                 </div>
 
                 <div class="col-lg-6">

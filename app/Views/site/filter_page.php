@@ -4,21 +4,24 @@
 
             <p class="mb-3">Подобрано лагерей: <?= $total ?></p>
             
-            <?php 
-            // echo '<pre>';
-            // var_dump($camps);
-            // echo '</pre>';
-            // die;
+            <?php
                 
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
                         $rating = round($camp['avg_rating'], 1);
-            
+                        if ($rating >= 3.5 && $camp['count_reviews'] >= 7) {
+                            $badge = '<span class="badge-card mb-1">РЕКОМЕНДУЕМ</span>';
+                            $best = 'best';
+                        } else {
+                            $badge = null;
+                            $best = null;
+                        }
                         echo '<div class="col-lg-12 mb-4">
                               <div class="card p-4 shadows">
                               <div class="row"> <!-- Общий row для 3х блоков -->
-                                    <div class="col-lg-3 col-12 mb-3">
-                                        <img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="img-fluid">
+                                    <div class="col-lg-3 col-12 mb-3">';
+                                        echo $badge;
+                                        echo '<img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="img-fluid '. $best .'">
                                     </div>
 
                                     <div class="col-lg-9">
@@ -43,15 +46,16 @@
                         <!-- Правый блок -->
                         <div class="col-lg-3">
 
-                            <div class="rating-block">
+                            <div class="rating-block mb-3">
                                  <span class="rating"><i class="las la-star"></i> ' .$rating. ' из 5</span> 
+                                 <a href="" class="reviews-link mx-2">(отзывов: '.$camp['count_reviews'].')</a>
                             </div>
                         
-                            <p class="mt-3"><i class="las la-comment"></i> <a href="" class="reviews-link">Отзывов: '.$camp['count_reviews'].'</a></p>
-                            <p>Возраст: <b>от '.$camp['min_age'].' до '.$camp['max_age'].' лет</b></p>
+                            <p>Работает с '.$camp['year'].' года</p>
+                            <p>Возраст: от '.$camp['min_age'].' до '.$camp['max_age'].' лет</p>
                             ';
-                            if ($camp['min_price'][0]['price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' руб.</b> <span style="font-size: 14px;">за путёвку</span></p>
+                            if ($camp['min_price']) {
+                                echo '<p class="price"><b>от '. $camp['min_price'] .' руб.</b> <span style="font-size: 13px;">за путёвку</span></p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
                             } else {
