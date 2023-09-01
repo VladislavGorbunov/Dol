@@ -427,7 +427,7 @@ a {
     height: 30px;
     border: 1px solid #3ac47d;
     position: relative;
-    color: #3ac47d;
+    color: #111;
     margin: 5px;
     border-radius: 5px;
     align-items: center;
@@ -439,9 +439,9 @@ a {
     display: flex;
     width: 30px;
     height: 30px;
-    border: 1px solid #3ac47d;
+    background-color: rgba(41, 85, 200, 0.1);
     position: relative;
-    color: #3ac47d;
+    color: #111;
     margin: 5px;
     border-radius: 5px;
     align-items: center;
@@ -460,6 +460,15 @@ a {
     border-radius: 5px;
     align-items: center;
     justify-content: center;
+}
+
+.city-block-link {
+    transition: .5s;
+}
+
+.city-block-link:hover {
+    color: #2955c8;
+    transition: .5s;
 }
 
 footer {

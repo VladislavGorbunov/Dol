@@ -30,7 +30,7 @@
 </div>
 
 <div class="bg-white rounded p-3">
-<h2 class="text-center mt-2 mb-3">Места отдыха для детей и подростков ищут у нас</h2>
+<h2 class="text-center mt-2 mb-3"><span style="color:#3ac47d">Места отдыха</span> для детей и подростков ищут у нас</h2>
 <p class="text-center">
 Самое полезное занятие на каникулах, это отдых в детском лагере. Поэтому основная цель нашего сервиса: предоставить нашим посетителям
 удобный, надежный и в то же время бесплатный сервис по поиску и бронированию путёвок. Мы следим за качеством 
@@ -43,19 +43,19 @@
 </div>
 
 <div class="bg-white rounded p-3 mt-4">
-<h2 class="text-center mt-2 mb-3">Поиск в любом регионе России</h2>
+<h2 class="text-center mt-2 mb-3">Поиск в <span style="color:#3ac47d">любом регионе России</span></h2>
 
 <div class="row mt-2 mb-2">
 <?php
 
 foreach ($cities as $city) {
-    echo '<div class="col-lg-3 text-center p-2"><a href="/camps/'. $city['slug'] .'">'. $city['title'] .'</a></div>';
+    echo '<div class="col-lg-3 text-center p-2"><a href="/camps/'. $city['slug'] .'/type-all/season-all" class="city-block-link">'. $city['title'] .'</a></div>';
 }
 
 ?>
 </div></div>
 
-    <h2 class="text-center mt-4">Топ 15 лучших детских лагерей России</h2>
+    <h2 class="text-center mt-4"><span style="color:#3ac47d">Топ 15 лучших</span> детских лагерей России</h2>
     <p class="text-center">На основании голосов и отзывов наших пользователей</p>
 
     <div class="row g-4">
