@@ -167,6 +167,7 @@ class Site extends BaseController
                 'min_price' => $camps[$i]['min_price_shift'],
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
+                'free_transfer' => $camps[$i]['free_transfer'],
             ];
 
         }

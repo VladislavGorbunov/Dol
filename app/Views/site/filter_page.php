@@ -9,6 +9,7 @@
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
                         $rating = round($camp['avg_rating'], 1);
+
                         if ($rating >= 3.5 && $camp['count_reviews'] >= 7) {
                             $badge = '<span class="badge-card mb-1">РЕКОМЕНДУЕМ</span>';
                             $best = 'best';
@@ -16,6 +17,14 @@
                             $badge = null;
                             $best = null;
                         }
+
+                         if ($camp['free_transfer']) {
+                            $free_transfer = '<span style="color:#21a663">Трансфер включён в стоимость</span>';
+                         } else {
+                            $free_transfer = null;
+                         }
+
+
                         echo '<div class="col-lg-12 mb-4">
                               <div class="card p-4 shadows">
                               <div class="row"> <!-- Общий row для 3х блоков -->
@@ -53,9 +62,11 @@
                         
                             <p>Работает с '.$camp['year'].' года</p>
                             <p>Возраст: от '.$camp['min_age'].' до '.$camp['max_age'].' лет</p>
+                            
                             ';
                             if ($camp['min_price']) {
                                 echo '<p class="price"><b>от '. $camp['min_price'] .' руб.</b> <span style="font-size: 13px;">за путёвку</span></p>
+                                <p style="font-size: 13px;">'. $free_transfer .'</p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
                             } else {
@@ -77,7 +88,7 @@
 }
 ?>
 
-            <?= $pager_links ?>
+<?= $pager_links ?>
 
 
         </div> <!-- col-lg-12 -->
