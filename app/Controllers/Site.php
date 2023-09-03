@@ -71,7 +71,6 @@ class Site extends BaseController
 
     public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
     {
-
         $pager = service('pager');
 
         $data['cities'] = $this->Cities->findAll();
@@ -131,17 +130,11 @@ class Site extends BaseController
         $camps_data = $this->CampsModel->getCamps($region_id, $type, $season, $age, $art, $kol);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
-   
-        // echo '<pre>';
-        // var_dump($camps);
-        // echo '</pre>';
+      
         $total = $camps_data['count_row']; // Получаем кол-во записей
         
          // Call makeLinks() to make pagination links.
          $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
-
-        // $db      = \Config\Database::connect();
-        // $builder = $db->table('shifts');
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
@@ -171,6 +164,7 @@ class Site extends BaseController
             ];
 
         }
+        
 
         $type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
 
@@ -199,6 +193,11 @@ class Site extends BaseController
         return view('layouts/header-short', $data) 
         .view('site/filter_page')
         .view('layouts/footer');
+    }
 
+
+    public function CreateMetaTag(...$data)
+    {
+    
     }
 }

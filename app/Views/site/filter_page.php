@@ -65,7 +65,7 @@
                             
                             ';
                             if ($camp['min_price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'] .' руб.</b> <span style="font-size: 13px;">за путёвку</span></p>
+                                echo '<p class="price"><b>от '. $camp['min_price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
                                 <p style="font-size: 13px;">'. $free_transfer .'</p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
@@ -84,7 +84,11 @@
 </div>'; 
   }
 } else {
-    echo '<div class="col-lg-12 mb-3"> Ничего не нашли =( </div>';
+    echo '<div class="col-lg-6 d-block mx-auto mb-3">
+    <img src="http://bycamps.ru/public/theme/img/login-form-logo.png" class="d-block mx-auto" width="256px">
+    <h2 class="text-center mt-3">Упс.. Нам не удалось найти подходящих лагерей..</h2>
+    <p class="text-center">Попробуйте изменить условия поиска.</p>
+    </div>';
 }
 ?>
 
