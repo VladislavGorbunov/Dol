@@ -60,7 +60,7 @@
 
                     
 <div class="border mt-4 p-3 rounded bg-white">
-    <h3 style="color:#0ab39c">Бронирование</h3>
+    <h3>Бронирование</h3>
 
 
         <form action="/booking" method="post">

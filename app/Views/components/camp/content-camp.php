@@ -1,7 +1,7 @@
 <div class="mt-3">
 
     <div class="border p-3 mt-4 bg-white rounded">
-        <h2 class="text-center">О лагере: <span style="color:#0ab39c"><?= $camp['title'] ?></span></h3>
+        <h2 class="text-center">О лагере: <span style="color:#3ac47d"><?= $camp['title'] ?></span></h3>
         <?= $camp['description'] ?>
     </div>
 

@@ -28,7 +28,7 @@
                 
                 //echo '<div class="d-flex justify-content-center"><div class="mb-3"> ' . $star_render . ' </div></div>';
 
-                echo '<div class="col-lg-12 mt-3"><b style="color:#0ab39c">Преимущества:</b> '.$reviews_data[$i]['advantages'].'</div>
+                echo '<div class="col-lg-12 mt-3"><b style="color:#3ac47d">Преимущества:</b> '.$reviews_data[$i]['advantages'].'</div>
                 <div class="col-lg-12 mt-3"><b>Недостатки:</b> '.$reviews_data[$i]['disadvantages'].'</div>
                 <div class="col-lg-12 mt-3 mb-4"><b>Оценка:</b> ' . $star_render . '</div>
             ';
@@ -44,7 +44,7 @@
 <div id="reviews-add" class="mt-4 p-3 bg-white rounded">
 
     <div class="col-lg-10 d-block mx-auto">
-    <h2 class="text-center mt-3">Были в этом лагере? <span style="color:#0ab39c">Помогите другим с выбором</span>, напишите отзыв!</h2>
+    <h2 class="text-center mt-3">Были в этом лагере? <span style="color:#3ac47d">Помогите другим с выбором</span>, напишите отзыв!</h2>
     <small class="text-center col-lg-6 d-block mx-auto">
     Для того чтобы Ваш отзыв был опубликован, необходимо указать номер бронирования который мы отправляли вам на почту. Таким образом мы боремся с накруткой отзывов.
     </small>
@@ -75,7 +75,7 @@
           </div>
         </div>
     </div>
-    <label class="form-label mt-3"><span style="color:#0ab39c;font-weight:bold">+ Преимущества:</span></label>
+    <label class="form-label mt-3"><span style="color:#3ac47d;font-weight:bold">+ Преимущества:</span></label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="advantages"></textarea>
     <label class="form-label mt-3"><span style="font-weight:bold">- Недостатки:</span></label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="disadvantages"></textarea>
@@ -109,15 +109,15 @@
 
 .form-range::-moz-range-thumb {
     
-    background-color: #0ab39c;
+    background-color: #3ac47d;
 }
 
 .form-range::-webkit-slider-thumb {
-    background-color: #0ab39c;
+    background-color: #3ac47d;
 }
 
 
 .form-range::-webkit-range-thumb {
-    background-color: #0ab39c;
+    background-color: #3ac47d;
 }
 </style>
