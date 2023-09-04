@@ -136,11 +136,15 @@ class Site extends BaseController
          // Call makeLinks() to make pagination links.
          $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('shifts');
+
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
 
-            // $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
-            // $query = $builder->get();
+            $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
+            $query = $builder->get();
 
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],
@@ -156,8 +160,8 @@ class Site extends BaseController
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 //'min_price' => $camps[$i]['min_price'],
-                //'min_price' => $query->getResultArray(),
-                'min_price' => $camps[$i]['min_price_shift'],
+                'min_price' => $query->getResultArray(),
+                //'min_price' => $camps[$i]['min_price_shift'],
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
                 'free_transfer' => $camps[$i]['free_transfer'],
@@ -166,25 +170,25 @@ class Site extends BaseController
         }
         
 
-        $type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
+        //$type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
 
         $title = null;
-        if (!empty($seasons['title'])) {
-            $title .= $seasons['title_in'] . ' ';
-        } 
+
+        if (!empty($seasons['title'])) $title .= $seasons['title_in'] . ' '; 
         
         if (!empty($types['title'])) {
-            $title .= $types['tag_title'] . ' ';
+            if (!empty($seasons['title'])) {
+                $fc = mb_strtolower(mb_substr($types['tag_title'], 0, 1));
+                $title .= $fc . mb_substr($types['tag_title'], 1) . ' ';
+            } else {
+                $title .= $types['tag_title'] . ' ';
+            }
+            
         } 
 
-        if (empty($types) || empty($seasons)) {
-            $title .= 'Детские лагеря ';
-        }
+        if (empty($types)) $title .= 'Детские лагеря ';
 
-        if (!empty($region['title'])) {
-            $title .= $region['title_in'];
-        }
-
+        if (!empty($region['title'])) $title .= $region['title_in'];
        
         $data['title'] = $title;
         $data['pager_links'] = $pager_links;

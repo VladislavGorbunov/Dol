@@ -99,8 +99,9 @@ class Camp extends BaseController
         }
         
 
-        $data['title'] = 'Детский лагерь - «' . $data['camp']['title'] .'»';
-
+        $data['title'] = '«' . $data['camp']['title'] .'» - '.$data['region']['title'].', купить путёвки в лагерь на '.date('Y').' год, цены, фото и отзывы';
+        $data['description'] = '«' . $data['camp']['title'] .'» - '.$data['region']['title'].', купить путёвки в лагерь на '.date('Y').' год, цены, фото и отзывы';
+        
         return view('layouts/header-camp', $data) 
         .view('site/camp')
         .view('layouts/footer');

@@ -13,6 +13,7 @@
               <th scope="col">Телефон</th>
               <th scope="col">Email</th>
               <th scope="col">Номер бронирования</th>
+              <th scope="col">Дата</th>
               <th scope="col">Статус</th>
             </tr>
           </thead>
@@ -32,6 +33,7 @@
           <td>'.$booking['telephone'].'</td>
           <td>'.$booking['email'].'</td>
           <td>'.$booking['booking_number'].'</td>
+          <td>'.$booking['date_booking'].'</td>
           <td>'; 
           echo ($booking['confirmed'] == 1) ? 'Подтверждена' : 'Не подтверждена';
           echo '</td>

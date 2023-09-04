@@ -5,7 +5,7 @@
             <p class="mb-3">Подобрано лагерей: <?= $total ?></p>
             
             <?php
-                
+            
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
                         $rating = round($camp['avg_rating'], 1);
@@ -64,8 +64,8 @@
                             <p>Возраст: от '.$camp['min_age'].' до '.$camp['max_age'].' лет</p>
                             
                             ';
-                            if ($camp['min_price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
+                            if ($camp['min_price'][0]['price']) {
+                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
                                 <p style="font-size: 13px;">'. $free_transfer .'</p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';

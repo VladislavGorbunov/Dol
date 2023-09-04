@@ -41,6 +41,14 @@ class BookingController extends BaseController
         
         if ($bookings) {
         foreach($bookings as $key => $booking) {
+
+            $date_booking = explode(' ', $booking['date_booking']);
+            $time_booking = $date_booking[1];
+            $date_booking = explode('-', $date_booking[0]);
+            $date_booking = $date_booking[2] . '.' . $date_booking[1] . '.' . $date_booking[0] . ' ' . $time_booking;
+
+
+
             $data['data_bookings'][] = [
                 'id' => $booking['id'],
                 'fio' => $booking['fio'],
@@ -49,6 +57,7 @@ class BookingController extends BaseController
                 'camp' => $this->CampsModel->where('camps_id', $booking['camp_id'])->findColumn('title'),
                 'shift' => $this->ShiftModel->where('id', $booking['shift_id'])->findColumn('title'),
                 'booking_number' => $booking['booking_number'],
+                'date_booking' => $date_booking,
                 'confirmed' => $booking['confirmed'],
             ];
         }
@@ -119,6 +128,8 @@ class BookingController extends BaseController
             8 => 'З',
             9 => 'И',
             10 => 'К',
+            11 => 'Л',
+            12 => 'М',
         ];
 
         $number = date("d");
@@ -127,7 +138,7 @@ class BookingController extends BaseController
         $minutes = date("i");
         $seconds = date("s");
 
-        return $arr[rand(1, 10)] .'-'. $number . $month . $year . $minutes . $seconds . '-' . rand(10, 1000);
+        return $arr[rand(1, 12)] .'-'. $number . $month . $year . $minutes . $seconds . '-' . rand(10, 1000);
     }
 
 }
