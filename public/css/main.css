@@ -142,7 +142,7 @@ a {
 .btn-auth {
     color: #222;
     border: 1px solid #d6dbe0;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 11px 15px;
     height: 45px;
     font-size: 14px;
@@ -175,11 +175,11 @@ a {
 
 .btn-reg {
     position: relative;
-    color: #fff;
+    color: #e8ece8;
     background: #222;
     border: 1px solid #111;
-    border-radius: 10px;
-    padding: 11px 35px 11px 25px;
+    border-radius: 5px;
+    padding: 11px 25px 11px 35px;
     height: 45px;
     transition: .5s;
     font-size: 14px;
@@ -204,11 +204,26 @@ a {
     height: 10px;
     border-radius: 20px;
     background:#3ac47d;
-    right: 16px;
+    left: 16px;
     top: 16px;
     filter: blur(2px);
     transition: 1.5s;
+    animation-name: marker-anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
+
+@keyframes marker-anim {
+    from {
+      opacity: 1;
+      filter: blur(2px);
+    }
+    to {
+      opacity: 0;
+      filter: blur(0px);
+    }
+  }
 
 .btn-view-review {
     color: #111;
