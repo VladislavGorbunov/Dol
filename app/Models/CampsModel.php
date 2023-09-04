@@ -8,6 +8,7 @@ class CampsModel extends Model
 {
     protected $table = 'camps';
     public $count_rows;
+    protected $primaryKey = 'camps_id';
 
     protected $allowedFields = [
         'camps_id',
@@ -24,6 +25,7 @@ class CampsModel extends Model
         'max_age',
         'free_tranfser',
         'slug',
+        'views',
         
     ];
 

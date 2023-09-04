@@ -59,7 +59,6 @@
                                  <span class="rating"><i class="las la-star"></i> ' .$rating. ' из 5</span> 
                                  <a href="" class="reviews-link mx-2">(отзывов: '.$camp['count_reviews'].')</a>
                             </div>
-                        
                             <p>Работает с '.$camp['year'].' года</p>
                             <p>Возраст: от '.$camp['min_age'].' до '.$camp['max_age'].' лет</p>
                             

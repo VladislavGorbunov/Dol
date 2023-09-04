@@ -48,6 +48,7 @@ class Camp extends BaseController
         $data['types'] = $this->Types->findAll();
 
         $data['camp'] = $this->CampsModel->where('slug', $camp)->first();
+
         $data['organization'] = $this->Representatives->select('organization, inn')->where('user_id', $data['camp']['representatives_id'])->first();
         $data['types_camp'] = $this->CampsModel->getTypes($data['camp']['camps_id'])->getResultArray();
         $data['cover'] = $this->Images->where(['camps_id'=> $data['camp']['camps_id'], 'cover' => 1])->findAll();
