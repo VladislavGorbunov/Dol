@@ -45,6 +45,12 @@ h2, h3, h4, h5 {
     font-size: 15px;
 }
 
+.la-youtube {
+    position: relative;
+    top: 3px;
+    font-size: 21px;
+}
+
 a {
     text-decoration: none !important;
     color: #111;
@@ -239,7 +245,7 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #3ac47d;
+    background: #37b674;
     border: 1px solid #3ac47d;
     border-radius: 5px;
     padding: 10px 20px;
@@ -249,9 +255,9 @@ a {
 
 .btn-detailed {
     color: #fff;
-    background: #3ac47d;
-    border-radius: 5px;
-    padding: 10px 15px;
+    background: #37b674;
+    border-radius: 35px 12px 35px 12px;
+    padding: 10px 30px;
     font-size: 15px;
 }
 
@@ -362,6 +368,7 @@ a {
 .filter-block .form-select:hover {
     transition: .5s;
     color: #2955c8;
+    cursor: pointer;
 }
 
 .filter-block .form-select option {

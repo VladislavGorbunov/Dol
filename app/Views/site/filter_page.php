@@ -19,7 +19,7 @@
                         }
 
                          if ($camp['free_transfer']) {
-                            $free_transfer = '<span style="color:#21a663">Трансфер включён в стоимость</span>';
+                            $free_transfer = 'Трансфер включён в стоимость';
                          } else {
                             $free_transfer = null;
                          }
@@ -65,7 +65,8 @@
                             ';
                             if ($camp['min_price'][0]['price']) {
                                 echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
-                                <p style="font-size: 13px;">'. $free_transfer .'</p>
+                                <p style="font-size: 13px;"><span style="color:#3ac47d">'. $free_transfer .'</span></p>
+                                <p><span style="color:#3ac47d"><i class="lab la-youtube"></i> Смотреть видео о лагере</span></p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
                             } else {
