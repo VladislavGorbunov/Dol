@@ -141,18 +141,18 @@ a {
 
 .btn-auth {
     color: #222;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    padding: 9px 15px;
-    height: 42px;
-    font-size: 15px;
-    font-weight: bold;
+    border: 1px solid #d6dbe0;
+    border-radius: 10px;
+    padding: 11px 15px;
+    height: 45px;
+    font-size: 14px;
+    font-weight: 400;
     transition: 1s;
 }
 
 .btn-auth:hover {
-    color: #243d51;
-    border: 1px solid #d6dbe0;
+    color: #222;
+    border: 1px solid #222;
     transition: 1s;
 }
 
@@ -174,24 +174,40 @@ a {
 }
 
 .btn-reg {
+    position: relative;
     color: #fff;
-    background: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 9px 15px;
-    height: 42px;
+    background: #222;
+    border: 1px solid #111;
+    border-radius: 10px;
+    padding: 11px 35px 11px 25px;
+    height: 45px;
     transition: .5s;
-    font-size: 15px;
+    font-size: 14px;
+    
 }
 
 .btn-reg:hover {
-    color: #fff;
-    background-color: #243d51;
+    color: #222;
+    background-color: #fff;
+    border: 1px solid #d6dbe0;
+    transition: .5s;
 }
 
-.btn-reg:hover .las {
-    transform: rotate(360deg);
-    transition: .5s;
+.btn-reg:hover .marker {
+    filter: blur(0px);
+    transition: 1.5s;
+}
+
+.btn-reg .marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background:#3ac47d;
+    right: 16px;
+    top: 16px;
+    filter: blur(2px);
+    transition: 1.5s;
 }
 
 .btn-view-review {

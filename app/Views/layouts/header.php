@@ -96,7 +96,7 @@
 
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1"><i class="las la-user"></i> Войти</a>
-                        <a class="btn btn-reg m-1" href="/registration"><i class="las la-plus-circle"></i> Добавить лагерь</a>
+                        <a class="btn btn-reg m-1" href="/registration"><div class="marker"></div>Добавить лагерь</a>
                     </div> 
 
 
