@@ -71,6 +71,9 @@
         </div>
     <?php endif; ?>
 
+    
+    <?= validation_list_errors() ?>
+
     <div class="row">
 
         <div class="col-lg-6 mt-2">

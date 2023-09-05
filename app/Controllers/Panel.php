@@ -153,14 +153,15 @@ class Panel extends BaseController
 
     public function addCamp()
     {
+        $session = session();
         $validation = \Config\Services::validation();
         $image = \Config\Services::image('gd');
 
-        $validation->setRules([
-            'title' => ['label' => 'Название лагеря', 'rules' => 'required'],
+        $rules = ([
+            'title' => ['label' => 'Название лагеря', 'rules' => 'required|alpha_space'],
             'cities_id' => ['label' => 'Регион', 'rules' => 'required'],
-            'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
-            'adress' => ['label' => 'Адрес', 'rules' => 'required'],
+            //'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
+            'adress' => ['label' => 'Адрес', 'rules' => 'required|alpha_numeric_punct'],
             'year' => ['label' => 'Год основания', 'rules' => 'required'],
             'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required'],
             'max_age' => ['label' => 'Максимальный возраст', 'rules' => 'required'],
@@ -172,6 +173,17 @@ class Panel extends BaseController
             'advantages' => ['label' => 'Преимущества лагеря', 'rules' => 'required'],
             'daily_schedule' => ['label' => 'Распорядок дня', 'rules' => 'required'],
         ]);
+
+    
+
+        if (!$this->validate($rules)) {
+            //var_dump($this->validator->getErrors());
+            return redirect()->back()->withInput();
+            //$session->setFlashdata('msg-error', $this->validator->getErrors());
+            //return redirect()->to('/panel/add-camp');
+            //die;
+        }
+
 
         $session = session();
         $data['title'] = $this->request->getVar('title');
