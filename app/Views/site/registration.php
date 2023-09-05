@@ -20,6 +20,14 @@
     <meta name="theme-color" content="#7952b3">
 
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        background-color: #223
+    }
+
     .card-registration .select-input.form-control[readonly]:not([disabled]) {
         font-size: 1rem;
         line-height: 2.15;
@@ -36,85 +44,74 @@
 
 <body>
 
-
-    <section class="h-100 h-custom" style="background-color: #fefefe;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-8 col-xl-6">
-                    <div class="card rounded-3">
-                        <img src="/public/theme/img/header.jpg" height="300" class="h-80" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="">
-                        <div class="card-body p-4 p-md-5">
-
-                        
-                        <?php
+    <div class="container py-5 h-100">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card rounded-3">
+                <div class="card-body p-4 p-md-5">
+                    
+                    <?php
                         if (!empty($_SESSION['error'])) {
-                            echo '<div class="alert alert-danger" role="alert">' .
-                            $_SESSION['error'] .
-                            '</div>';
-
+                            echo '<div class="alert alert-danger" role="alert">' .$_SESSION['error'] .'</div>';
                             unset($_SESSION['error']);
                         }
-                        ?>
-                        
-                            <h3 class="mb-2 pb-2 pb-md-0 text-center">Регистрация представителя лагеря</h3>
-                            <p class="text-center">Заполните анкету, после проверки мы активируем ваш личный кабинет и вы сможете добавить лагерь</p>
+                    ?>
+                    <img src="/public/theme/img/logo.png" class="d-block mx-auto mb-4">
+                    <h3 class="mb-2 pb-2 pb-md-0 text-center">Регистрация представителя лагеря</h3>
+                    <p class="text-center">Заполните анкету, после проверки мы активируем ваш личный кабинет и вы сможете добавить лагерь.</p>
                             
-                            <form class="px-md-2" action="" method="post">
-                            <h4 class="text-center mt-4">Юридическая информация</h4>
-                            
-                                <label for="exampleDatepicker1" class="form-label">Город</label>
-                                <select class="form-select" name="cities_id">
+                        <form class="px-md-2" action="" method="post">
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                    <h4 class="text-center mt-4">Юридическая информация</h4>
+                                    <label for="exampleDatepicker1" class="form-label">Город</label>
+                                    <select class="form-select" name="cities_id">
                                     <?php
                                         foreach ($cities as $city) {
                                             echo '<option value="'.$city['cities_id'].'">' . $city['title'] . '</option>';
                                         }
                                     ?>
-                                </select>
+                                    </select>
                                     
-                                <label for="exampleDatepicker1" class="form-label mt-3">Наименование организации. Например: ООО "Северная лагуна" или ИП Иванов Иван Иванович</label>
-                                <input type="text" class="form-control" name="organization" required/>
+                                    <label for="exampleDatepicker1" class="form-label mt-3">Организации. Например: ООО "Северная лагуна" или ИП Иванов Иван Иванович</label>
+                                    <input type="text" class="form-control" name="organization" required/>
                                         
-                                <label for="exampleDatepicker1" class="form-label mt-3">ИНН</label>
-                                <input type="text" class="form-control" name="inn" required/>
+                                    <label for="exampleDatepicker1" class="form-label mt-3">ИНН</label>
+                                    <input type="text" class="form-control" name="inn" required/>
 
-                                <label for="exampleDatepicker1" class="form-label mt-3">Ф.И.О. генерального директора, директора или ИП</label>
-                                <input type="text" class="form-control" name="director" required/>
+                                    <label for="exampleDatepicker1" class="form-label mt-3">Ф.И.О. генерального директора, директора или ИП</label>
+                                    <input type="text" class="form-control" name="director" required/>
 
-                                <label for="exampleDatepicker1" class="form-label mt-3">Номер телефона генерального директора, директора или ИП</label>
-                                <input type="text" class="form-control" name="director_phone" required/>
-                             
+                                    <label for="exampleDatepicker1" class="form-label mt-3">Номер телефона генерального директора, директора или ИП</label>
+                                    <input type="text" class="form-control" name="director_phone" required/>
+                                </div>
 
-                            <h4 class="text-center mt-4">Сотрудник ответственный за работу с нами</h4>
-                                <div class="row mt-4">
-                                    <div class="col-md-6 mb-4">
+                                <div class="col-lg-6">
+                                    <h4 class="text-center mt-4">Сотрудник ответственный за работу с нами</h4>
+
+                                    <div class="col-12 mb-4">
                                         <div class="form-outline datepicker">
                                             <label for="exampleDatepicker1" class="form-label">Имя</label>
                                             <input type="text" class="form-control" name="firstname_manager" required/>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6 mb-4">
+                                    <div class="col-12 mb-4">
                                         <label for="exampleDatepicker1" class="form-label">Фамилия</label>
                                         <input type="text" class="form-control" name="lastname_manager" required/>
                                     </div>
-                                </div>
-
-                               
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline datepicker">
-                                            <label for="exampleDatepicker1" class="form-label">Должность</label>
-                                            <input type="text" class="form-control" name="post" required/>
-                                        </div>
+                                
+                                    <div class="col-12 mb-4">
+                                        <label for="exampleDatepicker1" class="form-label">Должность</label>
+                                        <input type="text" class="form-control" name="post" required/>
                                     </div>
                                     
                                 
-
                                 <div class="mb-4">
-                                    <label for="exampleDatepicker1" class="form-label">Номер мобильного телефона сотрудника для связи и решения вопросов. (Не публикуется на сайте)
-                                    </label>
+                                    <label for="exampleDatepicker1" class="form-label">Номер мобильного телефона сотрудника. (Не публикуется)</label>
                                     <input type="tel" class="form-control" name="phone_manager" required/>
                                
-                                    <label for="exampleDatepicker1" class="form-label mt-4">Email для связи, обмена документами и авторизации (Не публикуется на сайте)</label>
+                                    <label for="exampleDatepicker1" class="form-label mt-4">Email для связи, обмена документами и авторизации (Не публикуется)</label>
                                     <input type="tel" class="form-control" name="email_manager" required/>
                          
                                     <label for="exampleDatepicker1" class="form-label mt-4">Пароль</label>
@@ -124,19 +121,14 @@
                                     <input type="password" class="form-control" name="repeat_password" required/>
                                 </div>
 
-                        
+                            </div> <!-- row -->
+                    </div>
 
-                                <button type="submit" class="btn btn-success btn-md mb-1">Зарегистрироваться</button>
+                                <button type="submit" class="btn btn-success btn-lg mb-1 d-block mx-auto">Зарегистрироваться</button>
 
                             </form>
 
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
-
+    </div>
 </body>
-
 </html>

@@ -1,3 +1,13 @@
+<?php
+
+// $url = 'https://youtu.be/dL3Nlj4ee3E';
+
+// $parse = parse_url($url);
+
+// print_r($parse);
+
+?>
+
 <div class="bg-white rounded p-3">
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -24,6 +34,7 @@
   </button>
 </div>
 
+<?php if (!empty($video_link)) { ?>
 
 <div id="modal-video" class="modals">
   <div class="modal-dialog">
@@ -33,12 +44,16 @@
         <a href="#close" title="Close" class="close">×</a>
       </div>
       <div class="modal-body">    
-      <iframe class="col-lg-12 d-block mx-auto" height="350px" src="https://www.youtube.com/embed/jXmsjFUY3sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe class="col-lg-12 d-block mx-auto" height="350px" src="https://www.youtube.com/embed<?= $video_link ?> " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </div>
 
 <a href="#modal-video" class="btn-view-video text-center"><i class="lab la-youtube"></i> Смотреть видео</a>
+
+<?php } ?>
+
+
 
 </div>

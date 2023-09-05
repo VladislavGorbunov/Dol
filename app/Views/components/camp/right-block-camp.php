@@ -141,7 +141,7 @@
 
                     echo '<button type="submit" class="btn btn-booking mt-2 col-lg-12 d-block mx-auto">Забронировать путёвку</button>';
                 } else {
-                    echo '<p class="mt-3">На данный момент нет доступных смен.</p>';
+                    echo '<p class="mt-3">На данный момент нет доступных смен или владелец лагеря не разместил информацию о них</p>';
                 }
 
                 ?>

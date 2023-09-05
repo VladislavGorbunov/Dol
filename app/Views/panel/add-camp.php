@@ -239,6 +239,26 @@
             </div>
         </div>
 
+
+        <h3 class="text-center mt-3 mb-3">Как добавить видео</h3>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="/public/theme/img/youtube-copy-link.jpg" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <ul>
+                    <li class="mt-2">1. Загрузите видео на YOUTUBE</li>
+                    <li class="mt-2">2. Откройте загруженное видео и нажмите правую кнопку мыши на плеере</li>
+                    <li class="mt-2">3. В появившемся окне нажмите "Копировать URL видео"</li>
+                    <li class="mt-2">4. Вставте полученную ссылку в поле ниже</li>
+                </ul>
+
+                <p style="color:red">Не вставляйте в поле ниже ссылку из адресной строки браузера, такое видео не будет работать.</p>
+                <input class="form-control" type="text" name="youtube_link" placeholder="https://youtu.be/szofMAvUanw">
+            </div>
+        </div>
+
+
         <div class="col-lg-6 d-block mx-auto">
             <h3 class="text-center mt-4">Сезон работы</h3>
             <p class="text-center">Если вы работаете круглый год выбирете все сезоны.</p>

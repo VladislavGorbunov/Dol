@@ -97,6 +97,13 @@ class Camp extends BaseController
                 'start_date' => $start_data,
                 'end_date' => $end_data,
             ]; 
+
+            if (!empty($data['camp']['video_link'])) {
+                $video_link = $data['camp']['video_link'];
+                $parse = parse_url($video_link);
+                $data['video_link'] = $parse['path'];
+            }
+            
         }
         
 
