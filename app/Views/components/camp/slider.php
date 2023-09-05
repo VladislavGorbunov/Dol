@@ -24,4 +24,21 @@
   </button>
 </div>
 
+
+<div id="modal-video" class="modals">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Видео лагеря</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">    
+      <iframe class="col-lg-12 d-block mx-auto" height="350px" src="https://www.youtube.com/embed/jXmsjFUY3sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="#modal-video" class="btn-view-video text-center"><i class="lab la-youtube"></i> Смотреть видео</a>
+
 </div>

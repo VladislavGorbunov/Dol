@@ -47,7 +47,7 @@ h2, h3, h4, h5 {
 
 .la-youtube {
     position: relative;
-    top: 3px;
+    top: 2px;
     font-size: 21px;
 }
 
@@ -126,8 +126,8 @@ a {
 
 
 .btn-booking, .btn-add-review-form {
-    background: #3ac47d;
-    border: 1px solid #3ac47d;
+    background: #37b674;
+    border: 1px solid #37b674;
     color: #fff;
     border-radius: 5px;
     padding: 13px 20px;
@@ -136,8 +136,8 @@ a {
 }
 
 .btn-booking:hover, .btn-add-review-form:hover {
-    border: 1px solid #0ab39c;
-    color: #0ab39c;
+    border: 1px solid #37b674;
+    color: #37b674;
     border-radius: 5px;
     padding: 13px 20px;
     font-size: 16px;
@@ -164,7 +164,7 @@ a {
 
 .btn-auth .las {
     transition: 1s;
-    color:#0ab39c;
+    color:#37b674;
 }
 
 .btn-auth:hover .las {
@@ -182,8 +182,8 @@ a {
 .btn-reg {
     position: relative;
     color: #e8ece8;
-    background: #222;
-    border: 1px solid #111;
+    background: #444;
+    border: 1px solid #333;
     border-radius: 5px;
     padding: 11px 25px 11px 35px;
     height: 45px;
@@ -209,7 +209,7 @@ a {
     width: 10px;
     height: 10px;
     border-radius: 20px;
-    background:#3ac47d;
+    background:#37b674;
     left: 16px;
     top: 16px;
     filter: blur(2px);
@@ -239,14 +239,27 @@ a {
     padding: 10px 20px;
     transition: .5s;
     font-size: 15px;
+}
 
+.btn-view-video {
+    display: block;
+    position: relative;
+    max-width: 240px;
+    margin: 20px auto 10px;
+    color: #37b674;
+    background: none;
+    border: 1px solid #37b674;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: .5s;
+    font-size: 15px;
 }
 
 .btn-add-review {
 
     color: #fff;
     background: #37b674;
-    border: 1px solid #3ac47d;
+    border: 1px solid #37b674;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -379,7 +392,7 @@ a {
 
 .filter-block .btn {
     display: block;
-    background: #3ac47d;
+    background: #37b674;
     border: none;
     height: 52px;
     padding: 15px 30px;

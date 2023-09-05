@@ -10,7 +10,7 @@
                     foreach ($camps as $camp) {
                         $rating = round($camp['avg_rating'], 1);
 
-                        if ($rating >= 3.5 && $camp['count_reviews'] >= 7) {
+                        if ($rating >= 3.5 && $camp['count_reviews'] >= 6) {
                             $badge = '<span class="badge-card mb-1">РЕКОМЕНДУЕМ</span>';
                             $best = 'best';
                         } else {
@@ -66,7 +66,7 @@
                             if ($camp['min_price'][0]['price']) {
                                 echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
                                 <p style="font-size: 13px;"><span style="color:#3ac47d">'. $free_transfer .'</span></p>
-                                <p><span style="color:#3ac47d"><i class="lab la-youtube"></i> Смотреть видео о лагере</span></p>
+                                <p><a href="/camp/'.$camp['slug'].'/#modal-video"><span style="color:#3ac47d"><i class="lab la-youtube"></i> Смотреть видео о лагере</span></a></p>
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
                             } else {
