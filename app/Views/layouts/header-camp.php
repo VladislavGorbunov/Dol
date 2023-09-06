@@ -4,20 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title><?= $title ?></title>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= $description ?>">
     <meta name="theme-color" content="#fff">
-    
     <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="/public/css/modal-video.css" rel="stylesheet">
-
     <!-- Line Awesome icons -->
     <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
-    
-    
+
     <!-- Favicons -->
     <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -33,29 +28,28 @@
 
     <header>
 
-    <div class="top-nav d-lg-block d-none">
-    <div class="container">
+        <div class="top-nav d-lg-block d-none">
+            <div class="container">
 
-     <div class="d-flex">
-        <div class="p-1 flex-grow-1 d-flex flex-wrap">
-            <a href="" class="nav-link mx-2">О сервисе</a> 
-            <a href="" class="nav-link mx-2">Информация для родителей</a> 
-            <a href="" class="nav-link mx-2">Партнёрам</a> 
-            <a href="" class="nav-link mx-2">Вакансии</a>
-            <a href="" class="nav-link mx-2">Помощь</a> 
-        </div> 
+                <div class="d-flex">
+                    <div class="p-1 flex-grow-1 d-flex flex-wrap">
+                        <a href="" class="nav-link mx-2">О сервисе</a>
+                        <a href="" class="nav-link mx-2">Информация для родителей</a>
+                        <a href="" class="nav-link mx-2">Партнёрам</a>
+                        <a href="" class="nav-link mx-2">Вакансии</a>
+                        <a href="" class="nav-link mx-2">Помощь</a>
+                    </div>
 
-        <div class="p-1">bycamps@yandex.ru</div>
-        <div class="p-1">
-            <img src="/public/theme/img/vk_logo.png" width="18px" height="18px" class="mx-2" style="position:relative;top:0px;">
-            
+                    <div class="p-1">bycamps@yandex.ru</div>
+                    <div class="p-1">
+                        <img src="/public/theme/img/vk_logo.png" width="18px" height="18px" class="mx-2"
+                            style="position:relative;top:0px;">
+                    </div>
+                </div>
+
+            </div>
         </div>
-     </div>
 
-    
-    </div>
-    </div>
-    
         <nav class="navbar navbar-expand-lg py-3">
 
             <div class="container">
@@ -68,9 +62,9 @@
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                
+
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                         <li class="nav-item">
@@ -94,22 +88,20 @@
                         </li>
 
                     </ul>
-                
+
 
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>
-                        <a class="btn btn-reg m-1" href="/registration"><div class="marker"></div>Добавить лагерь</a>
-                    </div> 
-
-
+                        <a class="btn btn-reg m-1" href="/registration">
+                            <div class="marker"></div>Добавить лагерь
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
-       
-        
     </header>
 
-    
+
     <div class="header-image-camp d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="col-lg-8 d-block mx-auto">
@@ -118,7 +110,4 @@
         </div>
     </div>
 
-</div>
-
-
-    
+    </div>

@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
 use App\Models\BookingsModel;
 use App\Models\RepresentativesModel;
 use App\Models\CampsModel;
@@ -11,7 +10,6 @@ use App\Models\Shifts;
 
 class BookingController extends BaseController
 {
-
     public $RepresentativesModel;
     public $CitiesModel;
     public $BookingsModel;

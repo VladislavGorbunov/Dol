@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
 use App\Models\CampsModel;
 use App\Models\RepresentativesModel;
 use App\Models\Cities;
@@ -119,22 +118,24 @@ class Panel extends BaseController
         if ($data) {
             $pass = $data['password'];
             $authenticatePassword = password_verify($password, $pass);
-            if($authenticatePassword){
+
+            if ($authenticatePassword) {
                 $ses_data = [
                     'id' => $data['user_id'],
                     'name' => $data['firstname_manager'],
                     'email' => $data['email_manager'],
                     'isLoggedIn' => TRUE
                 ];
+
                 $session->set($ses_data);
                 return redirect()->to('/panel');
             
-            }else{
-                $session->setFlashdata('msg', 'Неверный пароль.');
+            } else {
+                $session->setFlashdata('msg', 'Неверный email или пароль.');
                 return redirect()->to('/login');
             }
-        }else{
-            $session->setFlashdata('msg', 'Неверный email.');
+        } else {
+            $session->setFlashdata('msg', 'Неверный email или пароль.');
             return redirect()->to('/login');
         }
     }
@@ -183,7 +184,6 @@ class Panel extends BaseController
             //return redirect()->to('/panel/add-camp');
             //die;
         }
-
 
         $session = session();
         $data['title'] = $this->request->getVar('title');
@@ -236,7 +236,6 @@ class Panel extends BaseController
         }
 
         
-
         if ($this->CampsModel->insert($data)) {
 
             $camp = $this->CampsModel->where('slug', $data['slug'])->first();

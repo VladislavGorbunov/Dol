@@ -64,8 +64,6 @@ class Site extends BaseController
     public function Login()
     {
         $session = session();
-        // $cities = new Cities();
-        // $data['cities'] = $cities->getAllCity();
         return view('site/login');
     }
 
@@ -133,8 +131,7 @@ class Site extends BaseController
       
         $total = $camps_data['count_row']; // Получаем кол-во записей
         
-         // Call makeLinks() to make pagination links.
-         $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
+        $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
 
         $db      = \Config\Database::connect();
@@ -156,23 +153,16 @@ class Site extends BaseController
                 'description' => $camps[$i]['description'],
                 'short-description' => mb_substr(strip_tags($camps[$i]['description']), 0, 450).'... <a href="/camp/'.$camps[$i]['slug'].'" style="color:#2955c8">Читать далее</a>',
                 'count_reviews' => $camps[$i]['count_reviews'],
-                //'count_reviews' => count($this->ReviewsModel->where('camps_id', $camps[$i]['camps_id'])->findAll()),
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
-                //'min_price' => $camps[$i]['min_price'],
                 'min_price' => $query->getResultArray(),
-                //'min_price' => $camps[$i]['min_price_shift'],
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
                 'free_transfer' => $camps[$i]['free_transfer'],
                 'video_link' => $camps[$i]['video_link'],
             ];
-
         }
         
-
-        //$type_name = (!empty($types['tag_title'])) ? $types['tag_title'] . ' ' : '';
-
         $title = null;
 
         if (!empty($seasons['title'])) $title .= $seasons['title_in'] . ' '; 

@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
 use App\Models\CampsModel;
 use App\Models\Cities;
 use App\Models\Types;
@@ -46,7 +45,6 @@ class Camp extends BaseController
         $data['cities'] = $this->Cities->findAll();
         $data['seasons'] = $this->Seasons->findAll();
         $data['types'] = $this->Types->findAll();
-
         $data['camp'] = $this->CampsModel->where('slug', $camp)->first();
 
         if (empty($data['camp'])) $this->error404();
