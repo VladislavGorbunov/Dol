@@ -1,5 +1,3 @@
-
-<!-- содержимое -->
 <div class="col py-3">
 
     <?php if(session()->getFlashdata('msg-error')):?>
@@ -19,23 +17,21 @@
 
         <div class="col-lg-6">
             <div class="alert alert-light" role="alert">
-
-                <?php
-          echo 'Здравствуйте <b>' . $user['firstname_manager'] . ' ' . $user['lastname_manager'] . '</b><hr>';
-          echo 'Ваш ID в системе: ' . $user['user_id'];
-         
-      ?>
+            <?php
+                echo 'Здравствуйте <b>' . $user['firstname_manager'] . ' ' . $user['lastname_manager'] . '</b><hr>';
+                echo 'Ваш ID в системе: ' . $user['user_id'];
+            ?>
             </div>
         </div>
+
 
         <div class="col-lg-6">
             <div class="alert alert-light" role="alert">
 
-                <?php
-          echo 'Организация: <b>' . $user['organization'] . '</b><hr>';
-          echo 'Дата регистрации: ' . $user['created_at'];
-          
-      ?>
+            <?php
+                echo 'Организация: <b>' . $user['organization'] . '</b><hr>';
+                echo 'Дата регистрации: ' . $user['created_at'];
+            ?>
             </div>
         </div>
 
@@ -45,15 +41,17 @@
             <h3 class="mb-3 mt-3">Мои лагеря</h3>
             <div class="row">
             <?php
+            
                 if (!empty($camps)) {
                     foreach ($camps as $camp) {
                         echo '
                         <div class="col-lg-4 mb-4">
-                        <div class="card">';
-
+                        <div class="card">
+                        <img src="/public/images/camps/'. $camp['slug'] . '/cover/' .$camp['cover']['name_img'].'" class="rounded">';
+                        
                         echo '<div class="card-body">
                         <h4>'.$camp['title'].'</h4>
-                        <p>'.$camp['adress'].'</p>
+                        <p style="min-height: 50px">'.$camp['adress'].'</p>
                        
                         
                         <hr>

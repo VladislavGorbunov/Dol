@@ -13,7 +13,7 @@
     <style>
 
     body {
-      
+      font-size: 15px;
     }
 
     .nav-link {
@@ -66,6 +66,11 @@
 
     .dark {
         background-color: #111;
+    }
+
+    footer {
+      height: 100px;
+      background: #222;
     }
     </style>
 

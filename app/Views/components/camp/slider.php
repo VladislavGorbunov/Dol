@@ -14,8 +14,9 @@
   <div class="carousel-inner">
 
   <?php
+
   for ($i = 0; $i < count($images); $i++) {
-      if ($i == 1) {
+      if ($i == 0) {
           echo '<div class="carousel-item active" data-bs-interval="2000"><img src="'.$images[$i].'" class="img-fluid camp-photos"></div>';
       } else {
           echo '<div class="carousel-item" data-bs-interval="2000"><img src="'.$images[$i].'" class="img-fluid camp-photos"></div>';
@@ -33,6 +34,7 @@
     <span class="visually-hidden">Следующий</span>
   </button>
 </div>
+
 
 <?php if (!empty($video_link)) { ?>
 

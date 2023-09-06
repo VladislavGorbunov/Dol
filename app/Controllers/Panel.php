@@ -31,7 +31,6 @@ class Panel extends BaseController
     public $ShiftsModel;
     public $Recaptcha;
     public $BookingsModel;
-
     public $booking_count;
     
     
@@ -71,14 +70,15 @@ class Panel extends BaseController
         $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
         $data['camps'] = $this->CampsModel->where('representatives_id', $data['user']['user_id'])->findAll();
         
-        
         // Создание массива лагерей для главной страницы панели
         for ($i = 0; $i < count($data['camps']); $i++) {
             $data['camps'][$i] = [
+                'slug' => $data['camps'][$i]['slug'],
                 'title' => $data['camps'][$i]['title'],
                 'camps_id' => $data['camps'][$i]['camps_id'],
                 'adress' => $data['camps'][$i]['adress'],
                 'shifts' => $this->ShiftsModel->where(['camps_id' => $data['camps'][$i]['camps_id']])->findAll(),
+                'cover' => $this->ImagesModel->where(['cover' => 1, 'camps_id' => $data['camps'][$i]['camps_id']])->first()
             ];
         }
        
@@ -161,7 +161,7 @@ class Panel extends BaseController
             'title' => ['label' => 'Название лагеря', 'rules' => 'required|alpha_space'],
             'cities_id' => ['label' => 'Регион', 'rules' => 'required'],
             //'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
-            'adress' => ['label' => 'Адрес', 'rules' => 'required|alpha_numeric_punct'],
+            'adress' => ['label' => 'Адрес', 'rules' => 'required'],
             'year' => ['label' => 'Год основания', 'rules' => 'required'],
             'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required'],
             'max_age' => ['label' => 'Максимальный возраст', 'rules' => 'required'],
