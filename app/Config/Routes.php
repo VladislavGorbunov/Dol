@@ -34,13 +34,16 @@ $routes->get('/sitemap.xml', 'SiteMap::index');
 
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
-$routes->post('/login', 'Panel::Auth');
-$routes->get('/panel', 'Panel::Index', ['filter' => 'PanelAuth']);
+$routes->post('/login', 'PanelController::Auth');
+$routes->get('/panel', 'PanelController::Index', ['filter' => 'PanelAuth']);
 
-$routes->get('/panel/add-camp', 'Panel::addCampForm', ['filter' => 'PanelAuth']);
-$routes->post('/panel/add-camp', 'Panel::addCamp', ['filter' => 'PanelAuth']);
+$routes->get('/panel/add-camp', 'PanelController::addCampForm', ['filter' => 'PanelAuth']);
+$routes->post('/panel/add-camp', 'PanelController::addCamp', ['filter' => 'PanelAuth']);
 
-$routes->get('/panel/camp/(:num)/delete', 'Panel::deleteCamp/$1', ['filter' => 'PanelAuth']);
+$routes->get('/panel/edit-camp/(:num)', 'PanelController::editCampForm/$1', ['filter' => 'PanelAuth']);
+$routes->post('/panel/edit-camp/(:num)', 'PanelController::updateCamp/$1', ['filter' => 'PanelAuth']);
+
+$routes->get('/panel/camp/(:num)/delete', 'PanelController::deleteCamp/$1', ['filter' => 'PanelAuth']);
 
 // Работа со сменами лагеря
 $routes->get('/panel/camp/(:num)/add-shift', 'ShiftController::AddShift/$1', ['filter' => 'PanelAuth']);
@@ -48,12 +51,12 @@ $routes->post('/panel/camp/(:num)/add-shift', 'ShiftController::InsertShift/$1',
 
 
 
-$routes->get('/panel/logout', 'Panel::Logout');
+$routes->get('/panel/logout', 'PanelController::Logout');
 $routes->get('panel/booking', 'BookingController::index');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::save');
 
-$routes->get('/camp/(:segment)', 'Camp::GetCamp/$1');
+$routes->get('/camp/(:segment)', 'CampController::GetCamp/$1');
 $routes->get('/camps/(:any)/(:any)/(:any)', 'Site::FilterCamp/$1/$2/$3');
 $routes->post('/review-insert', 'ReviewsController::ReviewInsert');
 

@@ -114,21 +114,58 @@
                                     <label for="exampleDatepicker1" class="form-label mt-4">Email для связи, обмена документами и авторизации (Не публикуется)</label>
                                     <input type="tel" class="form-control" name="email_manager" required/>
                          
-                                    <label for="exampleDatepicker1" class="form-label mt-4">Пароль</label>
-                                    <input type="password" class="form-control" name="password" required/>
+                                    <label class="form-label mt-4">Пароль</label>
+                                    <input id="password"  type="password" class="form-control" name="password" required/>
 
-                                    <label for="exampleDatepicker1" class="form-label mt-4">Повторите пароль</label>
-                                    <input type="password" class="form-control" name="repeat_password" required/>
+                                    <label class="form-label mt-4">Повторите пароль</label>
+                                    <input id="password-repeat" type="password" class="form-control" name="repeat_password" required/>
+                                    <div class="mt-2"><span id="msg-password" style="color:red"></span></div>
                                 </div>
 
                             </div> <!-- row -->
                     </div>
 
-                                <button type="submit" class="btn btn-success btn-lg mb-1 d-block mx-auto">Зарегистрироваться</button>
+                                <button type="submit" id="btn-reg" class="btn btn-success btn-lg mb-1 d-block mx-auto disabled">Зарегистрироваться</button>
 
                             </form>
 
             </div>
     </div>
+
+
+<script>
+
+    let password = document.getElementById('password');
+    let password_repeat = document.getElementById('password-repeat');
+    let button_reg = document.getElementById('btn-reg');
+    let msg = document.getElementById('msg-password');
+
+    password_repeat.addEventListener('blur', () => {
+        if (password.value == password_repeat.value) {
+            button_reg.classList.remove('disabled');
+            msg.innerHTML = '';
+        } else {
+            button_reg.classList.add('disabled');
+            msg.innerHTML = 'Пароли не совпадают!';
+        }
+    });
+
+        password.addEventListener('blur', () => {
+            if (password_repeat.value) { 
+                if (password.value == password_repeat.value) {
+                    button_reg.classList.remove('disabled');
+                    msg.innerHTML = '';
+                } else {
+                    button_reg.classList.add('disabled');
+                    msg.innerHTML = 'Пароли не совпадают!';
+                }
+            }
+    });
+
+
+    console.log(password);
+</script>
+
+
 </body>
 </html>

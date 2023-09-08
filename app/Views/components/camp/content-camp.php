@@ -12,6 +12,11 @@
 
     <div class="border mt-4 p-3 bg-white rounded">
         <h2 class="text-center">Размещение</h3>
+        <?= $camp['placement'] ?>
+    </div>
+
+    <div class="border mt-4 p-3 bg-white rounded">
+        <h2 class="text-center">Распорядок дня</h3>
         <?= $camp['daily_schedule'] ?>
     </div>
     

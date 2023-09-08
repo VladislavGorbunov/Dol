@@ -15,7 +15,9 @@ class CampsModel extends Model
         'cities_id',
         'representatives_id',
         'title',
+        'camp_base',
         'description',
+        'placement',
         'advantages',
         'daily_schedule',
         'adress',
@@ -23,9 +25,12 @@ class CampsModel extends Model
         'year',
         'min_age',
         'max_age',
-        'free_tranfser',
+        'free_transfer',
+        'security',
         'slug',
         'video_link',
+        'vk_link',
+        'site_link',
         'views',
         
     ];
@@ -34,7 +39,7 @@ class CampsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.video_link, AVG(reviews.rating) avg_rating, COUNT(reviews.camps_id) count_reviews');
+        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, COUNT(reviews.camps_id) count_reviews');
         //$builder->join('shifts', 'shifts.camps_id = camps.camps_id');
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
         //$builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');

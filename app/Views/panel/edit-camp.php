@@ -60,10 +60,7 @@
 
 
 <div class="col p-4">
-    <h1 class="mt-2 text-center">Анкета лагеря</h1>
-    <p class="text-center">Заполните поля ниже. Все данные проходят проверку. В случае указания недейтвительной
-        информации, добавление
-        лагеря будет отклонено.</p>
+    <h1 class="mt-2 text-center">Изменение данных о лагере</h1>
 
     <?php if (session()->getFlashdata('msg-error')) : ?>
         <div class="alert alert-danger">
@@ -79,22 +76,26 @@
         <div class="col-lg-6 mt-2">
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label class="form-label">Название:</label>
-                    <input type="text" class="form-control" name="title" placeholder="Например: Восход" required>
+                    <label class="form-label">Название: (Изменить нельзя. Если есть такая необходимость, напишите в службу поддержки)</label>
+                    <input type="text" class="form-control" name="title" placeholder="Например: Восход" value="<?= $camp['title'] ?>" readonly required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Название базы лагеря:</label>
-                    <input type="text" class="form-control" name="camp_base" placeholder="Например: ДОЛ «Морская волна»" required>
+                    <input type="text" class="form-control" name="camp_base" placeholder="Например: ДОЛ «Морская волна»" value="<?= $camp['camp_base'] ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Год основания:</label>
                     <select class="form-select" name="year">
                         <?php
-                        for ($i = 1990; $i <= date('Y'); $i++) {
-                            echo '<option value="' . $i . '">' . $i . '</option>';
-                        }
+                            for ($i = 1990; $i <= date('Y'); $i++) {
+                                if ($i == $camp['year']) {
+                                    echo '<option selected value="' . $i . '">' . $i . '</option>';
+                                } else {
+                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                }
+                            }
                         ?>
                     </select>
                 </div>
@@ -104,60 +105,57 @@
                         <label class="form-label">Возраст детей:</label>
                         <div class="col-lg-6 mb-3">
                             <select class="form-select" name="min_age">
-                                <option value="0">от 0</option>
-                                <option value="1">от 1</option>
-                                <option value="2">от 2</option>
-                                <option value="3">от 3</option>
-                                <option value="4">от 4</option>
-                                <option value="5">от 5</option>
-                                <option value="6">от 6</option>
-                                <option value="7">от 7</option>
-                                <option value="8">от 8</option>
-                                <option value="9">от 9</option>
-                                <option value="10">от 10</option>
+                            <?php
+                                for ($i = 0; $i <= 10; $i++) {
+                                    if ($i == $camp['min_age']) {
+                                        echo '<option selected value="' . $i . '">от ' . $i . '</option>';
+                                    } else {
+                                        echo '<option value="' . $i . '">от ' . $i . '</option>';
+                                    }
+                                }
+                            ?>
                             </select>
-
-
-
                         </div>
 
 
                         <div class="col-lg-6">
                             <select class="form-select" name="max_age">
-                                <option value="1">до 1</option>
-                                <option value="2">до 2</option>
-                                <option value="3">до 3</option>
-                                <option value="4">до 4</option>
-                                <option value="5">до 5</option>
-                                <option value="6">до 6</option>
-                                <option value="7">до 7</option>
-                                <option value="8">до 8</option>
-                                <option value="9">до 9</option>
-                                <option value="10" selected>до 10</option>
-                                <option value="11">до 11</option>
-                                <option value="12">до 12</option>
-                                <option value="13">до 13</option>
-                                <option value="14">до 14</option>
-                                <option value="15">до 15</option>
-                                <option value="16">до 16</option>
-                                <option value="17">до 17</option>
-                                <option value="18">до 18</option>
-                                <option value="19">до 19</option>
-                                <option value="20">до 20</option>
+                            <?php
+                                for ($i = 0; $i <= 20; $i++) {
+                                    if ($i == $camp['max_age']) {
+                                        echo '<option selected value="' . $i . '">до ' . $i . '</option>';
+                                    } else {
+                                        echo '<option value="' . $i . '">до ' . $i . '</option>';
+                                    }
+                                }
+                            ?>
                             </select>
-
-
+                        </div>
+                        <div class="col-lg-12">
                             <label class="form-label mt-3">Охраняемая территория:</label>
 
                             <select class="form-select" name="security">
-                                <option value="1">Да</option>
-                                <option value="0">Нет</option>
+                                <?php 
+
+                                if ($camp['security'] == 1) {
+                                    echo '<option selected value="1">Да</option><option value="0">Нет</option>';
+                                } else {
+                                    echo '<option selected value="0">Нет</option><option value="1">Да</option>';
+                                }
+                                
+                                ?>
                             </select>
 
                             <label class="form-label mt-3">Трансфер включён в стоимость:</label>
                             <select class="form-select" name="free_transfer">
-                                <option value="1">Да</option>
-                                <option value="0">Нет</option>
+                                <?php 
+
+                                if ($camp['free_transfer'] == 1) {
+                                    echo '<option selected value="1">Да</option><option value="0">Нет</option>';
+                                } else {
+                                    echo '<option selected value="0">Нет</option><option value="1">Да</option>';
+                                }
+                               ?>
                             </select>
 
                         </div>
@@ -166,24 +164,31 @@
 
                 <div class="mb-3">
                     <label class="form-label">Ссылка на группу Вконтакте:</label>
-                    <input type="text" class="form-control" placeholder="https://vk.com/public" name="vk_link">
+                    <input type="text" class="form-control" placeholder="https://vk.com/public" name="vk_link" value="<?= $camp['vk_link'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Сайт лагеря:</label>
-                    <input type="text" class="form-control" placeholder="https://site.ru" name="site_link">
+                    <input type="text" class="form-control" placeholder="https://site.ru" name="site_link" value="<?= $camp['site_link'] ?>">
                 </div>
 
 
         </div>
 
+
+
         <div class="col-lg-6 mt-2">
             <div class="mb-3">
+                
                 <label for="exampleInputEmail1" class="form-label">Регион:</label>
                 <select id="city" class="form-select" name="cities_id">
                     <?php
                     foreach ($cities as $city) {
-                        echo '<option value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
+                        if ($city['title'] == $camp['city']['title']) {
+                            echo '<option selected value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
+                        } else {
+                            echo '<option value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
+                        }
                     }
                     ?>
                 </select>
@@ -192,7 +197,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Адрес:</label>
-                <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress" readonly>
+                <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress" value="<?= $camp['adress'] ?>" readonly>
             </div>
 
             <div class="mb-3">
@@ -248,7 +253,7 @@
         </div>
 
 
-        <h3 class="text-center mt-3 mb-3">Как добавить видео</h3>
+        <h3 class="text-center mt-3 mb-3">Изменить ссылку на видео</h3>
         <div class="row">
             <div class="col-lg-6">
                 <img src="/public/theme/img/youtube-copy-link.jpg" class="img-fluid">
@@ -262,7 +267,7 @@
                 </ul>
 
                 <p style="color:red">Не вставляйте в поле ниже ссылку из адресной строки браузера, такое видео не будет работать.</p>
-                <input class="form-control" type="text" name="youtube_link" placeholder="https://youtu.be/szofMAvUanw">
+                <input class="form-control" type="text" name="youtube_link" placeholder="https://youtu.be/szofMAvUanw" value="<?= $camp['video_link'] ?>">
             </div>
         </div>
 
@@ -345,20 +350,20 @@
         <h3 class="text-center mt-4">Описания</h3>
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря:</label>
-            <textarea class="form-control textarea" id="editor" name="description"></textarea>
+            <textarea class="form-control textarea" id="editor" name="description"><?= $camp['description'] ?></textarea>
         </div>
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Размещение:</label>
             <textarea class="form-control textarea" id="editor2" name="placement" placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
             Новые современные коттеджи. В коттеджах по 3 комнаты, в комнатах проживает по 3 ребенка!
-            Также в домике – общий холл и своя кухня, где дети будут собираться и пить вкусный горячий чай со своими вожатыми и преподавателями. Душевая кабина, туалет и умывальник находится прямо в домике (все новое, чистое, приятное)."></textarea>
+            Также в домике – общий холл и своя кухня, где дети будут собираться и пить вкусный горячий чай со своими вожатыми и преподавателями. Душевая кабина, туалет и умывальник находится прямо в домике (все новое, чистое, приятное)."><?= $camp['placement'] ?></textarea>
         </div>
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Преимущества лагеря (Перечислите основные
                 преимущества вашего лагеря перед остальными, его особенности.)</label>
-            <textarea class="form-control textarea" id="editor3" name="advantages"></textarea>
+            <textarea class="form-control textarea" id="editor3" name="advantages"><?= $camp['advantages'] ?></textarea>
         </div>
 
         <div class="mb-3 mt-2">
@@ -379,7 +384,7 @@
                 </div>
             </div>
 
-            <textarea class="form-control textarea" id="editor4" name="daily_schedule"></textarea>
+            <textarea class="form-control textarea" id="editor4" name="daily_schedule"><?= $camp['daily_schedule'] ?></textarea>
         </div>
 
 
@@ -538,187 +543,125 @@
 
 
 <script type="text/javascript">
-    let adressInput = document.getElementById('adress');
-    let coordInput = document.getElementById('coords');
-    let cityInput = document.getElementById('city');
-    let cityName;
-
-    ymaps.ready(init);
-
-    function init() {
-        var myPlacemark,
-            myMap = new ymaps.Map('map', {
-                center: [55.753994, 37.622093],
-                zoom: 11
-            }, {
-                searchControlProvider: 'yandex#search'
-            });
-
-        // Слушаем клик на карте.
-        myMap.events.add('click', function(e) {
-            var coords = e.get('coords');
-
-            // Если метка уже создана – просто передвигаем ее.
-            if (myPlacemark) {
-                myPlacemark.geometry.setCoordinates(coords);
-
-            }
-            // Если нет – создаем.
-            else {
-                myPlacemark = createPlacemark(coords);
-                myMap.geoObjects.add(myPlacemark);
-                // Слушаем событие окончания перетаскивания на метке.
-                myPlacemark.events.add('dragend', function() {
-                    getAddress(myPlacemark.geometry.getCoordinates());
-                });
+let adressInput = document.getElementById('adress');
+let coordInput = document.getElementById('coords');
+let cityInput = document.getElementById('city');
+let cityName = cityInput.options[cityInput.selectedIndex].text;
 
 
-            }
+ymaps.ready(init);
 
-
-            getAddress(coords);
+function init() {
+    var myPlacemark,
+        myMap = new ymaps.Map('map', {
+            center: [55.753994, 37.622093],
+            zoom: 11
+        }, {
+            searchControlProvider: 'yandex#search'
         });
 
-        // Создание метки.
-        function createPlacemark(coords) {
-            return new ymaps.Placemark(coords, {
-                iconCaption: 'поиск...'
-            }, {
-                preset: 'islands#violetDotIconWithCaption',
-                draggable: true
-            });
+    getAddressCity(cityName)
 
-
-        }
-
-        // Определяем адрес по координатам (обратное геокодирование).
-        function getAddress(coords) {
-
-            coordInput.value = coords;
-            myPlacemark.properties.set('iconCaption', 'поиск...');
-            ymaps.geocode(coords).then(function(res) {
-                var firstGeoObject = res.geoObjects.get(0);
-
-                myPlacemark.properties
-                    .set({
-                        // Формируем строку с данными об объекте.
-                        iconCaption: [
-                            // Название населенного пункта или вышестоящее административно-территориальное образование.
-                            firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() :
-                            firstGeoObject.getAdministrativeAreas(),
-                            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
-                            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-                        ].filter(Boolean).join(', '),
-                        // В качестве контента балуна задаем строку с адресом объекта.
-                        balloonContent: firstGeoObject.getAddressLine()
-                    });
-                adressInput.value = firstGeoObject.getAddressLine();
-            });
-        }
-
-
-        // Определяем координаты по адресу
-        function getAddressCity(cityName) {
-            // Поиск координат.
-            ymaps.geocode(cityName, {
-                /**
-                 * Опции запроса
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
-                 */
-                // Сортировка результатов от центра окна карты.
-                // boundedBy: myMap.getBounds(),
-                // strictBounds: true,
-                // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy.
-                // Если нужен только один результат, экономим трафик пользователей.
-                results: 1
-            }).then(function(res) {
-                // Выбираем первый результат геокодирования.
-                var firstGeoObject = res.geoObjects.get(0),
-                    // Координаты геообъекта.
-                    coords = firstGeoObject.geometry.getCoordinates(),
-                    // Область видимости геообъекта.
-                    bounds = firstGeoObject.properties.get('boundedBy');
-
-                firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
-                // Получаем строку с адресом и выводим в иконке геообъекта.
-                firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
-
-
-
-                // Добавляем первый найденный геообъект на карту.
-                // myMap.geoObjects.add(firstGeoObject);
-                // Масштабируем карту на область видимости геообъекта.
-                myMap.setBounds(bounds, {
-                    // Проверяем наличие тайлов на данном масштабе.
-                    checkZoomRange: true
-
-                });
-
-                /**
-                 * Все данные в виде javascript-объекта.
-                 */
-                console.log('Все данные геообъекта: ', firstGeoObject.properties.getAll());
-                /**
-                 * Метаданные запроса и ответа геокодера.
-                 * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
-                 */
-                console.log('Метаданные ответа геокодера: ', res.metaData);
-                /**
-                 * Метаданные геокодера, возвращаемые для найденного объекта.
-                 * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
-                 */
-                console.log('Метаданные геокодера: ', firstGeoObject.properties.get(
-                    'metaDataProperty.GeocoderMetaData'));
-                /**
-                 * Точность ответа (precision) возвращается только для домов.
-                 * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
-                 */
-                console.log('precision', firstGeoObject.properties.get(
-                    'metaDataProperty.GeocoderMetaData.precision'));
-                /**
-                 * Тип найденного объекта (kind).
-                 * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
-                 */
-                console.log('Тип геообъекта: %s', firstGeoObject.properties.get(
-                    'metaDataProperty.GeocoderMetaData.kind'));
-                console.log('Название объекта: %s', firstGeoObject.properties.get('name'));
-                console.log('Описание объекта: %s', firstGeoObject.properties.get('description'));
-                console.log('Полное описание объекта: %s', firstGeoObject.properties.get('text'));
-                /**
-                 * Прямые методы для работы с результатами геокодирования.
-                 * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
-                 */
-                console.log('\nГосударство: %s', firstGeoObject.getCountry());
-                console.log('Населенный пункт: %s', firstGeoObject.getLocalities().join(', '));
-                console.log('Адрес объекта: %s', firstGeoObject.getAddressLine());
-                console.log('Наименование здания: %s', firstGeoObject.getPremise() || '-');
-                console.log('Номер здания: %s', firstGeoObject.getPremiseNumber() || '-');
-
-                /**
-                 * Если нужно добавить по найденным геокодером координатам метку со своими стилями и контентом балуна, создаем новую метку по координатам найденной и добавляем ее на карту вместо найденной.
-                 */
-                /**
-                 var myPlacemark = new ymaps.Placemark(coords, {
-                 iconContent: 'моя метка',
-                 balloonContent: 'Содержимое балуна <strong>моей метки</strong>'
-                 }, {
-                 preset: 'islands#violetStretchyIcon'
-                 });
-
-                 myMap.geoObjects.add(myPlacemark);
-                 */
-
-
-            });
-        }
-
-        cityInput.addEventListener('change', () => {
-            cityName = cityInput.options[cityInput.selectedIndex].text;
-            //console.log(cityName);
-            getAddressCity(cityName);
-        })
-
-
-
+    // Создание метки.
+    function createPlacemark(coords) {
+        return new ymaps.Placemark(coords, {
+            iconCaption: 'поиск...'
+        }, {
+            preset: 'islands#violetDotIconWithCaption',
+            draggable: true
+        });
     }
+
+
+    // Определяем адрес по координатам (обратное геокодирование).
+    function getAddress(coords) {
+
+        coordInput.value = coords;
+        myPlacemark.properties.set('iconCaption', 'поиск...');
+        ymaps.geocode(coords).then(function(res) {
+            var firstGeoObject = res.geoObjects.get(0);
+
+            myPlacemark.properties
+                .set({
+                    // Формируем строку с данными об объекте.
+                    iconCaption: [
+                        // Название населенного пункта или вышестоящее административно-территориальное образование.
+                        firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() :
+                        firstGeoObject.getAdministrativeAreas(),
+                        // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+                        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                    ].filter(Boolean).join(', '),
+                    // В качестве контента балуна задаем строку с адресом объекта.
+                    balloonContent: firstGeoObject.getAddressLine()
+                });
+            adressInput.value = firstGeoObject.getAddressLine();
+        });
+    }
+
+    // Определяем координаты по адресу
+    function getAddressCity(cityName) {
+        // Поиск координат.
+
+        ymaps.geocode(adressInput.value, {
+            results: 1
+        }).then(function(res) {
+            // Выбираем первый результат геокодирования.
+            var firstGeoObject = res.geoObjects.get(0),
+                // Координаты геообъекта.
+                coords = firstGeoObject.geometry.getCoordinates(),
+
+                // Область видимости геообъекта.
+                bounds = firstGeoObject.properties.get('boundedBy');
+
+            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            // Получаем строку с адресом и выводим в иконке геообъекта.
+            firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+
+            // Добавляем первый найденный геообъект на карту.
+            var metka = myMap.geoObjects.add(firstGeoObject);
+
+            // Слушаем клик на карте.
+            myMap.events.add('click', function(e) {
+                var coords = e.get('coords');
+
+                // Если метка уже создана – просто передвигаем ее.
+                if (myPlacemark) {
+                    myPlacemark.geometry.setCoordinates(coords);
+
+                }
+                // Если нет – создаем.
+                else {
+                    myPlacemark = createPlacemark(coords);
+                    myMap.geoObjects.add(myPlacemark);
+                    myMap.geoObjects.remove(firstGeoObject); // Удаляем старую метку
+                    // Слушаем событие окончания перетаскивания на метке.
+                    myPlacemark.events.add('dragend', function() {
+                        getAddress(myPlacemark.geometry.getCoordinates());
+                    });
+                }
+
+                getAddress(coords);
+            });
+
+            // Добавляем первый найденный геообъект на карту.
+            myMap.geoObjects.add(firstGeoObject);
+            coordInput.value = coords;
+            // Масштабируем карту на область видимости геообъекта.
+            myMap.setBounds(bounds, {
+                // Проверяем наличие тайлов на данном масштабе.
+                checkZoomRange: true
+
+            });
+        });
+    }
+
+    cityInput.addEventListener('change', () => {
+        cityName = cityInput.options[cityInput.selectedIndex].text;
+        //console.log(cityName);
+        getAddressCity(cityName);
+    })
+
+
+
+}
 </script>

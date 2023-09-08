@@ -2,17 +2,11 @@
 
 namespace App\Controllers;
 
-use Config\Services;
-use App\Models\Camps;
-use App\Models\Cities;
-use App\Models\Types;
-use App\Models\Seasons;
-use App\Models\Images;
-
-class Recaptcha extends BaseController
+class RecaptchaController extends BaseController
 {
 
     public $api_url = 'https://hcaptcha.com/siteverify';
+    public $secret_key = '0x27ad7d2c95996992Ea55Fce1229d607EEb513527';
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -25,7 +19,7 @@ class Recaptcha extends BaseController
     {
 
         $array = [
-            'secret' => '0x27ad7d2c95996992Ea55Fce1229d607EEb513527',
+            'secret' => $this->secret_key,
             'response'    => $recaptcha_response,
         ];		
          

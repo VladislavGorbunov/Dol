@@ -35,12 +35,14 @@
             <div class="mt-4">
                 <p><b>Организатор: </b><?= $organization['organization'] ?></p>
                 <p><b>ИНН: </b><?= $organization['inn'] ?></p>
-                <p><b>Сайт лагеря: - </b></p>
-                <p><b>Вконтакте: - </b></p>
+                <p><b>Работает с: </b><?= $camp['year'] ?> года</p>
+                <p><b>База лагеря: </b><?= $camp_base = (!empty($camp['camp_base'])) ? $camp['camp_base'] : 'Не указана' ?></p>
+                <p><b>Охраняемая территория:</b> <?= $securirty= ($camp['security'] == 1) ? 'Да' : 'Нет' ?></p>
+                <!-- <p><b>Сайт лагеря: - </b></p> -->
+                <p><b>Вконтакте:</b> <?= $vk = (!empty($camp['vk_link'])) ? $camp['vk_link'] : 'Нет' ?></p>
                 <p><b>Телефон: </b></p>
                 <p><b>Регион:</b> <?= $region['title'] ?></p>
                 <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
-                <p><b>Год начала деятельности:</b> <?= $camp['year'] . ' год' ?></p>
                 <p><b>Возраст:</b> <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?>
                 </p>
             </div>

@@ -78,7 +78,7 @@
             color: #262626
         }
 
-        .loginBox input[type="submit"] {
+        .loginBox .btn-login {
             display: block;
             border: none;
             outline: none;
@@ -125,21 +125,30 @@
 
 
     <div class="col-lg-4 col-12 loginBox">
-    <?php if(session()->getFlashdata('msg')):?>
-    <div class="alert alert-warning">
-        <?= session()->getFlashdata('msg') ?>
+    <?php if(session()->getFlashdata('msg-error')):?>
+    
+        <div class="alert alert-warning text-center">
+        <?php 
+            $errors = session()->getFlashdata('msg-error');
+
+            foreach ($errors as $error) {
+                echo $error . '<br>';
+            }
+            ?>
     </div>
     <?php endif;?>
 
         <img src="/public/theme/img/login-form-logo.png" width="200px" class="d-block mx-auto">
         <h3 class="text-center mt-2">ByCamps Office</h3>
+       
         <form action="" method="post">
             <div class="inputBox mt-1 col-lg-10 d-block mx-auto">
                 <input id="uname" type="text" name="email" placeholder="Email" required>
                 <input id="pass" type="password" name="password" placeholder="Пароль" required>
             </div>
             <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
-            <input type="submit" name="" value="Войти" class="mt-3">
+            <div id="hcaptcha-loading" class="text-center"></div>
+            <button id="btn-login" type="submit" class="btn btn-login mt-3">Войти</button>
         </form>
 
         <div class="col-lg-12">
@@ -154,6 +163,27 @@
     </div>
 
 </body>
-<script src="https://js.hcaptcha.com/1/api.js?hl=ru" async defer></script>
+
+
+<script>
+const btnLogin = document.getElementById('btn-login');
+const hcaptchaLoading = document.getElementById('hcaptcha-loading');
+console.log(btnLogin)
+btnLogin.classList.add('disabled');
+hcaptchaLoading.innerHTML = 'Подождите, загружаем капчу'
+
+let waitLoad = setTimeout(() => {
+    hcaptchaLoading.innerHTML = 'Ошибка загрузки капчи, возможно у вас проблемы с интернетом. <a href="/login">Перезагрузите страницу</a>'
+}, 5000);
+
+
+function buttonActivated() {
+    clearInterval(waitLoad)
+    btnLogin.classList.remove('disabled');
+    hcaptchaLoading.innerHTML = ''
+}
+</script>
+
+<script src="https://js.hcaptcha.com/1/api.js?hl=ru&onload=buttonActivated" async defer></script>
 
 </html>

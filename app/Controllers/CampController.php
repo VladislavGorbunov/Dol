@@ -11,7 +11,7 @@ use App\Models\Shifts;
 use App\Models\Reviews;
 use App\Models\RepresentativesModel;
 
-class Camp extends BaseController
+class CampController extends BaseController
 {
     public $CampsModel;
     public $Cities;
@@ -87,16 +87,24 @@ class Camp extends BaseController
 
             $days = $diff->format('%a');
 
-            $data['shift_arr'][] = 
-            [
-                'id' => $shift['id'],
-                'camps_id' => $shift['camps_id'],
-                'title' => $shift['title'],
-                'price' => $shift['price'],
-                'days' => $days,
-                'start_date' => $start_data,
-                'end_date' => $end_data,
-            ]; 
+            // Проверка даты начала смены, если дата уже прошла, удаляем смену из БД
+            // Иначе выводим
+            if (strtotime($start_data) > strtotime(date('d.m.Y'))) {
+
+                $data['shift_arr'][] = 
+                [
+                    'id' => $shift['id'],
+                    'camps_id' => $shift['camps_id'],
+                    'title' => $shift['title'],
+                    'price' => $shift['price'],
+                    'days' => $days,
+                    'start_date' => $start_data,
+                    'end_date' => $end_data,
+                ]; 
+            } else {
+                $this->ShiftsModel->where('id', $shift['id'])->delete();
+            }
+            
 
             if (!empty($data['camp']['video_link'])) {
                 $video_link = $data['camp']['video_link'];

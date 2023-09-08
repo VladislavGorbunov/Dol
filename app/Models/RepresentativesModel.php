@@ -22,6 +22,7 @@ class RepresentativesModel extends Model
         'email_manager',
         'phone_manager',
         'password',
+        'token',
         'created_at',
         'activated',
     ];

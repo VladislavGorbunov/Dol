@@ -11,13 +11,14 @@ use App\Models\CampsTypes;
 use App\Models\CampsSeasons;
 use App\Models\Images;
 use App\Models\Shifts;
-use App\Controllers\Recaptcha;
+use App\Controllers\RecaptchaController;
 use App\Models\BookingsModel;
 
 use CodeIgniter\Files\File;
+use CodeIgniter\Cookie\Cookie;
 
 
-class Panel extends BaseController
+class PanelController extends BaseController
 {
     public $RepresentativesModel;
     public $CampsModel;
@@ -28,7 +29,7 @@ class Panel extends BaseController
     public $CampsSeasons;
     public $ImagesModel;
     public $ShiftsModel;
-    public $Recaptcha;
+    public $RecaptchaController;
     public $BookingsModel;
     public $booking_count;
     
@@ -52,7 +53,7 @@ class Panel extends BaseController
         $this->ImagesModel = new Images();
         $this->ShiftsModel = new Shifts();
         $this->BookingsModel = new BookingsModel();
-        $this->Recaptcha = new Recaptcha();
+        $this->RecaptchaController = new RecaptchaController();
 
         $this->imagesFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/images/camps';
 
@@ -91,26 +92,42 @@ class Panel extends BaseController
     public function Auth()
     {
         $session = session();
+        $validation = \Config\Services::validation();
+
+        $rules = ([
+            'email' => ['label' => 'Email', 'rules' => 'required|valid_email'],
+            'password' => ['label' => 'Пароль', 'rules' => 'required|alpha_numeric_punct'],
+        ]);
+
+
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
+        if (!$this->validate($rules)) {
+            $session->setFlashdata('msg-error', $this->validator->getErrors());
+            return redirect()->back()->withInput();
+        }
+
         if (empty($_POST['h-captcha-response'])) {
-            $session->setFlashdata('msg', 'Пройдите проверку на робота, нажмите на кнопку "Я человек".');
+            $error = ['Пройдите проверку на робота, нажмите на кнопку "Я человек".'];
+            $session->setFlashdata('msg-error', $error);
             return redirect()->to('/login');
         }
 
-        $captcha_result = $this->Recaptcha->RecaptchaCheck($_POST['h-captcha-response']);
+        $captcha_result = $this->RecaptchaController->RecaptchaCheck($_POST['h-captcha-response']);
        
         $data = $this->RepresentativesModel->where('email_manager', $email)->first();
 
         if (empty($data) || $data['activated'] == 0) {
-            $session->setFlashdata('msg', 'Профиль не найден или не активен.');
+            $error = ['Профиль не найден или не активен.'];
+            $session->setFlashdata('msg-error', $error);
             return redirect()->to('/login');
             die;
         }
 
         if (empty($captcha_result)) {
-            $session->setFlashdata('msg', 'Вы не прошли проверку на робота. Попробуйте еще раз.');
+            $error = ['Вы не прошли проверку на робота. Попробуйте еще раз.'];
+            $session->setFlashdata('msg-error', $error);
             return redirect()->to('/login');
             die;
         }
@@ -128,14 +145,17 @@ class Panel extends BaseController
                 ];
 
                 $session->set($ses_data);
+
                 return redirect()->to('/panel');
             
             } else {
-                $session->setFlashdata('msg', 'Неверный email или пароль.');
+                $error = ['Неверный email или пароль'];
+                $session->setFlashdata('msg-error', $error);
                 return redirect()->to('/login');
             }
         } else {
-            $session->setFlashdata('msg', 'Неверный email или пароль.');
+            $error = ['Неверный email или пароль'];
+            $session->setFlashdata('msg-error', $error);
             return redirect()->to('/login');
         }
     }
@@ -159,7 +179,8 @@ class Panel extends BaseController
         $image = \Config\Services::image('gd');
 
         $rules = ([
-            'title' => ['label' => 'Название лагеря', 'rules' => 'required|alpha_space'],
+            'title' => ['label' => 'Название лагеря', 'rules' => 'required'],
+            'camp_base' => ['label' => 'Название базы', 'rules' => 'required'],
             'cities_id' => ['label' => 'Регион', 'rules' => 'required'],
             //'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
             'adress' => ['label' => 'Адрес', 'rules' => 'required'],
@@ -185,8 +206,8 @@ class Panel extends BaseController
             //die;
         }
 
-        $session = session();
         $data['title'] = $this->request->getVar('title');
+        $data['camp_base'] = $this->request->getVar('camp_base');
         $data['representatives_id'] = $session->get('id');
         $data['year'] = $this->request->getVar('year');
         $data['min_age'] = $this->request->getVar('min_age');
@@ -352,6 +373,69 @@ class Panel extends BaseController
             $session->setFlashdata('msg-error', 'При добавлении лагеря произошла ошибка. Обратитесь в службу поддержки. Код ошибки: Controller#panel#216');
             return redirect()->to('/panel');
         }
+    }
+
+    // Метод редактирования данных лагеря
+    public function editCampForm($camp_id)
+    {
+        $session = session();
+        $data['cities'] = $this->CitiesModel->findAll();
+        $data['types'] = $this->TypesModel->findAll();
+        $data['seasons'] = $this->SeasonsModel->findAll();
+
+        $data['camp'] = $this->CampsModel->where('camps_id', $camp_id)->first();
+        
+        if ($data['camp']['representatives_id'] != $session->get('id')) {
+            $session->setFlashdata('msg-error', 'Ошибка: невозможно редактировать этот лагерь.');
+            return redirect()->to('/panel');
+        }
+
+        $data['camp']['city'] = $this->CitiesModel->where('cities_id', $data['camp']['cities_id'])->first();
+        return view('layouts/panel_header', $data)
+        .view('panel/edit-camp')
+        .view('layouts/panel_footer');
+    }
+
+
+    public function updateCamp($camp_id) 
+    {
+        $session = session();
+
+        $data['camp'] = $this->CampsModel->where('camps_id', $camp_id)->first();
+        
+        if ($data['camp']['representatives_id'] != $session->get('id')) {
+            $session->setFlashdata('msg-error', 'Ошибка: невозможно редактировать этот лагерь.');
+            return redirect()->to('/panel');
+        }
+        
+        $data['camps_id'] = $camp_id;
+        $data['camp_base'] = $this->request->getVar('camp_base');
+        $data['year'] = $this->request->getVar('year');
+        $data['min_age'] = $this->request->getVar('min_age');
+        $data['max_age'] = $this->request->getVar('max_age');
+        $data['security'] = $this->request->getVar('security');
+        $data['free_transfer'] = $this->request->getVar('free_transfer');
+        $data['vk_link'] = $this->request->getVar('vk_link');
+        $data['site_link'] = $this->request->getVar('site_link');
+        $data['cities_id'] = $this->request->getVar('cities_id');
+        $data['adress'] = $this->request->getVar('adress');
+        $data['coords'] = $this->request->getVar('coords');
+        // $types_data['types'] = $this->request->getVar('types');
+        // $seasons_data['seasons'] = $this->request->getVar('seasons');
+        $data['description'] = $this->request->getVar('description');
+        $data['placement'] = $this->request->getVar('placement');
+        $data['advantages'] = $this->request->getVar('advantages');
+        $data['daily_schedule'] = $this->request->getVar('daily_schedule');
+        
+        
+        if ($this->CampsModel->save($data)) {
+            $session->setFlashdata('msg-success', 'Данные обновлены.');
+            return redirect()->to('/panel');
+        } else {
+            echo 'ошибка';
+            die;
+        }
+
     }
 
     
