@@ -260,7 +260,7 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #37b674 url(/public/theme/img/filter-bg.png) center;
+    background: #37b674 url(/public/theme/img/btn-bg.png) center;
     border: 1px solid #37b674;
     border-radius: 5px;
     padding: 10px 20px;
@@ -271,32 +271,15 @@ a {
 .btn-detailed {
     position: relative;
     color: #fff;
-    background: #37b674 url(/public/theme/img/filter-bg.png) center;
-    border-radius: 8px;
-    padding: 13px 30px;
+    background: #37b674 url(/public/theme/img/btn-bg.png) center;
+    border-radius: 5px;
+    padding: 12px 20px;
     font-size: 15px;
 }
 
-.btn-detailed::before {
-    position: absolute;
-    display: block;
-    content: '';
-    width: 0px;
-    height: 50px;
-    padding: 13px 30px;
-    left: 0;
-    top: 0;
-    transition: .5s;
-}
-
-.btn-detailed:hover::before {
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-}
 
 .btn-detailed:hover {
-    background: #37b674;
+    background: #40d387 url(/public/theme/img/btn-bg.png) center;
     color: #fff;
     
 }
@@ -414,7 +397,7 @@ a {
 
 .filter-block .btn {
     display: block;
-    background: #37b674 url(/public/theme/img/filter-bg.png) center;
+    background: #37b674 url(/public/theme/img/btn-bg.png) center;
     border: none;
     height: 52px;
     padding: 15px 30px;
