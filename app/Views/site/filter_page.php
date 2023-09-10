@@ -72,7 +72,8 @@
                             }
 
                             if ($camp['min_price'][0]['price']) {
-                                echo '<p class="price"><b>от '. $camp['min_price'][0]['price'] .' р. <span style="font-size: 13px;">за путёвку</span></b></p>
+                                $price  = number_format($camp['min_price'][0]['price'], '0', ',', ' ');
+                                echo '<p class="price"><b>от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></b></p>
                                 <p style="font-size: 13px;"><span style="color:#3ac47d">'. $free_transfer .'</span></p>
                                 '.$video_link.'
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>

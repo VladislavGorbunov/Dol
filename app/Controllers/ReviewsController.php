@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Bookings;
+use App\Models\BookingsModel;
 use App\Models\RepresentativesModel;
 use App\Models\Reviews;
 
@@ -17,7 +17,7 @@ class ReviewsController extends BaseController
     public $BookingModel;
     public $CampsModel;
     public $ShiftModel;
-    public $Bookings;
+    public $BookingsModel;
     public $ReviewsModel;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
@@ -27,7 +27,7 @@ class ReviewsController extends BaseController
         $session = \Config\Services::session($config);
         
         $this->RepresentativesModel = new RepresentativesModel();
-        $this->BookingModel = new Bookings();
+        $this->BookingModel = new BookingsModel();
         $this->ReviewsModel = new Reviews();
         
         // Preload any models, libraries, etc, here.

@@ -18,7 +18,7 @@
         <ol class="breadcrumb">
            <li class="breadcrumb-item"><a href="/">Главная</a></li>
            <li class="breadcrumb-item" aria-current="page"><a href="/camps/<?= $region['slug'] ?>/type-all/season-all">Лагеря <?= $region['title_in']?></a></li>
-           <li class="breadcrumb-item active" aria-current="page"><?= $camp['title'] ?></li>
+           <li class="breadcrumb-item active" aria-current="page"><b><?= $camp['title'] ?></b></li>
         </ol>
     </nav>
     

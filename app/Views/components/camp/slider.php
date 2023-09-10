@@ -1,12 +1,3 @@
-<?php
-
-// $url = 'https://youtu.be/dL3Nlj4ee3E';
-
-// $parse = parse_url($url);
-
-// print_r($parse);
-
-?>
 
 <div class="bg-white rounded p-3">
 

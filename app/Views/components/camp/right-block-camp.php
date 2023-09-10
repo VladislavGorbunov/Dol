@@ -38,13 +38,14 @@
                 <p><b>Работает с: </b><?= $camp['year'] ?> года</p>
                 <p><b>База лагеря: </b><?= $camp_base = (!empty($camp['camp_base'])) ? $camp['camp_base'] : 'Не указана' ?></p>
                 <p><b>Охраняемая территория:</b> <?= $securirty= ($camp['security'] == 1) ? 'Да' : 'Нет' ?></p>
-                <!-- <p><b>Сайт лагеря: - </b></p> -->
-                <p><b>Вконтакте:</b> <?= $vk = (!empty($camp['vk_link'])) ? $camp['vk_link'] : 'Нет' ?></p>
+                <p><b>Сайт лагеря:</b> <?= $site = (!empty($camp['site_link'])) ? $camp['site_link'] : 'Нет' ?></p>
+                <p><b>ВКонтакте:</b> <?= $vk = (!empty($camp['vk_link'])) ? $camp['vk_link'] : 'Нет' ?></p>
                 <p><b>Телефон: </b></p>
                 <p><b>Регион:</b> <?= $region['title'] ?></p>
                 <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                 <p><b>Возраст:</b> <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?>
                 </p>
+                
             </div>
 
                 <p class="mt-3"><b>Направления лагеря:</b></p>
@@ -55,6 +56,7 @@
                         }
                     ?>
                     </div>
+
         </div>
 
 </div>
@@ -151,3 +153,13 @@
                 </div>
 
 
+
+                
+                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+<!-- Put this div tag to the place, where the Group block will be -->
+<div class="col-lg-12 mt-4 p-3 rounded bg-white">
+<div id="vk_groups" class="d-block mx-auto"></div></div>
+<script type="text/javascript">
+  VK.Widgets.Group("vk_groups", {mode: 4, wide: 1, width: "auto", height: 400, color1: "FFFFFF", color2: "000000", color3: "5181B8"}, 166562603);
+</script>
