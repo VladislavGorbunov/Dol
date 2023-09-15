@@ -88,8 +88,8 @@ a {
     border-radius: 5px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    
 }
+
 
 .rounded {
     border-radius: 10px !important;
@@ -128,8 +128,8 @@ a {
 
 
 .btn-booking, .btn-add-review-form {
-    background: #37b674 url(/public/theme/img/filter-bg.png) center;
-    border: 1px solid #37b674;
+    background: #3dc980 url(/public/theme/img/filter-bg.png) center;
+    border: 1px solid #3dc980;
     color: #fff;
     border-radius: 5px;
     padding: 13px 20px;
@@ -138,8 +138,8 @@ a {
 }
 
 .btn-booking:hover, .btn-add-review-form:hover {
-    border: 1px solid #37b674;
-    color: #37b674 url(/public/theme/img/filter-bg.png) center;
+    border: 1px solid #3dc980;
+    color: #3dc980 url(/public/theme/img/filter-bg.png) center;
     border-radius: 5px;
     padding: 13px 20px;
     font-size: 16px;
@@ -184,8 +184,8 @@ a {
 .btn-reg {
     position: relative;
     color: #e8ece8;
-    background: #00c07f url(/public/theme/img/filter-bg.png) center;
-    border: 1px solid #00c07f;
+    background: #3dc980 url(/public/theme/img/filter-bg.png) center;
+    border: 1px solid #3dc980;
     border-radius: 5px;
     padding: 11px 25px 11px 35px;
     height: 45px;
@@ -248,9 +248,9 @@ a {
     position: relative;
     max-width: 240px;
     margin: 20px auto 10px;
-    color: #37b674;
+    color: #3dc980;
     background: none;
-    border: 1px solid #37b674;
+    border: 1px solid #3dc980;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -260,8 +260,8 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #37b674 url(/public/theme/img/btn-bg.png) center;
-    border: 1px solid #37b674;
+    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
+    border: 1px solid #3dc980;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -271,7 +271,7 @@ a {
 .btn-detailed {
     position: relative;
     color: #fff;
-    background: #37b674 url(/public/theme/img/btn-bg.png) center;
+    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
     border-radius: 5px;
     padding: 12px 20px;
     font-size: 15px;
@@ -397,7 +397,7 @@ a {
 
 .filter-block .btn {
     display: block;
-    background: #37b674 url(/public/theme/img/btn-bg.png) center;
+    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
     border: none;
     height: 52px;
     padding: 15px 30px;

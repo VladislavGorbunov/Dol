@@ -211,7 +211,9 @@
 
         </div>
 
-
+                <?php
+                // var_dump($cover);
+                ?>
 
         <div class="col-lg-12">
             <h3 class="text-center mt-4">Загрузите фотографии</h3>
@@ -271,6 +273,9 @@
             </div>
         </div>
 
+        <?php 
+            
+        ?>
 
         <div class="col-lg-6 d-block mx-auto">
             <h3 class="text-center mt-4">Сезон работы</h3>
@@ -278,12 +283,18 @@
             <div class="row mt-3 mb-3">
 
                 <?php
+                // Создаём новый массив с id сезонов этого лагеря
+                foreach ($campsSeasons as $campSeason) {
+                    $season_arr[] = $campSeason['seasons_id'];
+                }
 
+                // В цикле выводим сезоны и проверяем, есть ли текущий id сезона в массиве season_arr
+                // Если есть ставим checked
                 foreach ($seasons as $season) {
                     echo '
                     <div class="form-check col-lg-3 mb-2">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="' . $season['seasons_id'] . '" name="seasons[]">
+                    <input class="form-check-input" type="checkbox" value="' . $season['seasons_id'] . '" name="seasons[]" '. $checked = (in_array($season['seasons_id'], $season_arr) ? 'checked' : '') .'>
                     ' . $season['title'] . '</label>
                     </div>';
                 }
@@ -301,11 +312,16 @@
 
                 <?php
 
+                // Создаём новый массив с id типов этого лагеря
+                foreach ($campsTypes as $campTypes) {
+                    $types_arr[] = $campTypes['types_id'];
+                }
+
                 foreach ($types as $type) {
                     echo '
                     <div class="form-check col-lg-3 mb-2">
                     <label class="form-check-label">
-                    <input class="form-check-input check-types" type="checkbox" value="' . $type['types_id'] . '" name="types[]">
+                    <input class="form-check-input check-types" type="checkbox" value="' . $type['types_id'] . '" name="types[]" '.$checked = (in_array($type['types_id'], $types_arr) ? 'checked' : '').'>
                     ' . $type['title'] . '</label>
                     </div>';
                 }
@@ -316,27 +332,35 @@
 
             <script>
                 let checkboxs = document.querySelectorAll('.check-types')
-
+                let checkedCount = document.querySelectorAll('.check-types:checked').length // количество уже выбранных чекбоксов
+                let checked = document.querySelectorAll('.check-types:checked')
                 let checkArray = []
+
+                checked.forEach(ch => {
+                    checkArray.push(ch.value)
+                })
+
 
                 checkboxs.forEach(checkbox => {
                     checkbox.addEventListener('click', () => {
-
+                        
                         if (checkArray.length < 6) {
                             if (!checkArray.includes(checkbox.value)) {
                                 checkbox.checked = true
                                 checkArray.push(checkbox.value)
+                                
                             } else {
                                 checkArray.splice(checkArray.indexOf(checkbox.value), 1)
                             }
 
                         } else {
+                            
                             checkbox.checked = false
                             
                             if (checkArray.includes(checkbox.value)) {
                                 checkbox.checked = false
                                 checkArray.splice(checkArray.indexOf(checkbox.value), 1)
-                           
+                                
                         }
                         }
                        

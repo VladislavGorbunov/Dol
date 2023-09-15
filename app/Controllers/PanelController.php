@@ -381,7 +381,11 @@ class PanelController extends BaseController
         $session = session();
         $data['cities'] = $this->CitiesModel->findAll();
         $data['types'] = $this->TypesModel->findAll();
+        $data['campsTypes'] = $this->CampsTypes->where('camps_id', $camp_id)->findAll();
+        $data['cover'] = $this->ImagesModel->where(['camps_id'=> $camp_id, 'cover' => 1])->findAll();
+
         $data['seasons'] = $this->SeasonsModel->findAll();
+        $data['campsSeasons'] = $this->CampsSeasons->where('camps_id', $camp_id)->findAll();
 
         $data['camp'] = $this->CampsModel->where('camps_id', $camp_id)->first();
         
@@ -397,6 +401,7 @@ class PanelController extends BaseController
     }
 
 
+    
     public function updateCamp($camp_id) 
     {
         $session = session();
@@ -420,14 +425,48 @@ class PanelController extends BaseController
         $data['cities_id'] = $this->request->getVar('cities_id');
         $data['adress'] = $this->request->getVar('adress');
         $data['coords'] = $this->request->getVar('coords');
-        // $types_data['types'] = $this->request->getVar('types');
-        // $seasons_data['seasons'] = $this->request->getVar('seasons');
+        $types_data['types'] = $this->request->getVar('types');
+        $seasons_data['seasons'] = $this->request->getVar('seasons');
         $data['description'] = $this->request->getVar('description');
         $data['placement'] = $this->request->getVar('placement');
         $data['advantages'] = $this->request->getVar('advantages');
         $data['daily_schedule'] = $this->request->getVar('daily_schedule');
         
+        // Удаляем все сезоны перед добавлением новых
+        $delete_seasons = $this->CampsSeasons->where('camps_id', $camp_id)->delete();
+        // Удаляем все типы перед добавлением новых
+        $delete_types = $this->CampsTypes->where('camps_id', $camp_id)->delete();
+
+        // Добавление в БД сезонов лагеря
+        foreach ($seasons_data['seasons'] as $key => $season) {
+            $seasons = [
+                'camps_id' => $camp_id,
+                'seasons_id' => $season,
+            ];
+            
+            // Если произошла ошибка добавления сезонов, выводим сообщение
+            if (!$this->CampsSeasons->insert($seasons)) {
+                $session->setFlashdata('msg-error', 'Произошла ошибка изменения сезонов лагеря. Попробуйте снова или обратитесь в службу поддержки.');
+                return redirect()->to('/panel');
+            }
+        }
+
+
+        // Добавление в БД типов лагеря
+        foreach ($types_data['types'] as $key => $type) {
+            $types = [
+                'camps_id' => $camp_id,
+                'types_id' => $type,
+            ];
+            
+            // Если произошла ошибка добавления сезонов, выводим сообщение
+            if (!$this->CampsTypes->insert($types)) {
+                $session->setFlashdata('msg-error', 'Произошла ошибка изменения типов лагеря. Попробуйте снова или обратитесь в службу поддержки.');
+                return redirect()->to('/panel');
+            }
+        }
         
+
         if ($this->CampsModel->save($data)) {
             $session->setFlashdata('msg-success', 'Данные обновлены.');
             return redirect()->to('/panel');
@@ -436,6 +475,7 @@ class PanelController extends BaseController
             die;
         }
 
+    
     }
 
     

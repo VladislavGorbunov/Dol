@@ -13,8 +13,8 @@
 
     <!-- Line Awesome icons -->
     <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
-    
-    
+
+
     <!-- Favicons -->
     <!-- <link rel="apple-touch-icon" href="/public/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -31,29 +31,29 @@
 
     <header>
 
-    <div class="top-nav d-lg-block d-none">
-    <div class="container">
+        <div class="top-nav d-lg-block d-none">
+            <div class="container">
 
-     <div class="d-flex">
-        <div class="p-1 flex-grow-1 d-flex flex-wrap">
-            <a href="" class="nav-link mx-2">О сервисе</a> 
-            <a href="" class="nav-link mx-2">Информация для родителей</a> 
-            <a href="" class="nav-link mx-2">Партнёрам</a> 
-            <a href="" class="nav-link mx-2">Вакансии</a>
-            <a href="" class="nav-link mx-2">Помощь</a> 
-        </div> 
+                <div class="d-flex">
+                    <div class="p-1 flex-grow-1 d-flex flex-wrap">
+                        <a href="" class="nav-link mx-2">О сервисе</a>
+                        <a href="" class="nav-link mx-2">Информация для родителей</a>
+                        <a href="" class="nav-link mx-2">Партнёрам</a>
+                        <a href="" class="nav-link mx-2">Вакансии</a>
+                        <a href="" class="nav-link mx-2">Помощь</a>
+                    </div>
 
-        <div class="p-1">bycamps@yandex.ru</div>
-        <div class="p-1">
-            <img src="/public/theme/img/vk_logo.png" width="18px" height="18px" class="mx-2" style="position:relative;top:0px;">
-            
+                    <div class="p-1">bycamps@yandex.ru</div>
+                    <div class="p-1">
+                        <img src="/public/theme/img/vk_logo.png" width="18px" height="18px" class="mx-2" style="position:relative;top:0px;">
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-     </div>
 
-    
-    </div>
-    </div>
-    
         <nav class="navbar navbar-expand-lg py-3">
 
             <div class="container">
@@ -62,13 +62,12 @@
                     <img src="/public/theme/img/logo.png" width="200px">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                
+
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                         <li class="nav-item">
@@ -92,26 +91,28 @@
                         </li>
 
                     </ul>
-                
+
 
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>
-                        <a class="btn btn-reg m-1" href="/registration"><div class="marker"></div>Добавить лагерь</a>
-                    </div> 
+                        <a class="btn btn-reg m-1" href="/registration">
+                            <div class="marker"></div>Добавить лагерь
+                        </a>
+                    </div>
 
 
                 </div>
             </div>
         </nav>
-       
-        
+
+
     </header>
 
-    
+
 
     <div class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
-        
+
             <div class="row">
                 <h1 class="header-h1"><?= $title ?></h1>
                 <div class="col-lg-9 d-block mx-auto">
@@ -122,13 +123,13 @@
                     </p>
                 </div>
             </div>
-           
+
             <div class="filter-block col-lg-11 d-block mx-auto mt-2">
-                
+
                 <form method="post">
                     <div class="row">
                         <div class="col-lg g-1">
-                           
+
                             <select id="region" class="form-select form-select-lg mt-0" name="region">
 
                                 <option selected disabled value="">Выберите регион</option>
@@ -144,7 +145,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            
+
                             <select id="type" class="form-select form-select-lg mt-0" name="type">
                                 <option selected value="type-all">Любой тип лагеря</option>
                                 <?php 
@@ -156,7 +157,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            
+
                             <select id="season" class="form-select form-select-lg mt-0" name="season">
                                 <option selected value="season-all">Любой сезон</option>
                                 <?php 
@@ -168,7 +169,7 @@
                         </div>
 
                         <div class="col-lg g-1">
-                            
+
                             <select id="age" class="form-select form-select-lg mt-0" name="age">
                                 <option selected disabled value="">Любой возраст</option>
                                 <option value="3">3 года</option>
@@ -192,90 +193,17 @@
                             </select>
                         </div>
 
-                        
+
 
                         <div class="col-lg-auto g-1">
                             <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
                         </div>
 
-
-                        <!-- <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Показывать лагеря только с рейтингом выше 4.5
-                            </label>
-                        </div> -->
-
                     </div>
                 </form>
-            
+
             </div>
         </div>
 
     </div>
-    </div>
 
-
-    <script>
-    // редирект
-    //window.location.href = "/";
-
-    const region_msg = document.getElementById("region_msg");
-    let region = document.getElementById("region");
-    let season = document.getElementById("season");
-    let type = document.getElementById("type");
-    let age = document.getElementById("age");
-
-    const search_btn = document.getElementById("search");
-
-    let filter_url;
-
-
-    addEventListener("change", () => {
-        url = '/camps';
-
-        if (region.value) {
-            url += '/' + region.value;
-            region_msg.innerHTML = '';
-            region.style.border = 'none';
-        } else {
-            url += '/russia';
-        }
-
-        if (type.value) {
-            url += '/' + type.value;
-            document.title += type.selectedOptions[0].text;
-        } else {
-            url += '/type-all';
-        }
-
-        if (season.value) {
-            url += '/' + season.value;
-        } else {
-            url += '/season-all';
-        }
-
-        if (age.value) {
-            url += '/' + age.value;
-            document.title += age.selectedOptions[0].text;
-        } else {
-            url += '';
-        }
-
-        console.log(url);
-
-    });
-
-
-
-    search_btn.addEventListener('click', () => {
-        if (!region.value) {
-            //alert('Выберите регион');
-            region_msg.innerHTML = 'Выберите регион поиска';
-            region.style.border = '1px solid #ff4444';
-        } else {
-            window.location.href = url;
-        }
-
-    });
-    </script>
