@@ -23,24 +23,7 @@
    </head>
    <body>
       <header>
-         <div class="top-nav d-lg-block d-none">
-            <div class="container">
-               <div class="d-flex">
-                  <div class="p-1 flex-grow-1 d-flex flex-wrap">
-                     <a href="" class="nav-link mx-2">О сервисе</a>
-                     <a href="" class="nav-link mx-2">Информация для родителей</a>
-                     <a href="" class="nav-link mx-2">Партнёрам</a>
-                     <a href="" class="nav-link mx-2">Вакансии</a>
-                     <a href="" class="nav-link mx-2">Помощь</a>
-                  </div>
-                  <div class="p-1">bycamps@yandex.ru</div>
-                  <div class="p-1">
-                     <img src="/public/theme/img/vk_logo.png" width="18" height="18" class="mx-2"
-                        alt="Мы ВКонтакте" style="position:relative;top:0px;">
-                  </div>
-               </div>
-            </div>
-         </div>
+      <?= $this->include('layouts/top-menu') ?>
          <nav class="navbar navbar-expand-lg py-3">
             <div class="container">
                <a class="navbar-brand" href="/">

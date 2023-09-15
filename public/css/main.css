@@ -125,7 +125,15 @@ a {
     color: #222;
 }
 
+.vk-logo-top {
+    position: relative;
+    top: 0px;
+    opacity: 0.8;
+}
 
+.vk-logo-top:hover {
+    opacity: 1;
+}
 
 .btn-booking, .btn-add-review-form {
     background: #3dc980 url(/public/theme/img/filter-bg.png) center;
