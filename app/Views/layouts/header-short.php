@@ -74,7 +74,9 @@
                   </p>
                </div>
             </div>
-            <div class="filter-block col-lg-11 d-block mx-auto mt-2">
+
+            <div class="box-shadow col-lg-11 d-block mx-auto mt-2">
+            <div class="filter-block col-lg-12">
                <form method="post">
                   <div class="row">
                      <div class="col-lg g-1">
@@ -155,7 +157,7 @@
                      </div>
                   </div>
                </form>
-            </div>
+            </div></div>
          </div>
       </div>
       </div>

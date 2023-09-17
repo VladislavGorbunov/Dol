@@ -37,8 +37,6 @@ addEventListener("change", () => {
         url += '';
     }
 
-    console.log(url);
-
 });
 
 

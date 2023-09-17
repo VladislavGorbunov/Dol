@@ -1,4 +1,3 @@
-
 <div class="bg-white rounded p-3">
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

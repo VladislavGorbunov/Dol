@@ -136,7 +136,7 @@ a {
 }
 
 .btn-booking, .btn-add-review-form {
-    background: #3dc980 url(/public/theme/img/filter-bg.png) center;
+    background: #3dc980;
     border: 1px solid #3dc980;
     color: #fff;
     border-radius: 5px;
@@ -147,7 +147,7 @@ a {
 
 .btn-booking:hover, .btn-add-review-form:hover {
     border: 1px solid #3dc980;
-    color: #3dc980 url(/public/theme/img/filter-bg.png) center;
+    color: #3dc980;
     border-radius: 5px;
     padding: 13px 20px;
     font-size: 16px;
@@ -192,8 +192,8 @@ a {
 .btn-reg {
     position: relative;
     color: #e8ece8;
-    background: #3dc980 url(/public/theme/img/filter-bg.png) center;
-    border: 1px solid #3dc980;
+    border: 1px solid #385bd7;
+    background: #385bd7;
     border-radius: 5px;
     padding: 11px 25px 11px 35px;
     height: 45px;
@@ -219,10 +219,9 @@ a {
     width: 10px;
     height: 10px;
     border-radius: 20px;
-    background:#55e97a;
+    background:#fff;
     left: 16px;
     top: 17px;
-    filter: blur(2px);
     transition: 1.5s;
     animation-name: marker-anim;
     animation-duration: 2s;
@@ -232,7 +231,7 @@ a {
 
 @keyframes marker-anim {
     from {
-      opacity: 0.7;
+      opacity: 1;
       filter: blur(0px);
     }
     to {
@@ -268,7 +267,7 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
+    background: #3dc980;
     border: 1px solid #3dc980;
     border-radius: 5px;
     padding: 10px 20px;
@@ -279,7 +278,7 @@ a {
 .btn-detailed {
     position: relative;
     color: #fff;
-    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
+    background: #3dc980;
     border-radius: 5px;
     padding: 12px 20px;
     font-size: 15px;
@@ -287,7 +286,7 @@ a {
 
 
 .btn-detailed:hover {
-    background: #40d387 url(/public/theme/img/btn-bg.png) center;
+    background: #40d387;
     color: #fff;
     
 }
@@ -363,13 +362,21 @@ a {
 .filter-block {
     display: block;
     position: relative;
-    background: rgba(247, 249, 253, 0.92) url(/public/theme/img/filter-bg.png) center;
+    background: rgba(247, 249, 253, 0.85) url(/public/theme/img/filter-bg.png) center;
     background-size: auto;
     max-width: 1200px;
+    
     border-radius: 10px;
     padding: 30px 40px 30px 40px;
     z-index: 2;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+}
+
+.box-shadow {
+    background-color: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
 }
 
 #region_msg {
@@ -386,9 +393,9 @@ a {
     margin-top: 5px;
     margin-bottom: 5px;
     border: 0px solid #d9dee7;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #7a7a7a;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #383838;
+    border-radius: 8px;
 }
 
 .filter-block .form-select:hover {
@@ -405,14 +412,14 @@ a {
 
 .filter-block .btn {
     display: block;
-    background: #3dc980 url(/public/theme/img/btn-bg.png) center;
+    background: #3dc980;
     border: none;
     height: 52px;
     padding: 15px 30px;
     font-size: 15px;
     margin-top: 0px;
     font-weight: 500;
-    border-radius: 5px;
+    border-radius: 8px;
     
 }
 
