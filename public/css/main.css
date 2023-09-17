@@ -3,14 +3,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 
+@font-face {
+    font-family: "CoFoSans"; 
+    src: url("/public/fonts/CoFoSans-Bold/CoFoSansMedium.ttf"); 
+    
+} 
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px !important;
-    font-weight: 400;
     color: #222;
     overflow-x: hidden;
     background: #f7f9fd;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    -moz-osx-font-smoothing: subpixel-antialiased !important;
 }
+
+
 
 .container {
     position: relative;
@@ -162,7 +171,7 @@ a {
     padding: 11px 15px;
     height: 45px;
     font-size: 14px;
-    font-weight: 400;
+    font-family: 'CoFoSans';
     transition: 1s;
 }
 
@@ -198,7 +207,9 @@ a {
     padding: 11px 25px 11px 35px;
     height: 45px;
     transition: .5s;
+    font-family: 'CoFoSans';
     font-size: 14px;
+    font-weight: 500;
     
 }
 
@@ -418,7 +429,7 @@ a {
     padding: 15px 30px;
     font-size: 15px;
     margin-top: 0px;
-    font-weight: 500;
+    font-family: 'CoFoSans';
     border-radius: 8px;
     
 }
