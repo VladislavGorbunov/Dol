@@ -3,6 +3,9 @@ let region = document.getElementById("region");
 let season = document.getElementById("season");
 let type = document.getElementById("type");
 let age = document.getElementById("age");
+let maxPrice = document.getElementById("max_price");
+
+console.log(maxPrice.value)
 
 const search_btn = document.getElementById("search");
 
@@ -34,8 +37,17 @@ addEventListener("change", () => {
         url += '/' + age.value;
         document.title += age.selectedOptions[0].text;
     } else {
+        url += '/age-all';
+    }
+
+    if (maxPrice.value) {
+        url += '/' + maxPrice.value;
+        document.title += maxPrice.selectedOptions[0].text;
+    } else {
         url += '';
     }
+
+    
 
 });
 

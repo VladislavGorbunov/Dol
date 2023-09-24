@@ -67,7 +67,7 @@ class Site extends BaseController
         return view('site/login');
     }
 
-    public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null)
+    public function FilterCamp($region_slug = null, $type = null, $season = null, $age = null, $max_price = null)
     {
         $pager = service('pager');
 
@@ -86,7 +86,7 @@ class Site extends BaseController
             $this->error404();
         } else {
             // region_filter_select для установки selected в фильтре
-            $data['region_filter_select'] = $region['title'];
+            //$data['region_filter_select'] = $region['title'];
         }
         
         // Проверка существует ли такой тип в БД
@@ -96,7 +96,7 @@ class Site extends BaseController
             } else {
                 $type = $types['types_id'];
                 // type_filter_select для установки selected в фильтре
-                $data['type_filter_select'] = $types['title'];
+                //$data['type_filter_select'] = $types['title'];
             } 
         } else {
             $type = null;
@@ -109,7 +109,7 @@ class Site extends BaseController
             } else {
                 $season = $seasons['seasons_id'];
                 // season_filter_select для установки selected в фильтре
-                $data['season_filter_select'] = $seasons['title'];
+                //$data['season_filter_select'] = $seasons['title'];
             }
            
         } else {
@@ -124,24 +124,29 @@ class Site extends BaseController
 
         $kol = 10;  //количество записей для вывода на страницу
         $art = ($page * $kol) - $kol; // определяем, с какой записи нам выводить
-
-        $camps_data = $this->CampsModel->getCamps($region_id, $type, $season, $age, $art, $kol);
+        if ($age == 'age-all') $age = null;
+        $camps_data = $this->CampsModel->getCamps($region_id, $type, $season, $age, $art, $kol, $max_price);
+        $data['prices'][] = $this->ShiftsModel->getMinPrice($region_id);
+        $data['prices'][] = $this->ShiftsModel->getMaxPrice($region_id);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
-      
+        // echo '<pre>';
+        // var_dump($camps);
+        // echo '</pre>';
         $total = $camps_data['count_row']; // Получаем кол-во записей
-        
+        $data['count_camp'] = $total;
         $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('shifts');
+        // $db      = \Config\Database::connect();
+        // $builder = $db->table('shifts');
 
         // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
 
-            $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
-            $query = $builder->get();
+            // $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
+            // $query = $builder->get();
+            // $min_price_shift = $query->getResultArray();
 
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],
@@ -155,7 +160,7 @@ class Site extends BaseController
                 'count_reviews' => $camps[$i]['count_reviews'],
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
-                'min_price' => $query->getResultArray(),
+                'min_price' => $camps[$i]['shift_min_price'],
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
                 'free_transfer' => $camps[$i]['free_transfer'],
@@ -177,7 +182,7 @@ class Site extends BaseController
             
         } 
 
-        if (empty($types)) $title .= 'Детские лагеря ';
+        if (empty($types)) $title .= 'Путёвки в детские лагеря ';
 
         if (!empty($region['title'])) $title .= $region['title_in'];
        

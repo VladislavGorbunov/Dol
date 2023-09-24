@@ -35,14 +35,14 @@ class CampsModel extends Model
         
     ];
 
-    public function getCamps($region, $type, $season, $age, $art, $kol) 
+    public function getCamps($region, $type, $season, $age, $art, $kol, $max_price) 
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, COUNT(reviews.camps_id) count_reviews');
-        //$builder->join('shifts', 'shifts.camps_id = camps.camps_id');
+        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews');
+    
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
-        //$builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');
+        $builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');
         if ($type) $builder->join('camps_types', 'camps_types.camps_id = camps.camps_id', 'left');
         if ($type) $builder->join('types', 'camps_types.types_id = types.types_id', 'left');
         
@@ -50,7 +50,7 @@ class CampsModel extends Model
 
         $builder->where('camps.cities_id', $region);
 
-        if ($type) $builder->where('camps_types.types_id', $type); // id выбранного типа лагеря
+        if ($type) $builder->where('camps_types.types_id', $type); 
         
         if ($season) $builder->where('camps_seasons.seasons_id', $season);
         
@@ -59,12 +59,16 @@ class CampsModel extends Model
             $builder->where('camps.max_age >=', $age); // максимальный возраст
         }
 
-        $builder->groupBy(['camps.camps_id', 'reviews.camps_id']); // Групировка чтобы не было дублей
+       if ($max_price) $builder->where('shifts.price <=', $max_price);
+
+        $builder->groupBy(['camps.camps_id', 'reviews.camps_id']); 
         
+       // $builder->orderBy('shift_min_price', 'ASC');
         $builder->orderBy('avg_rating', 'DESC');
         $builder->orderBy('count_reviews', 'DESC');
         
-        $this->count_rows = $builder->countAllResults(false); // Количество записей
+        
+        $this->count_rows = $builder->countAllResults(false); 
 
         return $data = [
             'builder' => $builder->get($kol, $art),

@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Config\Services;
 use App\Models\Cities;
 use App\Models\RepresentativesModel;
 
@@ -11,10 +10,12 @@ class Registration extends BaseController
     public $CitiesModel;
     public $RepresentativesModel;
     public $email;
+    protected $validation;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
+
         $this->CitiesModel = new Cities();
         $this->RepresentativesModel = new RepresentativesModel();
         session_start();

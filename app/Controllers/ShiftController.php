@@ -48,10 +48,10 @@ class ShiftController extends BaseController
         $data['price'] = $this->request->getVar('price-shift');
         $data['camps_id'] = $camp_id;
 
-
         if ($data_camp = $this->CampsModel->where('camps_id', $data['camps_id'])->first()) {
-        
+            $data['region_id'] = $data_camp['cities_id'];
             if ($data_camp['representatives_id'] == $session->get('id')) {
+
                 if ($this->ShiftsModel->insert($data)) {
                     $session->setFlashdata('msg-success', 'Смена для лагеря ' . $data_camp['title'] . ' добавлена.');
                 } else {

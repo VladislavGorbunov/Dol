@@ -54,8 +54,7 @@
                   <div class="d-flex justify-content-center">
                      <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>
                      <a class="btn btn-reg m-1" href="/registration">
-                        <div class="marker"></div>
-                        Добавить лагерь
+                        + Добавить лагерь
                      </a>
                   </div>
                </div>

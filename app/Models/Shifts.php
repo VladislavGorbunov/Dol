@@ -11,6 +11,7 @@ class Shifts extends Model
 
     protected $allowedFields = [
         'camps_id',
+        'region_id',
         'title',
         'price',
         'start_date',
@@ -20,6 +21,24 @@ class Shifts extends Model
     protected function initialize()
     {
         
+    }
+
+    public function getMinPrice($id_region)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('shifts');
+        $builder->select('MIN(shifts.price) min');
+        $builder->where('region_id', $id_region);
+        return $builder->get()->getRowArray();
+    }
+
+    public function getMaxPrice($id_region)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('shifts');
+        $builder->select('MAX(shifts.price) max');
+        $builder->where('region_id', $id_region);
+        return $builder->get()->getRowArray();
     }
     
     

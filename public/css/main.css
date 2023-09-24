@@ -106,7 +106,7 @@ a {
 }
 
 .shadows {
-    box-shadow: 0px 2px 25px 0px rgba(34, 60, 80, 0.05);
+    box-shadow: 0px 2px 20px -15px rgba(28, 32, 36, 0.2);
 }
 
 .best {
@@ -123,11 +123,18 @@ a {
 }
 
 .top-nav {
-    background: #f7f9fd;
-    padding: 6px 0;
-    border-bottom: 1px solid #f3f5f8;
+    background: #fff;
+}
+
+.top-nav .container{
+    background: none;
+    padding: 7px 2px;
     color: #b1b0c0;
     font-size: 13px;
+}
+
+.top-nav .container {
+    border-bottom: 1px solid #f4f6fb;
 }
 
 .top-nav a:hover {
@@ -165,10 +172,10 @@ a {
 
 
 .btn-auth {
-    color: #222;
-    border: 1px solid #d6dbe0;
+    color: #385bd7;
+    background-color: #f4f6fb;
     border-radius: 5px;
-    padding: 11px 15px;
+    padding: 11px 20px;
     height: 45px;
     font-size: 14px;
     font-family: 'CoFoSans';
@@ -177,13 +184,13 @@ a {
 
 .btn-auth:hover {
     color: #222;
-    border: 1px solid #222;
+    background-color: #f4f6fb;
     transition: 1s;
 }
 
 .btn-auth .las {
     transition: 1s;
-    color:#37b674;
+    color:#385bd7;
 }
 
 .btn-auth:hover .las {
@@ -201,10 +208,9 @@ a {
 .btn-reg {
     position: relative;
     color: #e8ece8;
-    border: 1px solid #385bd7;
     background: #385bd7;
     border-radius: 5px;
-    padding: 11px 25px 11px 35px;
+    padding: 11px 25px;
     height: 45px;
     transition: .5s;
     font-family: 'CoFoSans';
@@ -214,15 +220,15 @@ a {
 }
 
 .btn-reg:hover {
-    color: #222;
-    background-color: #fff;
-    border: 1px solid #d6dbe0;
+    color: #385bd7;
     transition: .5s;
+    background-color: #f4f6fb;
 }
 
 .btn-reg:hover .marker {
     filter: blur(0px);
     transition: 1.5s;
+    background-color: #385bd7;
 }
 
 .btn-reg .marker {
@@ -230,7 +236,7 @@ a {
     width: 10px;
     height: 10px;
     border-radius: 20px;
-    background:#fff;
+    background:#f4f6fb;
     left: 16px;
     top: 17px;
     transition: 1.5s;
@@ -316,7 +322,7 @@ a {
     display: block;
     width: 100%;
     min-height: 520px;
-    background: url(/../public/theme/img/header2.jpg) center bottom;
+    background: url(/../public/theme/img/header-blur2.jpg) center bottom;
     background-size: cover;
     padding: 80px 0;
     margin-bottom: 50px;
@@ -325,8 +331,8 @@ a {
 
 .header-image-short {
     width: 100%;
-    min-height: 390px;
-    background: #111 url(/../public/theme/img/header2.jpg) center bottom;
+    min-height: 420px;
+    background: #111 url(/../public/theme/img/header-blur2.jpg) center bottom;
     background-size: cover;
     padding: 20px 0;
     margin-bottom: 40px;
@@ -335,7 +341,7 @@ a {
 .header-image-camp {
     width: 100%;
     min-height: 290px;
-    background: #111 url(/../public/theme/img/header2.jpg) center bottom;
+    background: #111 url(/../public/theme/img/header-blur2.jpg) center bottom;
     background-size: cover;
     padding: 20px 0;
     margin-bottom: 40px;
@@ -373,10 +379,8 @@ a {
 .filter-block {
     display: block;
     position: relative;
-    background: rgba(247, 249, 253, 0.85) url(/public/theme/img/filter-bg.png) center;
+    background: rgba(247, 249, 253, 0.95) url(/public/theme/img/filter-bg.png) center;
     background-size: auto;
-    max-width: 1200px;
-    
     border-radius: 10px;
     padding: 30px 40px 30px 40px;
     z-index: 2;
@@ -385,7 +389,7 @@ a {
 
 .box-shadow {
     background-color: rgba(255,255,255,0.05);
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
 }
@@ -406,7 +410,7 @@ a {
     border: 0px solid #d9dee7;
     background-color: rgba(255, 255, 255, 0.8);
     color: #383838;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .filter-block .form-select:hover {
@@ -417,7 +421,7 @@ a {
 
 .filter-block .form-select option {
     color: #111;
-
+    
 }
 
 
@@ -430,7 +434,7 @@ a {
     font-size: 15px;
     margin-top: 0px;
     font-family: 'CoFoSans';
-    border-radius: 8px;
+    border-radius: 5px;
     
 }
 
@@ -565,6 +569,29 @@ a {
 .city-block-link:hover {
     color: #2955c8;
     transition: .5s;
+}
+
+.question {
+    position: absolute;
+    right: 15px;
+}
+
+
+.question-text {
+    display: none;
+    position: absolute;
+    right: 20px;
+    width: 200px;
+    background-color: #fff;
+}
+
+.question:hover .question-text{
+    display: block;
+}
+
+
+.question i{
+    font-size: 21px;
 }
 
 footer {

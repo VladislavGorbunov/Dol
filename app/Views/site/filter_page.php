@@ -1,9 +1,24 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-4 mb-2"><div class="card p-3 shadows">
+                    <img src="/public/theme/img/search-count.png" width="48" class="d-block mx-auto mb-2">
+                    <span class="text-center"><?= 'Подобрано лагерей для вас: <br><b>' . $count_camp; ?></b></span>
+                </div></div>
+                <div class="col-lg-4 mb-2"><div class="card p-3 shadows">
+                    <img src="/public/theme/img/down-price.png" width="48" class="d-block mx-auto mb-2">
+                    <span class="text-center"><?= 'Минимальная стоимость путёвки в регионе: <br><b>' . $min = ($prices[0]['min']) ? number_format($prices[0]['min'], '0', ',', ' ') . ' руб.' : '-'; ?></b></span>
+                </div></div>
+                <div class="col-lg-4 mb-2"><div class="card p-3 shadows">
+                    <img src="/public/theme/img/up-price.png" width="48" class="d-block mx-auto mb-2">
+                    <span class="text-center"><?= 'Максимальная стоимость путёвки в регионе: <br><b>' . $max = ($prices[1]['max']) ? number_format($prices[1]['max'], '0', ',', ' ') . ' руб.' : '-'; ?></b></span>
+                </div></div>
+               
+            </div>
 
-            <p class="mb-3">Подобрано лагерей: <?= $total ?></p>
             
+
             <?php
             
                 if (!empty($camps)) {
@@ -25,7 +40,7 @@
                          }
 
 
-                        echo '<div class="col-lg-12 mb-4">
+                        echo '<div class="col-lg-12 mb-4 mt-4">
                               <div class="card p-4 shadows">
                               <div class="row"> <!-- Общий row для 3х блоков -->
                                     <div class="col-lg-3 col-12 mb-3">';
@@ -65,16 +80,16 @@
                             ';
 
                             if (!empty($camp['video_link'])) {
-                                $video_link = '<p><a href="/camp/'.$camp['slug'].'/#modal-video" target="_blank"><span style="color:#3ac47d"><i class="lab la-youtube"></i> Смотреть видео о лагере</span></a></p>';
+                                $video_link = '<p><a href="/camp/'.$camp['slug'].'/#modal-video" target="_blank"><span style="color:#385bd7"><i class="lab la-youtube"></i> Смотреть видео о лагере</span></a></p>';
                                 
                             } else {
                                 $video_link = null;
                             }
 
-                            if ($camp['min_price'][0]['price']) {
-                                $price  = number_format($camp['min_price'][0]['price'], '0', ',', ' ');
+                            if (!empty($camp['min_price'])) {
+                                $price  = number_format($camp['min_price'], '0', ',', ' ');
                                 echo '<p class="price"><b>от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></b></p>
-                                <p style="font-size: 13px;"><span style="color:#3ac47d">'. $free_transfer .'</span></p>
+                                <p style="font-size: 13px;"><span style="color:#385bd7">'. $free_transfer .'</span></p>
                                 '.$video_link.'
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';

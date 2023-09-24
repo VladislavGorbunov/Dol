@@ -31,7 +31,7 @@
 
     <header>
 
-    <?= $this->include('layouts/top-menu') ?>
+        <?= $this->include('layouts/top-menu') ?>
 
         <nav class="navbar navbar-expand-lg py-3">
 
@@ -41,7 +41,8 @@
                     <img src="/public/theme/img/logo.png" width="200px">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -75,7 +76,7 @@
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>
                         <a class="btn btn-reg m-1" href="/registration">
-                            <div class="marker"></div>Добавить лагерь
+                            + Добавить лагерь
                         </a>
                     </div>
 
@@ -103,86 +104,102 @@
                 </div>
             </div>
 
-            <div class="box-shadow col-lg-11 d-block mx-auto mt-2">
-            <div class="filter-block col-lg-12 d-block mx-auto">
-                <form method="post">
-                    <div class="row">
-                        <div class="col-lg g-1">
+            <div class="box-shadow col-lg-12 d-block mx-auto mt-2">
+                <div class="filter-block col-lg-12 d-block mx-auto">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-lg g-1">
+                            
+                                <select id="region" class="form-select form-select-lg mt-0" name="region">
 
-                            <select id="region" class="form-select form-select-lg mt-0" name="region">
-
-                                <option selected disabled value="">Выберите регион</option>
-                                <?php 
+                                    <option selected disabled value="">Выберите регион</option>
+                                    <?php 
 
                                     foreach ($cities as $key => $value) {
 
                                         echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
                                     }
                                 ?>
-                            </select>
-                            <div id="region_msg"></div>
-                        </div>
+                                </select>
+                                <div id="region_msg"></div>
+                            </div>
 
-                        <div class="col-lg g-1">
-
-                            <select id="type" class="form-select form-select-lg mt-0" name="type">
-                                <option selected value="type-all">Любой тип лагеря</option>
-                                <?php 
+                            <div class="col-lg g-1">
+                            
+                                <select id="type" class="form-select form-select-lg mt-0" name="type">
+                                    <option selected value="type-all">Любой тип лагеря</option>
+                                    <?php 
                                     foreach ($types as $key => $type) {
                                         echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
                                     }
                                 ?>
-                            </select>
-                        </div>
+                                </select>
+                            </div>
 
-                        <div class="col-lg g-1">
-
-                            <select id="season" class="form-select form-select-lg mt-0" name="season">
-                                <option selected value="season-all">Любой сезон</option>
-                                <?php 
+                            <div class="col-lg g-1">
+                            
+                                <select id="season" class="form-select form-select-lg mt-0" name="season">
+                                    <option selected value="season-all">Любой сезон</option>
+                                    <?php 
                                     foreach ($seasons as $key => $season) {
                                         echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
                                     }
                                 ?>
-                            </select>
+                                </select>
+                            </div>
+
+                            <div class="col-lg g-1">
+                            
+                                <select id="age" class="form-select form-select-lg mt-0" name="age">
+                                    <option selected value="age-all">Любой возраст</option>
+                                    <option value="3">3 года</option>
+                                    <option value="4">4 года</option>
+                                    <option value="5">5 лет</option>
+                                    <option value="6">6 лет</option>
+                                    <option value="7">7 лет</option>
+                                    <option value="8">8 лет</option>
+                                    <option value="9">9 лет</option>
+                                    <option value="10">10 лет</option>
+                                    <option value="11">11 лет</option>
+                                    <option value="12">12 лет</option>
+                                    <option value="13">13 лет</option>
+                                    <option value="14">14 лет</option>
+                                    <option value="15">15 лет</option>
+                                    <option value="16">16 лет</option>
+                                    <option value="17">17 лет</option>
+                                    <option value="18">18 лет</option>
+                                    <option value="19">19 лет</option>
+                                    <option value="20">20 лет</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg g-1">
+                                
+                                <select id="max_price" class="form-select form-select-lg mt-0" name="max-price">
+                                    <option selected value="">Любая цена</option>
+                                    <option value="30000">до 30000 руб.</option>
+                                    <option value="40000">до 40000 руб.</option>
+                                    <option value="50000">до 50000 руб.</option>
+                                    <option value="60000">до 60000 руб.</option>
+                                    <option value="3">до 70000 руб.</option>
+                                    <option value="3">до 80000 руб.</option>
+                                    <option value="3">до 90000 руб.</option>
+                                    <option value="3">до 100000 руб.</option>
+                                   
+                                </select>
+                            </div>
+
+                        
+                            <div class="col-lg-auto g-1">
+                                <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i
+                                        class="las la-rocket"></i> Найти лагеря</div>
+                            </div>
+
                         </div>
+                    </form>
 
-                        <div class="col-lg g-1">
-
-                            <select id="age" class="form-select form-select-lg mt-0" name="age">
-                                <option selected disabled value="">Любой возраст</option>
-                                <option value="3">3 года</option>
-                                <option value="4">4 года</option>
-                                <option value="5">5 лет</option>
-                                <option value="6">6 лет</option>
-                                <option value="7">7 лет</option>
-                                <option value="8">8 лет</option>
-                                <option value="9">9 лет</option>
-                                <option value="10">10 лет</option>
-                                <option value="11">11 лет</option>
-                                <option value="12">12 лет</option>
-                                <option value="13">13 лет</option>
-                                <option value="14">14 лет</option>
-                                <option value="15">15 лет</option>
-                                <option value="16">16 лет</option>
-                                <option value="17">17 лет</option>
-                                <option value="18">18 лет</option>
-                                <option value="19">19 лет</option>
-                                <option value="20">20 лет</option>
-                            </select>
-                        </div>
-
-
-
-                        <div class="col-lg-auto g-1">
-                            <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
-                        </div>
-
-                    </div>
-                </form>
-
+                </div>
             </div>
-        </div></div>
+        </div>
 
     </div>
-
