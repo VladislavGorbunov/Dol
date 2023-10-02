@@ -33,8 +33,9 @@
 
         <?= $this->include('layouts/top-menu') ?>
 
-        <nav class="navbar navbar-expand-lg py-3">
-
+  
+        
+        <nav id="navBarTop" class="navbar navbar-expand-lg py-3">
             <div class="container">
 
                 <a class="navbar-brand" href="/">
@@ -84,13 +85,15 @@
                 </div>
             </div>
         </nav>
+        
 
+        
 
     </header>
 
 
 
-    <div class="header-image d-flex align-items-center justify-content-center">
+    <div id="header-image" class="header-image d-flex align-items-center justify-content-center">
         <div class="container">
 
             <div class="row">
@@ -200,3 +203,18 @@
         </div>
 
     </div>
+
+    <script>
+            const navBarTop = document.getElementById('navBarTop')
+            const headerBlock = document.getElementById('header-image')
+            console.log(navBarTop)
+            window.addEventListener('scroll', function() {
+                if (pageYOffset > 200) {
+                    navBarTop.classList.add("fixed-top");
+                    headerBlock.style.marginTop = 100 + 'px'
+                } else {
+                    navBarTop.classList.remove("fixed-top");
+                    headerBlock.style.marginTop = 0 + 'px'
+                }
+            });
+        </script>
