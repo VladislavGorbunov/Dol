@@ -109,23 +109,20 @@
                     <form method="post">
                         <div class="row">
                             <div class="col-lg g-1">
-                            
+                                <label class="form-label"><small>Регион поиска:</small></label>
                                 <select id="region" class="form-select form-select-lg mt-0" name="region">
 
                                     <option selected disabled value="">Выберите регион</option>
-                                    <?php 
-
-                                    foreach ($cities as $key => $value) {
-
-                                        echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
-                                    }
-                                ?>
+                                    
+                                    <?php foreach ($cities as $key => $value) : ?>
+                                        <option value="<?= $value['slug'] ?>"><?= $value['title'] ?></option>';
+                                    <?php endforeach ?>
                                 </select>
                                 <div id="region_msg"></div>
                             </div>
 
                             <div class="col-lg g-1">
-                            
+                                <label class="form-label"><small>Тематика лагеря:</small></label>
                                 <select id="type" class="form-select form-select-lg mt-0" name="type">
                                     <option selected value="type-all">Любой тип лагеря</option>
                                     <?php 
@@ -137,7 +134,7 @@
                             </div>
 
                             <div class="col-lg g-1">
-                            
+                            <label class="form-label"><small>Сезон смен:</small></label>
                                 <select id="season" class="form-select form-select-lg mt-0" name="season">
                                     <option selected value="season-all">Любой сезон</option>
                                     <?php 
@@ -149,7 +146,7 @@
                             </div>
 
                             <div class="col-lg g-1">
-                            
+                            <label class="form-label"><small>Возраст ребёнка:</small></label>
                                 <select id="age" class="form-select form-select-lg mt-0" name="age">
                                     <option selected value="age-all">Любой возраст</option>
                                     <option value="3">3 года</option>
@@ -174,7 +171,7 @@
                             </div>
 
                             <div class="col-lg g-1">
-                                
+                            <label class="form-label"><small>Максимальная стоимость:</small></label>
                                 <select id="max_price" class="form-select form-select-lg mt-0" name="max-price">
                                     <option selected value="">Любая цена</option>
                                     <option value="30000">до 30000 руб.</option>

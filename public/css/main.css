@@ -404,7 +404,7 @@ a {
 .filter-block .form-select {
     display: block;
     font-size: 15px;
-    padding: 15px 25px 15px 15px;
+    padding: 24px 15px 10px 15px;
     margin-top: 5px;
     margin-bottom: 5px;
     border: 0px solid #d9dee7;
@@ -429,8 +429,8 @@ a {
     display: block;
     background: #3dc980;
     border: none;
-    height: 52px;
-    padding: 15px 30px;
+    height: 55px;
+    padding: 17px 30px;
     font-size: 15px;
     margin-top: 0px;
     font-family: 'CoFoSans';
@@ -499,7 +499,14 @@ a {
 }
 
 .form-label {
-    color: #555;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 15px;
+    background: #fff;
+    color: #68686d;
+    margin-bottom: 3px;
+    font-size: 13px;
+    
 }
 
 .reviews-link {

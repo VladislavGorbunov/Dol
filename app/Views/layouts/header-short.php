@@ -89,6 +89,7 @@
                            $age_select = (!empty($uri[5])) ? $uri[5] : null;
                            $maxPrice_select = (!empty($uri[6])) ? $uri[6] : null;
                            ?>
+                           <label class="form-label"><small>Регион поиска:</small></label>
                                 <select id="region" class="form-select form-select-lg mt-0" name="region">
                                     <option disabled value="">Выберите регион</option>
                                     <?php 
@@ -104,6 +105,7 @@
                                 <div id="region_msg"></div>
                             </div>
                             <div class="col-lg g-1">
+                            <label class="form-label"><small>Тематика лагеря:</small></label>
                                 <select id="type" class="form-select form-select-lg mt-0" name="type">
                                     <option value="type-all">Любой тип лагеря</option>
                                     <?php 
@@ -118,6 +120,7 @@
                                 </select>
                             </div>
                             <div class="col-lg g-1">
+                            <label class="form-label"><small>Сезон смен:</small></label>
                                 <select id="season" class="form-select form-select-lg mt-0" name="season">
                                     <option selected value="season-all">Любой сезон</option>
                                     <?php 
@@ -132,6 +135,7 @@
                                 </select>
                             </div>
                             <div class="col-lg g-1">
+                            <label class="form-label"><small>Возраст ребёнка:</small></label>
                                 <select id="age" class="form-select form-select-lg mt-0" name="age">
                                     <option selected value="age-all">Любой возраст</option>
 
@@ -150,7 +154,7 @@
                             </div>
 
                             <div class="col-lg g-1">
-
+                            <label class="form-label"><small>Максимальная стоимость:</small></label>
                                 <select id="max_price" class="form-select form-select-lg mt-0" name="max-price">
                                     <option selected value="">Любая цена</option>
 

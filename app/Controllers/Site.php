@@ -82,12 +82,8 @@ class Site extends BaseController
         $filter['season'] = $season;
         $filter['age'] = $age;
 
-        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) {
-            $this->error404();
-        } else {
-            // region_filter_select для установки selected в фильтре
-            //$data['region_filter_select'] = $region['title'];
-        }
+        if (!$region = $this->Cities->where('slug', $filter['region'])->first()) $this->error404();
+        
         
         // Проверка существует ли такой тип в БД
         if ($filter['type'] != 'type-all') {
@@ -95,8 +91,6 @@ class Site extends BaseController
                 $this->error404();
             } else {
                 $type = $types['types_id'];
-                // type_filter_select для установки selected в фильтре
-                //$data['type_filter_select'] = $types['title'];
             } 
         } else {
             $type = null;
@@ -108,8 +102,6 @@ class Site extends BaseController
                 $this->error404();
             } else {
                 $season = $seasons['seasons_id'];
-                // season_filter_select для установки selected в фильтре
-                //$data['season_filter_select'] = $seasons['title'];
             }
            
         } else {
@@ -170,21 +162,16 @@ class Site extends BaseController
         
         $title = null;
 
-        if (!empty($seasons['title'])) $title .= $seasons['title_in'] . ' '; 
-        
-        if (!empty($types['title'])) {
-            if (!empty($seasons['title'])) {
-                $fc = mb_strtolower(mb_substr($types['tag_title'], 0, 1));
-                $title .= $fc . mb_substr($types['tag_title'], 1) . ' ';
-            } else {
-                $title .= $types['tag_title'] . ' ';
-            }
-            
-        } 
-
-        if (empty($types)) $title .= 'Путёвки в детские лагеря ';
-
-        if (!empty($region['title'])) $title .= $region['title_in'];
+        // Генерируем title
+        if (!empty($region) && empty($types) && empty($season)) { // Только регион
+            $title .= 'Путёвки в детские лагеря ' . $region['title_in'];
+        } elseif (!empty($region) && !empty($types) && empty($season)) { // Регион и тип лагеря
+            $title .= 'Путёвки в ' . $types['title'] .' '. $region['title_in'];
+        } elseif (!empty($region) && !empty($season) && empty($types)) { // Регион и сезон
+            $title .= 'Путёвки в ' . $seasons['title_in'] . ' лагеря ' . $region['title_in'];
+        } elseif (!empty($region) && !empty($types) && !empty($season)) { // Регион, тип и сезон
+            $title .= 'Регион тип и сезон';
+        }
        
         $data['title'] = $title;
         $data['pager_links'] = $pager_links;
