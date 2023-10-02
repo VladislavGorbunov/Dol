@@ -183,3 +183,22 @@
         </div>
     </div>
     </div>
+
+
+    <script>
+            const navBarTop = document.querySelector('.navbar')
+            const headerBlock = document.querySelector('.header-image-short')
+            console.log(navBarTop)
+            window.addEventListener('scroll', function() {
+                if (pageYOffset > 300) {
+                    navBarTop.classList.add("fixed-top");
+                    navBarTop.style.background = "rgba(255,255,255,0.85)"
+                    navBarTop.style.boxShadow = "0px 2px 15px -10px rgba(0,0,0,0.2)"
+                    headerBlock.style.marginTop = 90 + 'px'
+                } else {
+                    navBarTop.classList.remove("fixed-top")
+                    navBarTop.style.background = "rgba(255,255,255,1)"
+                    headerBlock.style.marginTop = 0 + 'px'
+                }
+            });
+        </script>
