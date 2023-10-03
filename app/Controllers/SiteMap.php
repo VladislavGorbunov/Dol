@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Config\Services;
-use App\Models\Camps;
+use App\Models\CampsModel;
 use App\Models\Cities;
 use App\Models\Types;
 use App\Models\Seasons;
@@ -22,7 +22,7 @@ class SiteMap extends BaseController
         global $config;
         $session = \Config\Services::session($config);
 
-        $this->Camps = new Camps();
+        $this->Camps = new CampsModel();
         $this->Cities = new Cities();
         $this->Types = new Types();
         $this->Seasons = new Seasons();
