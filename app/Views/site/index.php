@@ -11,7 +11,7 @@
 
         <div class="col-lg-3">
             <img src="/public/theme/img/handshake.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Договор на прямую с лагерем</b></h6>
+            <h6 class="text-center mt-2"><b>Договор напрямую с лагерем</b></h6>
             <p class="text-center">Вы заключаете договор и оплачиваете путёвку напрямую лагерю.</p>
         </div>
 
