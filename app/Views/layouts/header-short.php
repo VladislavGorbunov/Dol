@@ -93,14 +93,14 @@
                                 <select id="region" class="form-select form-select-lg mt-0" name="region">
                                     <option disabled value="">Выберите регион</option>
                                     <?php 
-                              foreach ($cities as $key => $value) {
-                                  if ($region_select == $value['slug']) {
-                                      echo '<option selected value="'. $value['slug'] .'">' . $value['title'] . '</option>';
-                                  } else {
-                                      echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
-                                  }
-                              }
-                              ?>
+                                        foreach ($cities as $key => $value) {
+                                            if ($region_select == $value['slug']) {
+                                                echo '<option selected value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $value['slug'] .'">' . $value['title'] . '</option>';
+                                            }
+                                        }
+                                    ?>
                                 </select>
                                 <div id="region_msg"></div>
                             </div>
@@ -109,14 +109,14 @@
                                 <select id="type" class="form-select form-select-lg mt-0" name="type">
                                     <option value="type-all">Любой тип лагеря</option>
                                     <?php 
-                              foreach ($types as $key => $type) {
-                                  if ($type_select == $type['slug']) {
-                                      echo '<option selected value="'. $type['slug'] .'">' . $type['title'] . '</option>';
-                                  } else {
-                                      echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
-                                  }
-                              }
-                              ?>
+                                        foreach ($types as $key => $type) {
+                                            if ($type_select == $type['slug']) {
+                                                echo '<option selected value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-lg g-1">
@@ -124,14 +124,14 @@
                                 <select id="season" class="form-select form-select-lg mt-0" name="season">
                                     <option selected value="season-all">Любой сезон</option>
                                     <?php 
-                              foreach ($seasons as $key => $season) {
-                                  if ($season_select == $season['slug']) {
-                                      echo '<option selected value="'. $season['slug'] .'">' . $season['title'] . '</option>';
-                                  } else {
-                                      echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
-                                  }
-                              }
-                              ?>
+                                        foreach ($seasons as $key => $season) {
+                                            if ($season_select == $season['slug']) {
+                                                echo '<option selected value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                            } else {
+                                                echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-lg g-1">
@@ -185,25 +185,4 @@
     </div>
 
 
-    <script>
-           const navBarTop = document.querySelector('.navbar')
-            const headerBlock = document.querySelector('.header-image-short')
-            console.log(navBarTop)
-            window.addEventListener('scroll', function() {
-                if (pageYOffset > 300) {
-                    navBarTop.classList.add("fixed-top");
-                    navBarTop.style.background = "rgba(255,255,255,0.87)"
-                    navBarTop.style.boxShadow = "0px 2px 15px -10px rgba(0,0,0,0.2)"
-                    navBarTop.style.paddingTop = 0 + 'px'
-                    headerBlock.style.marginTop = 90 + 'px'
-                    navBarTop.classList.remove('py-3')
-                    navBarTop.classList.add('py-2')
-                } else {
-                    navBarTop.classList.remove("fixed-top")
-                    navBarTop.style.background = "rgba(255,255,255,1)"
-                    headerBlock.style.marginTop = 0 + 'px'
-                    navBarTop.classList.remove('py-2')
-                    navBarTop.classList.add('py-3')
-                }
-            });
-        </script>
+    <script src="/public/js/navBarTopShort.js"></script>

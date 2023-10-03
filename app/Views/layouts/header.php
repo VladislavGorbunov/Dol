@@ -33,8 +33,6 @@
 
         <?= $this->include('layouts/top-menu') ?>
 
-  
-        
         <nav id="navBarTop" class="navbar navbar-expand-lg py-3">
             <div class="container">
 
@@ -42,37 +40,19 @@
                     <img src="/public/theme/img/logo.png" width="200px">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
 
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">О проекте</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Наши контакты</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link">Сотрудничество</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link">Отзывы</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link">Оплата</a>
-                        </li>
-
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">О проекте</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Наши контакты</a></li>
+                        <li class="nav-item"><a class="nav-link">Сотрудничество</a></li>
+                        <li class="nav-item"><a class="nav-link">Отзывы</a></li>
+                        <li class="nav-item"><a class="nav-link">Оплата</a></li>
                     </ul>
-
 
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>
@@ -85,10 +65,6 @@
                 </div>
             </div>
         </nav>
-        
-
-        
-
     </header>
 
 
@@ -116,7 +92,7 @@
                                 <select id="region" class="form-select form-select-lg mt-0" name="region">
 
                                     <option selected disabled value="">Выберите регион</option>
-                                    
+
                                     <?php foreach ($cities as $key => $value) : ?>
                                         <option value="<?= $value['slug'] ?>"><?= $value['title'] ?></option>';
                                     <?php endforeach ?>
@@ -128,28 +104,28 @@
                                 <label class="form-label"><small>Тематика лагеря:</small></label>
                                 <select id="type" class="form-select form-select-lg mt-0" name="type">
                                     <option selected value="type-all">Любой тип лагеря</option>
-                                    <?php 
+                                    <?php
                                     foreach ($types as $key => $type) {
-                                        echo '<option value="'. $type['slug'] .'">' . $type['title'] . '</option>';
+                                        echo '<option value="' . $type['slug'] . '">' . $type['title'] . '</option>';
                                     }
-                                ?>
+                                    ?>
                                 </select>
                             </div>
 
                             <div class="col-lg g-1">
-                            <label class="form-label"><small>Сезон смен:</small></label>
+                                <label class="form-label"><small>Сезон смен:</small></label>
                                 <select id="season" class="form-select form-select-lg mt-0" name="season">
                                     <option selected value="season-all">Любой сезон</option>
-                                    <?php 
+                                    <?php
                                     foreach ($seasons as $key => $season) {
-                                        echo '<option value="'. $season['slug'] .'">' . $season['title'] . '</option>';
+                                        echo '<option value="' . $season['slug'] . '">' . $season['title'] . '</option>';
                                     }
-                                ?>
+                                    ?>
                                 </select>
                             </div>
 
                             <div class="col-lg g-1">
-                            <label class="form-label"><small>Возраст ребёнка:</small></label>
+                                <label class="form-label"><small>Возраст ребёнка:</small></label>
                                 <select id="age" class="form-select form-select-lg mt-0" name="age">
                                     <option selected value="age-all">Любой возраст</option>
                                     <option value="3">3 года</option>
@@ -174,7 +150,7 @@
                             </div>
 
                             <div class="col-lg g-1">
-                            <label class="form-label"><small>Максимальная стоимость:</small></label>
+                                <label class="form-label"><small>Максимальная стоимость:</small></label>
                                 <select id="max_price" class="form-select form-select-lg mt-0" name="max-price">
                                     <option selected value="">Любая цена</option>
                                     <option value="30000">до 30000 руб.</option>
@@ -185,14 +161,13 @@
                                     <option value="3">до 80000 руб.</option>
                                     <option value="3">до 90000 руб.</option>
                                     <option value="3">до 100000 руб.</option>
-                                   
+
                                 </select>
                             </div>
 
-                        
+
                             <div class="col-lg-auto g-1">
-                                <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i
-                                        class="las la-rocket"></i> Найти лагеря</div>
+                                <div id="search" class="btn btn-primary btn-lg col-lg-12 d-block mx-auto"><i class="las la-rocket"></i> Найти лагеря</div>
                             </div>
 
                         </div>
@@ -204,25 +179,4 @@
 
     </div>
 
-    <script>
-            const navBarTop = document.querySelector('.navbar')
-            const headerBlock = document.querySelector('.header-image')
-            console.log(navBarTop)
-            window.addEventListener('scroll', function() {
-                if (pageYOffset > 300) {
-                    navBarTop.classList.add("fixed-top");
-                    navBarTop.style.background = "rgba(255,255,255,0.87)"
-                    navBarTop.style.boxShadow = "0px 2px 15px -10px rgba(0,0,0,0.2)"
-                    navBarTop.style.paddingTop = 0 + 'px'
-                    headerBlock.style.marginTop = 90 + 'px'
-                    navBarTop.classList.remove('py-3')
-                    navBarTop.classList.add('py-2')
-                } else {
-                    navBarTop.classList.remove("fixed-top")
-                    navBarTop.style.background = "rgba(255,255,255,1)"
-                    headerBlock.style.marginTop = 0 + 'px'
-                    navBarTop.classList.remove('py-2')
-                    navBarTop.classList.add('py-3')
-                }
-            });
-        </script>
+    <script src="/public/js/navBarTop.js"></script>
