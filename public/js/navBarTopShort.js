@@ -13,6 +13,7 @@ const navBarTop = document.querySelector('.navbar')
                 } else {
                     navBarTop.classList.remove("fixed-top")
                     navBarTop.style.background = "rgba(255,255,255,1)"
+                    navBarTop.style.boxShadow = 'none'
                     headerBlock.style.marginTop = 0 + 'px'
                     navBarTop.classList.remove('py-2')
                     navBarTop.classList.add('py-3')
