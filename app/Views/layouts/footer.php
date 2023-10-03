@@ -93,9 +93,10 @@
     .cookie-block {
       position: fixed;
       display: none;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.9) url(https://wallpapers-all.com/uploads/posts/2017-07/5_leaf.jpg);
+      background-size: cover;
       backdrop-filter: blur(10px);
-      color: #222;
+      color: #fff;
       right: 30px;
       margin-left: 30px;
       bottom: 30px;
@@ -112,6 +113,7 @@
       right: 10px;
       text-align: center;
       border-radius: 5px;
+      
     }
   </style>
 
