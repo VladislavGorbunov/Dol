@@ -8,11 +8,11 @@
                 </div></div>
                 <div class="col-lg-4 mb-2"><div class="card p-3 shadows">
                     <img src="/public/theme/img/down-price.png" width="48" class="d-block mx-auto mb-2">
-                    <span class="text-center"><?= 'Минимальная стоимость путёвки в регионе: <br><b>' . $min = ($prices[0]['min']) ? number_format($prices[0]['min'], '0', ',', ' ') . ' руб.' : '-'; ?></b></span>
+                    <span class="text-center"><?= 'Минимальная стоимость путёвки в регионе: <br><b>' . $min = ($prices[0]['min']) ? number_format($prices[0]['min'], '0', ',', ' ') . ' руб.' : 'Нет данных'; ?></b></span>
                 </div></div>
                 <div class="col-lg-4 mb-2"><div class="card p-3 shadows">
                     <img src="/public/theme/img/up-price.png" width="48" class="d-block mx-auto mb-2">
-                    <span class="text-center"><?= 'Максимальная стоимость путёвки в регионе: <br><b>' . $max = ($prices[1]['max']) ? number_format($prices[1]['max'], '0', ',', ' ') . ' руб.' : '-'; ?></b></span>
+                    <span class="text-center"><?= 'Максимальная стоимость путёвки в регионе: <br><b>' . $max = ($prices[1]['max']) ? number_format($prices[1]['max'], '0', ',', ' ') . ' руб.' : 'Нет данных'; ?></b></span>
                 </div></div>
                
             </div>

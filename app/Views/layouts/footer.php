@@ -93,10 +93,10 @@
     .cookie-block {
       position: fixed;
       display: none;
-      background: rgba(255,255,255,0.9) url(https://wallpapers-all.com/uploads/posts/2017-07/5_leaf.jpg);
+      background: rgba(255,255,255,0.85);
       background-size: cover;
       backdrop-filter: blur(10px);
-      color: #fff;
+      color: #333;
       right: 30px;
       margin-left: 30px;
       bottom: 30px;
@@ -104,7 +104,7 @@
       padding: 15px 60px 15px 20px;
       font-size: 13px;
       border-radius: 10px;
-      box-shadow: 0 2px 20px -5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 20px -5px rgba(0,0,0,0.2);
     }
 
     .cookie-block button {

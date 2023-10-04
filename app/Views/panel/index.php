@@ -57,7 +57,7 @@
                         <hr>
                         <a href="" class="m-1">Посмотреть страницу лагеря</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Добавить смену</a>
-                        <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Посмотреть все смены</a>
+                        <a href="/panel/camp/'.$camp['camps_id'].'/shifts" class="m-1">Посмотреть все смены</a>
                         <hr>
                         <a href="/panel/edit-camp/'.$camp['camps_id'].'" class="m-1">Редактировать лагерь</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/delete" class="m-1">Удалить лагерь</a>

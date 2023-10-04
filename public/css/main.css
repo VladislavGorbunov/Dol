@@ -324,6 +324,7 @@ a {
 
 .header-image {
     display: block;
+    
     position: relative;
     width: 100%;
     min-height: 520px;

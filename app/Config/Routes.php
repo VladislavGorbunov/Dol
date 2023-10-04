@@ -49,6 +49,8 @@ $routes->get('/panel/camp/(:num)/delete', 'PanelController::deleteCamp/$1', ['fi
 $routes->get('/panel/camp/(:num)/add-shift', 'ShiftController::AddShift/$1', ['filter' => 'PanelAuth']);
 $routes->post('/panel/camp/(:num)/add-shift', 'ShiftController::InsertShift/$1', ['filter' => 'PanelAuth']);
 
+$routes->get('/panel/camp/(:num)/shifts', 'ShiftController::AllShifts/$1', ['filter' => 'PanelAuth']);
+
 
 
 $routes->get('/panel/logout', 'PanelController::Logout');
