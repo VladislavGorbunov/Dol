@@ -34,15 +34,16 @@ addEventListener("change", () => {
     }
 
     if (age.value) {
-        url += '/' + age.value;
+        url += '/age-' + age.value;
         document.title += age.selectedOptions[0].text;
     } else {
         url += '/age-all';
     }
 
     if (maxPrice.value) {
-        url += '/' + maxPrice.value;
+        url += '/max-price-' + maxPrice.value;
         document.title += maxPrice.selectedOptions[0].text;
+        console.log(url)
     } else {
         url += '';
     }

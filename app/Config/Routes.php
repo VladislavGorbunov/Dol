@@ -64,7 +64,7 @@ $routes->get('/camp/(:segment)', 'CampController::GetCamp/$1');
 
 $routes->get('/camps/(:segment)/(:segment)/(:segment)', 'Site::FilterCamp/$1/$2/$3');
 $routes->get('/camps/(:segment)/(:segment)/(:segment)/(:segment)', 'Site::FilterCamp/$1/$2/$3/$4'); // С возрастом
-$routes->get('/camps/(:segment)/(:segment)/(:segment)/(:segment)/(:segment)', 'Site::FilterCamp/$1/$2/$3/$4/$5'); // + цена
+$routes->get('/camps/(:segment)/(:segment)/(:segment)/(:segment)/max-price-(:num)', 'Site::FilterCamp/$1/$2/$3/$4/$5'); // + цена
 //$routes->get('/camps/(:any)/(:any)/(:any)/(:num)/max-price=(:num)', 'Site::FilterCamp/$1/$2/$3/$4/$5');
 
 $routes->post('/review-insert', 'ReviewsController::ReviewInsert');

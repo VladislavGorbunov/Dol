@@ -1,6 +1,6 @@
 const navBarTop = document.querySelector('.navbar')
 const headerBlock = document.querySelector('.header-image')
-console.log(navBarTop)
+
 window.addEventListener('scroll', function() {
     if (pageYOffset > 300) {
         navBarTop.classList.add("fixed-top");
