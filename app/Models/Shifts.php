@@ -11,6 +11,7 @@ class Shifts extends Model
 
     protected $allowedFields = [
         'camps_id',
+        'representative_id',
         'region_id',
         'title',
         'price',

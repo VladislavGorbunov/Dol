@@ -199,11 +199,7 @@ class PanelController extends BaseController
     
 
         if (!$this->validate($rules)) {
-            //var_dump($this->validator->getErrors());
             return redirect()->back()->withInput();
-            //$session->setFlashdata('msg-error', $this->validator->getErrors());
-            //return redirect()->to('/panel/add-camp');
-            //die;
         }
 
         $data['title'] = $this->request->getVar('title');
