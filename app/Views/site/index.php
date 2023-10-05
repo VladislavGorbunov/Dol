@@ -30,7 +30,7 @@
 </div>
 
 <div class="bg-white rounded p-3">
-<h2 class="text-center mt-2 mb-3"><span style="color:#3ac47d">Места отдыха</span> для детей и подростков ищут у нас</h2>
+<h2 class="text-center mt-2 mb-3"><span style="color:#38b976">Места отдыха</span> для детей и подростков ищут у нас</h2>
 <p class="text-center">
 Самое полезное занятие на каникулах, это отдых в детском лагере. Поэтому основная цель нашего сервиса: предоставить нашим посетителям
 удобный, надежный и в то же время бесплатный сервис по поиску и бронированию путёвок. Мы следим за качеством 
@@ -43,7 +43,7 @@
 </div>
 
 <div class="bg-white rounded p-3 mt-4">
-<h2 class="text-center mt-2 mb-3">Поиск в <span style="color:#3ac47d">любом регионе России</span></h2>
+<h2 class="text-center mt-2 mb-3">Поиск в <span style="color:#38b976">любом регионе России</span></h2>
 
 <div class="row mt-2 mb-2">
 <?php
@@ -55,7 +55,7 @@ foreach ($cities as $city) {
 ?>
 </div></div>
 
-    <h2 class="text-center mt-4"><span style="color:#3ac47d">Топ 15 лучших</span> детских лагерей России</h2>
+    <h2 class="text-center mt-4"><span style="color:#38b976">Топ 15 лучших</span> детских лагерей России</h2>
     <p class="text-center">На основании голосов и отзывов наших пользователей</p>
 
     <div class="row g-4">
@@ -66,7 +66,7 @@ foreach ($cities as $city) {
         foreach ($camps as $camp) {
             echo '
             <div class="col-lg-4">
-            <a href="/camp/'.$camp['slug'].'"><div class="card">';
+            <a href="/camp/'.$camp['slug'].'" target="_blank"><div class="card">';
 
             if (!empty($camp['cover']['name_img'])) {
                 echo '<img src="/public/images/camps/'.$camp['slug'].'/cover/'.$camp['cover']['name_img'].'" class="mt-2 d-block mx-auto img-fluid">';
@@ -76,15 +76,17 @@ foreach ($cities as $city) {
 
             echo '<div class="card-body">
                 <h5>'.$camp['camp'].'</h5>
+                <p>Рейтинг: '.round($camp['rating'], 1).'</p>
+                <p>Отзывов: '.$camp['reviews'].'</p>
                 <p class="mt-3" style="min-height: 45px;"><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-muted">9 mins</small>
+                        
+                            <a href="/camp/'.$camp['slug'].'" target="_blank" class="btn btn-detailed">Подробнее</a>
+                            
+                       
+                        
                     </div>
                 </div>
             </div>

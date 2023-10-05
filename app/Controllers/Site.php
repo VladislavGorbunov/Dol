@@ -52,6 +52,8 @@ class Site extends BaseController
                 'camp_id' => $camps[$i]['camps_id'],
                 'adress' => $camps[$i]['adress'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
+                'rating' => $camps[$i]['avg_rating'],
+                'reviews' => $camps[$i]['count_reviews'],
             ];
 
         }
@@ -122,23 +124,12 @@ class Site extends BaseController
         $data['prices'][] = $this->ShiftsModel->getMaxPrice($region_id);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
-        // echo '<pre>';
-        // var_dump($camps);
-        // echo '</pre>';
+        
         $total = $camps_data['count_row']; // Получаем кол-во записей
         $data['count_camp'] = $total;
         $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
 
-
-        // $db      = \Config\Database::connect();
-        // $builder = $db->table('shifts');
-
-        // Создание массива лагерей
         for ($i = 0; $i < count($camps); $i++) {
-
-            // $builder->selectMin('price')->where('camps_id', $camps[$i]['camps_id']);
-            // $query = $builder->get();
-            // $min_price_shift = $query->getResultArray();
 
             $data['camps'][$i] = [
                 'camp' => $camps[$i]['camp'],

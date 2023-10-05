@@ -68,11 +68,6 @@ class ReviewsController extends BaseController
         $data['disadvantages'] = $this->request->getVar('disadvantages');
         $data['rating'] = $this->request->getVar('rating');
 
-        // echo '<pre>';
-        // var_dump($data);
-        // echo '</pre>';
-        // die;
-
         if ($this->ReviewsModel->insert($data)) {
             $session->setFlashdata('msg-success', 'Отзыв отправлен! Спасибо что поделились своим мнением!');
         } else {
@@ -81,15 +76,6 @@ class ReviewsController extends BaseController
 
         return redirect()->to(previous_url());
 
-        // echo $data['name'] = $this->request->getVar('name');
-        // echo previous_url();
-
-        
-        // $this->BookingModel->insert($data);
-        // $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
-    
-        // $redirect = $_SERVER['HTTP_REFERER'];
-        // return redirect()->to($redirect);
     }
 
 

@@ -31,8 +31,8 @@ class ShiftController extends BaseController
     public function AddShift()
     {
         return view('layouts/panel_header')
-        . view('panel/add-shift')
-        . view('layouts/panel_footer');
+            .view('panel/add-shift')
+            .view('layouts/panel_footer');
     }
 
     // Метод добавления смены в базу
@@ -94,8 +94,8 @@ class ShiftController extends BaseController
         }
 
         return view('layouts/panel_header', $data)
-        . view('panel/all-shift')
-        . view('layouts/panel_footer');
+            .view('panel/all-shift')
+            .view('layouts/panel_footer');
     }
 
     public function deleteShift($shift_id)

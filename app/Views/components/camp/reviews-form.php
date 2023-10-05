@@ -1,7 +1,7 @@
 <div id="reviews-add" class="mt-4 p-3 bg-white rounded">
 
     <div class="col-lg-10 d-block mx-auto">
-    <h2 class="text-center mt-3">Были в этом лагере? <span style="color:#3ac47d">Помогите другим с выбором</span>, напишите отзыв!</h2>
+    <h2 class="text-center mt-3">Были в этом лагере? <span style="color:#38b976">Помогите другим с выбором</span>, напишите отзыв!</h2>
     <small class="text-center col-lg-6 d-block mx-auto">
     Для того чтобы Ваш отзыв был опубликован, необходимо указать номер бронирования который мы отправляли вам на почту. Таким образом мы боремся с накруткой отзывов.
     </small>

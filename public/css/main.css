@@ -156,8 +156,8 @@ a {
 }
 
 .btn-booking, .btn-add-review-form {
-    background: #3dc980;
-    border: 1px solid #3dc980;
+    background: #38b976;
+    border: 1px solid #38b976;
     color: #fff;
     border-radius: 5px;
     padding: 13px 20px;
@@ -276,9 +276,9 @@ a {
     position: relative;
     max-width: 240px;
     margin: 20px auto 10px;
-    color: #3dc980;
+    color: #38b976;
     background: none;
-    border: 1px solid #3dc980;
+    border: 1px solid #38b976;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -288,8 +288,8 @@ a {
 .btn-add-review {
 
     color: #fff;
-    background: #3dc980;
-    border: 1px solid #3dc980;
+    background: #38b976;
+    border: 1px solid #38b976;
     border-radius: 5px;
     padding: 10px 20px;
     transition: .5s;
@@ -299,7 +299,7 @@ a {
 .btn-detailed {
     position: relative;
     color: #fff;
-    background: #3dc980;
+    background: #38b976;
     border-radius: 5px;
     padding: 12px 20px;
     font-size: 15px;
@@ -443,7 +443,7 @@ a {
 
 .filter-block .btn {
     display: block;
-    background: #3dc980;
+    background: #38b976;
     border: none;
     height: 55px;
     padding: 17px 30px;

@@ -9,7 +9,7 @@
             <div class="d-flex flex-row justify-content-around">
                 <div>
                     <p><i class="las la-star" style="color:gold"></i> Рейтинг:
-                    <b><?= round($reviews['rating'], 2) ?> из 5</b></p>
+                    <b><?= round($reviews['rating'], 1) ?> из 5</b></p>
                 </div>
 
                 <div>
