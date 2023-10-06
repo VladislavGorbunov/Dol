@@ -34,7 +34,7 @@ addEventListener("change", () => {
     }
 
     if (age.value) {
-        url += '/age-' + age.value;
+        url += '/' + age.value;
         document.title += age.selectedOptions[0].text;
     } else {
         url += '/age-all';

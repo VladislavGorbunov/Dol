@@ -76,11 +76,13 @@ foreach ($cities as $city) {
 
             echo '<div class="card-body">
                 <h5>'.$camp['camp'].'</h5>
-                <p>Рейтинг: '.round($camp['rating'], 1).'</p>
-                <p>Отзывов: '.$camp['reviews'].'</p>
-                <p class="mt-3" style="min-height: 45px;"><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                <div class="row mt-3">
+                <div class="col">Рейтинг: <b>'.round($camp['rating'], 1).'</b> <i class="las la-star" style="color:gold"></i></div>
+                <div class="col">Отзывов: <b>'.$camp['reviews'].'</b></div>
+                </div>
+                
+                <p class="mt-3" style="min-height: 35px;"><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p>
+                    <p class="card-text">'.$camp['short_description'].'</p>
                     <div class="d-flex justify-content-between align-items-center">
                         
                             <a href="/camp/'.$camp['slug'].'" target="_blank" class="btn btn-detailed">Подробнее</a>

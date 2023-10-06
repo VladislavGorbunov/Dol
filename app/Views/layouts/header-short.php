@@ -137,7 +137,7 @@
                             <div class="col-lg g-1">
                             <label class="form-label"><small>Возраст ребёнка:</small></label>
                                 <select id="age" class="form-select form-select-lg mt-0" name="age">
-                                    <option selected value="age-all">Любой возраст</option>
+                                    <option selected value="all">Любой возраст</option>
 
                               <?php 
                               for ($age = 3; $age < 20; $age++) {

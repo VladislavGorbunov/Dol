@@ -54,6 +54,7 @@ class Site extends BaseController
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 'rating' => $camps[$i]['avg_rating'],
                 'reviews' => $camps[$i]['count_reviews'],
+                'short_description' => mb_substr(strip_tags($camps[$i]['description']), 0, 200).'... <a href="/camp/'.$camps[$i]['slug'].'" style="color:#2955c8">Читать далее</a>',
             ];
 
         }
