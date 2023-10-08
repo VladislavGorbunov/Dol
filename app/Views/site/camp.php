@@ -49,8 +49,9 @@
             
 </div>
 
-<script src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
+<script rel="preload" src="https://api-maps.yandex.ru/2.1/?apikey=60ad5e6e-89aa-490d-a9b3-4c7f3e35165a&lang=ru_RU"
     type="text/javascript"></script>
+
 <?php $coord = explode(',', $camp['coords']); ?>
 
 

@@ -26,11 +26,6 @@
                   <a href="#reviews-add" class="btn-add-review text-center d-block mx-auto mb-2">Написать отзыв</a>
                 </div>
             </div>
-
-            <?php
-            // var_dump($organization);
-            // die;
-            ?>
         
             <div class="mt-4">
                 <p><b>Организатор: </b><?= $organization['organization'] ?></p>
@@ -155,7 +150,7 @@
 
 
                 
-                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+                <script rel="preload" type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 
 <!-- Put this div tag to the place, where the Group block will be -->
 <?php 
