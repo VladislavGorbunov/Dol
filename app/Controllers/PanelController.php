@@ -32,6 +32,8 @@ class PanelController extends BaseController
     public $RecaptchaController;
     public $BookingsModel;
     public $booking_count;
+
+    private $delete_chars = ['<script>', '%', '_', '(', ')', '"', '\'', '?', 'script', '#'];
     
     
     protected $helpers = ['form'];
@@ -100,8 +102,8 @@ class PanelController extends BaseController
         ]);
 
 
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+        $email = str_replace($this->delete_chars, '', $this->request->getVar('email')); 
+        $password = str_replace($this->delete_chars, '', $this->request->getVar('password'));
 
         if (!$this->validate($rules)) {
             $session->setFlashdata('msg-error', $this->validator->getErrors());
@@ -178,15 +180,29 @@ class PanelController extends BaseController
         $validation = \Config\Services::validation();
         $image = \Config\Services::image('gd');
 
+        // Удаляем запрещённые символы из полей
+        foreach($this->request->getVar() as $key => $var) {
+            if (!is_array($var)) $data[$key] = str_replace($this->delete_chars, '', $var);
+        }
+        
+    
+        $data['representatives_id'] = str_replace($this->delete_chars, '', $session->get('id'));
+        $types_data['types'] = $this->request->getVar('types');
+        $seasons_data['seasons'] = $this->request->getVar('seasons');
+        $data['slug'] = $this->SlugCreate($data['title']);
+        
+        d($data);
+        die;
+
         $rules = ([
-            'title' => ['label' => 'Название лагеря', 'rules' => 'required'],
+            'title' => ['label' => 'Название лагеря', 'rules' => 'required|max_length[25]'],
             'camp_base' => ['label' => 'Название базы', 'rules' => 'required'],
-            'cities_id' => ['label' => 'Регион', 'rules' => 'required'],
+            'cities_id' => ['label' => 'Регион', 'rules' => 'required|integer'],
             //'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
             'adress' => ['label' => 'Адрес', 'rules' => 'required'],
-            'year' => ['label' => 'Год основания', 'rules' => 'required'],
-            'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required'],
-            'max_age' => ['label' => 'Максимальный возраст', 'rules' => 'required'],
+            'year' => ['label' => 'Год основания', 'rules' => 'required|integer'],
+            'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required|integer'],
+            'max_age' => ['label' => 'Максимальный возраст', 'rules' => 'required|integer'],
             'security' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'free_transfer' => ['label' => 'Охраняемая территория', 'rules' => 'required'],
             'coords' => ['label' => 'Координаты', 'rules' => 'required'],
@@ -202,26 +218,6 @@ class PanelController extends BaseController
             return redirect()->back()->withInput();
         }
 
-        $data['title'] = $this->request->getVar('title');
-        $data['camp_base'] = $this->request->getVar('camp_base');
-        $data['representatives_id'] = $session->get('id');
-        $data['year'] = $this->request->getVar('year');
-        $data['min_age'] = $this->request->getVar('min_age');
-        $data['max_age'] = $this->request->getVar('max_age');
-        $data['security'] = $this->request->getVar('security');
-        $data['free_transfer'] = $this->request->getVar('free_transfer');
-        $data['vk_link'] = $this->request->getVar('vk_link');
-        $data['site_link'] = $this->request->getVar('site_link');
-        $data['cities_id'] = $this->request->getVar('cities_id');
-        $data['adress'] = $this->request->getVar('adress');
-        $data['coords'] = $this->request->getVar('coords');
-        $types_data['types'] = $this->request->getVar('types');
-        $seasons_data['seasons'] = $this->request->getVar('seasons');
-        $data['description'] = $this->request->getVar('description');
-        $data['placement'] = $this->request->getVar('placement');
-        $data['advantages'] = $this->request->getVar('advantages');
-        $data['daily_schedule'] = $this->request->getVar('daily_schedule');
-        $data['slug'] = $this->SlugCreate($data['title']);
 
 
         if (!$types_data['types']) {

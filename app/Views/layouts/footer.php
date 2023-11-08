@@ -1,3 +1,9 @@
+<!-- uSocial -->
+<script async src="https://usocial.pro/usocial/usocial.js?uid=5678dc239bf32494&v=6.1.5" data-script="usocial" charset="utf-8"></script>
+<div class="uSocial-Share" data-pid="ef9a8ef805b5fbf12cf830a6cbd5cc5e" data-type="share" data-options="rect,style1,default,right,slide-down,size32,eachCounter0,counter0,mobile_position_right" data-social="vk,ok,telegram,wa"></div>
+<!-- /uSocial -->
+
+
 <!-- Footer -->
 <footer class="text-center text-lg-start mt-5 pt-3">
 
@@ -234,7 +240,7 @@
       window.setTimeout(function () {
         document.body.classList.add('loaded');
         document.body.classList.remove('loaded_hiding');
-      }, 500);  
+      }, 200);  
     }
 </script>
 

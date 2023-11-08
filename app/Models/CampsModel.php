@@ -37,7 +37,6 @@ class CampsModel extends Model
 
     public function getCamps($region, $type, $season, $age, $art, $kol, $max_price) 
     {
-        echo $max_price;
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
         $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews');
@@ -65,10 +64,7 @@ class CampsModel extends Model
 
         $builder->groupBy(['camps.camps_id', 'reviews.camps_id']); 
         
-       // $builder->orderBy('shift_min_price', 'ASC');
-        $builder->orderBy('avg_rating', 'DESC');
-        $builder->orderBy('count_reviews', 'DESC');
-        
+        $builder->orderBy('avg_rating DESC', 'count_reviews DESC');
         
         $this->count_rows = $builder->countAllResults(false); 
 
