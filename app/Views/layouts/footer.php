@@ -146,104 +146,20 @@
 <script src="/public/js/filter.js"></script>
 <script src="/public/js/cookie-msg.js"></script>
 
-<style>
-    body {
-      margin: 0;
-    }
-
-    .preloader {
-      /*фиксированное позиционирование*/
-      position: fixed;
-      /* координаты положения */
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      /* фоновый цвет элемента */
-      background: rgba(255,255,255,0.5);
-      backdrop-filter: blur(5px);
-      /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
-      z-index: 999;
-    }
-
-    .preloader__row {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      width: 70px;
-      height: 70px;
-      margin-top: -35px;
-      margin-left: -35px;
-      text-align: center;
-      animation: preloader-rotate 2s infinite linear;
-    }
-
-    .preloader__item {
-      position: absolute;
-      display: inline-block;
-      top: 0;
-      background-color: #337ab7;
-      border-radius: 100%;
-      width: 35px;
-      height: 35px;
-      animation: preloader-bounce 2s infinite ease-in-out;
-    }
-
-    .preloader__item:last-child {
-      top: auto;
-      bottom: 0;
-      animation-delay: -1s;
-    }
-
-    @keyframes preloader-rotate {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes preloader-bounce {
-
-      0%,
-      100% {
-        transform: scale(0);
-      }
-
-      50% {
-        transform: scale(1);
-      }
-    }
-
-    .loaded_hiding .preloader {
-      transition: 0.3s opacity;
-      opacity: 0;
-    }
-
-    .loaded .preloader {
-      display: none;
-    }
-  </style>
-
-
-<!-- Прелоадер -->
-<div class="preloader">
-    <div class="preloader__row">
-      <div class="preloader__item"></div>
-      <div class="preloader__item"></div>
-    </div>
-  </div>
-
-
-
 <script>
-    window.onload = function () { 
-      document.body.classList.add('loaded_hiding');
-      window.setTimeout(function () {
-        document.body.classList.add('loaded');
-        document.body.classList.remove('loaded_hiding');
-      }, 200);  
-    }
-</script>
+  
+  let blur = 10
 
+  const blur_interval = setInterval(() => {
+      blur--
+      if (blur >= 0) {
+        document.body.style.filter = `blur(${blur}px)`
+      } else {
+        clearInterval('blur_interval')
+      }
+  }, 30);
+  
+</script>
 
 
 </body>

@@ -43,14 +43,14 @@
                 
             </div>
 
-                <p class="mt-3"><b>Направления лагеря:</b></p>
-                    <div class="d-flex flex-wrap justify-content-start flex-row">
+                <!-- <p class="mt-3"><b>Направления лагеря:</b></p> -->
+                    <!-- <div class="d-flex flex-wrap justify-content-start flex-row"> -->
                     <?php
-                        foreach ($types_camp as $type) {
-                            echo '<a href="/camps/'.$region['slug'].'/'.$type['slug'].'/season-all"><div class="type m-1">' . $type['title'] . '</div></a>';
-                        }
+                        // foreach ($types_camp as $type) {
+                        //     echo '<a href="/camps/'.$region['slug'].'/'.$type['slug'].'/season-all"><div class="type m-1">' . $type['title'] . '</div></a>';
+                        // }
                     ?>
-                    </div>
+                    <!-- </div> -->
 
         </div>
 

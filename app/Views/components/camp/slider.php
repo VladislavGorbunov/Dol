@@ -1,4 +1,8 @@
 <div class="bg-white rounded p-3">
+<?= $camp['adress'] ?>
+</div>
+
+<div class="bg-white rounded p-3 mt-3">
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -48,4 +52,7 @@
 
 
 
+
+
 </div>
+
