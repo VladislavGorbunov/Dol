@@ -140,33 +140,11 @@
 
                     echo '<button type="submit" class="btn btn-booking mt-2 col-lg-12 d-block mx-auto">Забронировать путёвку</button>';
                 } else {
-                    echo '<p class="mt-3">На данный момент нет доступных смен или владелец лагеря не разместил информацию о них</p>';
+                    echo '<p class="mt-3">На данный момент нет доступных смен или владелец лагеря не разместил информацию о них на нашем сервисе.</p>';
                 }
 
                 ?>
                         </form>
                 </div>
 
-
-
-                
-                <script rel="preload" type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
-
-<!-- Put this div tag to the place, where the Group block will be -->
-<?php 
-
-preg_match_all('/\d+/', $camp['vk_link'], $matches);
-
-if (!empty($matches[0][0])) {
-    $vk_group_id = $matches[0][0];
-} else {
-    $vk_group_id = 5543764;
-}
-
-
-?>
-<div class="col-lg-12 mt-4 p-3 rounded bg-white">
-<div id="vk_groups" class="d-block mx-auto"></div></div>
-<script type="text/javascript">
-  VK.Widgets.Group("vk_groups", {mode: 4, wide: 1, width: "auto", height: 400, color1: "FFFFFF", color2: "000000", color3: "5181B8"}, <?= $vk_group_id ?>);
-</script>
+            

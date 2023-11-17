@@ -134,7 +134,7 @@
 
  
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-    © <?= date('Y') ?> Copyright: BYCAMPS.RU
+    © <?= date('Y') ?> BYCAMPS.RU <br>Информация на сайте не является публичной офертой.
   </div>
 
 </footer>
@@ -145,21 +145,6 @@
 <script src="/public/js/phone-mask.js"></script>
 <script src="/public/js/filter.js"></script>
 <script src="/public/js/cookie-msg.js"></script>
-
-<script>
-  
-  let blur = 10
-
-  const blur_interval = setInterval(() => {
-      blur--
-      if (blur >= 0) {
-        document.body.style.filter = `blur(${blur}px)`
-      } else {
-        clearInterval('blur_interval')
-      }
-  }, 30);
-  
-</script>
 
 
 </body>

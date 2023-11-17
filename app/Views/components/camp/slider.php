@@ -1,5 +1,5 @@
 <div class="bg-white rounded p-3">
-<?= $camp['adress'] ?>
+<i class="las la-map-marker-alt"></i><?= $camp['adress'] ?>
 </div>
 
 <div class="bg-white rounded p-3 mt-3">

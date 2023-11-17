@@ -181,14 +181,12 @@
             <div class="mb-3">
                 
                 <label for="exampleInputEmail1" class="form-label">Регион:</label>
-                <select id="city" class="form-select" name="cities_id">
+                <select id="city" class="form-select" name="cities_id" >
                     <?php
                     foreach ($cities as $city) {
                         if ($city['title'] == $camp['city']['title']) {
                             echo '<option selected value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
-                        } else {
-                            echo '<option value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
-                        }
+                        } 
                     }
                     ?>
                 </select>
@@ -212,44 +210,18 @@
         </div>
 
                 <?php
-                // var_dump($cover);
+                var_dump($cover);
                 ?>
 
         <div class="col-lg-12">
-            <h3 class="text-center mt-4">Загрузите фотографии</h3>
+            <h3 class="text-center mt-4">Фотографии лагеря</h3>
             <div class="row">
 
                 <div class="col-lg-6">
-                    <div class="example-1">
-                        <div class="form-group">
-                            <label class="label">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8" class="bi bi-card-image mt-3 mb-3" viewBox="0 0 16 16">
-                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                    <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z" />
-                                </svg>
-
-                                <span class="title">Добавить главную обложку</span>
-                                <input type="file" id="cover_img" name="cover" accept="image/png, image/jpeg" required>
-                            </label>
-                        </div>
-                    </div>
+                    <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>">
                 </div>
                 <div class="col-lg-6">
-                    <div class="example-1">
-                        <div class="form-group">
-                            <label class="label">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#2955c8" class="bi bi-images mt-3 mb-3" viewBox="0 0 16 16">
-                                    <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                    <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                </svg>
-
-                                <span class="title">Дополнительные изображения (до 15 фото в формате JPG или PNG)</span>
-                                <input type="file" name="images[]" accept="image/png, image/jpeg" multiple required>
-                            </label>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
