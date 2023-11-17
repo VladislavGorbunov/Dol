@@ -191,9 +191,7 @@ class PanelController extends BaseController
         $seasons_data['seasons'] = $this->request->getVar('seasons');
         $data['slug'] = $this->SlugCreate($data['title']);
         
-        d($data);
-        die;
-
+       
         $rules = ([
             'title' => ['label' => 'Название лагеря', 'rules' => 'required|max_length[25]'],
             'camp_base' => ['label' => 'Название базы', 'rules' => 'required'],
@@ -504,6 +502,41 @@ class PanelController extends BaseController
 
         return redirect()->to('/panel');
         
+    }
+
+    public function updateCover() 
+    {
+        $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
+
+        // Путь до папки для загружаемых оригинальных изображений лагеря
+        $home = $this->imagesFolder . '/' . $_POST['camp_slug'] . '/cover';
+        
+        $oldCoverName = $this->ImagesModel->where('camps_id', $_POST['camps_id'])->first(); // Старая обложка
+
+        $cover = $this->request->getFile('cover_new'); // Получаем новый файл обложки
+        
+        $newNameCover = $cover->getRandomName(); // Задаём рандомное имя новой обложке
+
+        $cover->move($home, $newNameCover); // Сохраняем новый файл в папку
+       
+        unlink($home .'/'. $oldCoverName['name_img']); // Удаляем старую обложку из папки
+
+        $this->ImagesModel->where('id', $oldCoverName['id'])->delete(); // Удаляем старую обложку из БД
+
+        $data_cover = [
+            'camps_id' => $_POST['camps_id'],
+            'name_img' => $newNameCover,
+            'cover' => 1,
+        ];
+
+
+        $this->ImagesModel->save($data_cover); // Добавляем новую обложку в БД
+       
+        // $data = ['folder' => $fol];
+        // return json_encode($data);
+        //$data = ['result' => $_POST['cover_id'], 'cover_new' => $this->request->getFiles('cover_new')];
+        //$data = json_encode($data);
+        //return $data;
     }
 
 

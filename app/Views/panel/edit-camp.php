@@ -218,13 +218,41 @@
             <div class="row">
 
                 <div class="col-lg-6">
+                    
                     <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>">
+                    <form id="coverForm" action="" method="post">
+                        <input type="file" name="cover" class="cover-input">
+                    </form>
                 </div>
                 <div class="col-lg-6">
                     
                 </div>
             </div>
         </div>
+
+        <script>
+        
+            const coverInput = document.querySelector('.cover-input')
+            let formData = new FormData()
+            
+            formData.append('camps_id', "<?= $camp['camps_id'] ?>")
+            formData.append('camp_slug', "<?= $camp['slug'] ?>")
+            
+            coverInput.addEventListener('change', () => {
+                formData.append('cover_new', coverInput.files[0])
+
+            fetch('/panel/update-cover', {
+              method: 'POST',
+              body: formData
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(err => console.error(err));
+            })
+            
+            
+            
+        </script>
 
 
         <h3 class="text-center mt-3 mb-3">Изменить ссылку на видео</h3>
