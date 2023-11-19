@@ -210,18 +210,43 @@
         </div>
 
                 <?php
-                var_dump($cover);
+                // var_dump($cover);
                 ?>
 
         <div class="col-lg-12">
             <h3 class="text-center mt-4">Фотографии лагеря</h3>
             <div class="row">
 
-                <div class="col-lg-6">
-                    
+            <style>
+                .cover-input {
+                    display: none;
+                }
+
+                .cover-form-btn {
+                    background: #222;
+                    color: #fff;
+                    padding: 12px;
+                    border-radius: 5px;
+                }
+
+                .save-btn {
+                    background: #222;
+                    color: #fff;
+                    padding: 12px;
+                    border-radius: 5px;
+                }
+            </style>
+
+                <div class="col-lg-4">
+                    <h5>Обложка карточки лагеря:</h5>
                     <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>">
                     <form id="coverForm" action="" method="post">
-                        <input type="file" name="cover" class="cover-input">
+                        <div class="row">
+                            <div class="col-lg-6">
+                        <label for="cover-input" class="d-block cover-form-btn text-center mt-2">Выбрать картинку</label></div>
+                        <input type="file" name="cover" id="cover-input" class="cover-input">
+                        <div class="col-lg-6"><div class="mt-2 save-btn text-center">Сохранить</div></div>
+            </div>
                     </form>
                 </div>
                 <div class="col-lg-6">
