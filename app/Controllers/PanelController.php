@@ -542,7 +542,7 @@ class PanelController extends BaseController
             return json_encode($data);
         }
         
-        $data = ['msg' => 'Обложка обновлена'];
+        $data = ['msg' => 'Обложка обновлена', 'src' =>  $_POST['camp_slug'] . '/cover/' . $newNameCover];
         $data = json_encode($data);
         return $data;
     }

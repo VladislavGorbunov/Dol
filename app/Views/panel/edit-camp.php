@@ -239,7 +239,7 @@
 
                 <div class="col-lg-4">
                     <h5>Обложка карточки лагеря:</h5>
-                    <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>">
+                    <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>" class="cover-img">
                     <form id="coverForm" action="" method="post">
                         <div class="row">
                             <div class="col-lg-6">
@@ -258,12 +258,14 @@
         <script>
         
             const coverInput = document.querySelector('.cover-input')
+            const saveBtn = document.querySelector('.save-btn')
+            const coverImg = document.querySelector('.cover-img')
             let formData = new FormData()
             
             formData.append('camps_id', "<?= $camp['camps_id'] ?>")
             formData.append('camp_slug', "<?= $camp['slug'] ?>")
             
-            coverInput.addEventListener('change', () => {
+            saveBtn.addEventListener('click', () => {
                 formData.append('cover_new', coverInput.files[0])
 
             fetch('/panel/update-cover', {
@@ -271,8 +273,14 @@
               body: formData
             })
             .then(res => res.json())
-            .then(json => console.log(json))
+            .then(json => {
+                console.log(json.src)
+                coverImg.setAttribute('src', `/public/images/camps/${json.src}`)
+                
+            })
             .catch(err => console.error(err));
+
+           
             })
             
             
