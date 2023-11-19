@@ -374,12 +374,12 @@
         <h3 class="text-center mt-4">Описания</h3>
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря:</label>
-            <textarea class="form-control textarea" id="editor" name="description"><?= $camp['description'] ?></textarea>
+            <textarea class="form-control textarea" id="summernote" name="description"><?= $camp['description'] ?></textarea>
         </div>
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Размещение:</label>
-            <textarea class="form-control textarea" id="editor2" name="placement" placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
+            <textarea class="form-control textarea" id="summernote2" name="placement" placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
             Новые современные коттеджи. В коттеджах по 3 комнаты, в комнатах проживает по 3 ребенка!
             Также в домике – общий холл и своя кухня, где дети будут собираться и пить вкусный горячий чай со своими вожатыми и преподавателями. Душевая кабина, туалет и умывальник находится прямо в домике (все новое, чистое, приятное)."><?= $camp['placement'] ?></textarea>
         </div>
@@ -422,137 +422,49 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 
+<!-- include summernote css/js-->
+<link href="/public/js/summernote/summernote-lite.css" rel="stylesheet">
+<script src="/public/js/summernote/summernote-lite.js"></script>
 
 
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+
+$('#summernote').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['insert', ['link']],
+          
+        ]
+});
+
+$('#summernote2').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+});
 
 
-    ClassicEditor
-        .create(document.querySelector('#editor2'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-
-    ClassicEditor
-        .create(document.querySelector('#editor3'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-    ClassicEditor
-        .create(document.querySelector('#editor4'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
 </script>
 
 
