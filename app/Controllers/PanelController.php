@@ -507,6 +507,7 @@ class PanelController extends BaseController
     */
     public function updateCover() 
     {
+        $image = \Config\Services::image('gd');
         $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
 
         // Путь до папки для загружаемых оригинальных изображений лагеря
@@ -518,6 +519,10 @@ class PanelController extends BaseController
             $newNameCover = $cover->getRandomName(); // Задаём рандомное имя новой обложке
 
             if ($cover->move($home, $newNameCover)) { // Сохраняем новый файл в папку
+
+                // Изменение размера оригинальной обложки
+                $image->withFile($home .'/'. $newNameCover)->fit(400, 340, 'center')->save($home .'/'. $newNameCover);
+
                 if (file_exists($home .'/'. $oldCover['name_img'])) {
                     unlink($home .'/'. $oldCover['name_img']); // Удаляем старую обложку из папки
                 }
@@ -537,7 +542,7 @@ class PanelController extends BaseController
             'cover' => 1,
         ];
 
-        
+      
 
 
         if ($this->ImagesModel->save($data_cover)) { // Добавляем новую обложку в БД

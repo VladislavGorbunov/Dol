@@ -229,11 +229,19 @@
                     border-radius: 5px;
                 }
 
+                .cover-form-btn:hover {
+                    cursor: pointer;
+                }
+
                 .save-btn {
                     background: #222;
                     color: #fff;
                     padding: 12px;
                     border-radius: 5px;
+                }
+
+                .save-btn:hover {
+                    cursor: pointer;
                 }
             </style>
 
@@ -265,8 +273,15 @@
             formData.append('camps_id', "<?= $camp['camps_id'] ?>")
             formData.append('camp_slug', "<?= $camp['slug'] ?>")
             
+            saveBtn.style.display = 'none'
+
+            coverInput.addEventListener('change', () => {
+                    saveBtn.style.display = 'block'
+            })
+            
             saveBtn.addEventListener('click', () => {
                 formData.append('cover_new', coverInput.files[0])
+                saveBtn.style.display = 'none'
 
             fetch('/panel/update-cover', {
               method: 'POST',
