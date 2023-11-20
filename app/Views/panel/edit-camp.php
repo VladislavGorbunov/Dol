@@ -274,7 +274,7 @@
             })
             .then(res => res.json())
             .then(json => {
-                console.log(json.src)
+                console.log(json)
                 coverImg.setAttribute('src', `/public/images/camps/${json.src}`)
                 
             })

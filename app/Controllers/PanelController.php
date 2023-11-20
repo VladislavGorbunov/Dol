@@ -518,7 +518,10 @@ class PanelController extends BaseController
             $newNameCover = $cover->getRandomName(); // Задаём рандомное имя новой обложке
 
             if ($cover->move($home, $newNameCover)) { // Сохраняем новый файл в папку
-                unlink($home .'/'. $oldCover['name_img']); // Удаляем старую обложку из папки
+                if (file_exists($home .'/'. $oldCover['name_img'])) {
+                    unlink($home .'/'. $oldCover['name_img']); // Удаляем старую обложку из папки
+                }
+                
             } else {
                 $data = ['msg' => 'Файл не сохранен'];
                 return json_encode($data);
@@ -533,6 +536,8 @@ class PanelController extends BaseController
             'name_img' => $newNameCover,
             'cover' => 1,
         ];
+
+        
 
 
         if ($this->ImagesModel->save($data_cover)) { // Добавляем новую обложку в БД
