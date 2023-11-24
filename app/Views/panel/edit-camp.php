@@ -247,32 +247,111 @@
 
                 <div class="col-lg-4">
                     <h5>Обложка карточки лагеря:</h5>
-                    <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>" class="cover-img">
-                    <form id="coverForm" action="" method="post">
+                    <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>" class="cover-img rounded">
+                    
                         <div class="row">
                             <div class="col-lg-6">
-                        <label for="cover-input" class="d-block cover-form-btn text-center mt-2">Выбрать картинку</label></div>
-                        <input type="file" name="cover" id="cover-input" class="cover-input">
-                        <div class="col-lg-6"><div class="mt-2 save-btn text-center">Сохранить</div></div>
-            </div>
-                    </form>
+                                <label for="cover-input" class="d-block cover-form-btn text-center mt-2">Выбрать картинку</label></div>
+                                <input type="file" name="cover" id="cover-input" class="cover-input">
+                                <div class="col-lg-6">
+                                    <div class="mt-2 save-btn text-center">Сохранить</div>
+                                </div>
+
+                                <div class="msg-error-cover"></div>
+                            </div>
+                    
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
+                <h5>Дополнительные изображения:</h5>
+                    <div class="row dop-img">
+                        <?php
+                        // var_dump($images);
+                        foreach ($images as $img): ?>
+                        
+                            <div class="col-lg-3"> 
+                                <img src="/public/images/camps/<?= $camp['slug'] ?>/photo/<?= $img['name_img']?>" id="<?= $img['id'] ?>" class="img-fluid mb-3 images rounded">
+                            </div>
+                        <?php endforeach; ?>
+                        <div class="msg-error-image"></div>
+                        <style>
+                            .images:hover {
+                                cursor: pointer;
+                            }
+                        </style>
+                    </div>
                     
                 </div>
             </div>
         </div>
+        <script>
+            const dopImg = document.querySelector('.dop-img')
+            const images = document.querySelectorAll('.images')
+            const msgErrorImage = document.querySelector('.msg-error-image')
+            msgErrorImage.style.display = 'none'
+            let formDataImage = new FormData()
+            let imgId
+            images.forEach(img => {
+                img.addEventListener('click', (e) => {
+                    // Получаем id картинки по клику
+                    imgId = e.target.getAttribute('id')
+                    console.log(e.target)
+                    // Создаём поле загрузки файла
+                    const fileInput = document.createElement('input')
+                    fileInput.setAttribute('type', 'file')
+                    fileInput.setAttribute('name', 'image')
+                    fileInput.click()
+
+                    formDataImage.append('camp_slug', "<?= $camp['slug'] ?>")
+
+                    fileInput.addEventListener('change', () => {
+                        // console.log(fileInput.files[0])
+                        formDataImage.append('image', fileInput.files[0])
+                        formDataImage.append('id_image', imgId)
+                        
+                        // Получаем имя картинки из src по которой кликнули
+                        let name = e.target.src.split('/')
+                        formDataImage.append('old_name', name[8])
+                        
+                        fetch('/panel/update-images', {
+                            method: 'POST',
+                            body: formDataImage
+                        })
+                        .then(res => {
+                            return res.json()
+                        })
+                        .then(image => {
+                            if (!image.error) {
+                                e.target.setAttribute('src', `/public/images/camps/${image.src}`)
+                                console.log(image.src)
+                                msgErrorImage.style.display = 'block'
+                                msgErrorImage.innerHTML = image.msg
+                                msgErrorImage.style.color = 'green'
+                            } else {
+                                msgErrorImage.style.display = 'block'
+                                msgErrorImage.innerHTML = image.error
+                                msgErrorImage.style.color = 'red'
+                            }
+                            
+                        })
+                    })
+                    
+                })
+            })
+        </script>
 
         <script>
         
             const coverInput = document.querySelector('.cover-input')
             const saveBtn = document.querySelector('.save-btn')
             const coverImg = document.querySelector('.cover-img')
+            const msgErrorCover = document.querySelector('.msg-error-cover')
+            
+            msgErrorCover.style.display = 'none'
             let formData = new FormData()
             
             formData.append('camps_id', "<?= $camp['camps_id'] ?>")
             formData.append('camp_slug', "<?= $camp['slug'] ?>")
-            
+            const slug = "<?= $camp['slug'] ?>"
             saveBtn.style.display = 'none'
 
             coverInput.addEventListener('change', () => {
@@ -290,13 +369,28 @@
             .then(res => res.json())
             .then(json => {
                 console.log(json)
-                coverImg.setAttribute('src', `/public/images/camps/${json.src}`)
+                if (!json.error) {
+                    coverImg.setAttribute('src', `/public/images/camps/${json.src}`)
+                    msgErrorCover.style.display = 'block'
+                    msgErrorCover.innerHTML = json.msg
+                    msgErrorCover.style.color = 'green'
+                } else {
+                    msgErrorCover.style.display = 'block'
+                    msgErrorCover.innerHTML = json.error
+                    msgErrorCover.style.color = 'red'
+                }
                 
+            })
+            .then(dd => {
+                setTimeout(() => {
+                    msgErrorCover.style.display = 'none'
+                }, 10000);
             })
             .catch(err => console.error(err));
 
-           
             })
+            
+
             
             
             
@@ -435,7 +529,7 @@
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Преимущества лагеря (Перечислите основные
                 преимущества вашего лагеря перед остальными, его особенности.)</label>
-            <textarea class="form-control textarea" id="editor3" name="advantages"><?= $camp['advantages'] ?></textarea>
+            <textarea class="form-control textarea" id="summernote3" name="advantages"><?= $camp['advantages'] ?></textarea>
         </div>
 
         <div class="mb-3 mt-2">
@@ -456,7 +550,7 @@
                 </div>
             </div>
 
-            <textarea class="form-control textarea" id="editor4" name="daily_schedule"><?= $camp['daily_schedule'] ?></textarea>
+            <textarea class="form-control textarea" id="summernote4" name="daily_schedule"><?= $camp['daily_schedule'] ?></textarea>
         </div>
 
 
@@ -496,6 +590,40 @@ $('#summernote').summernote({
 });
 
 $('#summernote2').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+});
+
+$('#summernote3').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+});
+
+$('#summernote4').summernote({
         placeholder: '',
         height: 300,                 
         minHeight: 300,

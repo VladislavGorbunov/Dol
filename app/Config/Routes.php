@@ -32,6 +32,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/sitemap.xml', 'SiteMap::index');
 
+$routes->get('/about', 'Site::about');
+
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
 $routes->post('/login', 'PanelController::Auth');
@@ -54,6 +56,7 @@ $routes->get('/panel/shift/delete/(:num)', 'ShiftController::deleteShift/$1', ['
 
 $routes->post('/panel/update-cover', 'PanelController::updateCover', ['filter' => 'PanelAuth']);
 
+$routes->post('/panel/update-images', 'PanelController::updateImages', ['filter' => 'PanelAuth']);
 
 
 $routes->get('/panel/logout', 'PanelController::Logout');

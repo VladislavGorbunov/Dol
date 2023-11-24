@@ -373,17 +373,22 @@ class PanelController extends BaseController
         $data['types'] = $this->TypesModel->findAll();
         $data['campsTypes'] = $this->CampsTypes->where('camps_id', $camp_id)->findAll();
         $data['cover'] = $this->ImagesModel->where(['camps_id'=> $camp_id, 'cover' => 1])->findAll();
+        $data['images'] = $this->ImagesModel->where(['camps_id'=> $camp_id, 'cover' => 0])->findAll();
 
         $data['seasons'] = $this->SeasonsModel->findAll();
         $data['campsSeasons'] = $this->CampsSeasons->where('camps_id', $camp_id)->findAll();
 
-        $data['camp'] = $this->CampsModel->where('camps_id', $camp_id)->first();
-        
-        if ($data['camp']['representatives_id'] != $session->get('id')) {
+        if ($data['camp'] = $this->CampsModel->where('camps_id', $camp_id)->first()) {
+            if ($data['camp']['representatives_id'] != $session->get('id')) {
+                $session->setFlashdata('msg-error', 'Ошибка: невозможно редактировать этот лагерь.');
+                return redirect()->to('/panel');
+            }
+        } else {
             $session->setFlashdata('msg-error', 'Ошибка: невозможно редактировать этот лагерь.');
             return redirect()->to('/panel');
         }
-
+        
+        
         $data['camp']['city'] = $this->CitiesModel->where('cities_id', $data['camp']['cities_id'])->first();
         return view('layouts/panel_header', $data)
         .view('panel/edit-camp')
@@ -515,7 +520,13 @@ class PanelController extends BaseController
         
         $oldCover = $this->ImagesModel->where(['camps_id' => $_POST['camps_id'], 'cover' => 1])->first(); // Старая обложка
 
+    
         if ($cover = $this->request->getFile('cover_new')) { // Получаем новый файл обложки
+            
+            if ($cover->getClientMimeType() !== 'image/jpeg') {
+                $data = ['error' => 'Не поддерживаемый формат изображения. Допустимые форматы JPG или PNG'];
+                return json_encode($data);
+            }
             $newNameCover = $cover->getRandomName(); // Задаём рандомное имя новой обложке
 
             if ($cover->move($home, $newNameCover)) { // Сохраняем новый файл в папку
@@ -543,8 +554,6 @@ class PanelController extends BaseController
         ];
 
       
-
-
         if ($this->ImagesModel->save($data_cover)) { // Добавляем новую обложку в БД
             $this->ImagesModel->where('id', $oldCover['id'])->delete(); // Удаляем старую обложку из БД
         } else {
@@ -557,6 +566,52 @@ class PanelController extends BaseController
         return $data;
     }
 
+
+    public function updateImages() 
+    {
+        $gd = \Config\Services::image('gd');
+        $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
+        $image = $this->request->getFile('image');
+        $id_image = $this->request->getPost('id_image');
+        $oldNameImage = $this->request->getPost('old_name'); // Имя картинки на которую кликнули
+        $camp_slug = $this->request->getPost('camp_slug'); // Имя картинки на которую кликнули
+
+        // Путь до папки для загружаемых оригинальных изображений лагеря
+        $home = $this->imagesFolder . '/' . $camp_slug;
+
+        if ($image->getClientMimeType() !== 'image/jpeg') {
+            $data = ['error' => 'Не поддерживаемый формат изображения. Допустимые форматы JPG или PNG'];
+            return json_encode($data);
+        }
+        
+        // Задаём рандомное имя новой картинке
+        $newNameImage = $image->getRandomName(); 
+
+        // Изменяем размеры картинки и сохраняем в папку
+        $upload = $gd->withFile($image)
+            ->resize(1000, 550, true, 'width')
+            ->crop(1000, 550, 0, 0)
+            ->save($home .'/photo/'. $newNameImage);
+
+        if ($upload == true) {
+            // Удаляем старое изображение из папки
+            
+            if (file_exists($home .'/photo/'. $oldNameImage)) {
+                unlink($home .'/photo/'. $oldNameImage);
+            }
+
+            $data = [
+                'name_img' => $newNameImage
+            ];
+
+            $this->ImagesModel->update($id_image, $data);
+            $result = ['msg' => 'Картинка успешно загружена', 'src' => $camp_slug .'/photo/'. $newNameImage];
+        } else {
+            $result = ['error' => 'Ошибка загрузки изображения', 'src' => 'fff'];
+        }
+                
+        return json_encode($result);
+    }
 
     public function SlugCreate($text)
     {

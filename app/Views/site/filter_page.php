@@ -25,7 +25,7 @@
                     foreach ($camps as $camp) {
                         $rating = round($camp['avg_rating'], 1);
 
-                        if ($rating >= 3.5 && $camp['count_reviews'] >= 6) {
+                        if ($rating >= 4.5 && $camp['count_reviews'] >= 2) {
                             $badge = '<span class="badge-card mb-1">РЕКОМЕНДУЕМ</span>';
                             $best = 'best';
                         } else {
@@ -87,9 +87,15 @@
                             }
 
                             if (!empty($camp['min_price'])) {
+                                if (!empty($camp['gg'])) {
+                                    $day_price = $camp['gg'];
+                                } else {
+                                    $day_price = null;
+                                }
                                 $price  = number_format($camp['min_price'], '0', ',', ' ');
-                                echo '<p class="price"><b>от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></b></p>
-                                <p style="font-size: 13px;"><span style="color:#385bd7">'. $free_transfer .'</span></p>
+                                echo '<p class="price">от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></p>
+                                <p class="price-day">&#8776 '. $day_price .' руб./день</p>
+                                
                                 '.$video_link.'
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';

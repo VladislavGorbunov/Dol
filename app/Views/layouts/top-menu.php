@@ -3,7 +3,7 @@
 
                 <div class="d-flex">
                     <div class="p-1 flex-grow-1 d-flex flex-wrap">
-                        <a href="" class="nav-link mx-2">О сервисе</a>
+                        <a href="/about" class="nav-link mx-2">О сервисе</a>
                         <a href="" class="nav-link mx-2">Информация для родителей</a>
                         <a href="" class="nav-link mx-2">Партнёрам</a>
                         <a href="" class="nav-link mx-2">Вакансии</a>
