@@ -25,7 +25,7 @@ class UserController extends BaseController
         
         if ($this->request->getMethod(true) === 'POST') {
             $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
-
+            
             $data['user_id'] = $this->request->getPost('user_id');
             $data['organization'] = $this->request->getPost('organization');
             $data['inn'] = $this->request->getPost('inn');
