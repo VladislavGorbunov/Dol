@@ -5,25 +5,25 @@
         
         <div class="col-lg-3">
             <img src="/public/theme/img/free.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Бесплатное бронирование</b></h6>
+            <h6 class="text-center mt-2">Бесплатное бронирование</h6>
             <p class="text-center">Не берём комиссию за бронирование, цены напрямую от лагерей.</p>
         </div>
 
         <div class="col-lg-3">
             <img src="/public/theme/img/handshake.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Договор напрямую с лагерем</b></h6>
+            <h6 class="text-center mt-2">Договор напрямую с лагерем</h6>
             <p class="text-center">Вы заключаете договор и оплачиваете путёвку напрямую лагерю.</p>
         </div>
 
         <div class="col-lg-3">
             <img src="/public/theme/img/deposit.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Самые выгодные цены</b></h6>
+            <h6 class="text-center mt-2">Самые выгодные цены</h6>
             <p class="text-center">Скидки и выгодные предложения на путёвки от наших партнёров.</p>
         </div>
 
         <div class="col-lg-3">
             <img src="/public/theme/img/best-rating.svg" width="64px" class="d-block mx-auto">
-            <h6 class="text-center mt-2"><b>Лагеря с высоким рейтингом</b></h6>
+            <h6 class="text-center mt-2">Лагеря с высоким рейтингом</h6>
             <p class="text-center">Помогаем найти лагерь с хорошими отзывами и высоким рейтингом.</p>
         </div>
     </div>
@@ -75,20 +75,18 @@ foreach ($cities as $city) {
             }
 
             echo '<div class="card-body">
-                <h5>'.$camp['camp'].'</h5>
+                <h6>'.$camp['camp'].'</h6>
                 <div class="row mt-3">
                 <div class="col">Рейтинг: <b>'.round($camp['rating'], 1).'</b> <i class="las la-star" style="color:gold"></i></div>
                 <div class="col">Отзывов: <b>'.$camp['reviews'].'</b></div>
+                <div class="col like" onclick="return false"><i class="like_icon lar la-heart"></i> 103</div>
                 </div>
                 
                 <p class="mt-3" style="min-height: 35px;"><i class="las la-map-marker-alt"></i> '.$camp['adress'].'</p>
                     <p class="card-text">'.$camp['short_description'].'</p>
                     <div class="d-flex justify-content-between align-items-center">
                         
-                            <a href="/camp/'.$camp['slug'].'" target="_blank" class="btn btn-detailed">Подробнее</a>
-                            
-                       
-                        
+                            <a href="/camp/'.$camp['slug'].'" target="_blank" class="btn btn-detailed">Подробнее</a> 
                     </div>
                 </div>
             </div>
@@ -102,3 +100,14 @@ foreach ($cities as $city) {
 
     </div>
 </div>
+
+<script>
+    const like = document.querySelector('.like_icon')
+    const la_heart = document.querySelector('.la-heart')
+
+    like.addEventListener('click', () => {
+        like.classList.add('las')
+        like.classList.remove('lar')
+        la_heart.style.color = 'red'
+    })
+</script>

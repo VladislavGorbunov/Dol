@@ -73,6 +73,15 @@ class Site extends BaseController
         .view('layouts/footer');
     }
 
+    
+    public function partners() 
+    {
+        $data['title'] = 'Партнёрам';
+        return view('layouts/header-no-filter', $data) 
+        .view('site/about')
+        .view('layouts/footer');
+    }
+
     public function Login()
     {
         $session = session();

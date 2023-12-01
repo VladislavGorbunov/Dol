@@ -44,7 +44,7 @@
                             <a class="nav-link" href="#">Наши контакты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Сотрудничество</a>
+                            <a class="nav-link" href="/partners">Детским лагерям</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">Отзывы</a>

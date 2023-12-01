@@ -131,12 +131,30 @@
         <?php 
             $errors = session()->getFlashdata('msg-error');
 
-            foreach ($errors as $error) {
-                echo $error . '<br>';
+            if (!empty($errors)) {
+                foreach ($errors as $error) {
+                    echo $error . '<br>';
+                }
             }
+            
             ?>
     </div>
     <?php endif;?>
+
+
+    <?php if(session()->getFlashdata('msg')):?>
+    
+    <div class="alert alert-success text-center">
+    <?php 
+        $msg = session()->getFlashdata('msg');
+
+        if (!empty($msg)) {
+            echo $msg . '<br>';
+        }
+        
+        ?>
+</div>
+<?php endif;?>
 
         <img src="/public/theme/img/login-form-logo.png" width="200px" class="d-block mx-auto">
         <h3 class="text-center mt-2">ByCamps Office</h3>

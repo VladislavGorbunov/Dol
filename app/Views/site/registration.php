@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <title>Регистрация представителя лагеря</title>
     <!-- Bootstrap core CSS -->
-    <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicons -->
@@ -55,7 +54,7 @@
                             unset($_SESSION['error']);
                         }
                     ?>
-                    <img src="/public/theme/img/logo.png" class="d-block mx-auto mb-4">
+                    <a href="/"><img src="/public/theme/img/logo.png" class="d-block mx-auto mb-4"></a>
                     <h3 class="mb-2 pb-2 pb-md-0 text-center">Регистрация представителя лагеря</h3>
                     <p class="text-center">Заполните анкету, после проверки мы активируем ваш личный кабинет и вы сможете добавить лагерь.</p>
                             

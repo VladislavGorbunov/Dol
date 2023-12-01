@@ -49,7 +49,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item"><a class="nav-link active" href="/about">О проекте</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Наши контакты</a></li>
-                        <li class="nav-item"><a class="nav-link">Сотрудничество</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/partners">Детским лагерям</a></li>
                         <li class="nav-item"><a class="nav-link">Отзывы</a></li>
                         <li class="nav-item"><a class="nav-link">Оплата</a></li>
                     </ul>

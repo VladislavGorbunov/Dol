@@ -1,8 +1,6 @@
-<div class="bg-white rounded p-3">
-<i class="las la-map-marker-alt"></i><?= $camp['adress'] ?>
-</div>
 
-<div class="bg-white rounded p-3 mt-3">
+
+<div class="bg-white rounded p-3">
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -56,3 +54,6 @@
 
 </div>
 
+<div class="bg-white rounded p-3 mt-3">
+<i class="las la-map-marker-alt"></i><?= $camp['adress'] ?>
+</div>

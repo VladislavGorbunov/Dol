@@ -322,7 +322,7 @@
                         .then(image => {
                             if (!image.error) {
                                 e.target.setAttribute('src', `/public/images/camps/${image.src}`)
-                                console.log(image.src)
+
                                 msgErrorImage.style.display = 'block'
                                 msgErrorImage.innerHTML = image.msg
                                 msgErrorImage.style.color = 'green'
@@ -414,10 +414,6 @@
                 <input class="form-control" type="text" name="youtube_link" placeholder="https://youtu.be/szofMAvUanw" value="<?= $camp['video_link'] ?>">
             </div>
         </div>
-
-        <?php 
-            
-        ?>
 
         <div class="col-lg-6 d-block mx-auto">
             <h3 class="text-center mt-4">Сезон работы</h3>

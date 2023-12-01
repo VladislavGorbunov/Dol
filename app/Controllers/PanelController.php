@@ -288,7 +288,7 @@ class PanelController extends BaseController
             if ($cover = $this->request->getFile('cover')) {
                 if ($cover->isValid() && ! $cover->hasMoved()) {
 
-                    if ($cover->getClientMimeType() !== 'image/jpeg') {
+                    if ($cover->getClientMimeType() !== 'image/jpeg' || $cover->getClientMimeType() !== 'image/png') {
                         $session->setFlashdata('msg', 'Обложка не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
                         ');
                         
@@ -324,7 +324,7 @@ class PanelController extends BaseController
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
 
-                        if ($img->getClientMimeType() !== 'image/jpeg') {
+                        if ($img->getClientMimeType() !== 'image/jpeg' || $cover->getClientMimeType() !== 'image/png') {
                             $session->setFlashdata('msg', 'Некоторые изображения не загружены так как не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
                             ');
                             
@@ -365,7 +365,7 @@ class PanelController extends BaseController
         }
     }
 
-    // Метод редактирования данных лагеря
+    // Страница редактирования данных лагеря
     public function editCampForm($camp_id)
     {
         $session = session();
@@ -396,7 +396,7 @@ class PanelController extends BaseController
     }
 
 
-    
+    // Обновление данных о лагере в БД
     public function updateCamp($camp_id) 
     {
         $session = session();
@@ -409,23 +409,23 @@ class PanelController extends BaseController
         }
         
         $data['camps_id'] = $camp_id;
-        $data['camp_base'] = $this->request->getVar('camp_base');
-        $data['year'] = $this->request->getVar('year');
-        $data['min_age'] = $this->request->getVar('min_age');
-        $data['max_age'] = $this->request->getVar('max_age');
-        $data['security'] = $this->request->getVar('security');
-        $data['free_transfer'] = $this->request->getVar('free_transfer');
-        $data['vk_link'] = $this->request->getVar('vk_link');
-        $data['site_link'] = $this->request->getVar('site_link');
+        $data['camp_base'] = str_replace($this->delete_chars, '', $this->request->getVar('camp_base'));
+        $data['year'] = str_replace($this->delete_chars, '', $this->request->getVar('year'));
+        $data['min_age'] = str_replace($this->delete_chars, '', $this->request->getVar('min_age'));
+        $data['max_age'] = str_replace($this->delete_chars, '', $this->request->getVar('max_age'));
+        $data['security'] = str_replace($this->delete_chars, '', $this->request->getVar('security'));
+        $data['free_transfer'] = str_replace($this->delete_chars, '', $this->request->getVar('free_transfer'));
+        $data['vk_link'] = str_replace($this->delete_chars, '', $this->request->getVar('vk_link'));
+        $data['site_link'] = str_replace($this->delete_chars, '', $this->request->getVar('site_link'));
         $data['cities_id'] = $this->request->getVar('cities_id');
-        $data['adress'] = $this->request->getVar('adress');
+        $data['adress'] = str_replace($this->delete_chars, '', $this->request->getVar('adress'));
         $data['coords'] = $this->request->getVar('coords');
         $types_data['types'] = $this->request->getVar('types');
         $seasons_data['seasons'] = $this->request->getVar('seasons');
-        $data['description'] = $this->request->getVar('description');
-        $data['placement'] = $this->request->getVar('placement');
-        $data['advantages'] = $this->request->getVar('advantages');
-        $data['daily_schedule'] = $this->request->getVar('daily_schedule');
+        $data['description'] = str_replace($this->delete_chars, '', $this->request->getVar('description'));
+        $data['placement'] = str_replace($this->delete_chars, '', $this->request->getVar('placement'));
+        $data['advantages'] = str_replace($this->delete_chars, '', $this->request->getVar('advantages'));
+        $data['daily_schedule'] = str_replace($this->delete_chars, '', $this->request->getVar('daily_schedule'));
         
         // Удаляем все сезоны перед добавлением новых
         $delete_seasons = $this->CampsSeasons->where('camps_id', $camp_id)->delete();
@@ -472,9 +472,8 @@ class PanelController extends BaseController
     }
 
     
-    /*
-    * Метод удаления лагеря из базы по id
-    */ 
+
+    // Метод удаления лагеря из базы по id
     public function deleteCamp($camp_id)
     {
         helper('filesystem');
@@ -507,9 +506,8 @@ class PanelController extends BaseController
         
     }
 
-    /* 
-    ** Метод обновления обложки лагеря 
-    */
+    
+    // Метод обновления обложки лагеря 
     public function updateCover() 
     {
         $image = \Config\Services::image('gd');
@@ -566,7 +564,7 @@ class PanelController extends BaseController
         return $data;
     }
 
-
+    // Метод обновления картинок лагеря
     public function updateImages() 
     {
         $gd = \Config\Services::image('gd');
@@ -613,6 +611,8 @@ class PanelController extends BaseController
         return json_encode($result);
     }
 
+
+    // Метод транслита 
     public function SlugCreate($text)
     {
         $converter = array(

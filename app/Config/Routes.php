@@ -33,6 +33,7 @@ $routes->set404Override();
 $routes->get('/sitemap.xml', 'SiteMap::index');
 
 $routes->get('/about', 'Site::about');
+$routes->get('/partners', 'Site::partners');
 
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
@@ -58,6 +59,8 @@ $routes->post('/panel/update-cover', 'PanelController::updateCover', ['filter' =
 
 $routes->post('/panel/update-images', 'PanelController::updateImages', ['filter' => 'PanelAuth']);
 
+$routes->get("/panel/user-edit", "UserController::editUser", ['filter' => 'PanelAuth']);
+$routes->post("/panel/user-edit", "UserController::editUser", ['filter' => 'PanelAuth']);
 
 $routes->get('/panel/logout', 'PanelController::Logout');
 $routes->get('panel/booking', 'BookingController::index');

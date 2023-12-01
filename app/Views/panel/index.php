@@ -35,6 +35,9 @@
             </div>
         </div>
 
+        <div class="col-lg-12 mb-3">
+            <a href="/panel/user-edit" >Изменить данные организатора</a>
+        </div>
 
 
         <div class="col-lg-12">
@@ -55,7 +58,7 @@
                        
                         
                         <hr>
-                        <a href="" class="m-1">Посмотреть страницу лагеря</a><hr>
+                        <a href="/camp/'.$camp['slug'].'" class="m-1" target="_blank">Посмотреть страницу лагеря</a><hr>
                         <a href="/panel/camp/'.$camp['camps_id'].'/add-shift" class="m-1">Добавить смену</a>
                         <a href="/panel/camp/'.$camp['camps_id'].'/shifts" class="m-1">Посмотреть все смены</a>
                         <hr>

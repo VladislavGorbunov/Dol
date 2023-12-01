@@ -84,7 +84,8 @@
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
           <p>Россия, г. Санкт-Петербург</p>
-          <p>info@bycamp.ru</p>
+          <p>Email: info@bycamp.ru</p>
+          <p>Тех. подержка: tech@bycamp.ru</p>
           <img src="/public/theme/img/vk-text-logo-white.png" width="170">
           
         </div>
