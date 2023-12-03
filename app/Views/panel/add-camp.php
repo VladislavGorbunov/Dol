@@ -92,14 +92,15 @@
                     <label for="exampleInputPassword1" class="form-label">Год основания:</label>
                     <select class="form-select" name="year">
                         <?php
-                        for ($i = 1990; $i <= date('Y'); $i++) {
+                        for ($i = 1940; $i <= date('Y'); $i++) {
                             echo '<option value="' . $i . '">' . $i . '</option>';
                         }
                         ?>
                     </select>
                 </div>
+                
 
-                <div class="mb-3">
+                <div class="mb-2">
                     <div class="row">
                         <label class="form-label">Возраст детей:</label>
                         <div class="col-lg-6 mb-3">
@@ -145,24 +146,28 @@
                                 <option value="19">до 19</option>
                                 <option value="20">до 20</option>
                             </select>
-
-
-                            <label class="form-label mt-3">Охраняемая территория:</label>
-
-                            <select class="form-select" name="security">
-                                <option value="1">Да</option>
-                                <option value="0">Нет</option>
-                            </select>
-
-                            <label class="form-label mt-3">Трансфер включён в стоимость:</label>
-                            <select class="form-select" name="free_transfer">
-                                <option value="1">Да</option>
-                                <option value="0">Нет</option>
-                            </select>
-
                         </div>
+
+                        
                     </div>
                 </div>
+
+                <div class="mb-3">
+                    <div class="row">
+                    <div class="col-6">
+                    <label class="form-label">Охраняемая территория:</label>
+                    <select class="form-select" name="security">
+                        <option value="1">Да</option>
+                        <option value="0">Нет</option>
+                    </select></div>
+
+                    <div class="col-6">
+                    <label class="form-label">Трансфер включён в стоимость:</label>
+                    <select class="form-select" name="free_transfer">
+                        <option value="1">Да</option>
+                        <option value="0">Нет</option>
+                    </select></div>
+                </div></div>
 
                 <div class="mb-3">
                     <label class="form-label">Ссылка на группу Вконтакте:</label>
@@ -180,10 +185,11 @@
         <div class="col-lg-6 mt-2">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Регион:</label>
-                <select id="city" class="form-select" name="cities_id">
+                <select id="city" class="form-select" name="cities_id" required>
+                    <option value="" selected disabled>Выберите регион</option>
                     <?php
-                    foreach ($cities as $city) {
-                        echo '<option value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
+                        foreach ($cities as $city) {
+                            echo '<option value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
                     }
                     ?>
                 </select>
@@ -192,7 +198,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Адрес:</label>
-                <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress" readonly>
+                <input id="adress" type="text" class="form-control" placeholder="Введите адрес или выберите точку на карте" name="adress" required>
             </div>
 
             <div class="mb-3">
@@ -200,12 +206,57 @@
                 <input id="coords" type="text" class="form-control" placeholder="Будет заполнено автоматически" name="coords" readonly>
             </div>
 
+            
 
-            <div id="map" style="width: auto; height: 330px"></div>
+            <style>
 
+                .form-control:read-only {
+                    background: #cdcdcd;
+                }
 
+                #map .map-deactive {
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255,255,255,0.8);
+                    backdrop-filter: blur(3px);
+                    margin-top: 0;
+                    z-index: 999;
+                }
+
+                .map-deactive p {
+                    display: block;
+                    margin-top: 150px;
+                    text-align: center;
+                    font-weight: bold;
+                    color: red;
+                }
+
+                #map {
+                    display: block;
+                    position: relative;
+                }
+            </style>
+
+            
+            <div id="map" style="width: auto; height: 330px"><div class="map-deactive">
+                <p>Выберите регион</p>
+            </div>
+            </div>
         </div>
 
+        <script>
+                const regionInput = document.getElementById('city')
+                const mapDeactive = document.querySelector('.map-deactive')
+                const adress = document.getElementById('adress')
+                adress.setAttribute('readonly', true)
+
+                regionInput.addEventListener('change', () => {
+                    mapDeactive.style.display = 'none'
+                    adress.removeAttribute('readonly')
+                })
+            </script>
 
 
         <div class="col-lg-12">
@@ -223,11 +274,21 @@
                                 </svg>
 
                                 <span class="title">Добавить главную обложку</span>
-                                <input type="file" id="cover_img" name="cover" accept="image/png, image/jpeg" required>
+                                <input type="file" id="cover_img" class="cover_img" name="cover" accept="image/png, image/jpeg" required>
                             </label>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    const cover_input = document.querySelector('.cover_img')
+
+                    cover_input.addEventListener('change', (e) => {
+                        
+                    })
+                    
+                </script>
+
                 <div class="col-lg-6">
                     <div class="example-1">
                         <div class="form-group">
@@ -345,12 +406,12 @@
         <h3 class="text-center mt-4">Описания</h3>
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Описание лагеря:</label>
-            <textarea class="form-control textarea" id="editor" name="description"></textarea>
+            <textarea class="form-control textarea" id="summernote" name="description"></textarea>
         </div>
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Размещение:</label>
-            <textarea class="form-control textarea" id="editor2" name="placement" placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
+            <textarea class="form-control textarea" id="summernote2" name="placement" placeholder="Например: Лагерь находится в уникальной природной зоне Ленинградской области на берегу озера в окружении сосновых лесов. Удивительная природа и целебный лесной воздух обеспечивают идеальные условия для отдыха.
             Новые современные коттеджи. В коттеджах по 3 комнаты, в комнатах проживает по 3 ребенка!
             Также в домике – общий холл и своя кухня, где дети будут собираться и пить вкусный горячий чай со своими вожатыми и преподавателями. Душевая кабина, туалет и умывальник находится прямо в домике (все новое, чистое, приятное)."></textarea>
         </div>
@@ -358,7 +419,7 @@
         <div class="mb-3 mt-2">
             <label for="exampleFormControlTextarea1" class="form-label">Преимущества лагеря (Перечислите основные
                 преимущества вашего лагеря перед остальными, его особенности.)</label>
-            <textarea class="form-control textarea" id="editor3" name="advantages"></textarea>
+            <textarea class="form-control textarea" id="summernote3" name="advantages"></textarea>
         </div>
 
         <div class="mb-3 mt-2">
@@ -379,7 +440,7 @@
                 </div>
             </div>
 
-            <textarea class="form-control textarea" id="editor4" name="daily_schedule"></textarea>
+            <textarea class="form-control textarea" id="summernote4" name="daily_schedule"></textarea>
         </div>
 
 
@@ -394,144 +455,93 @@
 </div>
 
 
-<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
+<!-- include summernote css/js-->
+<link href="/public/js/summernote/summernote-lite.css" rel="stylesheet">
+<script src="/public/js/summernote/summernote-lite.js"></script>
 
 
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+
+$('#summernote').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['insert', ['link']],
+          
+        ]
+});
+
+$('#summernote2').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+         
+        ]
+});
+
+$('#summernote3').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          
+        ]
+});
+
+$('#summernote4').summernote({
+        placeholder: '',
+        height: 300,                 
+        minHeight: 300,
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+         
+        ]
+});
 
 
-    ClassicEditor
-        .create(document.querySelector('#editor2'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-
-    ClassicEditor
-        .create(document.querySelector('#editor3'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-    ClassicEditor
-        .create(document.querySelector('#editor4'), {
-            removePlugins: ['Link', 'CKFinder'],
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'list', 'bulletedList', 'numberedList',
-                'blockQuote'
-            ],
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Заголовки',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Заголовок 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Заголовок 3',
-                        class: 'ck-heading_heading3'
-                    }
-                ]
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
 </script>
-
 
 <script>
     let coverImage = document.getElementById('cover_img');
 
     coverImage.addEventListener('change', (event) => {
-        console.log(coverImage.value.split(/(\\|\/)/g).pop());
+        if(coverImage.files.length > 0) {
+            console.log('ok')
+        } else {
+            console.log('no')
+        }
     })
 </script>
 
@@ -561,7 +571,6 @@
             // Если метка уже создана – просто передвигаем ее.
             if (myPlacemark) {
                 myPlacemark.geometry.setCoordinates(coords);
-
             }
             // Если нет – создаем.
             else {
@@ -571,10 +580,7 @@
                 myPlacemark.events.add('dragend', function() {
                     getAddress(myPlacemark.geometry.getCoordinates());
                 });
-
-
             }
-
 
             getAddress(coords);
         });
@@ -582,7 +588,7 @@
         // Создание метки.
         function createPlacemark(coords) {
             return new ymaps.Placemark(coords, {
-                iconCaption: 'поиск...'
+                iconCaption: 'Мой лагерь тут'
             }, {
                 preset: 'islands#violetDotIconWithCaption',
                 draggable: true
@@ -654,6 +660,29 @@
 
                 });
 
+                // Если метка уже создана – просто передвигаем ее.
+                if (myPlacemark) {
+                    myPlacemark.geometry.setCoordinates(coords);
+                    coordInput.value = coords;
+                }
+                // Если нет – создаем.
+                else {
+                    myPlacemark = createPlacemark(coords);
+                    myMap.geoObjects.add(myPlacemark);
+                    coordInput.value = coords;
+                    // Слушаем событие окончания перетаскивания на метке.
+                    myPlacemark.events.add('dragend', function() {
+                    getAddress(myPlacemark.geometry.getCoordinates());
+                    
+                });
+
+
+                }
+
+                // myPlacemark = createPlacemark(coords);
+                // coordInput.value = coords;
+                // myMap.geoObjects.add(myPlacemark);
+
                 /**
                  * Все данные в виде javascript-объекта.
                  */
@@ -718,6 +747,9 @@
             getAddressCity(cityName);
         })
 
+        adressInput.addEventListener('input', () => {
+            getAddressCity(adressInput.value);
+        })
 
 
     }

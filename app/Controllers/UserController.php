@@ -23,7 +23,7 @@ class UserController extends BaseController
     public function editUser()
     {
         
-        if ($this->request->getMethod(true) === 'POST') {
+        if ($this->request->is('post')) {
             $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
             
             $data['user_id'] = $this->request->getPost('user_id');

@@ -289,7 +289,7 @@ class PanelController extends BaseController
                 if ($cover->isValid() && ! $cover->hasMoved()) {
 
                     if ($cover->getClientMimeType() !== 'image/jpeg' || $cover->getClientMimeType() !== 'image/png') {
-                        $session->setFlashdata('msg', 'Обложка не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
+                        $session->setFlashdata('msg', 'Обложка не соответствует допустимому расширению. Допустимые расширения: JPG и PNG.
                         ');
                         
                     } else {
