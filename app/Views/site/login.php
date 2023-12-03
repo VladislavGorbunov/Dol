@@ -37,6 +37,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
+            background: url(https://gagaru.club/uploads/posts/2023-02/1677052374_gagaru-club-p-estetichnaya-priroda-vkontakte-59.jpg);
         }
 
         .loginBox {
@@ -44,12 +45,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            max-width: 600px;
             min-height: 200px;
-            background: #fff;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(7px);
+            border-radius: 20px;
             padding: 40px;
             box-sizing: border-box;
             box-shadow: 0 2px 20px -15px #111;
+            
         }
 
         .user {
@@ -125,7 +129,7 @@
         }
 
         p {
-            color: #59238F
+            color: #444;
         }
 
         .h-captcha {
@@ -185,8 +189,9 @@
 </div>
 <?php endif;?>
 
-        <img src="/public/theme/img/login-form-logo.png" width="200px" class="d-block mx-auto">
-        <h3 class="text-center mt-2">ByCamps Office</h3>
+        <img src="/public/theme/img/login-form-logo.png" width="160px" class="d-block mx-auto">
+        <h3 class="text-center mt-2">ByCamps</h3>
+        <p class="text-center">Панель управления лагерями</p>
        
         <form action="" method="post">
             <div class="inputBox mt-1 col-lg-10 d-block mx-auto">
