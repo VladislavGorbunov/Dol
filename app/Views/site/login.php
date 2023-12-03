@@ -11,6 +11,8 @@
         <title>Вход в панель менеджера</title>
         <!-- Bootstrap core CSS -->
         <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Line Awesome icons -->
+        <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
 
         <!-- Favicons -->
         <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -23,6 +25,20 @@
         <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <style>
+        @font-face {
+            font-family: "Roboto"; 
+            src: url("/public/fonts/Roboto/Roboto-Regular.ttf");  
+        }
+
+        @font-face {
+            font-family: "Rubik"; 
+            src: url("/public/fonts/Rubik/Rubik-Bold.ttf"); 
+        } 
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
         .loginBox {
             position: absolute;
             top: 50%;
@@ -45,13 +61,14 @@
         h3 {
             margin: 0;
             padding: 0 0 10px;
-            color: #222;
+            font-family: 'Rubik', sans-serif;
+            color: #111;
             text-align: center
         }
 
         .loginBox input {
             width: 100%;
-            margin-bottom: 25px
+            margin-bottom: 25px;
         }
 
         .loginBox input[type="text"],
@@ -60,7 +77,7 @@
             border-bottom: 1px solid #ccc;
             outline: none;
             height: 55px;
-            color: #222;
+            color: #111;
             background: transparent;
             font-size: 16px;
             padding-left: 10px;
@@ -115,6 +132,18 @@
             display: block;
             width: 305px;
         }
+
+        .password {
+            position: relative;
+        }
+
+        .la-eye, .la-eye-slash {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            color: #999;
+        }
         </style>
 
 
@@ -161,21 +190,22 @@
        
         <form action="" method="post">
             <div class="inputBox mt-1 col-lg-10 d-block mx-auto">
-                <input id="uname" type="text" name="email" placeholder="Email" required>
-                <input id="pass" type="password" name="password" placeholder="Пароль" required>
+                <input id="uname" type="text" name="email" placeholder="Введите Email" required>
+                <div class="password">
+                    <input id="pass" type="password" name="password" placeholder="Введите пароль" required>
+                    <div class="eye-icon"><i class="las la-eye"></i></div>
+                </div>
             </div>
             <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
             <div id="hcaptcha-loading" class="text-center"></div>
             <button id="btn-login" type="submit" class="btn btn-login mt-3">Войти</button>
         </form>
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-4">
             <div class="row">
                 <div class="col-lg-6"><a href="">Зарегистрироваться</a></div>
                 <div class="col-lg-6"><a href="#">Восстановить пароль</a></div>
             </div>
-
-            <a href="/" class="mt-3">Вернуться на главную</a>
         </div>
 
     </div>
@@ -184,9 +214,31 @@
 
 
 <script>
+
+// view password
+
+const viewIcon = document.querySelector('.las')
+const passInput = document.getElementById('pass')
+let flag = true
+viewIcon.addEventListener('click', () => {
+
+    if (flag == true) {
+        passInput.setAttribute('type', 'text')
+        viewIcon.classList.remove('la-eye')
+        viewIcon.classList.add('la-eye-slash')
+        flag = false
+    } else {
+        passInput.setAttribute('type', 'password')
+        viewIcon.classList.add('la-eye')
+        viewIcon.classList.remove('la-eye-slash')
+        flag = true
+    }
+    
+})
+
+
 const btnLogin = document.getElementById('btn-login');
 const hcaptchaLoading = document.getElementById('hcaptcha-loading');
-console.log(btnLogin)
 btnLogin.classList.add('disabled');
 hcaptchaLoading.innerHTML = 'Подождите, загружаем капчу'
 
