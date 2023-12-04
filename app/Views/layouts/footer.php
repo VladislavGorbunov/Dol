@@ -143,6 +143,7 @@
               
 
 <script src="/public/bootstrap-5.3.0-alpha3/dist/js/bootstrap.bundle.js"></script>
+<script src="/public/js/navBarTop.js"></script>
 <script src="/public/js/phone-mask.js"></script>
 <script src="/public/js/filter.js"></script>
 <script src="/public/js/cookie-msg.js"></script>

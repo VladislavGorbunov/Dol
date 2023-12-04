@@ -551,7 +551,7 @@
 
 
         <div class="col-lg-5">
-            <button type="submit" class="btn btn-primary">Отправить на проверку</button>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
         </div>
         </form>
 

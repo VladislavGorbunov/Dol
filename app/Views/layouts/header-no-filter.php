@@ -73,7 +73,3 @@
             
         </div>
     </div>
-
-
-
-    <script src="/public/js/navBarTopShort.js"></script>

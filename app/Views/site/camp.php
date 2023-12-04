@@ -1,6 +1,5 @@
 <div class="container">
 
-
     <?php if(session()->getFlashdata('msg-error')):?>
     <div class="alert alert-warning text-center">
         <?= session()->getFlashdata('msg-error') ?>
@@ -53,7 +52,6 @@
     type="text/javascript"></script>
 
 <?php $coord = explode(',', $camp['coords']); ?>
-
 
 <script type="text/javascript">
 ymaps.ready(init);

@@ -288,7 +288,7 @@ class PanelController extends BaseController
             if ($cover = $this->request->getFile('cover')) {
                 if ($cover->isValid() && ! $cover->hasMoved()) {
 
-                    if ($cover->getClientMimeType() !== 'image/jpeg' || $cover->getClientMimeType() !== 'image/png') {
+                    if ($img->getClientMimeType() != 'image/jpeg' || $img->getClientMimeType() != 'image/png') {
                         $session->setFlashdata('msg', 'Обложка не соответствует допустимому расширению. Допустимые расширения: JPG и PNG.
                         ');
                         
@@ -324,7 +324,7 @@ class PanelController extends BaseController
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
 
-                        if ($img->getClientMimeType() !== 'image/jpeg' || $cover->getClientMimeType() !== 'image/png') {
+                        if ($img->getClientMimeType() != 'image/jpeg' || $img->getClientMimeType() != 'image/png') {
                             $session->setFlashdata('msg', 'Некоторые изображения не загружены так как не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
                             ');
                             
@@ -426,9 +426,22 @@ class PanelController extends BaseController
         $data['placement'] = str_replace($this->delete_chars, '', $this->request->getVar('placement'));
         $data['advantages'] = str_replace($this->delete_chars, '', $this->request->getVar('advantages'));
         $data['daily_schedule'] = str_replace($this->delete_chars, '', $this->request->getVar('daily_schedule'));
-        
+
+        if (!$types_data['types']) {
+            $session->setFlashdata('msg-error', 'Не выбраны типы лагеря');
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+            die;
+        }
+
+        if (!$seasons_data['seasons']) {
+            $session->setFlashdata('msg-error', 'Не выбраны сезоны');
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+            die;
+        }
+
         // Удаляем все сезоны перед добавлением новых
         $delete_seasons = $this->CampsSeasons->where('camps_id', $camp_id)->delete();
+        
         // Удаляем все типы перед добавлением новых
         $delete_types = $this->CampsTypes->where('camps_id', $camp_id)->delete();
 

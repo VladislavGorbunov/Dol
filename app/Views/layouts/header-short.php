@@ -81,14 +81,14 @@
                     <form method="post">
                         <div class="row">
                             <div class="col-lg g-1">
-                                <?php 
-                           $uri = explode('/', $_SERVER['REQUEST_URI']); 
-                           $region_select = $uri[2];
-                           $type_select = $uri[3];
-                           $season_select = (!empty($uri[4])) ? $uri[4] : null;
-                           $age_select = (!empty($uri[5])) ? preg_replace('/\D+/' ,'' , $uri[5]) : null;
-                           $maxPrice_select = (!empty($uri[6])) ? preg_replace('/\D+/', '', $uri[6]) : null;
-                           ?>
+                            <?php 
+                                $uri = explode('/', $_SERVER['REQUEST_URI']); 
+                                $region_select = $uri[2];
+                                $type_select = $uri[3];
+                                $season_select = (!empty($uri[4])) ? $uri[4] : null;
+                                $age_select = (!empty($uri[5])) ? preg_replace('/\D+/' ,'' , $uri[5]) : null;
+                                $maxPrice_select = (!empty($uri[6])) ? preg_replace('/\D+/', '', $uri[6]) : null;
+                            ?>
                            <label class="form-label"><small>Регион поиска:</small></label>
                                 <select id="region" class="form-select form-select-lg mt-0" name="region">
                                     <option disabled value="">Выберите регион</option>
@@ -183,6 +183,3 @@
         </div>
     </div>
     </div>
-
-
-    <script src="/public/js/navBarTopShort.js"></script>
