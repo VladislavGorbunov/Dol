@@ -88,7 +88,7 @@ $routes->get('/admin/representatives/notactivated', 'Admin::NotActivatedRepresen
 $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 $routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
-
+$routes->post('/admin/search-representative', 'Admin::searchRepresentative', ['filter' => 'Auth']);
 
 // Бронирование путёвки
 $routes->post('/booking', 'BookingController::Booking');

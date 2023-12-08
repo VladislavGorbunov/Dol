@@ -32,6 +32,7 @@ class PanelController extends BaseController
     public $RecaptchaController;
     public $BookingsModel;
     public $booking_count;
+    private $max_camps_count;
 
     private $delete_chars = ['<script>', '%', '_', '(', ')', '"', '\'', '?', 'script', '#'];
     
@@ -61,6 +62,12 @@ class PanelController extends BaseController
 
         $session->set(['booking_count' => $this->booking_count = count($this->BookingsModel->where('representative_id', $session->get('id'))->where('confirmed', 0)->findAll())]);
         
+        // Максимальное количество лагерей для обычных пользователей и премиум
+        if ($session->get('premium') == true) {
+            $this->max_camps_count = 3;
+        } else {
+            $this->max_camps_count = 1;
+        }
         // Preload any models, libraries, etc, here.
     }
 
@@ -71,7 +78,9 @@ class PanelController extends BaseController
         
         $data['user'] = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
         $data['camps'] = $this->CampsModel->where('representatives_id', $data['user']['user_id'])->findAll();
-        
+        $data['camps_count'] = count($data['camps']);
+        $session->set(['camps_count' => count($data['camps'])]);
+
         // Создание массива лагерей для главной страницы панели
         for ($i = 0; $i < count($data['camps']); $i++) {
             $data['camps'][$i] = [
@@ -143,7 +152,8 @@ class PanelController extends BaseController
                     'id' => $data['user_id'],
                     'name' => $data['firstname_manager'],
                     'email' => $data['email_manager'],
-                    'isLoggedIn' => TRUE
+                    'isLoggedIn' => TRUE,
+                    'premium' => $data['premium'],
                 ];
 
                 $session->set($ses_data);
@@ -165,6 +175,12 @@ class PanelController extends BaseController
 
     public function addCampForm()
     {
+        $session = session();
+        
+        if ($session->get('camps_count') >= $this->max_camps_count) {
+            $session->setFlashdata('msg-error', 'Вы добавили максимальное количество лагерей.');
+            return redirect()->to('/panel');
+        }
         $data['cities'] = $this->CitiesModel->findAll();
         $data['types'] = $this->TypesModel->findAll();
         $data['seasons'] = $this->SeasonsModel->findAll();
@@ -196,7 +212,6 @@ class PanelController extends BaseController
             'title' => ['label' => 'Название лагеря', 'rules' => 'required|max_length[25]'],
             'camp_base' => ['label' => 'Название базы', 'rules' => 'required'],
             'cities_id' => ['label' => 'Регион', 'rules' => 'required|integer'],
-            //'representatives_id' => ['label' => 'ID представителя', 'rules' => 'required'],
             'adress' => ['label' => 'Адрес', 'rules' => 'required'],
             'year' => ['label' => 'Год основания', 'rules' => 'required|integer'],
             'min_age' => ['label' => 'Минимальный возраст', 'rules' => 'required|integer'],
@@ -216,24 +231,19 @@ class PanelController extends BaseController
             return redirect()->back()->withInput();
         }
 
-
-
         if (!$types_data['types']) {
             $session->setFlashdata('msg-error', 'Не выбраны типы лагеря');
             return redirect()->to('/panel/add-camp');
-            die;
         }
 
         if (!$seasons_data['seasons']) {
             $session->setFlashdata('msg-error', 'Не выбраны сезоны');
             return redirect()->to('/panel/add-camp');
-            die;
         }
 
         if (!$validation->run($data)) {
             $session->setFlashdata('msg-error', validation_list_errors());
             return redirect()->to('/panel/add-camp');
-            die;
         }
 
         if (count($types_data['types']) > 6) {
@@ -286,12 +296,11 @@ class PanelController extends BaseController
             $home = $this->imagesFolder .'/'. $data['slug'];
 
             if ($cover = $this->request->getFile('cover')) {
-                if ($cover->isValid() && ! $cover->hasMoved()) {
+                if ($cover->isValid() && !$cover->hasMoved()) {
 
-                    if ($img->getClientMimeType() != 'image/jpeg' || $img->getClientMimeType() != 'image/png') {
-                        $session->setFlashdata('msg', 'Обложка не соответствует допустимому расширению. Допустимые расширения: JPG и PNG.
-                        ');
-                        
+                    if ($cover->getClientMimeType() != 'image/jpeg' && $cover->getClientMimeType() != 'image/png') {
+                        $session->setFlashdata('msg', 'Обложка не соответствует допустимому расширению. Допустимые расширения: JPG и PNG.');
+                        return redirect()->to('/panel');
                     } else {
                         $newNameCover = $cover->getRandomName();
                         $cover->move($home, $newNameCover);
@@ -311,11 +320,13 @@ class PanelController extends BaseController
                         ->fit(400, 340, 'center')
                         ->save($home .'/cover/'. $newNameCover);
 
-                        // Удаление оригинальной обложки
+                        //Удаление оригинальной обложки
                         unlink($home .'/'. $newNameCover);
                     }
                 }
             }
+
+            
     
 
             // Загрузка дополнительных изображений
@@ -324,7 +335,7 @@ class PanelController extends BaseController
                 foreach ($imagefiles['images'] as $img) {
                     if ($img->isValid() && ! $img->hasMoved()) {
 
-                        if ($img->getClientMimeType() != 'image/jpeg' || $img->getClientMimeType() != 'image/png') {
+                        if ($img->getClientMimeType() != 'image/jpeg' && $img->getClientMimeType() != 'image/png') {
                             $session->setFlashdata('msg', 'Некоторые изображения не загружены так как не соответствуют допустимому расширению. Допустимые расширения: JPG и PNG.
                             ');
                             
@@ -530,7 +541,6 @@ class PanelController extends BaseController
         $home = $this->imagesFolder . '/' . $_POST['camp_slug'] . '/cover';
         
         $oldCover = $this->ImagesModel->where(['camps_id' => $_POST['camps_id'], 'cover' => 1])->first(); // Старая обложка
-
     
         if ($cover = $this->request->getFile('cover_new')) { // Получаем новый файл обложки
             

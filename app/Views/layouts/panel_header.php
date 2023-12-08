@@ -101,12 +101,15 @@
           <a class="nav-link active position-relative" aria-current="page" href="/panel/booking">Клиенты и бронирования 
           <span class="badge bg-danger"><?= $session->get('booking_count') ?></span>
 
-
 </a>
         </li>
       </ul>
+      
       <form class="d-flex">
+      
+      
       <a class="btn btn-add m-1" href="/panel/add-camp"><i class="las la-plus"></i> Добавить лагерь</a>
+      
     
       <a class="btn btn-logout m-1" href="/panel/logout">Выйти</a>
       </form>

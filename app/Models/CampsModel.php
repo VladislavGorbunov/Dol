@@ -39,10 +39,11 @@ class CampsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews');
+        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews, representatives.organization, representatives.premium');
     
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
         $builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');
+        $builder->join('representatives', 'camps.representatives_id = representatives.user_id');
         
         if ($type) $builder->join('camps_types', 'camps_types.camps_id = camps.camps_id', 'left');
         if ($type) $builder->join('types', 'camps_types.types_id = types.types_id', 'left');
@@ -64,7 +65,7 @@ class CampsModel extends Model
 
         $builder->groupBy(['camps.camps_id', 'reviews.camps_id']); 
         
-        $builder->orderBy('avg_rating DESC', 'count_reviews DESC');
+        $builder->orderBy('representatives.premium DESC', 'avg_rating DESC', 'count_reviews DESC');
         
         $this->count_rows = $builder->countAllResults(false); 
 

@@ -1,37 +1,33 @@
 <!-- содержимое -->
 <div class="col p-5">
 
-    <?php
-
-var_dump($info);
-var_dump($city);
-?>
 
     <form action="" method="post"> 
 
-        <div class="row">
+    <div class="row">
         <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">ID</label>
-                    <input type="text" class="form-control" name="user_id" value="<?= $info[0]['user_id'] ?>" readonly>
-                </div>
+            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <input type="text" class="form-control" name="user_id" value="<?= $info[0]['user_id'] ?>" readonly>
+        </div>
 
-            <div class="col-lg-4">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Город</label>
-                    <input type="text" class="form-control" value="<?= $city[0]['title'] ?>" readonly>
-                </div>
-                <div class="mb-3">
-                    
-                    <input type="text" class="form-control" name="cities_id" value="<?= $city[0]['cities_id'] ?>" readonly hidden>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Директор</label>
-                    <input type="text" class="form-control" name="director" value="<?= $info[0]['director'] ?>">
-                </div>
-                
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Город</label>
+                <input type="text" class="form-control" value="<?= $city[0]['title'] ?>" readonly>
             </div>
+        
+        <div class="mb-3">       
+            <input type="text" class="form-control" name="cities_id" value="<?= $city[0]['cities_id'] ?>" readonly hidden>
+        </div>
 
-            <div class="col-lg-4">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Директор</label>
+            <input type="text" class="form-control" name="director" value="<?= $info[0]['director'] ?>">
+        </div>
+                
+     </div>
+
+<div class="col-lg-4">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Организация</label>
                     <input type="text" class="form-control" name="organization" value="<?= $info[0]['organization'] ?>">
@@ -88,6 +84,22 @@ var_dump($city);
                     <label for="exampleInputEmail1" class="form-label">Должность представителя</label>
                     <input type="text" class="form-control" name="post" value="<?= $info[0]['post'] ?>">
                 </div>
+
+                <?= date('Y-m-d') ?>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Премиум статус</label>
+                    <select class="form-select form-select-md mb-3" name="premium">
+                        <?php
+                            if ($info[0]['premium'] == 0) {
+                                echo '<option selected value="' . $info[0]['premium'] . '">Неактивный</option>';
+                                echo '<option value="1">Активный</option>';
+                            } else {
+                                echo '<option value="' . $info[0]['premium'] . '">Активный</option>';
+                                echo '<option value="0">Неактивный</option>';
+                            }
+                        ?>
+                    </select>
+                </div>
                 
                 
             </div>
@@ -99,14 +111,14 @@ var_dump($city);
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Дата регистрации (г.м.ч время)</label>
-                    <input type="text" class="form-control" value="<?= $info[0]['created_at'] ?>">
+                    <input type="text" class="form-control" value="<?= $info[0]['created_at'] ?>" readonly>
                 </div>
                 
             </div>
 
 
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 
 

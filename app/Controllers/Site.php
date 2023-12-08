@@ -78,7 +78,7 @@ class Site extends BaseController
     {
         $data['title'] = 'Партнёрам';
         return view('layouts/header-no-filter', $data) 
-        .view('site/about')
+        .view('site/partners')
         .view('layouts/footer');
     }
 
@@ -143,7 +143,7 @@ class Site extends BaseController
         $data['prices'][] = $this->ShiftsModel->getMaxPrice($region_id);
         
         $camps = $camps_data['builder']->getResultArray(); // Получаем лагеря
-        
+        //dd($camps_data);
         $total = $camps_data['count_row']; // Получаем кол-во записей
         $data['count_camp'] = $total;
         $pager_links = $pager->makeLinks($page, $kol, $total, 'default_full');
@@ -168,6 +168,8 @@ class Site extends BaseController
                 'max_age' => $camps[$i]['max_age'],
                 'free_transfer' => $camps[$i]['free_transfer'],
                 'video_link' => $camps[$i]['video_link'],
+                'organization' => $camps[$i]['organization'],
+                'premium' => $camps[$i]['premium'],
             ];
         }
         

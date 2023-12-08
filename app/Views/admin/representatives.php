@@ -1,6 +1,18 @@
 <!-- содержимое -->
 <div class="col py-3">
 
+<div class="row">
+  <div class="col-lg-8">
+    <input type="text" class="form-control inn" placeholder="Введите ИНН">
+    <span class="msg d-block mt-2 mb-2"></span>
+  </div>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3 search">Найти</button>
+  </div>
+</div>
+
+
 
 <table class="table table-hover">
   <thead>
@@ -38,3 +50,30 @@
 <?= $pager->links() ?>
 
 </div>
+
+
+<script>
+const inn = document.querySelector('.inn')
+const btnSearch = document.querySelector('.search')
+const msg = document.querySelector('.msg')
+const data = new FormData()
+
+btnSearch.addEventListener('click', () => {
+  data.append('inn', inn.value)
+
+  fetch('/admin/search-representative', {
+      method: 'POST',
+      body: data
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success == true) {
+      window.location.href = `/admin/representative/edit/${data.representative.user_id}`;
+    } else {
+      msg.innerHTML = 'Организация с данным ИНН не найдена.'
+    }
+  })
+
+
+})
+</script>

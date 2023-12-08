@@ -17,21 +17,21 @@
         <div class="col-lg-6">
             <div class="alert alert-light" role="alert">
                 Здравствуйте <b><?= $user['firstname_manager'] . ' ' . $user['lastname_manager'] ?></b><hr>
-                Ваш ID в системе: <?= $user['user_id'] ?>
+                Ваш ID в системе: <?= $user['user_id'] ?><hr>
+                <div class="row">
+                    <div class="col">Статус премиум: <?= $premium = ($user['premium'] == 1) ? 'Активен' : 'Неактивен' ?></div>
+                    <div class="col"><?= $premium = ($user['premium'] == 1) ? '' : '<a href="">Подключить премиум</a>' ?></div>
+                </div>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="alert alert-light" role="alert">
                 Организация: <b><?= $user['organization'] ?></b><hr>
-                Дата регистрации: <?= $user['created_at'] ?>
+                Дата регистрации: <?= $user['created_at'] ?></b><hr>
+                <a href="/panel/user-edit" >Изменить данные организатора</a>
             </div>
         </div>
-
-        <div class="col-lg-12 mb-3">
-            <a href="/panel/user-edit" >Изменить данные организатора</a>
-        </div>
-
 
         <div class="col-lg-12">
             <h3 class="mb-3 mt-3">Мои лагеря</h3>

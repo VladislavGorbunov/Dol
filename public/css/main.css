@@ -639,3 +639,10 @@ footer {
     padding: 5px;
     text-align: center;
 }
+
+.premium {
+    padding: 6px 12px;
+    border: 2px solid gold;
+    font-size: 11px;
+    border-radius: 5px;
+}

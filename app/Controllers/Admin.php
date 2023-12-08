@@ -118,17 +118,37 @@ class Admin extends BaseController
             'email_manager' => $this->request->getVar('email_manager'),
             'phone_manager' => $this->request->getVar('phone_manager'),
             'activated' => $this->request->getVar('activated'),
+            'premium' => $this->request->getVar('premium'),
             // 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
         ];
 
         $this->RepresentativesModel->update($id, $data);
-        return redirect()->to(site_url("/admin/panel"));
+        return redirect()->to(site_url("/admin/representatives"));
     }
 
     public function deleteRepresentative(int $id)
     {
         $this->RepresentativesModel->delete(['user_id' => $id]);
         return redirect()->to(site_url("/admin/representatives"));
+    }
+
+    public function searchRepresentative() 
+    {
+        $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
+        $inn = $this->request->getPost('inn');
+        $representative = $this->RepresentativesModel->select('user_id')->where('inn', $inn)->first();
+        if (!empty($representative)) {
+            $data = [
+                'representative' => $representative,
+                'success' => true
+            ];
+        } else {
+            $data = [
+                'success' => false
+            ];
+        }
+        
+        return json_encode($data);
     }
 
     // Выход из админки

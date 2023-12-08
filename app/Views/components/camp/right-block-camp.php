@@ -33,9 +33,9 @@
                 <p><b>Работает с: </b><?= $camp['year'] ?> года</p>
                 <p><b>База лагеря: </b><?= $camp_base = (!empty($camp['camp_base'])) ? $camp['camp_base'] : 'Не указана' ?></p>
                 <p><b>Охраняемая территория:</b> <?= $securirty= ($camp['security'] == 1) ? 'Да' : 'Нет' ?></p>
-                <p><b>Сайт лагеря:</b> <?= $site = (!empty($camp['site_link'])) ? '<a href="'.$camp['site_link'].'" style="color:#2955c8">' . $camp['site_link'] . '</a>' : 'Нет' ?></p>
-                <p><b>ВКонтакте:</b> <?= $vk = (!empty($camp['vk_link'])) ? '<a href="'.$camp['vk_link'].'" style="color:#2955c8">' . $camp['vk_link'] . '</a>' : 'Нет' ?></p>
-                <p><b>Телефон: </b></p>
+                <p><b>Сайт лагеря:</b> <?= (!empty($camp['site_link']) && $organization['premium'] == 1) ? '<a href="'.$camp['site_link'].'" style="color:#2955c8">' . $camp['site_link'] . '</a>' : '--' ?></p>
+                <p><b>ВКонтакте:</b> <?= (!empty($camp['vk_link']) && $organization['premium'] == 1) ? '<a href="'.$camp['vk_link'].'" style="color:#2955c8">' . $camp['vk_link'] . '</a>' : '--' ?></p>
+                <p><b>Телефон: </b> <?= (!empty($camp['phone']) && $organization['premium'] == 1) ? $camp['phone'] : '--' ?></p>
                 <p><b>Регион:</b> <?= $region['title'] ?></p>
                 <p><b>Адрес:</b> <?= $camp['adress'] ?></p>
                 <p><b>Возраст:</b> <?= 'от ' . $camp['min_age'] . ' до ' . $camp['max_age'] . ' лет'?>
