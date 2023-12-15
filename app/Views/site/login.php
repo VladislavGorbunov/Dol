@@ -37,7 +37,8 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: url(https://gagaru.club/uploads/posts/2023-02/1677052374_gagaru-club-p-estetichnaya-priroda-vkontakte-59.jpg);
+            background: url(/public/theme/img/authbg.jpg);
+            background-size: cover;
         }
 
         .loginBox {

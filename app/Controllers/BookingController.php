@@ -6,7 +6,7 @@ use App\Models\BookingsModel;
 use App\Models\RepresentativesModel;
 use App\Models\CampsModel;
 use App\Models\Shifts;
-
+use App\Controllers\EmailController;
 
 class BookingController extends BaseController
 {
@@ -16,6 +16,7 @@ class BookingController extends BaseController
     public $CampsModel;
     public $ShiftModel;
     public $Bookings;
+    public $EmailController;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -27,6 +28,7 @@ class BookingController extends BaseController
         $this->BookingsModel = new BookingsModel();
         $this->CampsModel = new CampsModel();
         $this->ShiftModel = new Shifts();
+        $this->EmailController = new EmailController();
         // Preload any models, libraries, etc, here.
     }
 
@@ -106,8 +108,12 @@ class BookingController extends BaseController
         $data['booking_number'] = $this->CreateRandomBookingNumber();
         
         $this->BookingsModel->insert($data);
+
+        $manager = $this->RepresentativesModel->where('user_id', $data['representative_id'])->first();
+        $this->EmailController->sendEmailBooking($manager['email_manager']);
+        
         $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
-    
+        
         $redirect = $_SERVER['HTTP_REFERER'];
         return redirect()->to($redirect);
     }

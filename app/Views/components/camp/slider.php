@@ -6,7 +6,6 @@
   <div class="carousel-inner">
 
   <?php
-
   for ($i = 0; $i < count($images); $i++) {
       if ($i == 0) {
           echo '<div class="carousel-item active" data-bs-interval="2000"><img src="'.$images[$i].'" class="img-fluid camp-photos"></div>';

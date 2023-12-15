@@ -1,64 +1,3 @@
-<style>
-    .ck-editor__editable {
-        min-height: 300px;
-    }
-
-    .form-label {
-        font-weight: 500;
-    }
-
-    .example-1 .form-group {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .example-1 input[type=file] {
-        outline: 0;
-        opacity: 0;
-        pointer-events: none;
-        user-select: none
-    }
-
-    .example-1 .label {
-
-        border: 2px dashed grey;
-        border-radius: 5px;
-        display: block;
-        padding: 1.2em;
-        transition: border 300ms ease;
-        cursor: pointer;
-        text-align: center
-    }
-
-    .example-1 .title {
-        display: block;
-        text-align: center;
-    }
-
-    .example-1 .label i {
-        display: block;
-        font-size: 42px;
-        padding-bottom: 16px
-    }
-
-    .example-1 .label i,
-    .example-1 .label .title {
-        color: grey;
-        transition: 200ms color
-    }
-
-    .example-1 .label:hover {
-        border: 2px solid #000
-    }
-
-    .example-1 .label:hover i,
-    .example-1 .label:hover .title {
-        color: #000
-    }
-</style>
-
-
-
 <div class="col p-4">
     <h1 class="mt-2 text-center">Изменение данных о лагере</h1>
 
@@ -68,43 +7,48 @@
         </div>
     <?php endif; ?>
 
-    
     <?= validation_list_errors() ?>
+<form action="" method="post" enctype="multipart/form-data">
+<div class="row">
+        
+    <!-- left block -->
+    <div class="col-lg-6 mt-2">
+            <input type="text" value="<?= $camp['camps_id'] ?>" hidden class="camp_id">
+            <input type="text" value="<?= $camp['slug'] ?>" hidden class="slug">
+            <div class="mb-3">
+                <label class="form-label">Название: (Изменить нельзя. Если есть такая необходимость, напишите в службу поддержки)</label>
+                <input type="text" class="form-control" name="title" placeholder="Например: Восход" value="<?= $camp['title'] ?>" readonly required>
+            </div>
 
-    <div class="row">
+            <div class="mb-3">
+                <label class="form-label">Название базы лагеря:</label>
+                <input type="text" class="form-control" name="camp_base" placeholder="Например: ДОЛ «Морская волна»" value="<?= $camp['camp_base'] ?>" required>
+            </div>
 
-        <div class="col-lg-6 mt-2">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label class="form-label">Название: (Изменить нельзя. Если есть такая необходимость, напишите в службу поддержки)</label>
-                    <input type="text" class="form-control" name="title" placeholder="Например: Восход" value="<?= $camp['title'] ?>" readonly required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Название базы лагеря:</label>
-                    <input type="text" class="form-control" name="camp_base" placeholder="Например: ДОЛ «Морская волна»" value="<?= $camp['camp_base'] ?>" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Год основания:</label>
-                    <select class="form-select" name="year">
-                        <?php
-                            for ($i = 1990; $i <= date('Y'); $i++) {
-                                if ($i == $camp['year']) {
-                                    echo '<option selected value="' . $i . '">' . $i . '</option>';
-                                } else {
-                                    echo '<option value="' . $i . '">' . $i . '</option>';
-                                }
+            <!-- -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Год основания:</label>
+                <select class="form-select" name="year">
+                    <?php
+                        for ($i = 1990; $i <= date('Y'); $i++) {
+                            if ($i == $camp['year']) {
+                                echo '<option selected value="' . $i . '">' . $i . '</option>';
+                            } else {
+                                echo '<option value="' . $i . '">' . $i . '</option>';
                             }
-                        ?>
-                    </select>
-                </div>
+                        }
+                    ?>
+                </select>
+            </div>
+            <!-- -->
 
-                <div class="mb-3">
-                    <div class="row">
-                        <label class="form-label">Возраст детей:</label>
-                        <div class="col-lg-6 mb-3">
-                            <select class="form-select" name="min_age">
+            <!-- -->
+            <div class="mb-3">
+                <div class="row">
+                    <label class="form-label">Возраст детей:</label>
+
+                    <div class="col-lg-6 mb-3">
+                        <select class="form-select" name="min_age">
                             <?php
                                 for ($i = 0; $i <= 10; $i++) {
                                     if ($i == $camp['min_age']) {
@@ -114,12 +58,12 @@
                                     }
                                 }
                             ?>
-                            </select>
-                        </div>
+                        </select>
+                    </div>
 
 
-                        <div class="col-lg-6">
-                            <select class="form-select" name="max_age">
+                    <div class="col-lg-6">
+                        <select class="form-select" name="max_age">
                             <?php
                                 for ($i = 0; $i <= 20; $i++) {
                                     if ($i == $camp['max_age']) {
@@ -129,13 +73,14 @@
                                     }
                                 }
                             ?>
-                            </select>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label mt-3">Охраняемая территория:</label>
+                        </select>
+                    </div>
 
-                            <select class="form-select" name="security">
-                                <?php 
+                    <div class="col-lg-12">
+                        <label class="form-label mt-3">Охраняемая территория:</label>
+
+                        <select class="form-select" name="security">
+                            <?php 
 
                                 if ($camp['security'] == 1) {
                                     echo '<option selected value="1">Да</option><option value="0">Нет</option>';
@@ -143,8 +88,8 @@
                                     echo '<option selected value="0">Нет</option><option value="1">Да</option>';
                                 }
                                 
-                                ?>
-                            </select>
+                            ?>
+                        </select>
 
                             <label class="form-label mt-3">Трансфер включён в стоимость:</label>
                             <select class="form-select" name="free_transfer">
@@ -158,243 +103,117 @@
                                ?>
                             </select>
 
-                        </div>
                     </div>
                 </div>
+            </div>
+            <!-- -->
 
-                <div class="mb-3">
-                    <label class="form-label">Ссылка на группу Вконтакте:</label>
-                    <input type="text" class="form-control" placeholder="https://vk.com/public" name="vk_link" value="<?= $camp['vk_link'] ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Сайт лагеря:</label>
-                    <input type="text" class="form-control" placeholder="https://site.ru" name="site_link" value="<?= $camp['site_link'] ?>">
-                </div>
-
-
-        </div>
-
-
-
-        <div class="col-lg-6 mt-2">
             <div class="mb-3">
-                
-                <label for="exampleInputEmail1" class="form-label">Регион:</label>
+                <label class="form-label">Ссылка на группу Вконтакте:</label>
+                <input type="text" class="form-control" placeholder="https://vk.com/public" name="vk_link" value="<?= $camp['vk_link'] ?>">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Сайт лагеря:</label>
+                <input type="text" class="form-control" placeholder="https://site.ru" name="site_link" value="<?= $camp['site_link'] ?>">
+            </div>
+    </div> <!-- end col-lg-6 -->
+    <!-- end left block -->
+
+
+    <div class="col-lg-6 mt-2">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Регион:</label>
                 <select id="city" class="form-select" name="cities_id" >
-                    <?php
+                <?php
                     foreach ($cities as $city) {
                         if ($city['title'] == $camp['city']['title']) {
                             echo '<option selected value="' . $city['cities_id'] . '">' . $city['title'] . '</option>';
                         } 
                     }
-                    ?>
+                ?>
                 </select>
-            </div>
-
-
-            <div class="mb-3">
-                <label class="form-label">Адрес:</label>
-                <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress" value="<?= $camp['adress'] ?>" readonly>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Координаты:</label>
-                <input id="coords" type="text" class="form-control" placeholder="Будет заполнено автоматически" name="coords" readonly>
-            </div>
-
-
-            <div id="map" style="width: auto; height: 330px"></div>
-
-
         </div>
 
-                <?php
-                // var_dump($cover);
-                ?>
+        <div class="mb-3">
+            <label class="form-label">Адрес:</label>
+            <input id="adress" type="text" class="form-control" placeholder="Выберите точку на карте" name="adress" value="<?= $camp['adress'] ?>" readonly>
+        </div>
 
-        <div class="col-lg-12">
-            <h3 class="text-center mt-4">Фотографии лагеря</h3>
+        <div class="mb-3">
+            <label class="form-label">Координаты:</label>
+            <input id="coords" type="text" class="form-control" placeholder="Будет заполнено автоматически" name="coords" readonly>
+        </div>
+
+        <div id="map" style="width: auto; height: 330px"></div>
+
+    </div> <!-- end col-lg-6 -->
+
+            
+    <div class="col-lg-12">
+        <h3 class="text-center mt-4">Фотографии лагеря</h3>
             <div class="row">
-
-            <style>
-                .cover-input {
-                    display: none;
-                }
-
-                .cover-form-btn {
-                    background: #222;
-                    color: #fff;
-                    padding: 12px;
-                    border-radius: 5px;
-                }
-
-                .cover-form-btn:hover {
-                    cursor: pointer;
-                }
-
-                .save-btn {
-                    background: #222;
-                    color: #fff;
-                    padding: 12px;
-                    border-radius: 5px;
-                }
-
-                .save-btn:hover {
-                    cursor: pointer;
-                }
-            </style>
-
+                <!-- cover block -->
                 <div class="col-lg-4">
-                    <h5>Обложка карточки лагеря:</h5>
+                    <h5 class="mb-3">Обложка карточки лагеря:</h5>
                     <img src="/public/images/camps/<?= $camp['slug'] ?>/cover/<?= $cover[0]['name_img'] ?>" class="cover-img rounded">
                     
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="cover-input" class="d-block cover-form-btn text-center mt-2">Выбрать картинку</label></div>
+                                <label for="cover-input" class="d-block cover-form-btn text-center mt-2">Выбрать картинку</label>
+                            </div>
                                 <input type="file" name="cover" id="cover-input" class="cover-input">
                                 <div class="col-lg-6">
                                     <div class="mt-2 save-btn text-center">Сохранить</div>
                                 </div>
 
                                 <div class="msg-error-cover"></div>
-                            </div>
-                    
+                        </div>
                 </div>
+                <!-- -->
+
                 <div class="col-lg-8">
-                <h5>Дополнительные изображения:</h5>
-                    <div class="row dop-img">
-                        <?php
-                        // var_dump($images);
+                <h5 class="mb-3">Дополнительные изображения:</h5>
+
+                <!-- Блок доп фото -->
+                <div class="row dop-img">
+                    <?php if (!empty($images)) :
                         foreach ($images as $img): ?>
-                        
                             <div class="col-lg-3"> 
                                 <img src="/public/images/camps/<?= $camp['slug'] ?>/photo/<?= $img['name_img']?>" id="<?= $img['id'] ?>" class="img-fluid mb-3 images rounded">
                             </div>
-                        <?php endforeach; ?>
-                        <div class="msg-error-image"></div>
-                        <style>
-                            .images:hover {
-                                cursor: pointer;
-                            }
-                        </style>
-                    </div>
-                    
+                    <?php endforeach; ?>
+
+                    <?php for ($i = count($images); $i < 12; $i++) : ?>
+                            <div class="col-lg-3">
+                            <label class="images-form-btn col-12 text-center mb-4 images">Добавить фото</label>
+    
+                            </div>
+                    <?php endfor ?>
+
+                    <?php else: ?>
+
+                    <?php for ($i = count($images); $i < 12; $i++) : ?>
+                            <div class="col-lg-3">
+                            <label class="d-block images-form-btn col-12 text-center mb-4 images">Добавить фото</label>
+                            </div>
+                    <?php endfor ?>
+                    <?php endif ?>
+
+                    <div class="msg-error-image"></div>
                 </div>
-            </div>
-        </div>
-        <script>
-            const dopImg = document.querySelector('.dop-img')
-            const images = document.querySelectorAll('.images')
-            const msgErrorImage = document.querySelector('.msg-error-image')
-            msgErrorImage.style.display = 'none'
-            let formDataImage = new FormData()
-            let imgId
-            images.forEach(img => {
-                img.addEventListener('click', (e) => {
-                    // Получаем id картинки по клику
-                    imgId = e.target.getAttribute('id')
-                    console.log(e.target)
-                    // Создаём поле загрузки файла
-                    const fileInput = document.createElement('input')
-                    fileInput.setAttribute('type', 'file')
-                    fileInput.setAttribute('name', 'image')
-                    fileInput.click()
-
-                    formDataImage.append('camp_slug', "<?= $camp['slug'] ?>")
-
-                    fileInput.addEventListener('change', () => {
-                        // console.log(fileInput.files[0])
-                        formDataImage.append('image', fileInput.files[0])
-                        formDataImage.append('id_image', imgId)
-                        
-                        // Получаем имя картинки из src по которой кликнули
-                        let name = e.target.src.split('/')
-                        formDataImage.append('old_name', name[8])
-                        
-                        fetch('/panel/update-images', {
-                            method: 'POST',
-                            body: formDataImage
-                        })
-                        .then(res => {
-                            return res.json()
-                        })
-                        .then(image => {
-                            if (!image.error) {
-                                e.target.setAttribute('src', `/public/images/camps/${image.src}`)
-
-                                msgErrorImage.style.display = 'block'
-                                msgErrorImage.innerHTML = image.msg
-                                msgErrorImage.style.color = 'green'
-                            } else {
-                                msgErrorImage.style.display = 'block'
-                                msgErrorImage.innerHTML = image.error
-                                msgErrorImage.style.color = 'red'
-                            }
-                            
-                        })
-                    })
+                <!-- конец блока доп фото -->
                     
-                })
-            })
-        </script>
+                </div><!-- end col-lg-8 -->
+            </div><!-- end row -->
+    </div> <!-- end col-lg-12 -->
 
-        <script>
+
+
+       <script src="/public/js/panel-upload-img.js"></script>
+       <script src="/public/js/panel-upload-cover.js"></script>
+
         
-            const coverInput = document.querySelector('.cover-input')
-            const saveBtn = document.querySelector('.save-btn')
-            const coverImg = document.querySelector('.cover-img')
-            const msgErrorCover = document.querySelector('.msg-error-cover')
-            
-            msgErrorCover.style.display = 'none'
-            let formData = new FormData()
-            
-            formData.append('camps_id', "<?= $camp['camps_id'] ?>")
-            formData.append('camp_slug', "<?= $camp['slug'] ?>")
-            const slug = "<?= $camp['slug'] ?>"
-            saveBtn.style.display = 'none'
-
-            coverInput.addEventListener('change', () => {
-                    saveBtn.style.display = 'block'
-            })
-            
-            saveBtn.addEventListener('click', () => {
-                formData.append('cover_new', coverInput.files[0])
-                saveBtn.style.display = 'none'
-
-            fetch('/panel/update-cover', {
-              method: 'POST',
-              body: formData
-            })
-            .then(res => res.json())
-            .then(json => {
-                console.log(json)
-                if (!json.error) {
-                    coverImg.setAttribute('src', `/public/images/camps/${json.src}`)
-                    msgErrorCover.style.display = 'block'
-                    msgErrorCover.innerHTML = json.msg
-                    msgErrorCover.style.color = 'green'
-                } else {
-                    msgErrorCover.style.display = 'block'
-                    msgErrorCover.innerHTML = json.error
-                    msgErrorCover.style.color = 'red'
-                }
-                
-            })
-            .then(dd => {
-                setTimeout(() => {
-                    msgErrorCover.style.display = 'none'
-                }, 10000);
-            })
-            .catch(err => console.error(err));
-
-            })
-            
-
-            
-            
-            
-        </script>
 
 
         <h3 class="text-center mt-3 mb-3">Изменить ссылку на видео</h3>
@@ -553,11 +372,12 @@
         <div class="col-lg-5">
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </div>
-        </form>
+        
 
 
 
     </div>
+</form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

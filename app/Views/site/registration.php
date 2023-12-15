@@ -83,6 +83,10 @@
 
                                     <label for="exampleDatepicker1" class="form-label mt-3">Номер телефона генерального директора, директора или ИП</label>
                                     <input type="text" class="form-control" name="director_phone" required/>
+
+                                    <?php if ($plan) : ?>
+                                        <input type="text" class="form-control" name="plan" value="<?= $plan ?>" hidden>
+                                    <? endif ?>
                                 </div>
 
                                 <div class="col-lg-6">

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Cities;
 use App\Models\RepresentativesModel;
+use App\Controllers\EmailController;
 
 class Registration extends BaseController
 {
@@ -19,6 +20,7 @@ class Registration extends BaseController
 
         $this->CitiesModel = new Cities();
         $this->RepresentativesModel = new RepresentativesModel();
+        $this->EmailController = new EmailController();
         $this->email = \Config\Services::email();
         
         // Preload any models, libraries, etc, here.
@@ -28,6 +30,11 @@ class Registration extends BaseController
     public function Index()
     {
         $session = session();
+
+        // GET-параметр выбора платного тарифа
+        $plan = $this->request->getVar('plan') ? $this->request->getVar('plan') : null;
+        $data['plan'] = $plan;
+
         $this->validation = \Config\Services::validation(); 
         $data['cities'] = $this->CitiesModel->getAllCity();
         return view('site/registration', $data);
@@ -72,35 +79,48 @@ class Registration extends BaseController
                 'post' => str_replace($this->delete_chars, '', $this->request->getVar('post')),
                 'email_manager' => str_replace($this->delete_chars, '', $this->request->getVar('email_manager')),
                 'phone_manager' => str_replace($this->delete_chars, '', $this->request->getVar('phone_manager')),
-                'password' => password_hash(str_replace($this->delete_chars, '', $this->request->getVar('password')), PASSWORD_DEFAULT)
+                'password' => password_hash(str_replace($this->delete_chars, '', $this->request->getVar('password')), PASSWORD_DEFAULT),
             ];
 
             if ($this->RepresentativesModel->save($data)) {
-                $this->SendEmailReg($data['email_manager'], $password);
-                $msg = 'Ваша анкета отправлена на проверку. Мы уведомим Вас когда активируем Ваш личный кабинет.';
+
+                
+                $plan = $this->request->getVar('plan');
+
+                if (!empty($plan)) {
+                    if ($plan == '12month') {
+                        $planName = 'Тариф на 12 месяцев';
+                    } elseif ($plan == '6month') {
+                        $planName = 'Тариф на 6 месяцев';
+                    } else {
+                        $planName = 'Тарифный план не выбран';
+                    }
+                } else {
+                    $planName = 'Тарифный план не выбран';
+                }
+
+                // Отправляем уведомление админу о новом лагере
+                $this->EmailController->sendEmailAdmin('reg', $planName);
+
+                // Отправляем уведомление пользователю
+                $this->EmailController->sendEmailReg($data['email_manager'], $password);
+
+                $msg = 'Ваша анкета отправлена на проверку. В течении 48 часов мы проверим Вашу анкету и активируем доступ в личный кабинет.';
                 $session->setFlashdata('msg', $msg);
                 return redirect()->to(site_url("/login"));
             } else {
                 $error = 'При регистрации произошла ошибка.';
                 $session->setFlashdata('error', $error);
-                return redirect()->to(site_url("/registration"));
+                return redirect()->to(site_url($_SERVER['HTTP_REFERER']));
             }
              
         } else {
             $_SESSION['error'] = $this->validation->listErrors();
-            return redirect()->to(site_url("/registration"));
+            return redirect()->to(site_url($_SERVER['HTTP_REFERER']));
         }
        
     }
 
 
-    public function SendEmailReg($emailto, $password)
-    {
-        
-        $this->email->setFrom('ПоЛагерям', 'ByCamps');
-        $this->email->setTo($emailto);
-        $this->email->setSubject('Регистрация');
-        $this->email->setMessage('Благодарим Вас за регистрацию. После проверки мы активируем ваш аккаунт. Ваш логин: ' .$emailto. ' Ваш пароль: '. $password .'  ');
-        $this->email->send();
-    }
+    
 }

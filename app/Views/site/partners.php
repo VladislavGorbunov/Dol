@@ -16,7 +16,8 @@
                 <li class="mt-3">Возможность редактирования лагеря</li>
                 <li class="mt-3">Возможность добавления смен</li>
                 <li class="mt-3">Доступ к учёту бронирований</li>
-            <ul>
+            </ul>
+            <a href="/registration" class="btn btn-success col-lg-8 mt-4 d-block mx-auto">Зарегистрироваться</a>
         </div>
     </div>
     <style>
@@ -39,7 +40,7 @@
 
     <div class="col-lg-4 position-relative">
         <div class="col-lg-12 p-3 border bg-white rounded shadow">
-            <h3 class="text-center">Полный</h3>
+            <h3 class="text-center">Годовой</h3>
             <div class="profitably">Выгода 20%</div>
             <h4 class="text-center">9600 руб. за 12 месяцев</h4>
             <p style="font-size: 13px;" class="text-center">800 руб/мес</p><hr>
@@ -54,7 +55,8 @@
                 <li class="mt-3">Размещение контактов на странице лагеря (телефон, ссылка на сайт, ссылка на группу Вконтакте)</li>
                 <li class="mt-3">Email и СМС* оповещение о бронированиях</li>
                 <li class="mt-3">Бейдж <b>(Проверенный лагерь)</b> на карточке лагеря</li>
-            <ul>
+            </ul>
+                <button class="btn btn-outline-success mt-4 col-lg-8 d-block mx-auto" disabled>Временно недоступно</button>
         </div>
     </div>
 
@@ -75,7 +77,8 @@
                 <li class="mt-3">Размещение контактов на странице лагеря (телефон, ссылка на сайт, ссылка на группу Вконтакте)</li>
                 <li class="mt-3">Email и СМС* оповещение о бронированиях</li>
                 <li class="mt-3">Бейдж <b>(Проверенный лагерь)</b> на карточке лагеря</li>
-            <ul>
+            </ul>
+                <button class="btn btn-outline-success mt-4 col-lg-8 d-block mx-auto" disabled>Временно недоступно</button>
         </div>
     </div>
     

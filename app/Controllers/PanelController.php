@@ -13,6 +13,7 @@ use App\Models\Images;
 use App\Models\Shifts;
 use App\Controllers\RecaptchaController;
 use App\Models\BookingsModel;
+use App\Controllers\EmailController;
 
 use CodeIgniter\Files\File;
 use CodeIgniter\Cookie\Cookie;
@@ -57,6 +58,7 @@ class PanelController extends BaseController
         $this->ShiftsModel = new Shifts();
         $this->BookingsModel = new BookingsModel();
         $this->RecaptchaController = new RecaptchaController();
+        $this->EmailController = new EmailController();
 
         $this->imagesFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/images/camps';
 
@@ -366,6 +368,9 @@ class PanelController extends BaseController
                     }
                 }
 
+                // Отправляем уведомление админу о новом лагере
+                $this->EmailController->sendEmailAdmin('add_camp');
+
                 $session->setFlashdata('msg-success', 'Лагерь добавлен в базу данных и отправлен на проверку.');
                 return redirect()->to('/panel');
             }
@@ -595,8 +600,8 @@ class PanelController extends BaseController
         $image = $this->request->getFile('image');
         $id_image = $this->request->getPost('id_image');
         $oldNameImage = $this->request->getPost('old_name'); // Имя картинки на которую кликнули
-        $camp_slug = $this->request->getPost('camp_slug'); // Имя картинки на которую кликнули
-
+        $camp_slug = $this->request->getPost('camp_slug');
+        $camp_id = $this->request->getPost('camp_id');
         // Путь до папки для загружаемых оригинальных изображений лагеря
         $home = $this->imagesFolder . '/' . $camp_slug;
 
@@ -615,18 +620,31 @@ class PanelController extends BaseController
             ->save($home .'/photo/'. $newNameImage);
 
         if ($upload == true) {
-            // Удаляем старое изображение из папки
-            
-            if (file_exists($home .'/photo/'. $oldNameImage)) {
-                unlink($home .'/photo/'. $oldNameImage);
+            // Удаляем старое изображение из папки если мы обновляем картинку
+            if (!empty($oldNameImage)) {
+                if (file_exists($home .'/photo/'. $oldNameImage)) {
+                    unlink($home .'/photo/'. $oldNameImage);
+                }
+
+                $data = [
+                    'name_img' => $newNameImage
+                ];
+
+                $this->ImagesModel->update($id_image, $data);
+
+                $result = ['msg' => 'Картинка успешно загружена', 'src' => $camp_slug .'/photo/'. $newNameImage];
+            } else {
+                // Добавляем новое фото в БД
+                $data = [
+                    'name_img' => $newNameImage,
+                    'cover' => 0,
+                    'camps_id' => $camp_id,
+                ];
+                $this->ImagesModel->insert($data);
+
+                $result = ['msg' => 'Картинка успешно загружена', 'src' => $camp_slug .'/photo/'. $newNameImage, 'newImageFlag' => true];
             }
-
-            $data = [
-                'name_img' => $newNameImage
-            ];
-
-            $this->ImagesModel->update($id_image, $data);
-            $result = ['msg' => 'Картинка успешно загружена', 'src' => $camp_slug .'/photo/'. $newNameImage];
+            
         } else {
             $result = ['error' => 'Ошибка загрузки изображения', 'src' => 'fff'];
         }
