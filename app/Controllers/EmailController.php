@@ -50,7 +50,7 @@ class EmailController extends BaseController
     public function sendEmailBooking($emailManager) 
     {
         $email = \Config\Services::email();
-        $email->setFrom('your@example.com', 'Your Name');
+        $email->setFrom('info@bycams.ru', 'Владислав');
         $email->setTo($emailManager);
         $email->setSubject('Новое бронирование на сайте ByCamps.ru');
         $email->setMessage('Наш посетитель хочет забронировать путёвку в вашем лагере. Перейдите в свой личный кабинет чтобы посмотреть контакты.');

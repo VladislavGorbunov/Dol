@@ -59,7 +59,7 @@
                         <a href="/panel/camp/<?= $camp['camps_id'] ?>/shifts" class="m-1">Посмотреть все смены</a>
                         <hr>
                         <a href="/panel/edit-camp/<?= $camp['camps_id'] ?>" class="m-1">Редактировать лагерь</a><hr>
-                        <a href="/panel/camp/<?= $camp['camps_id'] ?>/delete" class="m-1">Удалить лагерь</a>
+                        <a href="/panel/camp/<?= $camp['camps_id'] ?>/delete" class="m-1 btn btn-danger">Удалить лагерь</a>
                       
                         </div>
                         </div>

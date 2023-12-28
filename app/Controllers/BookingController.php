@@ -71,6 +71,41 @@ class BookingController extends BaseController
     }
 
 
+    public function bookingInfo(int $id) 
+    {
+        $bookings = $this->BookingsModel->where('id', $id)->first();
+        
+        $data['bookings'] = $bookings;
+        $data['bookings']['camp'] = $this->CampsModel->where('camps_id', $bookings['camp_id'])->first();
+        $data['bookings']['shift'] = $this->ShiftModel->where('id', $bookings['shift_id'])->first();
+        return view('layouts/panel_header', $data)
+        .view('panel/booking-info')
+        .view('layouts/panel_footer');
+    }
+
+
+    public function updateStatusBooking()
+    {
+        $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
+        $status = $this->request->getPost('status');
+        $id_booking = $this->request->getPost('id_booking');
+
+        $data = [
+            'id' => $id_booking,
+            'confirmed' => $status
+        ];
+
+        if ($this->BookingsModel->save($data)) {
+            $status = 'ok';
+        } else {
+            $status = 'error';
+        }
+
+        $msg = ['status' => $status];
+        return json_encode($msg);
+    }
+
+
     public function BookingDelete($id)
     {
         $this->response->setHeader('Location', '/')->setHeader('Content-Type', 'application/json');
@@ -110,7 +145,10 @@ class BookingController extends BaseController
         $this->BookingsModel->insert($data);
 
         $manager = $this->RepresentativesModel->where('user_id', $data['representative_id'])->first();
-        $this->EmailController->sendEmailBooking($manager['email_manager']);
+        if ($manager['premium']) {
+            $this->EmailController->sendEmailBooking($manager['email_manager']);
+        }
+        
         
         $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
         

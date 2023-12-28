@@ -34,6 +34,7 @@ $routes->get('/sitemap.xml', 'SiteMap::index');
 
 $routes->get('/about', 'Site::about');
 $routes->get('/partners', 'Site::partners');
+$routes->get('/contacts', 'Site::contacts');
 
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
@@ -92,8 +93,9 @@ $routes->post('/admin/search-representative', 'Admin::searchRepresentative', ['f
 
 // Бронирование путёвки
 $routes->post('/booking', 'BookingController::Booking');
-
+$routes->get('/panel/booking/(:num)', 'BookingController::bookingInfo/$1');
 $routes->get('/panel/booking/delete/(:num)', 'BookingController::BookingDelete/$1');
+$routes->post('/panel/update-status-booking', 'BookingController::updateStatusBooking');
 
 /*
  * --------------------------------------------------------------------

@@ -40,7 +40,7 @@
         ?>
                     <div class="col-lg-12 mb-4 mt-4">
                    
-                      <div class="card p-4 shadows">
+                      <div class="card p-4 shadows camp-card">
                      
                         <div class="row"> <!-- Общий row для 3х блоков -->
                           <div class="col-lg-3 col-12 mb-3">
@@ -91,20 +91,15 @@
                             }
 
                             if (!empty($camp['min_price'])) {
-                                if (!empty($camp['gg'])) {
-                                    $day_price = $camp['gg'];
-                                } else {
-                                    $day_price = null;
-                                }
+                               
                                 $price  = number_format($camp['min_price'], '0', ',', ' ');
                                 echo '<p class="price">от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></p>
-                                <p class="price-day">&#8776 '. $day_price .' руб./день</p>
-                                
+                        
                                 '.$video_link.'
                                 <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
                                 ';
                             } else {
-                                echo '<p><b>Доступных смен нет.</b></p><a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>';
+                                echo '<p><b>Смены не найдены...</b></p><a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>';
                             }
                         
                             echo '

@@ -42,7 +42,7 @@
             <a href="#!" class="text-reset">О сервисе</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Контакты</a>
+            <a href="/contacts" class="text-reset">Контакты</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Полезная информация</a>
@@ -64,13 +64,13 @@
           </h6>
           
           <p>
-            <a href="#!" class="text-reset">Добавить лагерь</a>
+            <a href="/partners" class="text-reset">Добавить лагерь</a>
           </p>
           <p>
-            <a href="#" class="text-reset" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Личный кабинет</a>
+            <a href="/login" class="text-reset" target="_blank">Личный кабинет</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Условия сотрудничества</a>
+            <a href="/partners" class="text-reset">Условия сотрудничества</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Помощь</a>
@@ -85,7 +85,7 @@
           <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
           <p>Россия, г. Санкт-Петербург</p>
           <p>Email: info@bycamp.ru</p>
-          <p>Тех. подержка: tech@bycamp.ru</p>
+          <p>Тех. поддержка: tech@bycamp.ru</p>
           <img src="/public/theme/img/vk-text-logo-white.png" width="170">
           
         </div>

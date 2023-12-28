@@ -1,6 +1,7 @@
 <div class="container">
 
 <div class="info-block-index mt-3">
+    
     <div class="row">
         
         <div class="col-lg-3">
@@ -42,8 +43,8 @@
         </p>
 </div>
 
-<div class="region-block rounded mt-4">
-  <h2 class="text-center mb-4"><span style="color:#fff">Поиск в любом регионе России</span></h2>
+<div class="region-block bg-white rounded mt-4">
+  <h2 class="text-center mb-4">Поиск <span style="color:#38b976">в любом регионе</span> России</h2>
 
     <div class="row mt-2 mb-2">
         <?php foreach ($cities as $city) : ?>

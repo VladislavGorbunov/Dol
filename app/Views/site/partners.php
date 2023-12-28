@@ -92,7 +92,7 @@
         <div class="col-lg-12 p-3 border bg-white shadow">
             <h3 class="text-center">1</h3><hr>
             <p class="text-center">Зарегистрируйтесь на нашем сайте.</p>
-            <div class="col-lg-12 text-center"><a href="" class="text-center">Зарегистрироваться</a></div>
+            <div class="col-lg-12 text-center"><a href="/registration" class="text-center">Зарегистрироваться</a></div>
         </div>
     </div>
     <div class="col-lg-4">
@@ -102,7 +102,7 @@
                 заполненный шаблон по адресу info@bycamps.ru и мы подготовим личный кабинет и карточку лагеря.
                 В случае платного добавления отправим договор и счёт на оплату.
                 <div class="download-doc text-center">
-                    <i class="las la-file-alt"></i> <a href="">Скачать шаблон</a><br>
+                    <i class="las la-file-alt"></i> <a href="shablon.docx" download>Скачать шаблон</a><br>
                 </div>
             </p>
         </div>

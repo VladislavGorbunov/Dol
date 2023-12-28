@@ -17,6 +17,7 @@ class BookingsModel extends Model
         'representative_id',
         'shift_id',
         'booking_number',
+        'confirmed',
     ];
 
     

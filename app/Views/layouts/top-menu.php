@@ -4,9 +4,9 @@
 			<div class="p-1 flex-grow-1 d-flex flex-wrap">
 				<a href="/about" class="nav-link mx-2">О сервисе</a>
 				<a href="" class="nav-link mx-2">Информация для родителей</a>
-				<a href="" class="nav-link mx-2">Партнёрам</a>
-				<a href="" class="nav-link mx-2">Вакансии</a>
-				<a href="" class="nav-link mx-2">Помощь</a>
+				<a href="/partners" class="nav-link mx-2">Партнёрам</a>
+				<a href="/vacancy" class="nav-link mx-2">Вакансии</a>
+				<a href="/help" class="nav-link mx-2">Помощь</a>
 			</div>
 
 			<div class="p-1"><span style="color:#444">info@bycamps.ru</span></div>

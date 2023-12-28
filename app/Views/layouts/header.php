@@ -44,7 +44,7 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li class="nav-item"><a class="nav-link active" href="/about">О проекте</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Наши контакты</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contacts">Наши контакты</a></li>
 				<li class="nav-item"><a class="nav-link" href="/partners">Детским лагерям</a></li>
 				<li class="nav-item"><a class="nav-link">Отзывы</a></li>
 				<li class="nav-item"><a class="nav-link">Оплата</a></li>
@@ -142,10 +142,10 @@
 								<option value="40000">до 40000 руб.</option>
 								<option value="50000">до 50000 руб.</option>
 								<option value="60000">до 60000 руб.</option>
-								<option value="3">до 70000 руб.</option>
-								<option value="3">до 80000 руб.</option>
-								<option value="3">до 90000 руб.</option>
-								<option value="3">до 100000 руб.</option>
+								<option value="70000">до 70000 руб.</option>
+								<option value="80000">до 80000 руб.</option>
+								<option value="90000">до 90000 руб.</option>
+								<option value="100000">до 100000 руб.</option>
 							</select>
 						</div>
 

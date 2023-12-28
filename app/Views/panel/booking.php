@@ -15,6 +15,8 @@
               <th scope="col">Номер бронирования</th>
               <th scope="col">Дата</th>
               <th scope="col">Статус</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
         <tbody>

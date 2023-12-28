@@ -82,6 +82,16 @@ class Site extends BaseController
         .view('layouts/footer');
     }
 
+
+    public function contacts() 
+    {
+        $data['title'] = 'Контакты ByCamps.ru';
+        return view('layouts/header-no-filter', $data) 
+        .view('site/contacts')
+        .view('layouts/footer');
+    }
+
+
     public function Login()
     {
         $session = session();
@@ -163,7 +173,6 @@ class Site extends BaseController
                 'avg_rating' => $camps[$i]['avg_rating'],
                 'types' => $this->CampsModel->getTypes($camps[$i]['camps_id'])->getResultArray(), // Выборка типов для каждого лагеря
                 'min_price' => $camps[$i]['shift_min_price'],
-                'gg' => round($camps[$i]['shift_min_price'] / 30),
                 'min_age' => $camps[$i]['min_age'],
                 'max_age' => $camps[$i]['max_age'],
                 'free_transfer' => $camps[$i]['free_transfer'],
