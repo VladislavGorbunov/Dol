@@ -91,6 +91,8 @@ $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative'
 $routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/search-representative', 'Admin::searchRepresentative', ['filter' => 'Auth']);
 $routes->get('/admin/camps', 'Admin::AllCamps', ['filter' => 'Auth']);
+$routes->get('/admin/activated-camps', 'Admin::ActivatedCamps', ['filter' => 'Auth']);
+$routes->get('/admin/not-activated-camps', 'Admin::NotActivatedCamps', ['filter' => 'Auth']);
 
 // Бронирование путёвки
 $routes->post('/booking', 'BookingController::Booking');

@@ -109,6 +109,20 @@ class CampsModel extends Model
         return $this;
     }
 
+    // Выборка всех активных лагерей
+    public function ActivatedCamps()
+    {
+        $this->builder()->where('status', 'active');
+        return $this;
+    }
+
+    // Выборка всех активных лагерей
+    public function NotActivatedCamps()
+    {
+        $this->builder()->where('status', 'verification');
+        return $this;
+    }
+
     
 }
 

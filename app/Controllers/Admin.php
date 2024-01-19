@@ -166,6 +166,30 @@ class Admin extends BaseController
         . view('layouts/admin_footer');
     }
 
+    public function ActivatedCamps()
+    {
+        $data = [
+            'camps' => $this->CampsModel->ActivatedCamps()->paginate(15),
+            'pager' => $this->CampsModel->pager,
+        ];
+
+        return view('layouts/admin_header')
+        . view('admin/camps', $data)
+        . view('layouts/admin_footer');
+    }
+
+    public function NotActivatedCamps()
+    {
+        $data = [
+            'camps' => $this->CampsModel->NotActivatedCamps()->paginate(15),
+            'pager' => $this->CampsModel->pager,
+        ];
+
+        return view('layouts/admin_header')
+        . view('admin/camps', $data)
+        . view('layouts/admin_footer');
+    }
+
 
     // Выход из админки
     public function Logout()

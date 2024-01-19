@@ -33,7 +33,7 @@
             foreach ($representatives as $represent) : ?>
                 <tr>
                 <th scope="row"><?= $represent['user_id'] ?></th>
-                <td><a href="/admin/representative/edit/'. $represent['user_id'] .'"><?= $represent['organization'] ?></a></td>
+                <td><a href="/admin/representative/edit/<?= $represent['user_id'] ?>"><?= $represent['organization'] ?></a></td>
                 <td><?= $represent['inn'] ?></td>
                 <td><?= $represent['firstname_manager'] .' '. $represent['lastname_manager'] ?></td>
                 <td><?= $represent['post'] ?></td>

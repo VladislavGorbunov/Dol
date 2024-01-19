@@ -65,13 +65,13 @@
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="/admin/activated-camps" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Активные лагеря</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="/admin/not-activated-camps" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Ожидают проверки</span>
                             </a>
                         </li>
