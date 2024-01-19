@@ -100,7 +100,7 @@
     .cookie-block {
       position: fixed;
       display: none;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       background-size: cover;
       backdrop-filter: blur(10px);
       color: #333;
@@ -116,20 +116,27 @@
 
     .cookie-block button {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 13px;
+      right: 13px;
       text-align: center;
-      border-radius: 5px;
-      
+      border-radius: 0px;
+      color: #111;
+      background: none;
+      border: 1px solid #111;
+      padding: 3px 10px 3px 10px;
+      height: auto;
     }
+
+ 
   </style>
 
   <div class="cookie-block col-lg-3">
     <div class="row">
-      <div class="col-2"><img src="/public/theme/img/cookie.png" class="img-fluid mt-2"></div>
-      <div class="col-10">Наш сайт использует файлы куки. Продолжая использовать наш сайт, вы 
+      <!-- <div class="col-2"><img src="/public/theme/img/cookie.png" class="img-fluid mt-2"></div> -->
+      <div class="col-12">
+      <h5>Используем файлы Cookie</h5>Наш сайт использует файлы куки (cookie). Продолжая использовать наш сайт, вы 
      соглашаетесь с использованием файлов куки.
-     <button class="btn btn-success btn-sm cookie-btn">Ок</button></div>
+     <button class="btn btn-success btn-sm cookie-btn">Х</button></div>
    </div>
   </div>
 
