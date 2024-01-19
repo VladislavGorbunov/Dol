@@ -90,6 +90,7 @@ $routes->get('/admin/representative/edit/(:num)', 'Admin::GetRepresentative/$1',
 $routes->post('/admin/representative/edit/(:num)', 'Admin::UpdateRepresentative', ['filter' => 'Auth']);
 $routes->get('/admin/representative/delete/(:num)', 'Admin::deleteRepresentative/$1', ['filter' => 'Auth']);
 $routes->post('/admin/search-representative', 'Admin::searchRepresentative', ['filter' => 'Auth']);
+$routes->get('/admin/camps', 'Admin::AllCamps', ['filter' => 'Auth']);
 
 // Бронирование путёвки
 $routes->post('/booking', 'BookingController::Booking');

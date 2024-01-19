@@ -1,22 +1,41 @@
 <div class="container">
-    <p>Лагерь: <?= $bookings['camp']['title'] ?></p>
-    <p>Количество бронируемых путёвок: <?= $bookings['number_of_tickets'] ?></p>
-    <p>Ф.И.О клиента: <?= $bookings['fio'] ?></p>
-    <p>Телефон клиента: <?= $bookings['telephone'] ?></p>
-    <p>Email клиента: <?= $bookings['email'] ?></p>
-    <p>Номер бронирования: <?= $bookings['booking_number'] ?></p>
-    <p>Дата бронирования: <?= $bookings['date_booking'] ?></p>
-    <p>Смена: <?= $bookings['shift']['title'] ?></p>
-    <p>Стоимость одной путёвки: <?= $bookings['shift']['price'] ?> рублей</p>
+
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/panel/booking">Бронирования</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Информация по заявке</li>
+  </ol>
+</nav>
+
     <?php 
         $start_date = explode('-', $bookings['shift']['start_date']);
         $end_date = explode('-', $bookings['shift']['end_date']);
     ?>
-    <p>Начало смены: <?= $start_date[2] .'.'. $start_date[1] .'.'. $start_date[0] ?></p>
-    <p>Конец смены: <?= $end_date[2] .'.'. $end_date[1] .'.'. $end_date[0] ?></p>
-    <div class="col-lg-3">
-        <div class="row">
-            <div class="col-auto"><p>Статус заявки:</p></div>
+    
+
+    <table class="table table-hover mt-2">
+	<tbody>
+		<tr>
+			<td><b>Лагерь:</b> <?= $bookings['camp']['title'] ?></td>
+			<td><b>Количество бронируемых путёвок:</b> <?= $bookings['number_of_tickets'] ?></td>
+			<td><b>Ф.И.О клиента:</b> <?= $bookings['fio'] ?></td>
+		</tr>
+		<tr>
+			<td><b>Телефон клиента:</b> <?= $bookings['telephone'] ?></td>
+			<td><b>Email клиента:</b> <?= $bookings['email'] ?></td>
+			<td><b>Номер бронирования:</b> <?= $bookings['booking_number'] ?></td>
+		</tr>
+		<tr>
+			<td><b>Дата бронирования:</b> <?= $bookings['date_booking'] ?></td>
+			<td><b>Смена:</b> <?= $bookings['shift']['title'] ?></td>
+			<td><b>Стоимость одной путёвки:</b> <?= $bookings['shift']['price'] ?> рублей</td>
+		</tr>
+		<tr>
+			<td><b>Начало смены:</b> <?= $start_date[2] .'.'. $start_date[1] .'.'. $start_date[0] ?></td>
+			<td><b>Конец смены:</b> <?= $end_date[2] .'.'. $end_date[1] .'.'. $end_date[0] ?></td>
+			<td>
+            <div class="row">
+            <div class="col-auto"><p><b>Статус заявки:</b></p></div>
             <div class="col">
             <form action="" method="post" class="update-status">
             <select class="form-select status" name="status">
@@ -33,7 +52,12 @@
             </form>
             </div>
         </div>
-    </div>
+            </td>
+		</tr>
+	</tbody>
+</table>
+
+
 </div>
 
 <script>

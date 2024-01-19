@@ -65,7 +65,7 @@
 
         h3 {
             margin: 0;
-            padding: 0 0 10px;
+            padding: 0 0 0px;
             font-family: 'Rubik', sans-serif;
             color: #111;
             text-align: center
@@ -73,7 +73,7 @@
 
         .loginBox input {
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .loginBox input[type="text"],
@@ -81,7 +81,7 @@
             border: none;
             border-bottom: 1px solid #ccc;
             outline: none;
-            height: 55px;
+            height: 50px;
             color: #111;
             background: transparent;
             font-size: 16px;
@@ -104,7 +104,7 @@
             display: block;
             border: none;
             outline: none;
-            height: 60px;
+            height: 50px;
             font-size: 16px;
             background: #2955c8;
             color: #fff;
@@ -112,7 +112,7 @@
             cursor: pointer;
             width: 300px;
             margin: 0 auto;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .loginBox a {
@@ -190,7 +190,7 @@
 </div>
 <?php endif;?>
 
-        <img src="/public/theme/img/login-form-logo.png" width="160px" class="d-block mx-auto">
+        <img src="/public/theme/img/login-form-logo.png" width="140px" class="d-block mx-auto">
         <h3 class="text-center mt-2">ByCamps</h3>
         <p class="text-center">Панель управления лагерями</p>
        

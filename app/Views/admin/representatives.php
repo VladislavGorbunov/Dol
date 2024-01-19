@@ -23,26 +23,26 @@
       <th scope="col">Представитель</th>
       <th scope="col">Должность</th>
       <th scope="col">Телефон</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Активен</th>
+      <th scope="col">Действия</th>
     </tr>
   </thead>
   <tbody>
 
         <?php
-            foreach ($representatives as $represent) {
-                echo '<tr>
-                <th scope="row">'. $represent['user_id'] .'</th>
-                <td><a href="/admin/representative/edit/'. $represent['user_id'] .'">'. $represent['organization'] .'</a></td>
-                <td>'. $represent['inn'] .'</td>
-                <td>'. $represent['firstname_manager'] .' '. $represent['lastname_manager'] .'</td>
-                <td>'. $represent['post'] .'</td>
-                <td>'. $represent['phone_manager'] .'</td>
-                <td><a href="/admin/representative/view/'. $represent['user_id'] .'">Смотреть</a></td>
-                <td><a href="/admin/representative/delete/'. $represent['user_id'] .'">Удалить</a></td>
-              </tr>';
-            }
-        ?>
+            foreach ($representatives as $represent) : ?>
+                <tr>
+                <th scope="row"><?= $represent['user_id'] ?></th>
+                <td><a href="/admin/representative/edit/'. $represent['user_id'] .'"><?= $represent['organization'] ?></a></td>
+                <td><?= $represent['inn'] ?></td>
+                <td><?= $represent['firstname_manager'] .' '. $represent['lastname_manager'] ?></td>
+                <td><?= $represent['post'] ?></td>
+                <td><?= $represent['phone_manager'] ?></td>
+                <td><?= $represent['activated'] == 1 ? 'Да' : 'Нет' ?></td>
+                <td><a href="/admin/representative/delete/<?= $represent['user_id'] ?>">Удалить</a></td>
+              </tr>
+            <?php endforeach ?>
+      
 
 </tbody>
 </table>

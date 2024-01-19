@@ -53,6 +53,7 @@
                         <div class="card-body">
                             <h4><?= $camp['title'] ?></h4>
                             <p style="min-height: 50px"><?= $camp['adress'] ?></p>
+                            <?= $dd = $camp['status'] == 'verification' ? 'Статус: <span class="badge bg-warning text-dark p-2">На проверке</span>' : 'Статус: <span class="badge bg-success p-2">Активный</span>'?>
                         <hr>
                         <a href="/camp/<?= $camp['slug'] ?>" class="m-1" target="_blank">Посмотреть страницу лагеря</a><hr>
                         <a href="/panel/camp/<?= $camp['camps_id'] ?>/add-shift" class="m-1">Добавить смену</a>

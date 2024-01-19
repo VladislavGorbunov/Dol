@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Cities;
 use App\Models\RepresentativesModel;
+use App\Models\CampsModel;
 
 class Admin extends BaseController
 {
@@ -18,6 +19,7 @@ class Admin extends BaseController
         $session = \Config\Services::session($config);
 
         $this->RepresentativesModel = new RepresentativesModel();
+        $this->CampsModel = new CampsModel();
         $this->CitiesModel = new Cities();
         // Preload any models, libraries, etc, here.
     }
@@ -150,6 +152,20 @@ class Admin extends BaseController
         
         return json_encode($data);
     }
+
+    public function AllCamps()
+    {
+        // Пагинация
+        $data = [
+            'camps' => $this->CampsModel->AllCamps()->paginate(15),
+            'pager' => $this->CampsModel->pager,
+        ];
+
+        return view('layouts/admin_header')
+        . view('admin/camps', $data)
+        . view('layouts/admin_footer');
+    }
+
 
     // Выход из админки
     public function Logout()

@@ -39,7 +39,7 @@ class CampsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews, representatives.organization, representatives.premium');
+        $builder->select('camps.camps_id, camps.title camp, camps.camp_base, camps.description, camps.min_age, camps.year, camps.max_age, camps.adress, camps.slug, camps.free_transfer, camps.security, camps.video_link, camps.status, AVG(reviews.rating) avg_rating, MIN(shifts.price) shift_min_price, COUNT(DISTINCT reviews.id) count_reviews, representatives.organization, representatives.premium');
     
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
         $builder->join('shifts', 'shifts.camps_id = camps.camps_id', 'left');
@@ -51,6 +51,7 @@ class CampsModel extends Model
         if ($season) $builder->join('camps_seasons', 'camps_seasons.camps_id = camps.camps_id', 'left');
 
         $builder->where('camps.cities_id', $region);
+        $builder->where('camps.status', 'active');
 
         if ($type) $builder->where('camps_types.types_id', $type); 
         
@@ -79,10 +80,10 @@ class CampsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('camps');
-        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.max_age, camps.adress, camps.slug, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
+        $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.max_age, camps.adress, camps.slug, camps.status, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
         
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
-        
+        $builder->where('camps.status', 'active');
         $builder->groupBy('camps.camps_id, reviews.camps_id'); // Групировка чтобы не было дублей
         $builder->orderBy('count_reviews DESC, avg_rating DESC');
         $builder->limit(15);
@@ -99,6 +100,13 @@ class CampsModel extends Model
         $builder->join('camps_types', 'camps_types.types_id = types.types_id', 'left');
         $builder->where('camps_types.camps_id', $id);
         return $builder->get(); 
+    }
+
+    // Выборка всех лагерей
+    public function AllCamps()
+    {
+        $this->builder()->get();
+        return $this;
     }
 
     

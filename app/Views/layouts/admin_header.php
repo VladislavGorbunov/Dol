@@ -49,7 +49,7 @@
 
                         <li>
                             <a href="/admin/representatives/activated" class="nav-link px-0 align-middle">
-                            <span class="ms-1 d-none d-sm-inline">Активированные представители</span> </a>
+                            <span class="ms-1 d-none d-sm-inline">Активированные</span> </a>
                         </li>
 
                         <li>
@@ -59,7 +59,7 @@
                         <hr>
                         <h5>Лагеря</h5>
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="/admin/camps" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Все лагеря</span>
                             </a>
                         </li>
@@ -82,22 +82,8 @@
 
                     </ul>
                     <hr>
-                    <!-- нижнее дополнительное меню -->
-                    <div class="dropdown pb-4 mt-auto">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            
-                            <span class="d-none d-sm-inline mx-1">Иван</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Новый проект</a></li>
-                            <li><a class="dropdown-item" href="#">Настройки</a></li>
-                            <li><a class="dropdown-item" href="#">Профиль</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="panel/logout">Выйти</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
+    
+    

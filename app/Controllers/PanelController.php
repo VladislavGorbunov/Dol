@@ -91,7 +91,8 @@ class PanelController extends BaseController
                 'camps_id' => $data['camps'][$i]['camps_id'],
                 'adress' => $data['camps'][$i]['adress'],
                 'shifts' => $this->ShiftsModel->where(['camps_id' => $data['camps'][$i]['camps_id']])->findAll(),
-                'cover' => $this->ImagesModel->where(['cover' => 1, 'camps_id' => $data['camps'][$i]['camps_id']])->first()
+                'cover' => $this->ImagesModel->where(['cover' => 1, 'camps_id' => $data['camps'][$i]['camps_id']])->first(),
+                'status' => $data['camps'][$i]['status']
             ];
         }
        
