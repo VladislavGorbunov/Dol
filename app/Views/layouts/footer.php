@@ -1,5 +1,23 @@
+<style>
 
+  footer {
+    position: relative;
+  }
 
+  footer .pol {
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 300px;
+    bottom: 50px;
+    right: 10%;
+    border: 1px solid #111;
+    background: linear-gradient(90deg, rgba(51,44,171,1) 0%, rgba(0,230,255,1) 100%);
+    z-index: 1;
+    opacity: 0.3;
+    filter: blur(80px);
+  }
+</style>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start mt-5 pt-3">
@@ -144,7 +162,7 @@
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
     © <?= date('Y') ?> BYCAMPS.RU <br>Информация на сайте не является публичной офертой.
   </div>
-
+  <div class="pol"></div>
 </footer>
 <!-- Footer -->
               
