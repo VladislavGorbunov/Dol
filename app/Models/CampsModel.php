@@ -32,6 +32,7 @@ class CampsModel extends Model
         'vk_link',
         'site_link',
         'views',
+        'status',
         
     ];
 
@@ -51,7 +52,7 @@ class CampsModel extends Model
         if ($season) $builder->join('camps_seasons', 'camps_seasons.camps_id = camps.camps_id', 'left');
 
         $builder->where('camps.cities_id', $region);
-        $builder->where('camps.status', 'active');
+        $builder->where('camps.status', 1);
 
         if ($type) $builder->where('camps_types.types_id', $type); 
         
@@ -83,7 +84,7 @@ class CampsModel extends Model
         $builder->select('camps.camps_id, camps.title camp, camps.description, camps.min_age, camps.max_age, camps.adress, camps.slug, camps.status, COUNT(reviews.camps_id) count_reviews, AVG(reviews.rating) avg_rating');
         
         $builder->join('reviews', 'reviews.camps_id = camps.camps_id', 'left');
-        $builder->where('camps.status', 'active');
+        $builder->where('camps.status', 1);
         $builder->groupBy('camps.camps_id, reviews.camps_id'); // Групировка чтобы не было дублей
         $builder->orderBy('count_reviews DESC, avg_rating DESC');
         $builder->limit(15);
@@ -112,14 +113,14 @@ class CampsModel extends Model
     // Выборка всех активных лагерей
     public function ActivatedCamps()
     {
-        $this->builder()->where('status', 'active');
+        $this->builder()->where('status', 1);
         return $this;
     }
 
     // Выборка всех активных лагерей
     public function NotActivatedCamps()
     {
-        $this->builder()->where('status', 'verification');
+        $this->builder()->where('status', 0);
         return $this;
     }
 

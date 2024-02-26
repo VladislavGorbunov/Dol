@@ -96,6 +96,6 @@ foreach ($camps as $camp):?>
     
 </div>
     
-    <h2 class="text-center mt-5"><span style="color:#38b976">Последние</span> добавленные смены</h2>
-    <p class="text-center">Подобрали для Вас самые популярные смены в России</p>
+    <!-- <h2 class="text-center mt-5"><span style="color:#38b976">Последние</span> добавленные смены</h2>
+    <p class="text-center">Подобрали для Вас самые популярные смены в России</p> -->
 </div>

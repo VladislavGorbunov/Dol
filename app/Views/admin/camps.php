@@ -8,6 +8,7 @@
       
       <th scope="col">Статус</th>
       <th scope="col">Действия</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +19,19 @@
                 <th scope="row"><?= $camp['camps_id'] ?></th>
                 <td><a href="/admin/camp/edit/<?= $camp['camps_id'] ?>"><?= $camp['title'] ?></a></td>
                 
-                <td><?= ($camp['status'] == 'active') ? 'Активный' : 'Ожидает проверки' ?></td>
-                <td><a href="/admin/camp/delete/<?= $camp['camps_id'] ?>">Удалить</a></td>
+                <td><?= ($camp['status'] == 1) ? 'Активный' : 'Ожидает проверки' ?></td>
+                <td>
+                  <a href="/admin/camp/delete/<?= $camp['camps_id'] ?>">Удалить</a>
+                </td>
+                <td>
+                  <?php
+                      if ($camp['status'] != 1) {
+                        echo '<a href="/admin/camp/activate/' . $camp['camps_id']  .'">Активировать</a>';
+                      } else {
+                        echo '<a href="/admin/camp/deactivate/' . $camp['camps_id']  .'">Деактивировать</a>';
+                      }
+                  ?>
+                </td>
               </tr>
             <?php endforeach ?>
       

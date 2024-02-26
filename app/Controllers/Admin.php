@@ -191,6 +191,32 @@ class Admin extends BaseController
     }
 
 
+    public function ActivateCamp($id) 
+    {
+        // verification - ожидает проверки
+        // active - активный
+        $primaryKey = 'camps_id';
+        
+        $data = [
+            'status' => 1,
+        ];
+
+        $this->CampsModel->update($id, $data);  
+    }
+
+    public function DeactivateCamp($id) 
+    {
+        // verification - ожидает проверки
+        // active - активный
+        $primaryKey = 'camps_id';
+        
+        $data = [
+            'status' => 0,
+        ];
+
+        $this->CampsModel->update($id, $data);   
+    }
+
     // Выход из админки
     public function Logout()
     {
