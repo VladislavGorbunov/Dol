@@ -150,7 +150,7 @@ class BookingController extends BaseController
         }
         
         
-        $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].' , запишите его. Ожидайте звонка менеджера лагеря.');
+        $session->setFlashdata('msg-success', 'Путёвка забронирована. Номер вашего бронирования - '.$data['booking_number'].', запишите его и ожидайте звонка менеджера лагеря.');
         
         $redirect = $_SERVER['HTTP_REFERER'];
         return redirect()->to($redirect);

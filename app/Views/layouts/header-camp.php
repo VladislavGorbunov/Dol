@@ -4,7 +4,11 @@
       <meta charset="utf-8">
       <title><?= $title ?></title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="<?= $description ?>">
+      
+      <?php if (!empty($description)) : ?>
+	   <meta name="description" content="<?= $description ?>">
+	   <?php endif ?>
+
       <meta name="theme-color" content="#fff">
       <!-- Bootstrap core CSS -->
       <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,6 +54,8 @@
                      <li class="nav-item">
                         <a class="nav-link">Оплата</a>
                      </li>
+
+                     <li class="nav-item"><a class="nav-link position-relative">Вакансии лагерей <span class="badge bg-success">Скоро!</span></a></li>
                   </ul>
                   <div class="d-flex justify-content-center">
                      <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>

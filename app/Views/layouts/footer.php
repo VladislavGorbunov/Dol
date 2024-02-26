@@ -1,7 +1,4 @@
-<!-- uSocial -->
-<script async src="https://usocial.pro/usocial/usocial.js?uid=5678dc239bf32494&v=6.1.5" data-script="usocial" charset="utf-8"></script>
-<div class="uSocial-Share" data-pid="ef9a8ef805b5fbf12cf830a6cbd5cc5e" data-type="share" data-options="rect,style1,default,right,slide-down,size32,eachCounter0,counter0,mobile_position_right" data-social="vk,ok,telegram,wa"></div>
-<!-- /uSocial -->
+
 
 
 <!-- Footer -->
@@ -15,7 +12,7 @@
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Родителям
@@ -33,16 +30,16 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Информация
           </h6>
           <p>
-            <a href="#!" class="text-reset">О сервисе</a>
+            <a href="#!" class="text-reset">О сервисе «ПоЛагерям»</a>
           </p>
           <p>
-            <a href="/contacts" class="text-reset">Контакты</a>
+            <a href="/contacts" class="text-reset">Наши контакты</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Полезная информация</a>
@@ -51,13 +48,16 @@
             <a href="#!" class="text-reset">Пользовательское соглашение</a>
           </p>
           <p>
+            <a href="#!" class="text-reset">Политика конфиденциальности</a>
+          </p>
+          <p>
             <a href="/sitemap.xml" target="_blank" class="text-reset">Карта сайта</a>
           </p>
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Партнёрам
@@ -80,7 +80,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <div class="col-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
           <p>Россия, г. Санкт-Петербург</p>

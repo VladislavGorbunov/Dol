@@ -67,7 +67,7 @@
                         </div>
                     <?php endforeach ?>
                 <?php else :
-                    echo 'Добавьте первый лагерь';
+                    echo '<div class="col-lg-3 border p-3 rounded text-center"><i class="las la-plus-circle"></i> <a href="/panel/add-camp">Добавить лагерь</a></div>';
                 endif ?>
             </div>
         </div>

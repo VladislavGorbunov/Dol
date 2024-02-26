@@ -59,6 +59,7 @@ class Site extends BaseController
 
         }
         $data['title'] = 'Поиск и бронирование путёвок в детские лагеря по всей России';
+        $data['description'] = 'Бесплатное бронирование путёвок в детские лагеря. Настоящие отзывы родителей, рейтинг лагерей, сравнение смен и направлений.';
         return view('layouts/header', $data) 
         .view('site/index')
         .view('layouts/footer');
@@ -68,6 +69,7 @@ class Site extends BaseController
     public function about() 
     {
         $data['title'] = 'О компании ПоЛагерям';
+        $data['description'] = 'О компании ПоЛагерям';
         return view('layouts/header-no-filter', $data) 
         .view('site/about')
         .view('layouts/footer');
@@ -77,6 +79,8 @@ class Site extends BaseController
     public function partners() 
     {
         $data['title'] = 'Партнёрам';
+        $data['description'] = 'Предлагаем выгодное сотрудничество для владельцев детских лагерей. Добавьте лагерь в наш каталог и
+        получайте больше клиентов';
         return view('layouts/header-no-filter', $data) 
         .view('site/partners')
         .view('layouts/footer');
@@ -86,6 +90,7 @@ class Site extends BaseController
     public function contacts() 
     {
         $data['title'] = 'Контакты ByCamps.ru';
+        $data['description'] = 'Контакты ByCamps.ru';
         return view('layouts/header-no-filter', $data) 
         .view('site/contacts')
         .view('layouts/footer');
@@ -185,17 +190,28 @@ class Site extends BaseController
         $title = null;
 
         // Генерируем title
-        if (!empty($region) && empty($types) && empty($season)) { // Только регион
-            $title .= 'Путёвки в детские лагеря ' . $region['title_in'];
-        } elseif (!empty($region) && !empty($types) && empty($season)) { // Регион и тип лагеря
-            $title .= 'Путёвки в ' . $types['title'] .' '. $region['title_in'];
-        } elseif (!empty($region) && !empty($season) && empty($types)) { // Регион и сезон
-            $title .= 'Путёвки в ' . $seasons['title_in'] . ' лагеря ' . $region['title_in'];
-        } elseif (!empty($region) && !empty($types) && !empty($season)) { // Регион, тип и сезон
-            $title .= 'Регион тип и сезон';
+        if (!empty($region) && empty($types) && empty($season) && empty($age)) { // Только регион
+            $title = 'Путёвки в детские лагеря ' . $region['title_in'];
+        } elseif (!empty($region) && !empty($types) && empty($season) && empty($age)) { // Регион и тип лагеря
+            $title = 'Путёвки в ' . mb_strtolower($types['title']) .' '. $region['title_in'];
+        } elseif (!empty($region) && !empty($season) && empty($types) && empty($age)) { // Регион и сезон
+            $title = 'Путёвки в детские лагеря '. $region['title_in'] . ' - '. mb_strtolower($seasons['title']) . ' 2024 года';
+        } elseif (!empty($region) && !empty($season) && !empty($types) && empty($age)) { // Регион, тип и сезон
+            $title = 'Путёвки в ' . mb_strtolower($types['tag_title']) .' '. $region['title_in'] . ' - '. mb_strtolower($seasons['title']) . ' 2024 года';
+        } elseif (!empty($region) && !empty($age) && empty($types) && empty($age)) { // Регион и возраст
+            $title = 'Путёвки в детские лагеря ' . $region['title_in'] . ' для детей '. $age . ' лет';
+        } elseif (!empty($region) && !empty($types) && !empty($age) && empty($season)) { // Регион, тип и возраст
+            $title = 'Путёвки в ' . mb_strtolower($types['tag_title']) . ' ' . $region['title_in'] . ' для детей '. $age . ' лет';
+        } elseif (!empty($region) && !empty($season) && !empty($age) && empty($types)) { // Регион, сезон и возраст
+            $title = 'Путёвки в детские лагеря '. $region['title_in'] . ' для детей ' . $age . ' лет - ' . mb_strtolower($seasons['title']) . ' 2024 года';
+        } elseif (!empty($region) && !empty($season) && !empty($types) && !empty($age)) { // Регион, сезон и возраст
+            $title = 'Путёвки в '. mb_strtolower($types['tag_title']) . ' ' . $region['title_in'] . ' для детей ' . $age . ' лет - ' . mb_strtolower($seasons['title']) . ' 2024 года';;
+        } else {
+            $title = null;
         }
        
         $data['title'] = $title;
+        $data['description'] = $title . ' - читайте отзывы, сравнивайте цены, бронируйте путёвку в детсвкий лагерь онлайн.';
         $data['pager_links'] = $pager_links;
         $data['total'] = $total;
 

@@ -57,4 +57,16 @@ class EmailController extends BaseController
         $email->send();
     }
 
+    public function sendEmailPasswordReset($emails, $password) 
+    {
+        // $data = ['email' => $email];
+        // return json_encode($data);
+        $email = \Config\Services::email();
+        $email->setFrom('info@bycams.ru', 'Владислав');
+        $email->setTo($emails);
+        $email->setSubject('Изменение пароля от личного кабинета');
+        $email->setMessage('Вы запросили изменение пароля от Вашего личного кабинета. Ваш новый пароль для входа:' . $password);
+        $email->send();
+    }
+
 }

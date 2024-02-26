@@ -39,6 +39,7 @@ $routes->get('/contacts', 'Site::contacts');
 $routes->get('/', 'Site::index');
 $routes->get('/login', 'Site::login');
 $routes->post('/login', 'PanelController::Auth');
+$routes->post('/password-reset', 'UserController::PasswordReset');
 $routes->get('/panel', 'PanelController::Index', ['filter' => 'PanelAuth']);
 
 $routes->get('/panel/add-camp', 'PanelController::addCampForm', ['filter' => 'PanelAuth']);

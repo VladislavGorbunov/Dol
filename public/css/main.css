@@ -330,10 +330,12 @@ a {
 .badge {
     position: relative;
     top: -2px;
-    background-color: #21a663;
+    background: rgba(58, 156, 96, 1.0);
+    background: linear-gradient(225deg, rgba(58, 156, 96, 1.0), rgba(81, 148, 134, 1.0));
     font-weight: 100;
-    font-size: 12px;
-    border-radius: 5px;
+    font-size: 10px;
+    height: 18px;
+    border-radius: 5px 12px 5px 12px;
 }
 
 

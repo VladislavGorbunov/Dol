@@ -4,6 +4,12 @@
     удобную панель управления, где они могут добавлять, редактировать информацию о лагере а так же вести учёт заявок на бронирование.
 </p>
 
+<style>
+    .blur {
+        filter: blur(5px);
+    }
+</style>
+
 <h2 class="text-center mt-5">Тарифы</h2>
 <div class="row mt-3">
     <div class="col-lg-4">
@@ -17,6 +23,7 @@
                 <li class="mt-3">Возможность добавления смен</li>
                 <li class="mt-3">Доступ к учёту бронирований</li>
             </ul>
+            <div class="alert alert-info" role="alert">Если Вам нужны платные услуги продвижения, пожалуйста напишите нам на почту: info@bycamp.ru</div>
             <a href="/registration" class="btn btn-success col-lg-8 mt-4 d-block mx-auto">Зарегистрироваться</a>
         </div>
     </div>
@@ -38,7 +45,7 @@
         }
     </style>
 
-    <div class="col-lg-4 position-relative">
+    <div class="col-lg-4 position-relative blur">
         <div class="col-lg-12 p-3 border bg-white rounded shadow">
             <h3 class="text-center">Годовой</h3>
             <div class="profitably">Выгода 20%</div>
@@ -61,7 +68,7 @@
     </div>
 
 
-    <div class="col-lg-4">
+    <div class="col-lg-4 blur">
         <div class="col-lg-12 p-3 border bg-white rounded shadow">
             <h3 class="text-center">Сезонный</h3>
             <h4 class="text-center">6000 руб. за 6 месяцев</h4>

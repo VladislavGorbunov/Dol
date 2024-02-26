@@ -7,6 +7,7 @@
 				<a href="/partners" class="nav-link mx-2">Партнёрам</a>
 				<a href="/vacancy" class="nav-link mx-2">Вакансии</a>
 				<a href="/help" class="nav-link mx-2">Помощь</a>
+				<a href="/help" class="nav-link mx-2">Реклама</a>
 			</div>
 
 			<div class="p-1"><span style="color:#444">info@bycamps.ru</span></div>

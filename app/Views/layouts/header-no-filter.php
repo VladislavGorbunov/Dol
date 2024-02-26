@@ -4,8 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Пример на bootstrap 5: Слайдер -
-         навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
+    
+    <?php if (!empty($description)) : ?>
+	<meta name="description" content="<?= $description ?>">
+	<?php endif ?>
+
     <meta name="theme-color" content="#fff">
     <title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
     <!-- Bootstrap core CSS -->
@@ -52,6 +55,8 @@
                         <li class="nav-item">
                             <a class="nav-link">Оплата</a>
                         </li>
+
+                        <li class="nav-item"><a class="nav-link position-relative">Вакансии лагерей <span class="badge bg-success">Скоро!</span></a></li>
                     </ul>
                     <div class="d-flex justify-content-center">
                         <a href="/login" class="btn btn-auth m-1" target="_blank"><i class="las la-user"></i> Войти</a>

@@ -65,11 +65,17 @@ class PanelController extends BaseController
         $session->set(['booking_count' => $this->booking_count = count($this->BookingsModel->where('representative_id', $session->get('id'))->where('confirmed', 0)->findAll())]);
         
         // Максимальное количество лагерей для обычных пользователей и премиум
-        if ($session->get('premium') == true) {
-            $this->max_camps_count = 3;
-        } else {
-            $this->max_camps_count = 1;
+
+        $user = $this->RepresentativesModel->where('user_id', $session->get('id'))->first();
+        
+        if (!empty($user)) {
+            if ($user['premium'] == true) {
+                $this->max_camps_count = 3;
+            } else {
+                $this->max_camps_count = 1;
+            }
         }
+        
         // Preload any models, libraries, etc, here.
     }
 
@@ -156,7 +162,6 @@ class PanelController extends BaseController
                     'name' => $data['firstname_manager'],
                     'email' => $data['email_manager'],
                     'isLoggedIn' => TRUE,
-                    'premium' => $data['premium'],
                 ];
 
                 $session->set($ses_data);
@@ -180,8 +185,12 @@ class PanelController extends BaseController
     {
         $session = session();
         
-        if ($session->get('camps_count') >= $this->max_camps_count) {
-            $session->setFlashdata('msg-error', 'Вы добавили максимальное количество лагерей.');
+        $id = $session->get('id');
+
+        $count_camps = $this->CampsModel->where('representatives_id', $id)->countAllResults();
+
+        if ($count_camps >= $this->max_camps_count) {
+            $session->setFlashdata('msg-error', 'Вы добавили максимальное количество лагерей для Вашего тарифа.');
             return redirect()->to('/panel');
         }
         $data['cities'] = $this->CitiesModel->findAll();

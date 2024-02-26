@@ -24,6 +24,7 @@
       <th scope="col">Должность</th>
       <th scope="col">Телефон</th>
       <th scope="col">Активен</th>
+      <th scope="col">Премиум</th>
       <th scope="col">Действия</th>
     </tr>
   </thead>
@@ -39,6 +40,7 @@
                 <td><?= $represent['post'] ?></td>
                 <td><?= $represent['phone_manager'] ?></td>
                 <td><?= $represent['activated'] == 1 ? 'Да' : 'Нет' ?></td>
+                <td><?= $represent['premium'] == 1 ? 'Да' : 'Нет' ?></td>
                 <td><a href="/admin/representative/delete/<?= $represent['user_id'] ?>">Удалить</a></td>
               </tr>
             <?php endforeach ?>

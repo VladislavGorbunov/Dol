@@ -4,10 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Пример на bootstrap 5: Слайдер -
-      навигационная панель, карусель и новые компоненты · Версия v5.3.0-alpha1">
+	<title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
+	<?php if (!empty($description)) : ?>
+	<meta name="description" content="<?= $description ?>">
+	<?php endif ?>
+
     <meta name="theme-color" content="#fff">
-    <title><?php echo (!empty($title)) ? $title : 'Тег title отсутствует' ?></title>
+    
     <!-- Bootstrap core CSS -->
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -48,6 +51,7 @@
 				<li class="nav-item"><a class="nav-link" href="/partners">Детским лагерям</a></li>
 				<li class="nav-item"><a class="nav-link">Отзывы</a></li>
 				<li class="nav-item"><a class="nav-link">Оплата</a></li>
+				<li class="nav-item"><a class="nav-link position-relative">Вакансии лагерей <span class="badge bg-success">Скоро!</span></a></li>
 			</ul>
 
 			<div class="d-flex justify-content-center">
@@ -62,7 +66,9 @@
 <div id="header-image" class="header-image d-flex align-items-center justify-content-center">
 	<div class="container">
 		<div class="row">
-			<h1 class="header-h1"><?= $title ?></h1>
+			<div class="col-lg-10 mx-auto">
+			  <h1 class="header-h1"><?= $title ?></h1>
+	        </div>
 			<div class="col-lg-9 d-block mx-auto">
 				<p class="text-center text-light header-descript">
 					Наш сервис создан для быстрого и удобного поиска детских оздоровительных лагерей по всей России! Планируете отправить ребёнка на отдых? Мы поможем найти самый подходящий для вас вариант.

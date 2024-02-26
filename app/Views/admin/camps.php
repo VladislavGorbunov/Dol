@@ -1,9 +1,3 @@
-<?php
-
-//print_r($camps);
-
-?>
-
 <div class="col py-3">
 
 <table class="table table-hover">
@@ -22,7 +16,7 @@
     foreach ($camps as $camp) : ?>
                 <tr>
                 <th scope="row"><?= $camp['camps_id'] ?></th>
-                <td><a href="/admin/representative/edit/'. $represent['user_id'] .'"><?= $camp['title'] ?></a></td>
+                <td><a href="/admin/camp/edit/<?= $camp['camps_id'] ?>"><?= $camp['title'] ?></a></td>
                 
                 <td><?= ($camp['status'] == 'active') ? 'Активный' : 'Ожидает проверки' ?></td>
                 <td><a href="/admin/camp/delete/<?= $camp['camps_id'] ?>">Удалить</a></td>
