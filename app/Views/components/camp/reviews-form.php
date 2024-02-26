@@ -21,7 +21,7 @@
         <div class="col-lg-4 mt-2">
         <label for="customRange3" class="form-label">Оценка</label>
           <div class="range-block">
-            <input type="range" class="form-range" min="1" max="5" step="1" value="1" id="customRange3" name="rating">
+            <input type="range" class="form-range" min="1" max="5" step="1" value="5" id="customRange3" name="rating">
             <div class="row">
                 <div class="col"><b>1</b></div>
                 <div class="col text-center"><span style="position:relative;left:-8px">2</span></div>
@@ -45,7 +45,7 @@
 <style>
  .form-range {
     width: 100%;
-    height: 0.5rem;
+    height: 0.4rem;
     padding: 0;
     background-color: transparent;
     appearance: none;
@@ -54,18 +54,17 @@
 
 .form-range::-webkit-slider-runnable-track {
     width: 100%;
-    height: 0.5rem;
-    background-color: #111;
+    height: 0.4rem;
+    background-color: #222;
 }
 
 .form-range::-moz-range-track {
     width: 100%;
-    height: 0.5rem;
-    background-color: #111;
+    height: 0.4rem;
+    background-color: #222;
 }
 
 .form-range::-moz-range-thumb {
-    
     background-color: #3ac47d;
 }
 

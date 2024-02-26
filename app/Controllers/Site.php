@@ -211,7 +211,7 @@ class Site extends BaseController
         }
        
         $data['title'] = $title;
-        $data['description'] = $title . ' - читайте отзывы, сравнивайте цены, бронируйте путёвку в детсвкий лагерь онлайн.';
+        $data['description'] = $title . ' - читайте отзывы, сравнивайте цены, бронируйте путёвку в детский лагерь онлайн.';
         $data['pager_links'] = $pager_links;
         $data['total'] = $total;
 

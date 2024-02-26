@@ -6,8 +6,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       
       <?php if (!empty($description)) : ?>
-	   <meta name="description" content="<?= $description ?>">
+	   <meta name="description" content="<?= $description ?>" />
 	   <?php endif ?>
+      <meta name="keywords" content="<?= $keywords ?>" />
 
       <meta name="theme-color" content="#fff">
       <!-- Bootstrap core CSS -->

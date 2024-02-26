@@ -479,6 +479,7 @@ $('#summernote').summernote({
         ]
 });
 
+
 $('#summernote2').summernote({
         placeholder: '',
         height: 300,                 

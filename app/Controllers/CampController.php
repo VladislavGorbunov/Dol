@@ -116,8 +116,8 @@ class CampController extends BaseController
         
 
         $data['title'] = 'Лагерь «' . $data['camp']['title'] .'» - купить путёвки в лагерь на '.date('Y').' год, цены, фото и отзывы. ' . $data['region']['title'];
-        $data['description'] = 'Лагерь «' . $data['camp']['title'] .'» - '.$data['region']['title'].', купить путёвки в лагерь на '.date('Y').' год, цены, фото и отзывы';
-        
+        $data['description'] = 'Бесплатное бронирование путёвки в лагерь «' . $data['camp']['title'] .'» - '.$data['region']['title'].', купить путёвки в лагерь на '.date('Y').' год, цены, фото и отзывы';
+        $data['keywords'] = 'Лагерь ' . $data['camp']['title'] . ' - ' . $data['region']['title'];
         return view('layouts/header-camp', $data) 
         .view('site/camp')
         .view('layouts/footer');
