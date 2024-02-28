@@ -30,7 +30,7 @@
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-3 mx-auto mb-4">
+        <div class="col-lg-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Родителям
@@ -48,7 +48,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-3 mx-auto mb-4">
+        <div class="col-lg-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Информация
@@ -75,7 +75,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-3 mx-auto mb-4">
+        <div class="col-lg-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Партнёрам
@@ -98,7 +98,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-3 mx-auto mb-md-0 mb-4">
+        <div class="col-lg-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
           <p>Россия, г. Санкт-Петербург</p>
@@ -118,7 +118,7 @@
     .cookie-block {
       position: fixed;
       display: none;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.8);
       background-size: cover;
       backdrop-filter: blur(10px);
       color: #333;
@@ -126,16 +126,16 @@
       margin-left: 30px;
       bottom: 30px;
       z-index: 99;
-      padding: 15px 60px 15px 20px;
+      padding: 15px 60px 25px 20px;
       font-size: 13px;
       border-radius: 10px;
-      box-shadow: 0 2px 20px -5px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px -5px rgba(0,0,0,0.2);
     }
 
     .cookie-block button {
       position: absolute;
-      top: 13px;
-      right: 13px;
+      top: 14px;
+      right: 14px;
       text-align: center;
       border-radius: 0px;
       color: #111;
@@ -145,6 +145,13 @@
       height: auto;
     }
 
+    .cookie-block .la-cookie-bite {
+      position: relative;
+      top: 4px;
+      font-size: 32px;
+      color: #111;
+    }
+
  
   </style>
 
@@ -152,7 +159,7 @@
     <div class="row">
       <!-- <div class="col-2"><img src="/public/theme/img/cookie.png" class="img-fluid mt-2"></div> -->
       <div class="col-12">
-      <h5>Используем файлы Cookie</h5>Наш сайт использует файлы куки (cookie). Продолжая использовать наш сайт, вы 
+      <h5>Используем файлы Cookie <i class="las la-cookie-bite"></i></h5>Наш сайт использует файлы куки (cookie). Продолжая использовать наш сайт, вы 
      соглашаетесь с использованием файлов куки.
      <button class="btn btn-success btn-sm cookie-btn">Х</button></div>
    </div>
