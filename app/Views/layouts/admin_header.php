@@ -76,6 +76,22 @@
                             </a>
                         </li>
 
+                        <style>
+                            .logout {
+                                position: relative;
+                                bottom: 0px;
+                                color: #fff;
+                            }
+
+                            .bottom-block {
+                                position: absolute;
+                                bottom: 30px;
+                            }
+                        </style>
+                        <div class="bottom-block">
+                            <a href="/admin/panel/logout" class="logout">Выйти</a>
+                        </div>
+
                        
 
                        

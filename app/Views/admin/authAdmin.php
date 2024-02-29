@@ -7,8 +7,7 @@
     <meta name="description" content="">
     <title>Авторизация</title>
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -30,6 +29,7 @@
     .card-registration .select-arrow {
         top: 13px;
     }
+
     </style>
 
 </head>
@@ -42,7 +42,7 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-8 col-xl-5">
                     <div class="card rounded-3">
-                        <img src="/public/theme/img/header.jpg" height="300" class="h-80" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="">
+                        
                         <div class="card-body p-4 p-md-5">
                         
                             <form class="px-md-2" action="" method="post">

@@ -5,22 +5,26 @@ namespace App\Controllers;
 use App\Models\Cities;
 use App\Models\RepresentativesModel;
 use App\Models\CampsModel;
+use App\Models\BookingsModel;
+use Config\App;
 
 class Admin extends BaseController
 {
 
     public $RepresentativesModel;
     public $CitiesModel;
+    private static $configApp;
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
         global $config;
         $session = \Config\Services::session($config);
-
+        self::$configApp = new App();
         $this->RepresentativesModel = new RepresentativesModel();
         $this->CampsModel = new CampsModel();
         $this->CitiesModel = new Cities();
+        $this->BookingsModel = new BookingsModel();
         // Preload any models, libraries, etc, here.
     }
 
@@ -36,7 +40,7 @@ class Admin extends BaseController
         $login = $this->request->getVar('login');
         $password = $this->request->getVar('password');
 
-        if ($login == 'admin' && $password == 'admin') {
+        if ($login == self::$configApp->loginAdmin && $password == self::$configApp->passwordAdmin) {
             $_SESSION['logged'] = 'logged';
             return redirect()->to(site_url("/admin/panel"));
         } else {
@@ -47,7 +51,11 @@ class Admin extends BaseController
     // Главная страница админки
     public function Panel()
     {
-        return view('layouts/admin_header')
+        $data['camp_count'] = count($this->CampsModel->findAll());
+        $data['bookings_count'] = count($this->BookingsModel->findAll());
+        $data['repres_count'] = count($this->RepresentativesModel->findAll());
+
+        return view('layouts/admin_header', $data)
         . view('admin/index')
         . view('layouts/admin_footer');
     }
@@ -215,6 +223,17 @@ class Admin extends BaseController
         ];
 
         $this->CampsModel->update($id, $data);   
+    }
+
+
+    public function EditCamp($id)
+    {
+        $data['camp'] = $this->CampsModel->where('camps_id', $id)->first();
+        $data['representative'] = $this->RepresentativesModel->where('user_id', $data['camp']['representatives_id'])->first();
+
+        return view('layouts/admin_header')
+        . view('admin/camp_edit', $data)
+        . view('layouts/admin_footer');
     }
 
     // Выход из админки

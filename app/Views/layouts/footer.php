@@ -118,7 +118,7 @@
     .cookie-block {
       position: fixed;
       display: none;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.9);
       background-size: cover;
       backdrop-filter: blur(10px);
       color: #333;
