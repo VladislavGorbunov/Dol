@@ -128,11 +128,11 @@ class PanelController extends BaseController
             return redirect()->back()->withInput();
         }
 
-        if (empty($_POST['h-captcha-response'])) {
-            $error = ['Пройдите проверку на робота, нажмите на кнопку "Я человек".'];
-            $session->setFlashdata('msg-error', $error);
-            return redirect()->to('/login');
-        }
+        // if (empty($_POST['h-captcha-response'])) {
+        //     $error = ['Пройдите проверку на робота, нажмите на кнопку "Я человек".'];
+        //     $session->setFlashdata('msg-error', $error);
+        //     return redirect()->to('/login');
+        // }
 
         $captcha_result = $this->RecaptchaController->RecaptchaCheck($_POST['h-captcha-response']);
        
@@ -145,12 +145,12 @@ class PanelController extends BaseController
             die;
         }
 
-        if (empty($captcha_result)) {
-            $error = ['Вы не прошли проверку на робота. Попробуйте еще раз.'];
-            $session->setFlashdata('msg-error', $error);
-            return redirect()->to('/login');
-            die;
-        }
+        // if (empty($captcha_result)) {
+        //     $error = ['Вы не прошли проверку на робота. Попробуйте еще раз.'];
+        //     $session->setFlashdata('msg-error', $error);
+        //     return redirect()->to('/login');
+        //     die;
+        // }
 
         if ($data) {
             $pass = $data['password'];

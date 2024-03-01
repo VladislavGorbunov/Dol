@@ -37,7 +37,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: url(/public/theme/img/authbg.jpg);
+            background: hsl(233deg 85% 97%);
             background-size: cover;
         }
 
@@ -46,14 +46,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            max-width: 600px;
+            max-width: 450px;
             min-height: 200px;
-            background: rgba(255,255,255,0.96);
+            background: rgba(255,255,255,0.8);
             backdrop-filter: blur(7px);
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 40px;
             box-sizing: border-box;
-            box-shadow: 0 2px 20px -15px #111;
+            box-shadow: 0 5px 25px -15px hsl(233deg 35% 77%);
             
         }
 
@@ -67,6 +67,7 @@
             margin: 0;
             padding: 0 0 0px;
             font-family: 'Rubik', sans-serif;
+            font-size: 24px
             color: #111;
             text-align: center
         }
@@ -110,7 +111,7 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
-            width: 300px;
+            width: 220px;
             margin: 0 auto;
             margin-bottom: 10px;
         }
@@ -131,7 +132,7 @@
 
         .loginBox a {
             color: #2955c8;
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 5px;
             text-decoration: none;
             text-align: center;
@@ -140,11 +141,12 @@
 
 
         a:hover {
-            color: #59238F
+            color: #222;
         }
 
         p {
-            color: #444;
+            color: #111;
+            font-size: 14px;
         }
 
         .h-captcha {
@@ -160,9 +162,18 @@
             position: absolute;
             right: 20px;
             top: 15px;
-            font-size: 28px;
-            color: #999;
+            font-size: 24px;
+            color: #555;
         }
+        
+        .la-eye:hover {
+            color: #2955c8;
+        }
+
+        .la-eye-slash:hover {
+            color: #2955c8;
+        }
+        
         </style>
 
 
@@ -204,7 +215,7 @@
 </div>
 <?php endif;?>
 
-        <img src="/public/theme/img/login-form-logo.png" width="140px" class="d-block mx-auto">
+        <img src="/public/theme/img/login-form-logo.png" width="100px" class="d-block mx-auto">
         <h3 class="text-center mt-2">ByCamps</h3>
         <p class="text-center">Панель управления лагерями</p>
        
@@ -216,14 +227,14 @@
                     <div class="eye-icon"><i class="las la-eye"></i></div>
                 </div>
             </div>
-            <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
-            <div id="hcaptcha-loading" class="text-center"></div>
-            <button id="btn-login" type="submit" class="btn btn-primary btn-login mt-3">Войти</button>
+            <!-- <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
+            <div id="hcaptcha-loading" class="text-center"></div> -->
+            <button id="btn-login" type="submit" class="btn btn-primary btn-login mt-3"><i class="las la-sign-in-alt"></i> Войти </button>
         </form>
 
         <div class="col-lg-12 mt-4">
             <div class="row">
-                <div class="col-lg-6"><a href="">Зарегистрироваться</a></div>
+                <div class="col-lg-6"><a href="/registration">Зарегистрироваться</a></div>
                 <div class="col-lg-6"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Восстановить пароль</a></div>
             </div>
         </div>
@@ -315,9 +326,10 @@ viewIcon.addEventListener('click', () => {
 })
 
 
+// Капча
 const btnLogin = document.getElementById('btn-login');
 const hcaptchaLoading = document.getElementById('hcaptcha-loading');
-btnLogin.classList.add('disabled');
+// btnLogin.classList.add('disabled');
 hcaptchaLoading.innerHTML = 'Подождите, загружаем капчу'
 
 let waitLoad = setTimeout(() => {
@@ -332,6 +344,6 @@ function buttonActivated() {
 }
 </script>
 
-<script src="https://js.hcaptcha.com/1/api.js?hl=ru&onload=buttonActivated" async defer></script>
+<!-- <script src="https://js.hcaptcha.com/1/api.js?hl=ru&onload=buttonActivated" async defer></script> -->
 
 </html>

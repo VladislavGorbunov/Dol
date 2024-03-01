@@ -89,8 +89,12 @@
     const btnSave = document.querySelector('.save')
     let formData
 
+    let inputArr = []
+
     formControl.forEach(input => {
+
         input.addEventListener('input', (e) => {
+           
             if (e.target.value.length < 3) {
                 e.target.style.color = 'red'
                 e.target.style.borderColor = 'red'
@@ -100,7 +104,7 @@
                 e.target.style.color = ''
                 e.target.style.borderColor = ''
             }
-            console.log(e.target)
+            //console.log(e.target)
         })
     })
 
