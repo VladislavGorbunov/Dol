@@ -83,7 +83,7 @@
             border-bottom: 1px solid #ccc;
             outline: none;
             height: 50px;
-            color: #111;
+            color: hsl(233deg 35% 27%);
             background: transparent;
             font-size: 16px;
             padding-left: 10px;
@@ -131,7 +131,7 @@
         }
 
         .loginBox a {
-            color: #2955c8;
+            color: hsl(233deg 35% 67%);
             font-size: 14px;
             margin-top: 5px;
             text-decoration: none;
@@ -145,7 +145,7 @@
         }
 
         p {
-            color: #111;
+            color: hsl(233deg 15% 47%);
             font-size: 14px;
         }
 
@@ -163,7 +163,7 @@
             right: 20px;
             top: 15px;
             font-size: 24px;
-            color: #555;
+            color: hsl(233deg 15% 57%);
         }
         
         .la-eye:hover {
@@ -173,9 +173,21 @@
         .la-eye-slash:hover {
             color: #2955c8;
         }
+
+        .alert {
+            font-size: 14px;
+            border: none; 
+        }
+
+        .back-link {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 13px !important;
+            color: hsl(233deg 35% 67%) !important;
+        }
         
         </style>
-
 
 
     </head>
@@ -184,36 +196,8 @@
 
 
     <div class="col-lg-4 col-12 loginBox">
-    <?php if(session()->getFlashdata('msg-error')):?>
-    
-        <div class="alert alert-warning text-center">
-        <?php 
-            $errors = session()->getFlashdata('msg-error');
-
-            if (!empty($errors)) {
-                foreach ($errors as $error) {
-                    echo $error . '<br>';
-                }
-            }
-            
-            ?>
-    </div>
-    <?php endif;?>
-
-
-    <?php if(session()->getFlashdata('msg')):?>
-    
-    <div class="alert alert-success text-center">
-    <?php 
-        $msg = session()->getFlashdata('msg');
-
-        if (!empty($msg)) {
-            echo $msg . '<br>';
-        }
         
-        ?>
-</div>
-<?php endif;?>
+    <a href="/" class="back-link"><i class="las la-undo"></i> На главную</a>
 
         <img src="/public/theme/img/login-form-logo.png" width="100px" class="d-block mx-auto">
         <h3 class="text-center mt-2">ByCamps</h3>
@@ -226,7 +210,49 @@
                     <input id="pass" type="password" name="password" placeholder="Введите пароль" required>
                     <div class="eye-icon"><i class="las la-eye"></i></div>
                 </div>
-            </div>
+
+
+                <!-- MSG -->
+        <?php if(session()->getFlashdata('msg-error')):?>
+          <div class="alert alert-warning text-center">
+        
+        <?php 
+            $errors = session()->getFlashdata('msg-error');
+
+            if (!empty($errors)) {
+                foreach ($errors as $error) {
+                    echo $error . '<br>';
+                }
+            }
+        
+        ?>
+          </div>
+        <?php endif;?>
+
+
+        <?php if(session()->getFlashdata('msg')):?>
+
+        <div class="alert alert-success text-center">
+        <?php 
+            $msg = session()->getFlashdata('msg');
+
+            if (!empty($msg)) {
+                echo $msg . '<br>';
+            }
+        ?>
+        </div>
+        <?php endif;?>
+
+<!-- END MSG -->
+
+
+
+
+        </div>
+
+
+        
+
             <!-- <div class="h-captcha d-block mx-auto" data-sitekey="289e72bc-4dda-4aa1-b8da-6366427840ca"></div>
             <div id="hcaptcha-loading" class="text-center"></div> -->
             <button id="btn-login" type="submit" class="btn btn-primary btn-login mt-3"><i class="las la-sign-in-alt"></i> Войти </button>
@@ -257,7 +283,7 @@
           <p class="text-center mt-3 mb-1"><small>Новый пароль будет сгенерирован автоматически. Мы отправим новый пароль на Ваш email.</small></p>
       </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-save btn-new-password" >Получить новый пароль</button>
+            <button type="button" class="btn btn-primary btn-save btn-new-password">Получить новый пароль</button>
             <p class="msg text-center"></p>
           </div>
     
@@ -306,11 +332,11 @@
 
 // view password
 
-const viewIcon = document.querySelector('.las')
+const viewIcon = document.querySelector('.la-eye')
 const passInput = document.getElementById('pass')
 let flag = true
 viewIcon.addEventListener('click', () => {
-
+    
     if (flag == true) {
         passInput.setAttribute('type', 'text')
         viewIcon.classList.remove('la-eye')
@@ -327,21 +353,21 @@ viewIcon.addEventListener('click', () => {
 
 
 // Капча
-const btnLogin = document.getElementById('btn-login');
-const hcaptchaLoading = document.getElementById('hcaptcha-loading');
+// const btnLogin = document.getElementById('btn-login');
+//const hcaptchaLoading = document.getElementById('hcaptcha-loading');
 // btnLogin.classList.add('disabled');
-hcaptchaLoading.innerHTML = 'Подождите, загружаем капчу'
+//hcaptchaLoading.innerHTML = 'Подождите, загружаем капчу'
 
-let waitLoad = setTimeout(() => {
-    hcaptchaLoading.innerHTML = 'Ошибка загрузки капчи, возможно у вас проблемы с интернетом. <a href="/login">Перезагрузите страницу</a>'
-}, 5000);
+// let waitLoad = setTimeout(() => {
+//     hcaptchaLoading.innerHTML = 'Ошибка загрузки капчи, возможно у вас проблемы с интернетом. <a href="/login">Перезагрузите страницу</a>'
+// }, 5000);
 
 
-function buttonActivated() {
-    clearInterval(waitLoad)
-    btnLogin.classList.remove('disabled');
-    hcaptchaLoading.innerHTML = ''
-}
+// function buttonActivated() {
+//     clearInterval(waitLoad)
+//     btnLogin.classList.remove('disabled');
+//     hcaptchaLoading.innerHTML = ''
+// }
 </script>
 
 <!-- <script src="https://js.hcaptcha.com/1/api.js?hl=ru&onload=buttonActivated" async defer></script> -->

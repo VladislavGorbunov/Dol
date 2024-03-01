@@ -134,7 +134,7 @@ class PanelController extends BaseController
         //     return redirect()->to('/login');
         // }
 
-        $captcha_result = $this->RecaptchaController->RecaptchaCheck($_POST['h-captcha-response']);
+        // $captcha_result = $this->RecaptchaController->RecaptchaCheck($_POST['h-captcha-response']);
        
         $data = $this->RepresentativesModel->where('email_manager', $email)->first();
 
