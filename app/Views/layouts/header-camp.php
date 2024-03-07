@@ -16,6 +16,7 @@
       <link href="/public/css/modal-video.css" rel="stylesheet">
       <!-- Line Awesome icons -->
       <link rel="stylesheet" href="/public/line-awesome/1.3.0/css/line-awesome.min.css">
+      
       <!-- Favicons -->
       <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
          <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -75,3 +76,5 @@
             </div>
          </div>
       </div>
+
+      <script src="/public/js/navBarTopCamp.js"></script>

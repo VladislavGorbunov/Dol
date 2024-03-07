@@ -123,7 +123,4 @@ class CampController extends BaseController
         .view('layouts/footer');
     }
 
-
-    
-   
 }

@@ -299,7 +299,6 @@ a {
 }
 
 .btn-add-review {
-
     color: #fff;
     background: #38b976;
     border: 1px solid #38b976;
@@ -314,7 +313,7 @@ a {
     color: #fff;
     background: rgba(58, 156, 96, 1.0);
     background: linear-gradient(225deg, rgba(58, 156, 96, 1.0), rgba(81, 148, 134, 1.0));
-    border-radius: 5px;
+    border-radius: 20px 5px 20px 5px;
     padding: 10px 20px;
     font-size: 15px;
     transition: .5s;
@@ -322,7 +321,7 @@ a {
 
 
 .btn-detailed:hover {
-    border-radius: 20px 5px 20px 5px;
+    border-radius: 10px 5px 10px 5px;
     color: #fff;
     transition: .5s;
 }

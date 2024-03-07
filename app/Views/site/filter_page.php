@@ -96,10 +96,10 @@
                                 echo '<p class="price">от '. $price .' р. <span style="font-size: 13px;margin-left:5px">за путёвку</span></p>
                         
                                 '.$video_link.'
-                                <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Посмотреть смены</a>
+                                <a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank"><i class="las la-chevron-right"></i> Посмотреть смены</a>
                                 ';
                             } else {
-                                echo '<p><b>Смены не найдены...</b></p><a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank">Подробнее</a>';
+                                echo '<p><b>Смены не найдены...</b></p><a class="btn btn-detailed mt-1 mb-3 col-lg-12 mx-auto" href="/camp/'.$camp['slug'].'" target="_blank"><i class="las la-chevron-right"></i> Подробнее</a>';
                             }
                         
                             echo '

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Left Sidebar</title>
+    <title>Административная панель</title>
     <link href="/public/bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -29,19 +29,14 @@
                     <!-- Заголовок меню -->
                     <a href="/admin/panel"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">KidsCampAdmin</span>
+                        <span class="fs-5 d-none d-sm-inline mt-2">KidsCampAdmin</span>
                     </a>
                     <!-- элементы меню -->
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="/admin/panel" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i>
-                                <span class="ms-1 d-none d-sm-inline">Главная</span>
-                            </a>
-                        </li>
+                        
 
-                        <hr>
-                        <h5>Представители</h5>
+                       
+                        <h5 class="mt-3">Представители</h5>
                         <li>
                             <a href="/admin/representatives" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Все представители лагерей</span> </a>
@@ -56,8 +51,8 @@
                             <a href="/admin/representatives/notactivated" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Ожидающие активации</span> </a>
                         </li>
-                        <hr>
-                        <h5>Лагеря</h5>
+                        
+                        <h5 class="mt-4">Лагеря</h5>
                         <li>
                             <a href="/admin/camps" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Все лагеря</span>
@@ -73,6 +68,19 @@
                         <li>
                             <a href="/admin/not-activated-camps" class="nav-link px-0 align-middle">
                             <span class="ms-1 d-none d-sm-inline">Ожидают проверки</span>
+                            </a>
+                        </li>
+
+                        <h5 class="mt-4">Тарифы</h5>
+                        <li>
+                            <a href="/admin/add-tariff" class="nav-link px-0 align-middle">
+                              <span class="ms-1 d-none d-sm-inline">Добавить тариф</span>
+                            </a>
+                        </li> 
+
+                        <li>
+                            <a href="/admin/edit-tariffs" class="nav-link px-0 align-middle">
+                              <span class="ms-1 d-none d-sm-inline">Редактировать тарифы</span>
                             </a>
                         </li>
 

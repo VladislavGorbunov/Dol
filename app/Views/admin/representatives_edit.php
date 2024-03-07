@@ -1,7 +1,5 @@
 <!-- содержимое -->
 <div class="col p-5">
-
-
     <form action="" method="post"> 
 
     <div class="row">
@@ -84,8 +82,7 @@
                     <label for="exampleInputEmail1" class="form-label">Должность представителя</label>
                     <input type="text" class="form-control" name="post" value="<?= $info[0]['post'] ?>">
                 </div>
-
-                <?= date('Y-m-d') ?>
+                
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Премиум статус</label>
                     <select class="form-select form-select-md mb-3" name="premium">

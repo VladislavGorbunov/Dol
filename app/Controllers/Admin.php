@@ -132,6 +132,7 @@ class Admin extends BaseController
             // 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
         ];
 
+
         $this->RepresentativesModel->update($id, $data);
         return redirect()->to(site_url("/admin/representatives"));
     }

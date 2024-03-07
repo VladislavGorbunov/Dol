@@ -24,6 +24,7 @@ class RepresentativesModel extends Model
         'password',
         'token',
         'plan',
+        'premium',
         'created_at',
         'activated',
     ];

@@ -2,24 +2,24 @@
 
     <div class="col-lg-10 d-block mx-auto">
     <h2 class="text-center mt-3">Были в этом лагере? <span style="color:#38b976">Помогите другим с выбором</span>, напишите отзыв!</h2>
-    <small class="text-center col-lg-6 d-block mx-auto">
+    <small class="text-center col-lg-7 d-block mx-auto">
     Для того чтобы Ваш отзыв был опубликован, необходимо указать номер бронирования который мы отправляли вам на почту. Таким образом мы боремся с накруткой отзывов.
     </small>
  
     <form action="/review-insert" method="post">
     <div class="row mt-4">
         <div class="col-lg-4 mt-2">
-            <label for="customRange3" class="form-label">Ваше имя</label>
+            <label class="form-label">Ваше имя</label>
             <input type="text" class="form-control" placeholder="Ваше имя" name="name">
         </div>
 
         <div class="col-lg-4 mt-2">
-            <label for="customRange3" class="form-label">Номер бронирования</label>
+            <label class="form-label">Номер бронирования</label>
             <input type="text" class="form-control" placeholder="Введите номер бронирования" name="booking_number">
         </div>
 
         <div class="col-lg-4 mt-2">
-        <label for="customRange3" class="form-label">Оценка</label>
+        <label class="form-label">Оценка</label>
           <div class="range-block">
             <input type="range" class="form-range" min="1" max="5" step="1" value="5" id="customRange3" name="rating">
             <div class="row">
@@ -75,5 +75,10 @@
 
 .form-range::-webkit-range-thumb {
     background-color: #3ac47d;
+}
+
+.form-control {
+    font-size: 14px;
+    padding: 12px 7px;
 }
 </style>

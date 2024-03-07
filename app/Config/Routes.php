@@ -98,6 +98,11 @@ $routes->get('/admin/camp/activate/(:num)', 'Admin::ActivateCamp/$1', ['filter' 
 $routes->get('/admin/camp/deactivate/(:num)', 'Admin::DeactivateCamp/$1', ['filter' => 'Auth']);
 $routes->get('/admin/camp/edit/(:num)', 'Admin::EditCamp/$1', ['filter' => 'Auth']);
 
+$routes->get('/admin/add-tariff', 'TariffController::addTariff', ['filter' => 'Auth']);
+$routes->post('/admin/add-tariff', 'TariffController::addTariff', ['filter' => 'Auth']);
+$routes->get('/admin/edit-tariffs', 'TariffController::editTariffs', ['filter' => 'Auth']);
+$routes->get('/admin/edit-tariff/(:num)', 'TariffController::editTariff/$1', ['filter' => 'Auth']);
+
 // Бронирование путёвки
 $routes->post('/booking', 'BookingController::Booking');
 $routes->get('/panel/booking/(:num)', 'BookingController::bookingInfo/$1');

@@ -1,0 +1,4 @@
+CREATE EVENT test_event_02
+ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 2 MINUTE
+DO
+UPDATE representatives SET premium = 1 WHERE user_id = 22

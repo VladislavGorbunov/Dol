@@ -58,7 +58,7 @@ class ReviewsController extends BaseController
         
 
         if (!$this->BookingModel->where('booking_number', $booking_number)->where('camp_id', $camp_id)->first()) {
-            $session->setFlashdata('msg-error', 'Номер бронирования не совпадает, мы вынуждены отклонить добавление отзыва..');
+            $session->setFlashdata('msg-error', 'Номер бронирования не найден, мы вынуждены отклонить добавление отзыва..');
             return redirect()->to(previous_url());
         } 
 
@@ -69,7 +69,7 @@ class ReviewsController extends BaseController
         $data['rating'] = $this->request->getVar('rating');
 
         if ($this->ReviewsModel->insert($data)) {
-            $session->setFlashdata('msg-success', 'Отзыв отправлен! Спасибо что поделились своим мнением!');
+            $session->setFlashdata('msg-success', 'Отзыв добавлен! Спасибо что поделились своим мнением!');
         } else {
             $session->setFlashdata('msg-error', 'При добавлении отзыва произошла ошибка..');
         }

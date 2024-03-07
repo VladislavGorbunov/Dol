@@ -83,7 +83,7 @@ foreach ($camps as $camp):?>
             <p class="mt-3" style="min-height: 35px;"><i class="las la-map-marker-alt"></i> <?= $camp['adress'] ?></p>
                     
             <div class="d-flex justify-content-between align-items-center">
-                <a href="/camp/<?= $camp['slug'] ?>" target="_blank" class="btn btn-detailed">Подробнее</a> 
+                <a href="/camp/<?= $camp['slug'] ?>" target="_blank" class="btn btn-detailed"><i class="las la-chevron-right"></i> Подробнее</a> 
             </div>
         </div>
     </div>
